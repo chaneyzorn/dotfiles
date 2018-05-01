@@ -42,5 +42,5 @@ GNU Stow 不会对冲突的文件做任何处理并中断所有操作，我没�
 
 ## License
 
-MIT
-CC BY-NC-SA 3.0
+- MIT
+- CC BY-NC-SA 3.0
