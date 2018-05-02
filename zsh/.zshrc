@@ -13,7 +13,8 @@ export ZSH=/usr/share/oh-my-zsh
 POWERLEVEL9K_MODE='awesome-fontconfig'
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh dir virtualenv vcs)
+DEFAULT_USER="chaney"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator background_jobs)
 
 # Uncomment the following line to use case-sensitive completion.
