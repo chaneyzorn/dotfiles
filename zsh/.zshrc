@@ -5,7 +5,11 @@ export PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/.node_modules_global/bin:$PATH
 export TERM="xterm-256color"
 
 # Path to your oh-my-zsh installation.
-export ZSH=/usr/share/oh-my-zsh
+if [[ -d /usr/share/oh-my-zsh ]]; then
+  export ZSH=/usr/share/oh-my-zsh
+else
+  export ZSH=/Users/chaney/.oh-my-zsh
+fi
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -16,6 +20,13 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 DEFAULT_USER="chaney"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator background_jobs)
+
+# Set list of themes to load
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -53,7 +64,7 @@ DISABLE_AUTO_UPDATE="true"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=~/.oh-my-zsh/custom/
+ZSH_CUSTOM=$HOME/.oh-my-zsh/custom/
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -109,9 +120,9 @@ alias pmrm="pm remove"
 alias pml="pm list"
 # end PM
 
-ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
-if [[ ! -d $ZSH_CACHE_DIR ]]; then
-  mkdir $ZSH_CACHE_DIR
-fi
+# ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
+# if [[ ! -d $ZSH_CACHE_DIR ]]; then
+#   mkdir $ZSH_CACHE_DIR
+# fi
 
 source $ZSH/oh-my-zsh.sh
