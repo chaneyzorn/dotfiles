@@ -7,9 +7,9 @@ export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
 # Path to your oh-my-zsh installation.
 if [[ -d /usr/share/oh-my-zsh ]]; then
-  export ZSH=/usr/share/oh-my-zsh
+    export ZSH=/usr/share/oh-my-zsh
 else
-  export ZSH=/Users/chaney/.oh-my-zsh
+    export ZSH=$HOME/.oh-my-zsh
 fi
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -71,7 +71,17 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh/custom/
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(archlinux autopep8 docker encode64 git pip pep8 pylint python pyenv sudo supervisor zsh-completions thefuck pm)
+plugins=(
+    archlinux
+    docker
+    encode64
+    git
+    pip
+    python
+    sudo
+    zsh-completions
+    thefuck
+)
 autoload -U compinit && compinit
 
 # User configuration
@@ -104,19 +114,10 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias vi='vim'
 alias slk='ss-up -c ~/.vpn/shadowsocks/gui-config.json -f'
 alias ovn='cd ~/.vpn/qyun/ && sudo openvpn --config rtr-nje2zjeq.conf'
 alias avn='cd ~/.vpn/aliyun/ && sudo openvpn --config zouquan.ovpn'
 alias ta='tmux attach'
-
-# PM functions
-source ~/.pm/pm.zsh
-alias pma="pm add"
-alias pmg="pm go"
-alias pmrm="pm remove"
-alias pml="pm list"
-# end PM
 
 # ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 # if [[ ! -d $ZSH_CACHE_DIR ]]; then
