@@ -81,6 +81,7 @@ plugins=(
     sudo
     zsh-completions
     thefuck
+    z
 )
 autoload -U compinit && compinit
 
