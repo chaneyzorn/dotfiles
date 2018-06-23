@@ -7,4 +7,3 @@
 
 [[ -f ~/.extend.profile ]] && . ~/.extend.profile
 
-export PATH="$HOME/.cargo/bin:$PATH"
