@@ -122,6 +122,7 @@ alias slk='ss-up -c ~/.vpn/shadowsocks/gui-config.json -f'
 alias ovn='cd ~/.vpn/qyun/ && sudo openvpn --config rtr-nje2zjeq.conf'
 alias avn='cd ~/.vpn/aliyun/ && sudo openvpn --config zouquan.ovpn'
 alias ta='tmux attach'
+alias py='source ~/PycharmProjects/venv/bin/activate'
 
 # ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 # if [[ ! -d $ZSH_CACHE_DIR ]]; then
