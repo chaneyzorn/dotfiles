@@ -11,13 +11,14 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'icymind/NeoSolarized'
+Plug 'Yggdroot/LeaderF'
+Plug 'Valloric/YouCompleteMe'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
+Plug 'w0rp/ale'
 Plug 'skywind3000/vim-preview'
 Plug 'Shougo/echodoc'
-Plug 'icymind/NeoSolarized'
-Plug 'w0rp/ale'
-Plug 'Yggdroot/LeaderF'
 
 call plug#end()
 
@@ -82,6 +83,7 @@ let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
 let g:ale_c_cppcheck_options = ''
 let g:ale_cpp_cppcheck_options = ''
 
+let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_server_log_level = 'info'
