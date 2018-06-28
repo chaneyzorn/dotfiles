@@ -23,6 +23,12 @@ Plug 'Shougo/echodoc'
 call plug#end()
 
 set nu
+set autoindent
+set cindent
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
 set cursorline
 set cursorcolumn
 
