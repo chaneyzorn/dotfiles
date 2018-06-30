@@ -21,5 +21,3 @@ XTerm*pointerColor: #16A085
 XTerm*faceName: Fixed
 XTerm*faceSize: 11
 
-Xcursor.theme: Breeze_Snow
-Xcursor.size: 36
