@@ -13,6 +13,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'icymind/NeoSolarized'
 Plug 'liuchengxu/space-vim-dark'
+Plug 'luochen1990/rainbow'
 Plug 'Yggdroot/LeaderF'
 Plug 'Valloric/YouCompleteMe'
 Plug 'ludovicchabant/vim-gutentags'
@@ -35,6 +36,7 @@ set cursorcolumn
 
 set background=dark
 set termguicolors
+let g:rainbow_active = 1
 let g:space_vim_dark_background = 237
 colorscheme space-vim-dark
 hi Comment cterm=italic
