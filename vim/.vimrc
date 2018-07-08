@@ -12,6 +12,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'icymind/NeoSolarized'
+Plug 'liuchengxu/space-vim-dark'
 Plug 'Yggdroot/LeaderF'
 Plug 'Valloric/YouCompleteMe'
 Plug 'ludovicchabant/vim-gutentags'
@@ -33,11 +34,19 @@ set cursorline
 set cursorcolumn
 
 set background=dark
-colorscheme NeoSolarized
-let g:neosolarized_vertSplitBgTrans = 1
-let g:neosolarized_bold = 1
-let g:neosolarized_underline = 1
-let g:neosolarized_italic = 0
+set termguicolors
+let g:space_vim_dark_background = 237
+colorscheme space-vim-dark
+hi Comment cterm=italic
+hi Normal     ctermbg=NONE guibg=NONE
+hi LineNr     ctermbg=NONE guibg=NONE
+hi SignColumn ctermbg=NONE guibg=NONE
+hi Comment guifg=#5c6370 ctermfg=59
+" colorscheme NeoSolarized
+" let g:neosolarized_vertSplitBgTrans = 1
+" let g:neosolarized_bold = 1
+" let g:neosolarized_underline = 1
+" let g:neosolarized_italic = 0
 
 set noshowmode
 let g:airline_powerline_fonts = 1

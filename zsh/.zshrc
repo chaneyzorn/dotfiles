@@ -1,11 +1,9 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
 if [ ! $MY_PATH ]; then
     export MY_PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/.node_modules_global/bin
     export PATH=$MY_PATH:$PATH
 fi
 
-export TERM="xterm-256color"
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
 # Path to your oh-my-zsh installation.
