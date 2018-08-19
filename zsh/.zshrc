@@ -1,7 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 if [ ! $MY_PATH ]; then
     export MY_PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/.node_modules_global/bin
-    export PATH=$MY_PATH:$PATH
+    export PATH=$MY_PATH:/usr/local/sbin:$PATH
 fi
 
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
@@ -16,7 +16,11 @@ fi
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-POWERLEVEL9K_MODE='awesome-fontconfig'
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    POWERLEVEL9K_MODE='nerdfont-complete'
+else
+    POWERLEVEL9K_MODE='awesome-fontconfig'
+fi
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 DEFAULT_USER="chaney"
