@@ -15,6 +15,10 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'liuchengxu/space-vim-dark'
 " 彩虹显示匹配的括号
 Plug 'luochen1990/rainbow'
+" 显示缩进线
+Plug 'Yggdroot/indentLine'
+" 显示函数签名
+Plug 'Shougo/echodoc'
 " 自动补全，并为部分语言提供 语法诊断 跳转 信息提示 重构
 Plug 'Valloric/YouCompleteMe'
 " 自动调用 ctags/gtags 为 c/c++ 源码生成tags数据，用于查看和跳转
@@ -29,6 +33,8 @@ call plug#end()
 set exrc
 " 禁止当前文件夹下 vimrc 中 autocmd shell write 命令调用
 set secure
+" 设置 <Leader> 键
+let mapleader="\<Space>"
 " 显示行好
 set nu
 " 开启新行时对齐到当前行
@@ -45,8 +51,8 @@ set tabstop=4
 set softtabstop=4
 " 高亮光标所在的行
 set cursorline
-" 高亮光标所在的列
-set cursorcolumn
+" 设置命令行高为2，提供足够的显示空间
+set cmdheight=2
 " 设置窗口分割线为连续实线
 set fillchars=vert:\│
 
@@ -57,9 +63,6 @@ set termguicolors
 " 设置 true color 之后，以下设置纠正部分终端的颜色问题，比如在 tmux 中
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
-" 自动启用彩虹括号，设置为0以手动启用
-let g:rainbow_active = 1
 
 " 使用 space-vim-dark 色彩方案
 colorscheme space-vim-dark
@@ -78,6 +81,8 @@ set noshowmode
 let g:airline_powerline_fonts = 1
 " 选择一个状态栏主题
 let g:airline_theme = 'minimalist'
+" 自动启用彩虹括号，设置为0以手动启用
+let g:rainbow_active = 1
 
 set tags=./.tags;,.tags
 " 使用 pygments 辅助 gtags 支持更多的语言
