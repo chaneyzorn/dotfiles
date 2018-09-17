@@ -10,7 +10,7 @@ call plug#begin('~/.vim/plugged')
 
 " 增强的状态栏
 Plug 'vim-airline/vim-airline'
-" 状态栏主题
+" 状态栏主题包
 Plug 'vim-airline/vim-airline-themes'
 " 颜色主题
 Plug 'liuchengxu/space-vim-dark'
@@ -60,22 +60,30 @@ set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
+" 自动启用彩虹括号，设置为0以手动启用
 let g:rainbow_active = 1
-let g:space_vim_dark_background = 237
+
+" 使用 space-vim-dark 色彩方案
 colorscheme space-vim-dark
-hi Comment cterm=italic
+" 设置背景色深度
+let g:space_vim_dark_background = 235
+" 设置注释使用斜体
+hi Comment cterm=italic guifg=#5c6370 ctermfg=59
+" 使背景色透明
 hi Normal     ctermbg=NONE guibg=NONE
 hi LineNr     ctermbg=NONE guibg=NONE
 hi SignColumn ctermbg=NONE guibg=NONE
-hi Comment guifg=#5c6370 ctermfg=59
 
-" 使用增强状态栏后不再需要额外的模式提示
+" 使用增强状态栏后不再需要 vim 的模式提示
 set noshowmode
+" 状态栏使用 powerline 字体
 let g:airline_powerline_fonts = 1
+" 选择一个状态栏主题
 let g:airline_theme = 'minimalist'
 
 set tags=./.tags;,.tags
 
+" 使用 pygments 辅助 gtags 支持更多的语言
 let $GTAGSLABEL = 'native-pygments'
 let $GTAGSCONF = '/usr/share/gtags/gtags.conf'
 
@@ -108,19 +116,6 @@ let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
 " 禁用 gutentags 自动加载 gtags 数据库的行为
 let g:gutentags_auto_add_gtags_cscope = 0
 
-let g:ale_linters = {
-\   'c': ['clang'],
-\   'c++': ['clang'],
-\}
-let g:ale_linters_explicit = 1
-let g:ale_completion_delay = 500
-let g:ale_echo_delay = 20
-let g:ale_lint_delay = 500
-let g:ale_echo_msg_format = '[%linter%] %code: %%s'
-let g:ale_lint_on_text_changed = 'normal'
-let g:ale_lint_on_insert_leave = 1
-let g:airline#extensions#ale#enabled = 1
-
 let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_server_log_level = 'info'
@@ -129,28 +124,8 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_complete_in_strings=1
 set completeopt=menu,menuone
 
-noremap <c-z> <NOP>
-
 let g:ycm_semantic_triggers =  {
            \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
            \ 'cs,lua,javascript': ['re!\w{2}'],
            \ }
 
-let g:Lf_ShortcutF = '<c-p>'
-let g:Lf_ShortcutB = '<m-n>'
-noremap <c-n> :LeaderfMru<cr>
-noremap <m-p> :LeaderfFunction!<cr>
-noremap <m-n> :LeaderfBuffer<cr>
-noremap <m-m> :LeaderfTag<cr>
-let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
-
-let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
-let g:Lf_WorkingDirectoryMode = 'Ac'
-let g:Lf_WindowHeight = 0.30
-let g:Lf_CacheDirectory = expand('~/.vim/cache')
-let g:Lf_ShowRelativePath = 0
-let g:Lf_HideHelp = 1
-let g:Lf_StlColorscheme = 'powerline'
-let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
-
-let g:pymode_python = 'python3'
