@@ -1,48 +1,62 @@
+" 自动检查并安装 vim-plug 包管理器
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" 安装插件包到 ~/.vim/plugged 目录
 call plug#begin('~/.vim/plugged')
 
-Plug 'tpope/vim-sensible'
-Plug 'Yggdroot/indentLine'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'scrooloose/nerdcommenter'
+" 增强的状态栏
 Plug 'vim-airline/vim-airline'
+" 状态栏主题
 Plug 'vim-airline/vim-airline-themes'
-Plug 'icymind/NeoSolarized'
+" 颜色主题
 Plug 'liuchengxu/space-vim-dark'
+" 彩虹显示匹配的括号
 Plug 'luochen1990/rainbow'
-Plug 'Yggdroot/LeaderF'
+" 自动补全，并为部分语言提供 语法诊断 跳转 信息提示 重构
 Plug 'Valloric/YouCompleteMe'
+" 自动调用 ctags/gtags 为 c/c++ 源码生成tags数据，用于查看和跳转
 Plug 'ludovicchabant/vim-gutentags'
+" 自动管理 gtags 对多个数据库的连接
 Plug 'skywind3000/gutentags_plus'
-Plug 'w0rp/ale'
-Plug 'skywind3000/vim-preview'
-Plug 'Shougo/echodoc'
+" 高亮光标下相同的单词
 Plug 'itchyny/vim-cursorword'
-Plug 'python-mode/python-mode', { 'branch': 'develop' }
 
 call plug#end()
 
+" 自动载入当前文件夹下可能存在的 vimrc 文件
 set exrc
+" 禁止当前文件夹下 vimrc 中 autocmd shell write 命令调用
 set secure
-
+" 显示行好
 set nu
+" 开启新行时对齐到当前行
 set autoindent
+" 按 c 语法规则缩进
 set cindent
+" 使用合适的空格替代插入 <Tab>
 set expandtab
+" 设置缩进为4个空格
 set shiftwidth=4
-set softtabstop=4
+" 一个 <Tab> 等同于4个空格
 set tabstop=4
+" 每4个空格等同于一个 <Tab>
+set softtabstop=4
+" 高亮光标所在的行
 set cursorline
+" 高亮光标所在的列
 set cursorcolumn
-
-set background=dark
-set termguicolors
+" 设置窗口分割线为连续实线
 set fillchars=vert:\│
+
+" 设置背景颜色
+set background=dark
+" 在终端中使用gui高亮色，以支持 true color
+set termguicolors
+" 设置 true color 之后，以下设置纠正部分终端的颜色问题，比如在 tmux 中
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
@@ -54,12 +68,8 @@ hi Normal     ctermbg=NONE guibg=NONE
 hi LineNr     ctermbg=NONE guibg=NONE
 hi SignColumn ctermbg=NONE guibg=NONE
 hi Comment guifg=#5c6370 ctermfg=59
-" colorscheme NeoSolarized
-" let g:neosolarized_vertSplitBgTrans = 1
-" let g:neosolarized_bold = 1
-" let g:neosolarized_underline = 1
-" let g:neosolarized_italic = 0
 
+" 使用增强状态栏后不再需要额外的模式提示
 set noshowmode
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'minimalist'
