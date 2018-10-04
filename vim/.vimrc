@@ -7,6 +7,8 @@ endif
 
 " 安装插件包到 ~/.vim/plugged 目录
 call plug#begin('~/.vim/plugged')
+" 一组最通用的默认配置
+Plug 'tpope/vim-sensible'
 " 增强的状态栏
 Plug 'vim-airline/vim-airline'
 " 状态栏主题包
@@ -29,18 +31,14 @@ Plug 'skywind3000/gutentags_plus'
 Plug 'itchyny/vim-cursorword'
 call plug#end()
 
-" 自动载入当前文件夹下可能存在的 vimrc 文件
-set exrc
-" 禁止当前文件夹下 vimrc 中 autocmd shell write 命令调用
-set secure
 " 设置 <Leader> 键
 let mapleader="\<Space>"
-" 显示行好
+" 显示行号
 set nu
 " 开启新行时对齐到当前行
 set autoindent
-" 按 c 语法规则缩进
-set cindent
+" 按语法缩进
+set smartindent
 " 使用合适的空格替代插入 <Tab>
 set expandtab
 " 设置缩进为4个空格
@@ -68,9 +66,8 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 colorscheme space-vim-dark
 " 设置背景色深度
 let g:space_vim_dark_background = 235
-" 设置注释使用斜体
-hi Comment cterm=italic guifg=#5c6370 ctermfg=59
-" 使背景色透明
+" 设置注释使用斜体，使背景色透明
+hi Comment    cterm=italic guifg=#5c6370 ctermfg=59
 hi Normal     ctermbg=NONE guibg=NONE
 hi LineNr     ctermbg=NONE guibg=NONE
 hi SignColumn ctermbg=NONE guibg=NONE
@@ -83,8 +80,10 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'minimalist'
 " 自动启用彩虹括号，设置为0以手动启用
 let g:rainbow_active = 1
+" 默认不显示缩进线
+let g:indentLine_enabled = 0
 
-set tags=./.tags;,.tags
+set tags=./.tags;,.tags,~/.cache/tags/sys-.tags
 " 使用 pygments 辅助 gtags 支持更多的语言
 let $GTAGSLABEL = 'native-pygments'
 let $GTAGSCONF = '/usr/share/gtags/gtags.conf'
