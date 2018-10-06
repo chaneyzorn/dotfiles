@@ -32,25 +32,17 @@ Plug 'itchyny/vim-cursorword'
 call plug#end()
 
 " 设置 <Leader> 键
-let mapleader="\<Space>"
-" 显示行号
-set nu
-" 开启新行时对齐到当前行
-set autoindent
-" 按语法缩进
-set smartindent
-" 使用合适的空格替代插入 <Tab>
-set expandtab
-" 设置缩进为4个空格
-set shiftwidth=4
-" 一个 <Tab> 等同于4个空格
-set tabstop=4
-" 每4个空格等同于一个 <Tab>
-set softtabstop=4
-" 高亮光标所在的行
-set cursorline
-" 设置命令行高为2，提供足够的显示空间
-set cmdheight=2
+let mapleader = "\<Space>"
+" 设置读取当前目录下配置，并且禁用危险命令
+set exrc secure
+" 显示行号 高亮光标所在的行
+set nu cursorline
+" 总是显示指示列
+set signcolumn=yes
+" 开启新行时对齐到当前行; 使用合适的空格替代插入 <Tab>
+set autoindent smartindent expandtab
+" 设置缩进为4个空格 一个 <Tab> 等同于4个空格 每4个空格等同于一个 <Tab>
+set shiftwidth=4 tabstop=4 softtabstop=4
 " 设置窗口分割线为连续实线
 set fillchars=vert:\│
 
@@ -74,6 +66,8 @@ hi SignColumn ctermbg=NONE guibg=NONE
 
 " 使用增强状态栏后不再需要 vim 的模式提示
 set noshowmode
+" 设置命令行高为2，提供足够的显示空间
+set cmdheight=2
 " 状态栏使用 powerline 字体
 let g:airline_powerline_fonts = 1
 " 选择一个状态栏主题
@@ -84,6 +78,7 @@ let g:rainbow_active = 1
 let g:indentLine_enabled = 0
 
 set tags=./.tags;,.tags,~/.cache/tags/sys-.tags
+set path=.,/usr/include,/usr/include/*,/usr/lib/*/include,/usr/lib/gcc/**/include
 " 使用 pygments 辅助 gtags 支持更多的语言
 let $GTAGSLABEL = 'native-pygments'
 let $GTAGSCONF = '/usr/share/gtags/gtags.conf'
@@ -105,11 +100,14 @@ let g:gutentags_ctags_extra_args += ['--c++-kinds=+px', '--c-kinds=+px']
 " 如果使用 universal ctags 需要增加下面一行
 let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
 
+set completeopt-=preview
+let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_server_log_level = 'info'
 let g:ycm_min_num_identifier_candidate_chars = 2
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_complete_in_strings=1
-let g:ycm_global_ycm_extra_conf = expand('~/.vim/ycm_extra_conf.py')
+let g:ycm_complete_in_strings = 1
+let g:ycm_confirm_extra_conf = 0
+" let g:ycm_global_ycm_extra_conf = expand('~/.vim/ycm_extra_conf.py')
 
 let g:ycm_semantic_triggers =  {
 \   'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
