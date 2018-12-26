@@ -120,7 +120,7 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias slk='ss-up -c ~/.vpn/shadowsocks/gui-config.json -f'
+alias slk='ss-local -v -l 1080 `ss-quick -c ~/.vpn/shadowsocks/gui-config.json`'
 alias ta='tmux attach'
 alias py='source ~/PycharmProjects/venv/bin/activate'
 
