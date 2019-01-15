@@ -1,3 +1,9 @@
+" vim 启动时的初始化文件 see :help vimrc
+
+" 如果要同时应用于 neovim，可以创建以下符号链接:
+" ~/.config/nvim           -->  ~/.vim
+" ~/.config/nvim/init.vim  -->  ~/.vimrc
+
 " 自动检查并安装 vim-plug 包管理器
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -19,20 +25,30 @@ Plug 'liuchengxu/space-vim-dark'
 Plug 'luochen1990/rainbow'
 " 显示缩进线
 Plug 'Yggdroot/indentLine'
-" 显示函数签名
-Plug 'Shougo/echodoc'
-" 自动补全，并为部分语言提供 语法诊断 跳转 信息提示 重构
-Plug 'Valloric/YouCompleteMe'
-" 自动调用 ctags/gtags 为 c/c++ 源码生成tags数据，用于查看和跳转
-Plug 'ludovicchabant/vim-gutentags'
-" 自动管理 gtags 对多个数据库的连接
-Plug 'skywind3000/gutentags_plus'
 " 高亮光标下相同的单词
 Plug 'itchyny/vim-cursorword'
+" 显示目录树
+Plug 'scrooloose/nerdtree'
+" 显示文件类型图标
+Plug 'ryanoasis/vim-devicons'
+" 显示函数签名
+Plug 'Shougo/echodoc'
+" 侧栏显示文件结构大纲
+Plug 'majutsushi/tagbar'
+" 自动调用 ctags/gtags 为 c/c++ 源码生成tags数据，用于查看和跳转
+Plug 'ludovicchabant/vim-gutentags'
+" 高亮光标下相同的单词
+Plug 'itchyny/vim-cursorword'
+" 自动管理 gtags 对多个数据库的连接
+Plug 'skywind3000/gutentags_plus'
+" 自动补全，并为部分语言提供 语法诊断 跳转 信息提示 重构
+Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
+" 设置编码为 utf-8
+set encoding=utf-8
 " 设置 <Leader> 键
-let mapleader = "\<Space>"
+let mapleader = " "
 " 设置读取当前目录下配置，并且禁用危险命令
 set exrc secure
 " 显示行号 高亮光标所在的行
@@ -42,15 +58,18 @@ set signcolumn=yes
 " 开启新行时对齐到当前行; 使用合适的空格替代插入 <Tab>
 set autoindent smartindent expandtab
 " 设置缩进为4个空格 一个 <Tab> 等同于4个空格 每4个空格等同于一个 <Tab>
-set shiftwidth=4 tabstop=4 softtabstop=4
+set shiftround shiftwidth=4 tabstop=4 softtabstop=4
 " 设置窗口分割线为连续实线
 set fillchars=vert:\│
+" 设置搜索高亮
+set hlsearch incsearch
 
 " 设置背景颜色
 set background=dark
 " 在终端中使用gui高亮色，以支持 true color
 set termguicolors
-" 设置 true color 之后，以下设置纠正部分终端的颜色问题，比如在 tmux 中
+" 设置 true color 之后，以下设置纠正部分终端的颜色问题
+" see :help xterm-true-color
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
@@ -113,4 +132,19 @@ let g:ycm_semantic_triggers =  {
 \   'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
 \   'cs,lua,javascript': ['re!\w{2}'],
 \}
+
+" 顺手一点的窗口宽度调整
+nnoremap <silent> <C-w>[ :vertical resize -5<CR>
+nnoremap <silent> <C-w>] :vertical resize +5<CR>
+" 快速编辑和生效 .vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+" 默认显示隐藏文件
+let NERDTreeShowHidden=1
+" 切换显示目录树
+noremap <silent> <C-h> :NERDTreeToggle<CR>
+" 快速保存
+nnoremap <silent> <leader>sf :write<CR>
+vnoremap <silent> <leader>sf <Esc>:write<CR>
+inoremap <silent> <leader>sf <Esc>:write<CR>
 
