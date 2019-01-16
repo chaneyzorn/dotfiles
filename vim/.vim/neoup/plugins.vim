@@ -25,12 +25,17 @@ Plug 'Shougo/echodoc'
 Plug 'majutsushi/tagbar'
 " 高亮光标下相同的单词
 Plug 'itchyny/vim-cursorword'
+" 模糊搜索
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 " 自动调用 ctags/gtags 为 c/c++ 源码生成tags数据，用于查看和跳转
 Plug 'ludovicchabant/vim-gutentags'
 " 自动管理 gtags 对多个数据库的连接
 Plug 'skywind3000/gutentags_plus'
-" 自动补全，并为部分语言提供 语法诊断 跳转 信息提示 重构
-Plug 'Valloric/YouCompleteMe'
+" 语法检查
+Plug 'w0rp/ale'
+" 自动补全, lsp-client
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': 'yarn install'}
+" Plug 'Valloric/YouCompleteMe'
 
 call plug#end()
 

@@ -5,10 +5,11 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" 设置 <Leader> 键
+" let mapleader = " "
+
 " 设置编码为 utf-8
 set encoding=utf-8
-" 设置 <Leader> 键
-let mapleader = " "
 " 设置读取当前目录下配置，并且禁用危险命令
 set exrc secure
 " 显示行号 高亮光标所在的行

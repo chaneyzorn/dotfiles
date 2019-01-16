@@ -2,12 +2,14 @@
 nnoremap <silent> <C-w>[ :vertical resize -5<CR>
 nnoremap <silent> <C-w>] :vertical resize +5<CR>
 " 快速编辑和生效 .vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<CR>
-nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <Leader>sv :source $MYVIMRC<CR>
 " 切换显示目录树
-noremap <silent> <C-h> :NERDTreeToggle<CR>
+noremap <silent> <Leader>h :NERDTreeToggle<CR>
+" 切换显示tag列表
+noremap <silent> <Leader>t :TagbarToggle<CR>
 " 快速保存
-nnoremap <silent> <leader>sf :write<CR>
-vnoremap <silent> <leader>sf <Esc>:write<CR>
-inoremap <silent> <leader>sf <Esc>:write<CR>
+nnoremap <silent> <Leader>ss :write<CR>
+vnoremap <silent> <Leader>ss <Esc>:write<CR>
+inoremap <silent> <Leader>ss <Esc>:write<CR>
 

@@ -1,7 +1,5 @@
-" vim 启动时的初始化文件 see :help vimrc
-
-" 如果要同时应用于 neovim，可以创建以下符号链接:
-" ~/.config/nvim  -->  ~/.vim
+" vim 启动时的初始化文件
+" see :help vimrc
 
 let g:neohome = fnameescape(fnamemodify(resolve(expand('<sfile>:p')), ':h'))
 

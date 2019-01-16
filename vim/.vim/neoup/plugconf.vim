@@ -17,7 +17,7 @@ colorscheme space-vim-dark
 " 设置背景色深度
 let g:space_vim_dark_background = 235
 " 设置注释使用斜体，使背景色透明
-highlight Comment    cterm=italic guifg=#5c6370 ctermfg=59
+highlight Comment    cterm=italic guifg=#00688B ctermfg=59
 highlight Normal     ctermbg=NONE guibg=NONE
 highlight LineNr     ctermbg=NONE guibg=NONE
 highlight SignColumn ctermbg=NONE guibg=NONE
@@ -46,8 +46,19 @@ let g:indentLine_enabled = 0
 
 " 默认显示隐藏文件
 let NERDTreeShowHidden=1
+" 忽略以下类型文件
+let NERDTreeIgnore = ['\~$', '\.swp$', '\.pyc$']
 
+augroup nerdtree
+    autocmd!
+    autocmd bufenter * :call <SID>ExitLastNERDTree()
+augroup end
 
+function! s:ExitLastNERDTree()
+    if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree())
+        execute "normal! :q\<cr>"
+    endif
+endfunction
 
 " Plug 'ludovicchabant/vim-gutentags'
 " Plug 'skywind3000/gutentags_plus'
@@ -78,19 +89,19 @@ let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
 
 " Plug 'Valloric/YouCompleteMe'
 " ------------------------------------------------------------
-
-let g:ycm_add_preview_to_completeopt = 0
-let g:ycm_server_log_level = 'info'
-let g:ycm_min_num_identifier_candidate_chars = 2
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_complete_in_strings = 1
-let g:ycm_confirm_extra_conf = 0
-" let g:ycm_global_ycm_extra_conf = expand('~/.vim/ycm_extra_conf.py')
-
-let g:ycm_semantic_triggers =  {
-\   'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
-\   'cs,lua,javascript': ['re!\w{2}'],
-\}
+" 
+" let g:ycm_add_preview_to_completeopt = 0
+" let g:ycm_server_log_level = 'info'
+" let g:ycm_min_num_identifier_candidate_chars = 2
+" let g:ycm_collect_identifiers_from_comments_and_strings = 1
+" let g:ycm_complete_in_strings = 1
+" let g:ycm_confirm_extra_conf = 0
+" " let g:ycm_global_ycm_extra_conf = expand('~/.vim/ycm_extra_conf.py')
+" 
+" let g:ycm_semantic_triggers =  {
+" \   'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+" \   'cs,lua,javascript': ['re!\w{2}'],
+" \}
 
 
 
