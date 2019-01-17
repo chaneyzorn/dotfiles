@@ -28,3 +28,8 @@ noremap <C-f> :Leaderf rg<CR>
 nmap <C-\> <Plug>NERDCommenterInvert
 " 注意 <Plug> 序列只在递归映射中有效
 
+" linter 跳转
+nmap <Leader>en <Plug>(ale_next)
+nmap <Leader>ep <Plug>(ale_previous)
+nmap <Leader>ts :ALEToggle<CR>
+

@@ -15,6 +15,8 @@ Plug 'liuchengxu/space-vim-dark'
 Plug 'luochen1990/rainbow'
 " 显示缩进线
 Plug 'Yggdroot/indentLine'
+" 显示来自版本控制的修改状态
+Plug 'mhinz/vim-signify'
 " 高亮光标下相同的单词
 Plug 'itchyny/vim-cursorword'
 " 快捷注释文本

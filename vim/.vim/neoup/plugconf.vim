@@ -152,7 +152,7 @@ let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
 " ================================================================================
 
 let g:ale_set_highlights = 0
-let g:ale_fix_on_save = 1
+" let g:ale_fix_on_save = 1
 let g:ale_echo_msg_format = '[#%linter%#] %s [%severity%]'
 
 let g:ale_sign_error = '✖'
@@ -162,9 +162,12 @@ let g:ale_echo_msg_error_str = '✖ Error'
 let g:ale_echo_msg_warning_str = '✹ Warning'
 let g:ale_echo_msg_info_str = '• Info'
 
-nnoremap <Leader>en <Plug>(ale_next)
-nnoremap <Leader>ep <Plug>(ale_previous)
-nnoremap <Leader>ts :ALEToggle<CR>
+let g:ale_linters_explicit = 1
+let g:ale_completion_delay = 500
+let g:ale_echo_delay = 20
+let g:ale_lint_delay = 500
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_insert_leave = 1
 
 
 

@@ -16,6 +16,8 @@ set exrc secure
 set nu cursorline
 " 总是显示指示列
 set signcolumn=yes
+" Smaller updatetime for CursorHold & CursorHoldI & swapfile
+set updatetime=1000
 " 开启新行时对齐到当前行; 使用合适的空格替代插入 <Tab>
 set autoindent smartindent expandtab
 " 设置缩进为4个空格 一个 <Tab> 等同于4个空格 每4个空格等同于一个 <Tab>
@@ -39,6 +41,8 @@ set noshowmode
 " 设置命令行高为2，提供足够的显示空间
 set cmdheight=2
 
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
 set completeopt-=preview
 set tags=./.tags;,.tags,~/.cache/tags/sys-.tags
 set path=.,/usr/include,/usr/include/*,/usr/lib/*/include,/usr/lib/gcc/**/include
