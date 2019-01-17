@@ -60,6 +60,13 @@ function! s:ExitLastNERDTree()
     endif
 endfunction
 
+
+
+" Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+" ------------------------------------------------------------
+
+let g:Lf_UseVersionControlTool = 0
+
 " Plug 'ludovicchabant/vim-gutentags'
 " Plug 'skywind3000/gutentags_plus'
 " ------------------------------------------------------------

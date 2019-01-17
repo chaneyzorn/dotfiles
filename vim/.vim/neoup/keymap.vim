@@ -1,3 +1,5 @@
+" 切换鼠标
+noremap <Leader>m :call mouse#ToggleMouse()<CR>
 " 顺手一点的窗口宽度调整
 nnoremap <silent> <C-w>[ :vertical resize -5<CR>
 nnoremap <silent> <C-w>] :vertical resize +5<CR>

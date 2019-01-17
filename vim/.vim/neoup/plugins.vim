@@ -1,6 +1,8 @@
 " 安装插件包到 ~/.vim/plugged 目录
 call plug#begin('~/.vim/plugged')
 
+" 个人自定义的一些工具
+Plug g:neohome.'/moetools'
 " 一组最通用的默认配置
 Plug 'tpope/vim-sensible'
 " 增强的状态栏
