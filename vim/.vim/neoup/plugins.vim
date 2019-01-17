@@ -1,4 +1,4 @@
-" 安装插件包到 ~/.vim/plugged 目录
+" 安装插件包到 plugged 目录
 call plug#begin('~/.vim/plugged')
 
 " 个人自定义的一些工具
@@ -17,6 +17,8 @@ Plug 'luochen1990/rainbow'
 Plug 'Yggdroot/indentLine'
 " 高亮光标下相同的单词
 Plug 'itchyny/vim-cursorword'
+" 快捷注释文本
+Plug 'scrooloose/nerdcommenter'
 " 显示目录树
 Plug 'scrooloose/nerdtree'
 " 显示文件类型图标
@@ -25,8 +27,6 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'Shougo/echodoc'
 " 侧栏显示文件结构大纲
 Plug 'majutsushi/tagbar'
-" 高亮光标下相同的单词
-Plug 'itchyny/vim-cursorword'
 " 模糊搜索
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 " 自动调用 ctags/gtags 为 c/c++ 源码生成tags数据，用于查看和跳转

@@ -1,16 +1,18 @@
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
-" ------------------------------------------------------------
+" ================================================================================
 
 " 状态栏使用 powerline 字体
 let g:airline_powerline_fonts = 1
 " 选择一个状态栏主题
 let g:airline_theme = 'minimalist'
+" 显示 ale 诊断信
+let g:airline#extensions#ale#enabled = 1
 
 
 
 " Plug 'liuchengxu/space-vim-dark'
-" ------------------------------------------------------------
+" ================================================================================
 
 " 使用 space-vim-dark 色彩方案
 colorscheme space-vim-dark
@@ -25,7 +27,7 @@ highlight SignColumn ctermbg=NONE guibg=NONE
 
 
 " Plug 'luochen1990/rainbow'
-" ------------------------------------------------------------
+" ================================================================================
 
 " 自动启用彩虹括号，设置为0以手动启用
 let g:rainbow_active = 1
@@ -33,7 +35,7 @@ let g:rainbow_active = 1
 
 
 " Plug 'Yggdroot/indentLine'
-" ------------------------------------------------------------
+" ================================================================================
 
 " 自动启用彩虹括号，设置为0以手动启用
 " 默认不显示缩进线
@@ -41,9 +43,30 @@ let g:indentLine_enabled = 0
 
 
 
-" Plug 'scrooloose/nerdtree'
-" ------------------------------------------------------------
+" Plug 'scrooloose/nerdcommenter'
+" ================================================================================
 
+" 不使用默认的键位
+let g:NERDCreateDefaultMappings = 0
+" 空格间隔，比如 /* int foo=2; */
+let g:NERDSpaceDelims = 1
+let g:NERDRemoveExtraSpaces = 1
+" 取消空白行注释时，连同去掉多余的空格
+let g:NERDTrimTrailingWhitespace = 1
+" 按代码左对齐注释
+let g:NERDDefaultAlign = 'left'
+" 将空行一起处理
+let g:NERDCommentEmptyLines = 1
+" 检查并注释选中范围中未注释的行
+let g:NERDToggleCheckAllLines = 1
+
+
+
+" Plug 'scrooloose/nerdtree'
+" ================================================================================
+
+" 不显示书签和帮助
+let NERDTreeMinimalUI=1
 " 默认显示隐藏文件
 let NERDTreeShowHidden=1
 " 忽略以下类型文件
@@ -63,14 +86,45 @@ endfunction
 
 
 " Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
-" ------------------------------------------------------------
+" ================================================================================
 
-let g:Lf_UseVersionControlTool = 0
+let g:Lf_HideHelp = 1
+let g:Lf_WindowHeight = 0.30
+let g:Lf_StlColorscheme = 'powerline'
+let g:Lf_StlSeparator = { 'left': '', 'right': '' }
+let g:Lf_CacheDirectory = expand('~/.vim/cache')
+
+let g:Lf_WorkingDirectoryMode = 'Ac'
+let g:Lf_RootMarkers = ['.root', '.svn', '.git', '.hg', '.vim', '.idea', '.project']
+let g:Lf_WildIgnore = {
+    \ 'dir': ['.svn','.git','.hg'],
+    \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
+    \ }
+
+let g:Lf_MruMaxFiles = 2048
+let g:Lf_MruFileExclude = ['*.so', '*.exe', '*.py[co]', '*.sw?', '~$*', '*.bak', '*.tmp', '*.dll']
+
+let g:Lf_ShortcutF = '<C-p>'
+let g:Lf_ShortcutB = '<C-n>'
+let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
+
+let g:Lf_NormalMap = {
+        \ "File":     [["<ESC>", ':exec g:Lf_py "fileExplManager.quit()"<CR>']],
+		\ "Buffer":   [["<ESC>", ':exec g:Lf_py "bufExplManager.quit()"<cr>']],
+		\ "Mru":      [["<ESC>", ':exec g:Lf_py "mruExplManager.quit()"<cr>']],
+		\ "Tag":      [["<ESC>", ':exec g:Lf_py "tagExplManager.quit()"<cr>']],
+		\ "BufTag":   [["<ESC>", ':exec g:Lf_py "bufTagExplManager.quit()"<cr>']],
+		\ "Function": [["<ESC>", ':exec g:Lf_py "functionExplManager.quit()"<cr>']],
+		\ }
+
+
 
 " Plug 'ludovicchabant/vim-gutentags'
 " Plug 'skywind3000/gutentags_plus'
-" ------------------------------------------------------------
+" ================================================================================
 
+" 不使用默认键位
+let g:gutentags_plus_nomap = 1
 " 使用 pygments 辅助 gtags 支持更多的语言
 let $GTAGSLABEL = 'native-pygments'
 let $GTAGSCONF = '/usr/share/gtags/gtags.conf'
@@ -94,8 +148,28 @@ let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
 
 
 
+" Plug 'w0rp/ale'
+" ================================================================================
+
+let g:ale_set_highlights = 0
+let g:ale_fix_on_save = 1
+let g:ale_echo_msg_format = '[#%linter%#] %s [%severity%]'
+
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '✹'
+let g:ale_sign_info = '•'
+let g:ale_echo_msg_error_str = '✖ Error'
+let g:ale_echo_msg_warning_str = '✹ Warning'
+let g:ale_echo_msg_info_str = '• Info'
+
+nnoremap <Leader>en <Plug>(ale_next)
+nnoremap <Leader>ep <Plug>(ale_previous)
+nnoremap <Leader>ts :ALEToggle<CR>
+
+
+
 " Plug 'Valloric/YouCompleteMe'
-" ------------------------------------------------------------
+" ================================================================================
 " 
 " let g:ycm_add_preview_to_completeopt = 0
 " let g:ycm_server_log_level = 'info'
@@ -111,4 +185,26 @@ let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
 " \}
 
 
+
+" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': 'yarn install'}
+" ================================================================================
+
+"  使用<TAB>键采纳补全结果
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <c-space> coc#refresh()
+
+nnoremap <silent> gd <Plug>(coc-definition)
+nnoremap <silent> gy <Plug>(coc-type-definition)
+nnoremap <silent> gi <Plug>(coc-implementation)
+nnoremap <silent> gr <Plug>(coc-references)
 
