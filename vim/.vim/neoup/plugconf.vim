@@ -94,10 +94,9 @@ let g:Lf_StlColorscheme = 'powerline'
 let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 let g:Lf_CacheDirectory = expand('~/.vim/cache')
 
-let g:Lf_WorkingDirectoryMode = 'Ac'
 let g:Lf_RootMarkers = ['.root', '.svn', '.git', '.hg', '.vim', '.idea', '.project']
 let g:Lf_WildIgnore = {
-    \ 'dir': ['.svn','.git','.hg'],
+    \ 'dir': ['.svn','.git','.hg', 'build', 'debug'],
     \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
     \ }
 
@@ -152,7 +151,6 @@ let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
 " ================================================================================
 
 let g:ale_set_highlights = 0
-" let g:ale_fix_on_save = 1
 let g:ale_echo_msg_format = '[#%linter%#] %s [%severity%]'
 
 let g:ale_sign_error = '✖'
@@ -162,12 +160,28 @@ let g:ale_echo_msg_error_str = '✖ Error'
 let g:ale_echo_msg_warning_str = '✹ Warning'
 let g:ale_echo_msg_info_str = '• Info'
 
-let g:ale_linters_explicit = 1
 let g:ale_completion_delay = 500
 let g:ale_echo_delay = 20
 let g:ale_lint_delay = 500
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
+
+" compile_commands.json still not work well with clang easily
+" see https://github.com/w0rp/ale/issues/1163#issuecomment-352585720
+let g:ale_c_build_dir_names = ['build', 'debug', 'bin']
+let g:ale_c_parse_compile_commands = 1
+
+" see https://github.com/MaskRay/ccls/wiki/Customization
+let g:ale_c_ccls_init_options = {
+    \    'cacheDirectory': '~/.cache/ccls',
+    \ }
+
+" 未指定的依然会使用全部可能的linter
+" 除非 let g:ale_linters_explicit = 1
+let g:ale_linters = {
+    \    'c': ['clangtidy', 'ccls', 'cppcheck'],
+    \    'cpp': ['clangtidy', 'ccls', 'cppcheck'],
+    \ }
 
 
 

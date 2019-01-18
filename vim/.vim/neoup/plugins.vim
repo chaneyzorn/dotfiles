@@ -31,6 +31,8 @@ Plug 'Shougo/echodoc'
 Plug 'majutsushi/tagbar'
 " 模糊搜索
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+" 更好的c/cpp语法高亮
+Plug 'octol/vim-cpp-enhanced-highlight', { 'for': [ 'c', 'cpp' ] }
 " 自动调用 ctags/gtags 为 c/c++ 源码生成tags数据，用于查看和跳转
 Plug 'ludovicchabant/vim-gutentags'
 " 自动管理 gtags 对多个数据库的连接
