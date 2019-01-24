@@ -6,19 +6,26 @@
 let g:airline_powerline_fonts = 1
 " 选择一个状态栏主题
 let g:airline_theme = 'minimalist'
+" let g:airline_theme = 'onedark'
 " 显示 ale 诊断信
 let g:airline#extensions#ale#enabled = 1
 
 
 
 " Plug 'liuchengxu/space-vim-dark'
+" Plug 'joshdick/onedark.vim'
 " ================================================================================
 
 " 使用 space-vim-dark 色彩方案
 colorscheme space-vim-dark
+" colorscheme onedark
+
+" 不显示空白行的~
+let g:onedark_hide_endofbuffer = 1
 " 设置背景色深度
 let g:space_vim_dark_background = 235
 " 设置注释使用斜体，使背景色透明
+let g:onedark_terminal_italics = 1
 highlight Comment    cterm=italic guifg=#00688B ctermfg=59
 highlight Normal     ctermbg=NONE guibg=NONE
 highlight LineNr     ctermbg=NONE guibg=NONE
@@ -31,15 +38,17 @@ highlight SignColumn ctermbg=NONE guibg=NONE
 
 " 自动启用彩虹括号，设置为0以手动启用
 let g:rainbow_active = 1
+let g:rainbow_conf = {
+	\	'guifgs': ['tan', 'PaleGreen', 'SkyBlue', 'gold', 'orchid', 'goldenrod', 'orange'],
+	\}
 
 
 
 " Plug 'Yggdroot/indentLine'
 " ================================================================================
 
-" 自动启用彩虹括号，设置为0以手动启用
 " 默认不显示缩进线
-let g:indentLine_enabled = 0
+" let g:indentLine_enabled = 0
 
 
 
@@ -72,17 +81,24 @@ let NERDTreeShowHidden=1
 " 忽略以下类型文件
 let NERDTreeIgnore = ['\~$', '\.swp$', '\.pyc$']
 
-augroup nerdtree
-    autocmd!
-    autocmd bufenter * :call <SID>ExitLastNERDTree()
-augroup end
+" 当只剩下 nerdtree 窗口时，退出vim
+" augroup nerdtree
+"     autocmd!
+"     autocmd bufenter * :call <SID>ExitLastNERDTree()
+" augroup end
+" 
+" function! s:ExitLastNERDTree()
+"     if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree())
+"         execute "normal! :q\<cr>"
+"     endif
+" endfunction
 
-function! s:ExitLastNERDTree()
-    if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree())
-        execute "normal! :q\<cr>"
-    endif
-endfunction
 
+
+" Plug 'majutsushi/tagbar'
+" ================================================================================
+let g:tagbar_sort = 0
+let g:tagbar_compact = 1
 
 
 " Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
@@ -108,13 +124,13 @@ let g:Lf_ShortcutB = '<C-n>'
 let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
 
 let g:Lf_NormalMap = {
-        \ "File":     [["<ESC>", ':exec g:Lf_py "fileExplManager.quit()"<CR>']],
-		\ "Buffer":   [["<ESC>", ':exec g:Lf_py "bufExplManager.quit()"<cr>']],
-		\ "Mru":      [["<ESC>", ':exec g:Lf_py "mruExplManager.quit()"<cr>']],
-		\ "Tag":      [["<ESC>", ':exec g:Lf_py "tagExplManager.quit()"<cr>']],
-		\ "BufTag":   [["<ESC>", ':exec g:Lf_py "bufTagExplManager.quit()"<cr>']],
-		\ "Function": [["<ESC>", ':exec g:Lf_py "functionExplManager.quit()"<cr>']],
-		\ }
+    \ "File":     [["<ESC>", ':exec g:Lf_py "fileExplManager.quit()"<CR>']],
+	\ "Buffer":   [["<ESC>", ':exec g:Lf_py "bufExplManager.quit()"<cr>']],
+	\ "Mru":      [["<ESC>", ':exec g:Lf_py "mruExplManager.quit()"<cr>']],
+	\ "Tag":      [["<ESC>", ':exec g:Lf_py "tagExplManager.quit()"<cr>']],
+	\ "BufTag":   [["<ESC>", ':exec g:Lf_py "bufTagExplManager.quit()"<cr>']],
+	\ "Function": [["<ESC>", ':exec g:Lf_py "functionExplManager.quit()"<cr>']],
+	\ }
 
 
 
@@ -208,9 +224,9 @@ let g:ale_linters = {
 
 "  使用<TAB>键采纳补全结果
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ coc#refresh()
 inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort

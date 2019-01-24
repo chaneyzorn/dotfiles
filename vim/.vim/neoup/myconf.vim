@@ -12,6 +12,8 @@ endif
 set encoding=utf-8
 " 设置读取当前目录下配置，并且禁用危险命令
 set exrc secure
+" 使光标下方至少显示五行高度
+set scrolloff=5
 " 显示行号 高亮光标所在的行
 set nu cursorline
 " 总是显示指示列

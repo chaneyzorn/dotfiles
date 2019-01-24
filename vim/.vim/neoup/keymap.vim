@@ -15,6 +15,8 @@ nnoremap <Leader>sv :source $MYVIMRC<CR>
 noremap <silent> <Leader>h :NERDTreeToggle<CR>
 " 切换显示tag列表
 noremap <silent> <Leader>t :TagbarToggle<CR>
+" 切换显示代码缩进尺
+noremap <silent> <Leader>ci :IndentLinesToggle<CR>
 
 " 快速保存
 nnoremap <silent> <Leader>ss :write<CR>
