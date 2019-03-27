@@ -3,3 +3,5 @@
 	name = chaney
 [core]
 	editor = vim
+	quotepath = false
+

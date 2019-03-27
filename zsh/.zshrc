@@ -84,7 +84,6 @@ plugins=(
     pip
     python
     sudo
-    zsh-completions
     thefuck
     z
 )
