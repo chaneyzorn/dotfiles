@@ -122,6 +122,7 @@ export EDITOR='vim'
 alias slk='ss-local -v -l 1080 `ss-quick -c ~/.vpn/shadowsocks/gui-config.json`'
 alias ta='tmux attach'
 alias py='source ~/PycharmProjects/venv/bin/activate'
+alias smvn='cd ~/.vpn/smartx/ && sudo openvpn --config zouquan.smartx.ovpn'
 
 # ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 # if [[ ! -d $ZSH_CACHE_DIR ]]; then
