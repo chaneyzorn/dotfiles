@@ -18,10 +18,11 @@ fi
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 if [[ "$OSTYPE" == "darwin"* ]]; then
     POWERLEVEL9K_MODE='nerdfont-complete'
+    ZSH_THEME="powerlevel9k/powerlevel9k"
 else
+    source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
     POWERLEVEL9K_MODE='awesome-fontconfig'
 fi
-ZSH_THEME="powerlevel9k/powerlevel9k"
 
 DEFAULT_USER="chaney"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
