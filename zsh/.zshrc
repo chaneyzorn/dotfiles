@@ -22,6 +22,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 else
     source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
     # source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+    # install https://github.com/gabrielelana/awesome-terminal-fonts
     POWERLEVEL9K_MODE='awesome-fontconfig'
 fi
 
