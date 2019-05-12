@@ -20,7 +20,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     POWERLEVEL9K_MODE='nerdfont-complete'
     ZSH_THEME="powerlevel9k/powerlevel9k"
 else
-    source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+    source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+    # source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
     POWERLEVEL9K_MODE='awesome-fontconfig'
 fi
 
