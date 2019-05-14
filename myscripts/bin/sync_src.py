@@ -36,5 +36,7 @@ def sync(prefix, cluster, src, dst):
             )
         )
 
-sync()
+
+if __name__ == "main":
+    sync()
 
