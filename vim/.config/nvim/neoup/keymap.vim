@@ -1,3 +1,7 @@
+" keymap.vim
+" vim 快捷键设定
+
+
 " 切换鼠标
 noremap <C-m> :call mouse#ToggleMouse()<CR>
 " 消除高亮\重绘界面

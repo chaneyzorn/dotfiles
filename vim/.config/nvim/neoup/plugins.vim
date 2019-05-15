@@ -1,3 +1,7 @@
+" plugins.vim
+" Plug 插件管理器管理的插件目录
+
+
 " 安装插件包到 plugged 目录
 call plug#begin('~/.vim/plugged')
 
@@ -5,6 +9,8 @@ call plug#begin('~/.vim/plugged')
 Plug g:neohome.'/moetools'
 " 一组最通用的默认配置
 Plug 'tpope/vim-sensible'
+" vim 启动第一屏
+Plug 'mhinz/vim-startify'
 " 增强的状态栏
 Plug 'vim-airline/vim-airline'
 " 状态栏主题包

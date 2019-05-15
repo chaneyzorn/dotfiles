@@ -1,3 +1,7 @@
+" plugconf.vim
+" 与插件定制功能相关的配置
+
+
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
 " ================================================================================

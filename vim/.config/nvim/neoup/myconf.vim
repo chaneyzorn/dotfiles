@@ -1,3 +1,6 @@
+" myconf.vim
+" vim 内置选项的自定义设定
+
 " 自动检查并安装 vim-plug 包管理器
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
