@@ -1,1 +1,6 @@
 aria2/.aria2/aria2.session
+
+vim/.vim/autoload/plug.vim
+vim/.vim/cache/
+vim/.vim/plugged/
+
