@@ -1,0 +1,6 @@
+" vim 启动时的初始化文件
+" see :help vimrc
+
+let s:neohome = fnameescape(fnamemodify(resolve(expand('<sfile>:p')), ':h'))
+
+execute 'source '.s:neohome.'/init.vim'

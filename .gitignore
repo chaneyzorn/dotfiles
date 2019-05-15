@@ -1,6 +1,8 @@
 aria2/.aria2/aria2.session
 
-vim/.vim/autoload/plug.vim
-vim/.vim/cache/
-vim/.vim/plugged/
+vim/.vim
+vim/.config/nvim/autoload
+vim/.config/nvim/cache
+vim/.config/nvim/plugged
+vim/.config/nvim/swap
 
