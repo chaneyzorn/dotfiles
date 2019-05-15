@@ -129,6 +129,9 @@ alias py2='source ~/Pyvenv/venv2.7/bin/activate'
 alias smvn='cd ~/.vpn/smartx/ && sudo openvpn --config zouquan.smartx.ovpn'
 alias vim='nvim'
 
+# 保证终端兼容性
+alias ssh='TERM=xterm-256color \ssh'
+
 # ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 # if [[ ! -d $ZSH_CACHE_DIR ]]; then
 #   mkdir $ZSH_CACHE_DIR
