@@ -210,7 +210,7 @@ let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
 " ================================================================================
 
 let g:ale_set_highlights = 0
-let g:ale_echo_msg_format = '[#%linter%#] %s [%severity%]'
+let g:ale_echo_msg_format = '[🐼 %linter%] %code:% %s [%severity%]'
 
 let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '✹'
@@ -242,7 +242,11 @@ let g:ale_linters = {
     \    'c': ['clangtidy', 'ccls', 'cppcheck'],
     \    'cpp': ['clangtidy', 'ccls', 'cppcheck'],
     \ }
-
+" 使用全局 pylint，这样可以使用 venv 中对应版本的 pylint
+let g:ale_python_pylint_use_global = 1
+let g:ale_python_pylint_options = '--rcfile ~/.config/pylintrc'
+" 错误信息使用 pep8 msg_id
+let g:ale_python_pylint_use_msg_id = 1
 
 
 " Plug 'Valloric/YouCompleteMe'
