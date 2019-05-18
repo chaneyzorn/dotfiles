@@ -11,6 +11,9 @@ let g:airline_powerline_fonts = 1
 " 选择一个状态栏主题
 let g:airline_theme = 'minimalist'
 " let g:airline_theme = 'onedark'
+
+" tab 页指示
+let g:airline#extensions#tabline#enabled = 1
 " 显示 ale 诊断信
 let g:airline#extensions#ale#enabled = 1
 
@@ -35,6 +38,14 @@ highlight Normal     ctermbg=NONE guibg=NONE
 highlight LineNr     ctermbg=NONE guibg=NONE
 highlight SignColumn ctermbg=NONE guibg=NONE
 
+
+
+" Plug 'sheerun/vim-polyglot'
+" 本插件是一系列插件的合集，具体设置项需要参见各自插件的文档
+" ================================================================================
+
+" markdown 语法高亮时，不隐藏标记符号
+let g:vim_markdown_conceal = 0
 
 
 " Plug 'luochen1990/rainbow'
@@ -105,6 +116,19 @@ let g:tagbar_sort = 0
 let g:tagbar_compact = 1
 
 
+" Plug 'sbdchd/neoformat'
+" ================================================================================
+
+let g:neoformat_enabled_python = ['autopep8', 'yapf', 'docformatter']
+
+" 默认格式化对齐
+let g:neoformat_basic_format_align = 1
+" 默认转换 tab 字符为空格
+let g:neoformat_basic_format_retab = 1
+" 默认去掉行尾空格
+let g:neoformat_basic_format_trim = 1
+
+
 " Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 " ================================================================================
 
@@ -135,6 +159,21 @@ let g:Lf_NormalMap = {
 	\ "BufTag":   [["<ESC>", ':exec g:Lf_py "bufTagExplManager.quit()"<cr>']],
 	\ "Function": [["<ESC>", ':exec g:Lf_py "functionExplManager.quit()"<cr>']],
 	\ }
+
+
+" Plug 'python-mode/python-mode', { 'branch': 'develop' }
+" ================================================================================
+
+" 设置默认使用 python3 支持
+" set exrc 选项，可以在项目目录下放置只针对该目录下生效的 vim 配置文件 `.exrc`
+let g:pymode_python = 'python3'
+
+let g:pymode_indent = 1
+let g:pymode_doc = 1
+let g:pymode_doc_bind = 'K'
+
+" 自动探测 python venv，当 shell 环境出于特定的 venv 时，打开 vim 会自动识别
+let g:pymode_virtualenv = 1
 
 
 
@@ -196,8 +235,9 @@ let g:ale_c_ccls_init_options = {
     \    'cacheDirectory': '~/.cache/ccls',
     \ }
 
-" 未指定的依然会使用全部可能的linter
+" 未明确指定 linter 的依然会使用全部可能的linter
 " 除非 let g:ale_linters_explicit = 1
+" 显示指定要使用的 linter
 let g:ale_linters = {
     \    'c': ['clangtidy', 'ccls', 'cppcheck'],
     \    'cpp': ['clangtidy', 'ccls', 'cppcheck'],

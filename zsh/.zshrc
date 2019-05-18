@@ -124,10 +124,16 @@ export EDITOR='vim'
 
 alias slk='ss-local -v -l 1080 `ss-quick -c ~/.vpn/shadowsocks/gui-config.json`'
 alias ta='tmux attach'
-alias py='source ~/PycharmProjects/venv/bin/activate'
+
+# virtualenv --python=/usr/bin/python2 ~/Pyvenv/venv2.7/
 alias py2='source ~/Pyvenv/venv2.7/bin/activate'
+# python3 -m venv ~/Pyvenv/venv3/
+alias py3='source ~/Pyvenv/venv3/bin/activate'
+
 alias smvn='cd ~/.vpn/smartx/ && sudo openvpn --config zouquan.smartx.ovpn'
+
 alias vim='nvim'
+alias vi='nvim'
 
 # 保证终端兼容性
 alias ssh='TERM=xterm-256color \ssh'

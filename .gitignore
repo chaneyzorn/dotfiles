@@ -1,5 +1,6 @@
 aria2/.aria2/aria2.session
 
+.netrwhist
 vim/.config/nvim/autoload
 vim/.config/nvim/cache
 vim/.config/nvim/plugged

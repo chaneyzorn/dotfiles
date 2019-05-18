@@ -2,9 +2,9 @@
 " vim 快捷键设定
 
 
-" 切换鼠标
+" <C-m> 切换鼠标
 noremap <C-m> :call mouse#ToggleMouse()<CR>
-" 消除高亮\重绘界面
+" <C-l> 消除高亮\重绘界面
 noremap <silent> <C-l> :noh<CR>:redraw<CR>
 
 " 顺手一点的窗口宽度调整
