@@ -175,6 +175,11 @@ let g:pymode_doc_bind = 'K'
 " 自动探测 python venv，当 shell 环境出于特定的 venv 时，打开 vim 会自动识别
 let g:pymode_virtualenv = 1
 
+" 开启项目支持
+let g:pymode_rope = 1
+" 跳转定义在垂直方向分割窗口
+let g:pymode_rope_goto_definition_cmd = 'vnew'
+
 
 
 " Plug 'ludovicchabant/vim-gutentags'
