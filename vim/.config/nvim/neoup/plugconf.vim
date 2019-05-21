@@ -111,6 +111,7 @@ let NERDTreeIgnore = ['\~$', '\.swp$', '\.pyc$']
 
 
 " Plug 'majutsushi/tagbar'
+" Plug 'liuchengxu/vista.vim'
 " ================================================================================
 let g:tagbar_sort = 0
 let g:tagbar_compact = 1

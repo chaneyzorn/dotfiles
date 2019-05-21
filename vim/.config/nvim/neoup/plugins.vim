@@ -35,6 +35,7 @@ Plug 'ryanoasis/vim-devicons'
 " 显示函数签名
 Plug 'Shougo/echodoc'
 " 侧栏显示文件结构大纲
+Plug 'liuchengxu/vista.vim'
 Plug 'majutsushi/tagbar'
 " 模糊搜索
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
