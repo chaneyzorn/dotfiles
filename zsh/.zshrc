@@ -113,6 +113,13 @@ export EDITOR='vim'
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+# ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
+# if [[ ! -d $ZSH_CACHE_DIR ]]; then
+#   mkdir $ZSH_CACHE_DIR
+# fi
+
+source $ZSH/oh-my-zsh.sh
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -121,6 +128,10 @@ export EDITOR='vim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias ls='lsd'
+alias la='ls -la'
+alias lt='ls --tree'
 
 alias slk='ss-local -v -l 1080 `ss-quick -c ~/.vpn/shadowsocks/gui-config.json`'
 alias ta='tmux attach'
@@ -138,9 +149,3 @@ alias vi='nvim'
 # 保证终端兼容性
 alias ssh='TERM=xterm-256color \ssh'
 
-# ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
-# if [[ ! -d $ZSH_CACHE_DIR ]]; then
-#   mkdir $ZSH_CACHE_DIR
-# fi
-
-source $ZSH/oh-my-zsh.sh
