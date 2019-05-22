@@ -148,7 +148,6 @@ let g:Lf_WildIgnore = {
 let g:Lf_MruMaxFiles = 2048
 let g:Lf_MruFileExclude = ['*.so', '*.exe', '*.py[co]', '*.sw?', '~$*', '*.bak', '*.tmp', '*.dll']
 
-let g:Lf_ShortcutF = '<C-p>'
 let g:Lf_ShortcutB = '<C-n>'
 let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
 
