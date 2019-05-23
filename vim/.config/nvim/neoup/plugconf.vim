@@ -96,7 +96,7 @@ let NERDTreeMinimalUI=1
 " 默认显示隐藏文件
 let NERDTreeShowHidden=1
 " 忽略以下类型文件
-let NERDTreeIgnore = ['\~$', '\.swp$', '\.pyc$']
+let NERDTreeIgnore = ['\~$', '\.swp$', '\.pyc$', '.git', '.idea', '.ropeproject']
 
 " 当只剩下 nerdtree 窗口时，退出vim
 " augroup nerdtree
@@ -143,7 +143,7 @@ let g:Lf_CacheDirectory = expand('~/.vim/cache')
 
 let g:Lf_RootMarkers = ['.root', '.svn', '.git', '.hg', '.vim', '.idea', '.project']
 let g:Lf_WildIgnore = {
-    \ 'dir': ['.svn','.git','.hg', 'build', 'debug'],
+    \ 'dir': ['.svn','.git','.hg', 'build', 'debug', '.idea', '.ropeproject'],
     \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
     \ }
 
@@ -184,6 +184,8 @@ let g:pymode_rope = 1
 " 跳转定义在垂直方向分割窗口
 let g:pymode_rope_goto_definition_cmd = 'vnew'
 
+" 关闭语法检查，使用 ale 的功能
+let g:pymode_lint = 0
 
 
 " Plug 'ludovicchabant/vim-gutentags'

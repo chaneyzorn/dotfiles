@@ -9,6 +9,8 @@ call plug#begin('~/.vim/plugged')
 Plug g:neohome.'/moetools'
 " 一组最通用的默认配置
 Plug 'tpope/vim-sensible'
+" 成对操作括号和引号等
+Plug 'tpope/vim-surround'
 " vim 启动第一屏
 Plug 'mhinz/vim-startify'
 " 增强的状态栏
@@ -26,6 +28,8 @@ Plug 'Yggdroot/indentLine'
 Plug 'mhinz/vim-signify'
 " 高亮光标下相同的单词
 Plug 'itchyny/vim-cursorword'
+" 多光标编辑操作
+Plug 'terryma/vim-multiple-cursors'
 " 快捷注释文本
 Plug 'scrooloose/nerdcommenter'
 " 显示目录树
@@ -45,6 +49,8 @@ Plug 'sbdchd/neoformat'
 Plug 'sheerun/vim-polyglot'
 " 为 python 提供 IDE 功能
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+" 自动排序 python import
+Plug 'fisadev/vim-isort', { 'for': 'python' }
 " 自动调用 ctags/gtags 为 c/c++ 源码生成tags数据，用于查看和跳转
 Plug 'ludovicchabant/vim-gutentags', { 'for': ['c', 'cpp'] }
 " 自动管理 gtags 对多个数据库的连接
