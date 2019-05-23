@@ -17,6 +17,8 @@ nnoremap <Leader>sv :source $MYVIMRC<CR>
 
 " 切换显示目录树
 noremap <silent> <Leader>h :NERDTreeToggle<CR>
+" 在目录树中定位到当前 buffer 文件
+noremap <silent> <Leader>rt :NERDTreeFind<CR>
 " 切换显示tag列表
 noremap <silent> <Leader>t :TagbarToggle<CR>
 " 切换显示代码缩进尺
