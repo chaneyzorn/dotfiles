@@ -65,6 +65,8 @@ let g:rainbow_conf = {
 " 默认不显示缩进线
 " let g:indentLine_enabled = 0
 
+" let g:indentLine_char = '┊'
+let g:indentLine_bufTypeExclude = ['help', 'terminal']
 
 
 " Plug 'scrooloose/nerdcommenter'

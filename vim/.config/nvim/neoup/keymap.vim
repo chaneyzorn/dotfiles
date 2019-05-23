@@ -31,7 +31,8 @@ inoremap <silent> <Leader>ss <Esc>:write<CR>
 noremap <C-f> :Leaderf rg<CR>
 
 " 快捷注释文本
-nmap <C-\> <Plug>NERDCommenterInvert
+" nmap <C-\> <Plug>NERDCommenterInvert
+nmap <leader>cc <Plug>NERDCommenterInvert
 " 注意 <Plug> 序列只在递归映射中有效
 
 " linter 跳转
