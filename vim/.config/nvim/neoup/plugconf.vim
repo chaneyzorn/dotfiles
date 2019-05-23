@@ -73,7 +73,8 @@ let g:indentLine_bufTypeExclude = ['help', 'terminal']
 " ================================================================================
 
 " 不使用默认的键位
-let g:NERDCreateDefaultMappings = 0
+" let g:NERDCreateDefaultMappings = 0
+
 " 空格间隔，比如 /* int foo=2; */
 let g:NERDSpaceDelims = 1
 let g:NERDRemoveExtraSpaces = 1
