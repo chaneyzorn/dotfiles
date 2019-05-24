@@ -171,6 +171,7 @@ let g:Lf_NormalMap = {
 " set exrc 选项，可以在项目目录下放置只针对该目录下生效的 vim 配置文件 `.exrc`
 let g:pymode_python = 'python3'
 
+let g:pymode_options_max_line_length = 120
 let g:pymode_indent = 1
 let g:pymode_doc = 1
 let g:pymode_doc_bind = 'K'

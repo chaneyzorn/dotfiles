@@ -62,7 +62,11 @@ confidence=
 # --disable=W".
 disable=C0111,
         C0103,
+        C0301,
+        W0511,
         W0703,
+        W1202,
+        R0201,
         R0902,
         R0913,
         print-statement,
