@@ -177,6 +177,8 @@ let g:pymode_doc_bind = 'K'
 
 " 自动探测 python venv，当 shell 环境出于特定的 venv 时，打开 vim 会自动识别
 let g:pymode_virtualenv = 1
+" 手动指定 python 虚拟环境
+let g:pymode_virtualenv_path = $VIRTUAL_ENV
 
 " 开启语法支持
 let g:pymode_syntax = 1

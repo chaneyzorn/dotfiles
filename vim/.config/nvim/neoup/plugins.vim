@@ -51,6 +51,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 " 自动排序 python import
 Plug 'fisadev/vim-isort', { 'for': 'python' }
+" 提供 golang 支持
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " 自动调用 ctags/gtags 为 c/c++ 源码生成tags数据，用于查看和跳转
 Plug 'ludovicchabant/vim-gutentags', { 'for': ['c', 'cpp'] }
 " 自动管理 gtags 对多个数据库的连接

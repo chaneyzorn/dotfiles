@@ -1,5 +1,6 @@
 " myconf.vim
 " vim 内置选项的自定义设定
+" 部分默认设定由 Plug 'tpope/vim-sensible' 指定
 
 " 自动检查并安装 vim-plug 包管理器
 if empty(glob('~/.vim/autoload/plug.vim'))
