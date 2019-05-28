@@ -1,8 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 if [ ! $MY_PATH ]; then
-    export GOPATH=$HOME/go/bin
+    export GOPATH=$HOME/go
     export MY_PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/.node_modules_global/bin
-    export PATH=$MY_PATH:$GOPATH:/usr/local/sbin:$PATH
+    export PATH=$MY_PATH:$GOPATH/bin:/usr/local/sbin:$PATH
 fi
 
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
