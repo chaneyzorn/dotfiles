@@ -13,6 +13,8 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 " vim 启动第一屏
 Plug 'mhinz/vim-startify'
+" 指示快捷键
+Plug 'liuchengxu/vim-which-key'
 " 增强的状态栏
 Plug 'vim-airline/vim-airline'
 " 状态栏主题包
