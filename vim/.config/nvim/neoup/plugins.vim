@@ -9,8 +9,6 @@ call plug#begin('~/.vim/plugged')
 Plug g:neohome.'/moetools'
 " 一组最通用的默认配置
 Plug 'tpope/vim-sensible'
-" 成对操作括号和引号等
-Plug 'tpope/vim-surround'
 " vim 启动第一屏
 Plug 'mhinz/vim-startify'
 " 指示快捷键
@@ -24,18 +22,27 @@ Plug 'liuchengxu/space-vim-dark'
 Plug 'joshdick/onedark.vim'
 " 彩虹显示匹配的括号
 Plug 'luochen1990/rainbow'
+" 补全成对括号
+Plug 'jiangmiao/auto-pairs'
+" 成对操作括号和引号等
+Plug 'tpope/vim-surround'
 " 显示缩进线
 Plug 'Yggdroot/indentLine'
 " 显示来自版本控制的修改状态
 Plug 'mhinz/vim-signify'
+" 集成 git 支持
+Plug 'tpope/vim-fugitive'
 " 高亮光标下相同的单词
 Plug 'itchyny/vim-cursorword'
 " 多光标编辑操作
+" Plug 'mg979/vim-visual-multi'
 Plug 'terryma/vim-multiple-cursors'
 " 快捷注释文本
 Plug 'scrooloose/nerdcommenter'
 " 显示目录树
 Plug 'scrooloose/nerdtree'
+" 文件管理器
+Plug 'mcchrish/nnn.vim'
 " 显示文件类型图标
 Plug 'ryanoasis/vim-devicons'
 " 显示函数签名
