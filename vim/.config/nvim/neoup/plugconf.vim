@@ -155,16 +155,15 @@ let g:Lf_WildIgnore = {
 let g:Lf_MruMaxFiles = 2048
 let g:Lf_MruFileExclude = ['*.so', '*.exe', '*.py[co]', '*.sw?', '~$*', '*.bak', '*.tmp', '*.dll']
 
-let g:Lf_ShortcutB = '<C-n>'
 let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
 
 let g:Lf_NormalMap = {
     \ "File":     [["<ESC>", ':exec g:Lf_py "fileExplManager.quit()"<CR>']],
-	\ "Buffer":   [["<ESC>", ':exec g:Lf_py "bufExplManager.quit()"<cr>']],
-	\ "Mru":      [["<ESC>", ':exec g:Lf_py "mruExplManager.quit()"<cr>']],
-	\ "Tag":      [["<ESC>", ':exec g:Lf_py "tagExplManager.quit()"<cr>']],
-	\ "BufTag":   [["<ESC>", ':exec g:Lf_py "bufTagExplManager.quit()"<cr>']],
-	\ "Function": [["<ESC>", ':exec g:Lf_py "functionExplManager.quit()"<cr>']],
+	\ "Buffer":   [["<ESC>", ':exec g:Lf_py "bufExplManager.quit()"<CR>']],
+	\ "Mru":      [["<ESC>", ':exec g:Lf_py "mruExplManager.quit()"<CR>']],
+	\ "Tag":      [["<ESC>", ':exec g:Lf_py "tagExplManager.quit()"<CR>']],
+	\ "BufTag":   [["<ESC>", ':exec g:Lf_py "bufTagExplManager.quit()"<CR>']],
+	\ "Function": [["<ESC>", ':exec g:Lf_py "functionExplManager.quit()"<CR>']],
 	\ }
 
 

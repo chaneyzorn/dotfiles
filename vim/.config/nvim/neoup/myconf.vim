@@ -12,6 +12,7 @@ endif
 " 设置 <Leader> 键
 " let g:mapleader = " "
 " let g:maplocaleader = ','
+set timeoutlen=500
 
 " 设置编码为 utf-8
 set encoding=utf-8
