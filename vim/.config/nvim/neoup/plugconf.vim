@@ -5,6 +5,14 @@
 " Plug 'liuchengxu/vim-which-key'
 " ================================================================================
 
+" 使用 neovim 浮动窗口展示快捷键提示
+" let g:which_key_use_floating_win = 1
+
+
+" Plug 'lambdalisue/suda.vim'
+" ================================================================================
+let g:suda_smart_edit = 1
+
 
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
@@ -70,6 +78,7 @@ let g:rainbow_conf = {
 " let g:indentLine_enabled = 0
 
 " let g:indentLine_char = '┊'
+" 以下类型的 buffer 里不显示缩进线
 let g:indentLine_bufTypeExclude = ['help', 'terminal']
 
 
@@ -164,35 +173,13 @@ let g:Lf_NormalMap = {
 	\ "Tag":      [["<ESC>", ':exec g:Lf_py "tagExplManager.quit()"<CR>']],
 	\ "BufTag":   [["<ESC>", ':exec g:Lf_py "bufTagExplManager.quit()"<CR>']],
 	\ "Function": [["<ESC>", ':exec g:Lf_py "functionExplManager.quit()"<CR>']],
+	\ "Rg":       [["<ESC>", ':exec g:Lf_py "rgExplManager.quit()"<CR>']],
 	\ }
 
 
-" Plug 'python-mode/python-mode', { 'branch': 'develop' }
+" Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 " ================================================================================
 
-" 设置默认使用 python3 支持
-" set exrc 选项，可以在项目目录下放置只针对该目录下生效的 vim 配置文件 `.exrc`
-let g:pymode_python = 'python3'
-
-let g:pymode_options_max_line_length = 120
-let g:pymode_indent = 1
-let g:pymode_doc = 1
-let g:pymode_doc_bind = 'K'
-
-" 自动探测 python venv，当 shell 环境出于特定的 venv 时，打开 vim 会自动识别
-let g:pymode_virtualenv = 1
-" 手动指定 python 虚拟环境
-let g:pymode_virtualenv_path = $VIRTUAL_ENV
-
-" 开启语法支持
-let g:pymode_syntax = 1
-" 开启项目支持
-let g:pymode_rope = 1
-" 跳转定义在垂直方向分割窗口
-let g:pymode_rope_goto_definition_cmd = 'vnew'
-
-" 关闭语法检查，使用 ale 的功能
-let g:pymode_lint = 0
 
 
 " Plug 'ludovicchabant/vim-gutentags'

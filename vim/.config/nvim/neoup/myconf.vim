@@ -21,7 +21,9 @@ set exrc secure
 " 使光标下方至少显示五行高度
 set scrolloff=5
 " 显示行号 高亮光标所在的行
-set nu cursorline
+set number cursorline
+" 显示相对行号
+" set relativenumber
 " 总是显示指示列
 set signcolumn=yes
 " Smaller updatetime for CursorHold & CursorHoldI & swapfile
@@ -34,6 +36,8 @@ set shiftround shiftwidth=4 tabstop=4 softtabstop=4
 set fillchars=vert:\│
 " 设置搜索高亮
 set hlsearch incsearch
+" 搜索大小写不敏感，除非包含大写字母
+set ignorecase smartcase
 
 " 设置背景颜色
 set background=dark
@@ -48,6 +52,12 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set noshowmode
 " 设置命令行高为2，提供足够的显示空间
 set cmdheight=2
+" vim 命令补全，提供类似 zsh 补全的可视待选项
+set wildmenu
+" 当文件被外部程序修改时，自动加载
+set autoread
+" 禁止折行
+set nowrap
 
 " don't give |ins-completion-menu| messages.
 set shortmess+=c

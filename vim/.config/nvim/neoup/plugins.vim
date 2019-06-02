@@ -11,6 +11,8 @@ Plug g:neohome.'/moetools'
 Plug 'tpope/vim-sensible'
 " vim 启动第一屏
 Plug 'mhinz/vim-startify'
+
+
 " 指示快捷键
 Plug 'liuchengxu/vim-which-key'
 " 增强的状态栏
@@ -20,6 +22,10 @@ Plug 'vim-airline/vim-airline-themes'
 " 颜色主题
 Plug 'liuchengxu/space-vim-dark'
 Plug 'joshdick/onedark.vim'
+" 显示文件类型图标
+Plug 'ryanoasis/vim-devicons'
+
+
 " 彩虹显示匹配的括号
 Plug 'luochen1990/rainbow'
 " 补全成对括号
@@ -28,49 +34,59 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 " 显示缩进线
 Plug 'Yggdroot/indentLine'
-" 显示来自版本控制的修改状态
-Plug 'mhinz/vim-signify'
-" 集成 git 支持
-Plug 'tpope/vim-fugitive'
 " 高亮光标下相同的单词
 Plug 'itchyny/vim-cursorword'
 " 多光标编辑操作
 " Plug 'mg979/vim-visual-multi'
 Plug 'terryma/vim-multiple-cursors'
-" 快捷注释文本
-Plug 'scrooloose/nerdcommenter'
+
+
+" 显示来自版本控制的修改状态
+Plug 'mhinz/vim-signify'
+" 集成 git 支持
+Plug 'tpope/vim-fugitive'
 " 显示目录树
 Plug 'scrooloose/nerdtree'
 " 文件管理器
 Plug 'mcchrish/nnn.vim'
-" 显示文件类型图标
-Plug 'ryanoasis/vim-devicons'
-" 显示函数签名
-Plug 'Shougo/echodoc'
 " 侧栏显示文件结构大纲
 Plug 'liuchengxu/vista.vim'
 Plug 'majutsushi/tagbar'
+
+" 提权保存文件
+Plug 'lambdalisue/suda.vim'
 " 模糊搜索
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 " 代码格式化
 Plug 'sbdchd/neoformat'
+" 快捷注释文本
+Plug 'scrooloose/nerdcommenter'
 " 全面而且统一的语法高亮和缩进
 Plug 'sheerun/vim-polyglot'
-" 为 python 提供 IDE 功能
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+" 显示函数签名
+Plug 'Shougo/echodoc'
+
+" 为 python 提供补全和跳转
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 " 自动排序 python import
 Plug 'fisadev/vim-isort', { 'for': 'python' }
+
+
 " 提供 golang 支持
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-" 自动调用 ctags/gtags 为 c/c++ 源码生成tags数据，用于查看和跳转
-Plug 'ludovicchabant/vim-gutentags', { 'for': ['c', 'cpp'] }
-" 自动管理 gtags 对多个数据库的连接
-Plug 'skywind3000/gutentags_plus'
+
+
 " 语法检查
 Plug 'w0rp/ale'
 " 自动补全, lsp-client
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': 'yarn install'}
 " Plug 'Valloric/YouCompleteMe'
+
+" 自动调用 ctags/gtags 为 c/c++ 源码生成tags数据，用于查看和跳转
+Plug 'ludovicchabant/vim-gutentags', { 'for': ['c', 'cpp'] }
+" 自动管理 gtags 对多个数据库的连接
+Plug 'skywind3000/gutentags_plus'
+
 
 call plug#end()
 

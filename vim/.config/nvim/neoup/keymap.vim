@@ -10,6 +10,7 @@ let g:which_key_map =  {
 " 显式绑定到 '\'，写成 <Leader> 无效
 call which_key#register('\', "g:which_key_map")
 
+" 绑定单独的 <Leader> 键作为 WhichKey 的快捷键
 nnoremap <silent> <Leader>      :<c-u>WhichKey '\'<CR>
 nnoremap <silent> <Localleader> :<c-u>WhichKey '\'<CR>
 vnoremap <silent> <leader>      :<c-u>WhichKeyVisual '\'<CR>
@@ -46,7 +47,14 @@ let g:which_key_map.w = {
 
 " Leaderf 的配置项
 let g:Lf_ShortcutF = '<Leader>ff' 
-noremap <C-f>        :Leaderf rg<CR>
+" 内容关键词搜索
+nnoremap <C-f>           :Leaderf rg<CR>
+nnoremap <Leader>fw      :Leaderf rg<CR>
+" 注意 <Plug> 不能使用在 noremap 中
+" 光标下单词搜索
+nmap <Leader>fc   <Plug>LeaderfRgBangCwordRegexBoundary<CR>
+" 可视化下被选中的内容搜索
+vmap <Leader>fc   <Plug>LeaderfRgBangVisualRegexNoBoundary<CR>
 
 " 快速保存
 nnoremap <silent> <Leader>fs    :update<CR>
@@ -55,7 +63,9 @@ inoremap <silent> <Leader>fs    <Esc>:update<CR>
 
 let g:which_key_map.f = {
     \ 'name' : '+files/search'      ,
-    \ 'f' :                         '查找文件'           ,
+    \ 'f' :                         '查找文件名'         ,
+    \ 'w' :                         '查找文件内容'       ,
+    \ 'c' :                         '查找光标下的单词'   ,
     \ 's' :                         '保存文件'           ,
     \ 't' : [':NERDTreeToggle'   ,  '切换显示目录树']    ,
     \ 'l' : [':NERDTreeFind'     ,  '在目录树中定位']    ,
@@ -81,12 +91,18 @@ let g:which_key_map.b = {
 noremap <silent> <Leader>vl          :noh<CR>:redraw<CR>
 " <C-m> 切换鼠标
 noremap <Leader>vm                   :call mouse#ToggleMouse()<CR>
+" 保存全部文件并退出
+noremap <Leader>vq                   :wa<CR>:q<CR>
+" 不做任何保存直接退出
+noremap <Leader>vQ                   :qa!<CR>
 
 let g:which_key_map.v = {
     \ 'name' : '+vim'            ,
-    \ 'm' :                         '切换鼠标'           ,
-    \ 'l' :                         '消除高亮&重绘界面'  ,
-    \ 'r' : [':source $MYVIMRC'  ,  '重新加载vimrc']     ,
+    \ 'm' :                         '切换鼠标'              ,
+    \ 'l' :                         '消除高亮&重绘界面'     ,
+    \ 'q' :                         '保存全部文件并退出'    ,
+    \ 'Q' :                         '不做任何保存直接退出'  ,
+    \ 'r' : [':source $MYVIMRC'  ,  '重新加载vimrc']        ,
     \ }
 
 " ======================================================================
