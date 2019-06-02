@@ -3,17 +3,31 @@
 
 " vim-which-key 插件配置
 " ======================================================================
-let g:which_key_map =  {
-    \ 'name' : 'Leader',
-    \ }
+let g:which_key_map = {}
+let g:which_key_map['name'] =  'Leader'
 
 " 显式绑定到 '\'，写成 <Leader> 无效
 call which_key#register('\', "g:which_key_map")
 
 " 绑定单独的 <Leader> 键作为 WhichKey 的快捷键
 nnoremap <silent> <Leader>      :<c-u>WhichKey '\'<CR>
-nnoremap <silent> <Localleader> :<c-u>WhichKey '\'<CR>
 vnoremap <silent> <leader>      :<c-u>WhichKeyVisual '\'<CR>
+nnoremap <silent> <Localleader> :<c-u>WhichKey '\'<CR>
+vnoremap <silent> <Localleader> :<c-u>WhichKeyVisual '\'<CR>
+
+
+" 快速选择 window | tab | buffer
+for s:i in range(1, 9)
+  " <Leader>w[1-9] 选择 window [1-9]
+  execute 'nnoremap <Leader>w'.s:i ' :'.s:i.'wincmd w<CR>'
+
+  " <Leader>t[1-9] 选择 tab [1-9]
+  execute 'nnoremap <Leader>t'.s:i s:i.'gt'
+
+  " <Leader>b[1-9] 选择 buffer [1-9]
+  execute 'nnoremap <Leader>b'.s:i ':b'.s:i.'<CR>'
+endfor
+unlet s:i
 
 
 " 定义窗口相关的快捷键
@@ -23,10 +37,13 @@ vnoremap <silent> <leader>      :<c-u>WhichKeyVisual '\'<CR>
 " 当 map 中的值是 字符串 时，表示为已有快捷键的说明
 
 
+
 let g:which_key_map.w = {
     \ 'name' : '+windows' ,
-    \ 'w' : ['<C-W>w'     , '切换窗口']          ,
-    \ 'c' : ['<C-W>c'     , '关闭窗口']          ,
+    \ 'w' : ['<C-W>w'     , '下一窗口']          ,
+    \ 'p' : ['<C-W>p'     , '上一窗口']          ,
+    \ 'n' : [':vnew'      , '新建窗口']          ,
+    \ 'c' : ['<C-W>c'     , '关闭当前窗口']      ,
     \ 'o' : ['<C-W>o'     , '关闭其他窗口']      ,
     \ 's' : ['<C-W>s'     , '水平分割窗口']      ,
     \ 'v' : ['<C-W>v'     , '垂直分割窗口']      ,
@@ -39,6 +56,56 @@ let g:which_key_map.w = {
     \ '=' : [':resize +5' , '向下扩大窗口']      ,
     \ '-' : [':resize -5' , '向上扩大窗口']      ,
     \ '/' : ['<C-W>='     , '令窗口平分长度']    ,
+    \ }
+
+
+" 定义 tab 相关的快捷键
+" ======================================================================
+let g:which_key_map.t = {
+    \ 'name': '+tab',
+    \ '1' :                  'tab-1'          ,
+    \ '2' :                  'tab-2'          ,
+    \ '3' :                  'tab-3'          ,
+    \ '4' :                  'tab-4'          ,
+    \ '5' :                  'tab-5'          ,
+    \ '6' :                  'tab-6'          ,
+    \ '7' :                  'tab-7'          ,
+    \ '8' :                  'tab-8'          ,
+    \ '9' :                  'tab-9'          ,
+    \ 'n' : ['tabnew'      , '打开新 tab' ]   ,
+    \ 'c' : ['tabclose'    , '关闭当前tab']   ,
+    \ 'o' : ['tabonly'     , '关闭其他tab']   ,
+    \ 't' : ['tabnext'     , '下一个tab' ]    ,
+    \ 'p' : ['tabprevious' , '上一个tab' ]    ,
+    \ 'f' : ['tabfirst'    , '第一个tab' ]    ,
+    \ 'l' : ['tablast'     , '最后一个tab' ]  ,
+    \ }
+
+
+" 定义 buffer 相关的快捷键
+" ======================================================================
+
+" Leaderf 的配置项
+let g:Lf_ShortcutB = '<Leader>bf' 
+
+let g:which_key_map.b = {
+    \ 'name' : '+buffers'      ,
+    \ '1' :                'buffer-1'         ,
+    \ '2' :                'buffer-2'         ,
+    \ '3' :                'buffer-3'         ,
+    \ '4' :                'buffer-4'         ,
+    \ '5' :                'buffer-5'         ,
+    \ '6' :                'buffer-6'         ,
+    \ '7' :                'buffer-7'         ,
+    \ '8' :                'buffer-8'         ,
+    \ '9' :                'buffer-9'         ,
+    \ 'f' :                '查找 buffer'      ,
+    \ 't' : ['bfirst'    , 'first-buffer']    ,
+    \ 'l' : ['blast'     , 'last-buffer']     ,
+    \ 'b' : ['bnext'     , 'next-buffer']     ,
+    \ 'p' : ['bprevious' , 'previous-buffer'] ,
+    \ 'd' : ['bdelete'   , 'delete-buffer']   ,
+    \ 'h' : ['Startify'  , 'home-buffer']     ,
     \ }
 
 
@@ -72,18 +139,6 @@ let g:which_key_map.f = {
     \ }
 
 
-" 定义 buffer 相关的快捷键
-" ======================================================================
-
-" Leaderf 的配置项
-let g:Lf_ShortcutB = '<Leader>bf' 
-
-let g:which_key_map.b = {
-    \ 'name' : '+buffers'      ,
-    \ 'f' :                         '查找 buffer'           ,
-    \ }
-
-
 " 定义 vim 控制的控制键
 " ======================================================================
 
@@ -104,8 +159,4 @@ let g:which_key_map.v = {
     \ 'Q' :                         '不做任何保存直接退出'  ,
     \ 'r' : [':source $MYVIMRC'  ,  '重新加载vimrc']        ,
     \ }
-
-" ======================================================================
-" 切换显示tag列表
-noremap <silent> <Leader>t      :TagbarToggle<CR>
 
