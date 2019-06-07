@@ -61,6 +61,7 @@ let g:which_key_map.w = {
 
 " 定义 tab 相关的快捷键
 " ======================================================================
+
 let g:which_key_map.t = {
     \ 'name': '+tab',
     \ '1' :                  'tab-1'          ,
@@ -86,7 +87,7 @@ let g:which_key_map.t = {
 " ======================================================================
 
 " Leaderf 的配置项
-let g:Lf_ShortcutB = '<Leader>bf' 
+let g:Lf_ShortcutB = '<Leader>bf'
 
 let g:which_key_map.b = {
     \ 'name' : '+buffers'      ,
@@ -113,7 +114,7 @@ let g:which_key_map.b = {
 " ======================================================================
 
 " Leaderf 的配置项
-let g:Lf_ShortcutF = '<Leader>ff' 
+let g:Lf_ShortcutF = '<Leader>ff'
 " 内容关键词搜索
 nnoremap <C-f>           :Leaderf rg<CR>
 nnoremap <Leader>fw      :Leaderf rg<CR>
@@ -136,6 +137,18 @@ let g:which_key_map.f = {
     \ 's' :                         '保存文件'           ,
     \ 't' : [':NERDTreeToggle'   ,  '切换显示目录树']    ,
     \ 'l' : [':NERDTreeFind'     ,  '在目录树中定位']    ,
+    \ }
+
+
+" 定义 git 相关的快捷键
+" ======================================================================
+
+nnoremap <Leader>gb  :<C-u>call gitblame#echo()<CR>
+
+let g:which_key_map.g = {
+    \ 'name' : '+files/search'      ,
+    \ 'b'  :                        'gitblame当前行'      ,
+    \ 'B'  : [':Gblame'         ,   'gitblame全文件']     ,
     \ }
 
 

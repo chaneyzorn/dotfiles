@@ -25,7 +25,8 @@ Plug 'joshdick/onedark.vim'
 " 显示文件类型图标
 Plug 'ryanoasis/vim-devicons'
 
-
+" 显示出尾部的无用空格
+Plug 'ntpeters/vim-better-whitespace'
 " 彩虹显示匹配的括号
 Plug 'luochen1990/rainbow'
 " 补全成对括号
@@ -44,6 +45,7 @@ Plug 'terryma/vim-multiple-cursors'
 " 显示来自版本控制的修改状态
 Plug 'mhinz/vim-signify'
 " 集成 git 支持
+Plug 'zivyangll/git-blame.vim'
 Plug 'tpope/vim-fugitive'
 " 显示目录树
 Plug 'scrooloose/nerdtree'
@@ -55,6 +57,9 @@ Plug 'majutsushi/tagbar'
 
 " 提权保存文件
 Plug 'lambdalisue/suda.vim'
+" 快速移动
+Plug 'justinmk/vim-sneak'
+Plug 'easymotion/vim-easymotion'
 " 模糊搜索
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 " 代码格式化

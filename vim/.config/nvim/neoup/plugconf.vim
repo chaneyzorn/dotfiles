@@ -60,14 +60,22 @@ highlight SignColumn ctermbg=NONE guibg=NONE
 let g:vim_markdown_conceal = 0
 
 
+" Plug 'ntpeters/vim-better-whitespace'
+" ================================================================================
+
+" 使用 g:better_whitespace_filetypes_blacklist 无效
+" https://github.com/ntpeters/vim-better-whitespace/issues/108
+au FileType help DisableWhitespace
+
+
 " Plug 'luochen1990/rainbow'
 " ================================================================================
 
 " 自动启用彩虹括号，设置为0以手动启用
 let g:rainbow_active = 1
 let g:rainbow_conf = {
-	\	'guifgs': ['tan', 'PaleGreen', 'SkyBlue', 'gold', 'orchid', 'goldenrod', 'orange'],
-	\}
+    \   'guifgs': ['tan', 'PaleGreen', 'SkyBlue', 'gold', 'orchid', 'goldenrod', 'orange'],
+    \ }
 
 
 
@@ -117,7 +125,7 @@ let NERDTreeIgnore = ['\~$', '\.swp$', '\.pyc$', '.git', '.idea', '.ropeproject'
 "     autocmd!
 "     autocmd bufenter * :call <SID>ExitLastNERDTree()
 " augroup end
-" 
+"
 " function! s:ExitLastNERDTree()
 "     if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree())
 "         execute "normal! :q\<cr>"
@@ -168,13 +176,13 @@ let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
 
 let g:Lf_NormalMap = {
     \ "File":     [["<ESC>", ':exec g:Lf_py "fileExplManager.quit()"<CR>']],
-	\ "Buffer":   [["<ESC>", ':exec g:Lf_py "bufExplManager.quit()"<CR>']],
-	\ "Mru":      [["<ESC>", ':exec g:Lf_py "mruExplManager.quit()"<CR>']],
-	\ "Tag":      [["<ESC>", ':exec g:Lf_py "tagExplManager.quit()"<CR>']],
-	\ "BufTag":   [["<ESC>", ':exec g:Lf_py "bufTagExplManager.quit()"<CR>']],
-	\ "Function": [["<ESC>", ':exec g:Lf_py "functionExplManager.quit()"<CR>']],
-	\ "Rg":       [["<ESC>", ':exec g:Lf_py "rgExplManager.quit()"<CR>']],
-	\ }
+    \ "Buffer":   [["<ESC>", ':exec g:Lf_py "bufExplManager.quit()"<CR>']],
+    \ "Mru":      [["<ESC>", ':exec g:Lf_py "mruExplManager.quit()"<CR>']],
+    \ "Tag":      [["<ESC>", ':exec g:Lf_py "tagExplManager.quit()"<CR>']],
+    \ "BufTag":   [["<ESC>", ':exec g:Lf_py "bufTagExplManager.quit()"<CR>']],
+    \ "Function": [["<ESC>", ':exec g:Lf_py "functionExplManager.quit()"<CR>']],
+    \ "Rg":       [["<ESC>", ':exec g:Lf_py "rgExplManager.quit()"<CR>']],
+    \ }
 
 
 " Plug 'davidhalter/jedi-vim', { 'for': 'python' }
@@ -256,7 +264,7 @@ let g:ale_python_pylint_use_msg_id = 1
 
 " Plug 'Valloric/YouCompleteMe'
 " ================================================================================
-" 
+"
 " let g:ycm_add_preview_to_completeopt = 0
 " let g:ycm_server_log_level = 'info'
 " let g:ycm_min_num_identifier_candidate_chars = 2
@@ -264,7 +272,7 @@ let g:ale_python_pylint_use_msg_id = 1
 " let g:ycm_complete_in_strings = 1
 " let g:ycm_confirm_extra_conf = 0
 " " let g:ycm_global_ycm_extra_conf = expand('~/.vim/ycm_extra_conf.py')
-" 
+"
 " let g:ycm_semantic_triggers =  {
 " \   'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
 " \   'cs,lua,javascript': ['re!\w{2}'],
@@ -274,6 +282,13 @@ let g:ale_python_pylint_use_msg_id = 1
 
 " Plug 'neoclide/coc.nvim', {'tag': '*', 'do': 'yarn install'}
 " ================================================================================
+
+call coc#add_extension(
+            \ 'coc-json', 'coc-vimlsp', 'coc-yaml',
+            \ 'coc-python', 'coc-lists', 'coc-marketplace',
+            \ 'coc-go'
+            \ )
+
 
 "  使用<TAB>键采纳补全结果
 inoremap <silent><expr> <TAB>
