@@ -1,8 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 if [ ! $MY_PATH ]; then
     export GOPATH=$HOME/go
-    export MY_PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/.node_modules_global/bin
-    export PATH=$MY_PATH:$GOPATH/bin:/usr/local/sbin:$PATH
+    export MY_PATH=$HOME/myutils/bin:$GOPATH/bin:$HOME/.cargo/bin:$HOME/.node_modules_global/bin
+    export PATH=$MY_PATH:$PATH
 fi
 
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
@@ -150,4 +150,9 @@ alias vi='nvim'
 
 # 保证终端兼容性
 alias ssh='TERM=xterm-256color \ssh'
+
+
+# nnn 终端文件管理器
+# 使用 $EDITOR 指定的编辑器
+export NNN_USE_EDITOR=1
 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 maim -s -u -b 3.5 -c 0.45,0.7,1,0.2 -l /tmp/main-screenshot.png
 if [ -f /tmp/main-screenshot.png ]; then
     xclip -selection c -t image/png /tmp/main-screenshot.png
