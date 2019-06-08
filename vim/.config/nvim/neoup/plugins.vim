@@ -4,7 +4,6 @@
 
 " 安装插件包到 plugged 目录
 call plug#begin('~/.vim/plugged')
-
 " 个人自定义的一些工具
 Plug g:neohome.'/moetools'
 " 一组最通用的默认配置
@@ -78,7 +77,7 @@ Plug 'fisadev/vim-isort', { 'for': 'python' }
 
 
 " 提供 golang 支持
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'golang' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
 
 
 " 语法检查

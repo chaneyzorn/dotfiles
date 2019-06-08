@@ -58,6 +58,7 @@ highlight SignColumn ctermbg=NONE guibg=NONE
 
 " markdown 语法高亮时，不隐藏标记符号
 let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
 
 
 " Plug 'ntpeters/vim-better-whitespace'
@@ -77,6 +78,12 @@ let g:rainbow_conf = {
     \   'guifgs': ['tan', 'PaleGreen', 'SkyBlue', 'gold', 'orchid', 'goldenrod', 'orange'],
     \ }
 
+
+" Plug 'jiangmiao/auto-pairs'
+" ================================================================================
+
+" 禁用自动回退匹配字符，在vimrc中常常误退掉注释符引号
+let g:AutoPairsMapBS = 0
 
 
 " Plug 'Yggdroot/indentLine'

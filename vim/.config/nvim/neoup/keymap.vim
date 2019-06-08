@@ -145,10 +145,23 @@ let g:which_key_map.f = {
 
 nnoremap <Leader>gb  :<C-u>call gitblame#echo()<CR>
 
+" jedi 快捷键配置
+" g:jedi#completions_command = <Ctrl-Space>
+" g:jedi#rename_command = '<Leader>gr'
+" g:jedi#goto_definitions_command = '<Leader>gd'  # Deprecated
+" g:jedi#documentation_command = '<K>'
+
+let g:jedi#goto_command = '<Leader>gg'
+let g:jedi#goto_assignments_command = '<Leader>gs'
+let g:jedi#usages_command = '<Leader>gu'
+
 let g:which_key_map.g = {
-    \ 'name' : '+files/search'      ,
-    \ 'b'  :                        'gitblame当前行'      ,
-    \ 'B'  : [':Gblame'         ,   'gitblame全文件']     ,
+    \ 'name' : '+git/goto'      ,
+    \ 'g'  :                        '跳转到定义或初见'      ,
+    \ 's'  :                        '跳转到第一次可见'      ,
+    \ 'u'  :                        '展示所有引用'          ,
+    \ 'b'  :                        'gitblame当前行'        ,
+    \ 'B'  : [':Gblame'         ,   'gitblame全文件']       ,
     \ }
 
 
