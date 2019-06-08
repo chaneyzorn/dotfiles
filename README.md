@@ -49,6 +49,8 @@ pacman -Qqet > pkglist.txt
 pacman -S --needed - < pkglist.txt
 ```
 
+更多信息请参见 [pacman archlinux wiki](https://wiki.archlinux.org/index.php/Pacman/Tips_and_tricks#Install_packages_from_a_list)
+
 ## License
 
 - MIT
