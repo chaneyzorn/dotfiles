@@ -118,7 +118,7 @@ let NERDTreeMinimalUI=1
 " 默认显示隐藏文件
 let NERDTreeShowHidden=1
 " 忽略以下类型文件
-let NERDTreeIgnore = ['\~$', '\.swp$', '\.pyc$', '.git', '.idea', '.ropeproject']
+let NERDTreeIgnore = ['\~$', '\.swp$', '\.pyc$', '.git$', '.idea', '.ropeproject']
 
 " 当只剩下 nerdtree 窗口时，退出vim
 " augroup nerdtree

@@ -78,7 +78,7 @@ Plug 'fisadev/vim-isort', { 'for': 'python' }
 
 
 " 提供 golang 支持
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'golang' }
 
 
 " 语法检查
