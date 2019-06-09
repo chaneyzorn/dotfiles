@@ -41,7 +41,8 @@ Plug 'itchyny/vim-cursorword'
 " Plug 'mg979/vim-visual-multi'
 Plug 'terryma/vim-multiple-cursors'
 
-
+" 支持 editorconfig
+Plug 'editorconfig/editorconfig-vim'
 " 显示来自版本控制的修改状态
 Plug 'mhinz/vim-signify'
 " 集成 git 支持
@@ -55,6 +56,8 @@ Plug 'mcchrish/nnn.vim'
 Plug 'liuchengxu/vista.vim'
 Plug 'majutsushi/tagbar'
 
+" 书签标记跳转
+Plug 'MattesGroeger/vim-bookmarks'
 " 提权保存文件
 Plug 'lambdalisue/suda.vim'
 " 快速移动
