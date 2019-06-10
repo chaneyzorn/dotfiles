@@ -140,7 +140,7 @@ let g:which_key_map.f = {
     \ }
 
 
-" 定义 git 相关的快捷键
+" 定义 git 和 跳转相关的快捷键
 " ======================================================================
 
 nnoremap <Leader>gb  :<C-u>call gitblame#echo()<CR>
@@ -155,8 +155,18 @@ let g:jedi#goto_command = '<Leader>gg'
 let g:jedi#goto_assignments_command = '<Leader>gs'
 let g:jedi#usages_command = '<Leader>gu'
 
+" ale 快捷键配置
+nmap <silent> <Leader>ge <Plug>(ale_next_wrap_error)
+nmap <silent> <Leader>gE <Plug>(ale_previous_wrap_error)
+nmap <silent> <Leader>gw <Plug>(ale_next_wrap)
+nmap <silent> <Leader>gW <Plug>(ale_previous_wrap)
+
 let g:which_key_map.g = {
     \ 'name' : '+git/goto'      ,
+    \ 'e'  :                        '跳转到下一个错误'      ,
+    \ 'E'  :                        '跳转到上一个错误'      ,
+    \ 'w'  :                        '跳转到下一个警告'      ,
+    \ 'W'  :                        '跳转到上一个警告'      ,
     \ 'g'  :                        '跳转到定义或初见'      ,
     \ 's'  :                        '跳转到第一次可见'      ,
     \ 'u'  :                        '展示所有引用'          ,

@@ -40,6 +40,8 @@ Plug 'itchyny/vim-cursorword'
 " 多光标编辑操作
 " Plug 'mg979/vim-visual-multi'
 Plug 'terryma/vim-multiple-cursors'
+" 管理 fcitx 状态
+Plug 'lilydjwg/fcitx.vim'
 
 " 支持 editorconfig
 Plug 'editorconfig/editorconfig-vim'
