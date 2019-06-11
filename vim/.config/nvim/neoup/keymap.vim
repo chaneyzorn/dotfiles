@@ -129,11 +129,15 @@ nnoremap <silent> <Leader>fs    :update<CR>
 vnoremap <silent> <Leader>fs    <Esc>:update<CR>
 inoremap <silent> <Leader>fs    <Esc>:update<CR>
 
+" 重新加载文件
+nnoremap <silent> <Leader>fr    :edit<CR>
+
 let g:which_key_map.f = {
     \ 'name' : '+files/search'      ,
     \ 'f' :                         '查找文件名'         ,
     \ 'w' :                         '查找文件内容'       ,
     \ 'c' :                         '查找光标下的单词'   ,
+    \ 'r' :                         '重新加载文件'       ,
     \ 's' :                         '保存文件'           ,
     \ 't' : [':NERDTreeToggle'   ,  '切换显示目录树']    ,
     \ 'l' : [':NERDTreeFind'     ,  '在目录树中定位']    ,
