@@ -36,7 +36,8 @@ Plug 'tpope/vim-surround'
 " 显示缩进线
 Plug 'Yggdroot/indentLine'
 " 高亮光标下相同的单词
-Plug 'itchyny/vim-cursorword'
+" Plug 'itchyny/vim-cursorword'
+Plug 'RRethy/vim-illuminate'
 " 多光标编辑操作
 " Plug 'mg979/vim-visual-multi'
 Plug 'terryma/vim-multiple-cursors'

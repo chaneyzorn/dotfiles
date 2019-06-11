@@ -52,6 +52,18 @@ highlight SignColumn ctermbg=NONE guibg=NONE
 
 
 
+" Plug 'RRethy/vim-illuminate'
+" ================================================================================
+
+" 使用下划线标记光标下相同的单词
+hi illuminatedWord cterm=underline gui=underline
+
+" 设置高亮单词延时
+let g:Illuminate_delay = 50
+" 设置在部分 buffer 中不做高亮
+let g:Illuminate_ftblacklist = ['nerdtree', 'qf', 'leaderf', 'help']
+
+
 " Plug 'sheerun/vim-polyglot'
 " 本插件是一系列语法高亮插件的合集，具体设置项需要参见各自插件的文档
 " ================================================================================
