@@ -160,6 +160,7 @@ let g:jedi#goto_assignments_command = '<Leader>gs'
 let g:jedi#usages_command = '<Leader>gu'
 
 " ale 快捷键配置
+nnoremap      <Leader>gl :ALELint<CR>
 nmap <silent> <Leader>ge <Plug>(ale_next_wrap_error)
 nmap <silent> <Leader>gE <Plug>(ale_previous_wrap_error)
 nmap <silent> <Leader>gw <Plug>(ale_next_wrap)
@@ -167,6 +168,7 @@ nmap <silent> <Leader>gW <Plug>(ale_previous_wrap)
 
 let g:which_key_map.g = {
     \ 'name' : '+git/goto'      ,
+    \ 'l'  :                        '生成lint信息'          ,
     \ 'e'  :                        '跳转到下一个错误'      ,
     \ 'E'  :                        '跳转到上一个错误'      ,
     \ 'w'  :                        '跳转到下一个警告'      ,
