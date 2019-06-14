@@ -31,24 +31,17 @@ let g:airline#extensions#ale#enabled = 1
 
 
 
-" Plug 'liuchengxu/space-vim-dark'
-" Plug 'joshdick/onedark.vim'
+" Plug 'liuchengxu/space-vim-theme'
 " ================================================================================
 
-" 使用 space-vim-dark 色彩方案
-colorscheme space-vim-dark
-" colorscheme onedark
+" 使用 space-vim-theme 色彩方案
+let g:space_vim_italic = 1
+let g:space_vim_italicize_strings = 1
+let g:space_vim_plugin_hi_groups = 1
+let g:space_vim_transp_bg = 1
 
-" 不显示空白行的~
-let g:onedark_hide_endofbuffer = 1
-" 设置背景色深度
-let g:space_vim_dark_background = 235
-" 设置注释使用斜体，使背景色透明
-let g:onedark_terminal_italics = 1
-highlight Comment    cterm=italic guifg=#00688B ctermfg=59
-highlight Normal     ctermbg=NONE guibg=NONE
-highlight LineNr     ctermbg=NONE guibg=NONE
-highlight SignColumn ctermbg=NONE guibg=NONE
+colorscheme space_vim_theme
+highlight Comment    guifg=#00688B ctermfg=59
 
 
 

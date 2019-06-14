@@ -20,7 +20,7 @@ Plug 'vim-airline/vim-airline'
 " 状态栏主题包
 Plug 'vim-airline/vim-airline-themes'
 " 颜色主题
-Plug 'liuchengxu/space-vim-dark'
+Plug 'liuchengxu/space-vim-theme'
 Plug 'joshdick/onedark.vim'
 " 显示文件类型图标
 Plug 'ryanoasis/vim-devicons'
