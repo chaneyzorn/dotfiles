@@ -36,13 +36,14 @@ let g:airline#extensions#ale#enabled = 1
 
 " 使用 space-vim-theme 色彩方案
 let g:space_vim_italic = 1
-let g:space_vim_italicize_strings = 1
+let g:space_vim_italicize_strings = 0
 let g:space_vim_plugin_hi_groups = 1
 let g:space_vim_transp_bg = 1
 
 colorscheme space_vim_theme
 highlight Comment    guifg=#00688B ctermfg=59
-
+hi WildMenu ctermfg=173 ctermbg=234 guifg=#e18254 guibg=#212026 guisp=NONE cterm=NONE,bold gui=NONE,bold
+hi StatusLine ctermfg=60 ctermbg=189 guifg= guibg=#d3d3e7 guisp=NONE cterm=NONE gui=NONE
 
 
 " Plug 'RRethy/vim-illuminate'
@@ -94,8 +95,9 @@ let g:AutoPairsMapBS = 0
 " Plug 'Yggdroot/indentLine'
 " ================================================================================
 
-" 默认不显示缩进线
-" let g:indentLine_enabled = 0
+" 缩进线颜色
+let g:indentLine_color_term = 239
+let g:indentLine_color_gui = '#626262'
 
 " let g:indentLine_char = '┊'
 " 以下类型的 buffer 里不显示缩进线
