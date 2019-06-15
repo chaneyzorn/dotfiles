@@ -41,9 +41,10 @@ let g:space_vim_plugin_hi_groups = 1
 let g:space_vim_transp_bg = 1
 
 colorscheme space_vim_theme
+
 highlight Comment    guifg=#00688B ctermfg=59
-hi WildMenu ctermfg=173 ctermbg=234 guifg=#e18254 guibg=#212026 guisp=NONE cterm=NONE,bold gui=NONE,bold
-hi StatusLine ctermfg=60 ctermbg=189 guifg= guibg=#d3d3e7 guisp=NONE cterm=NONE gui=NONE
+hi WildMenu ctermfg=172 ctermbg=238 guifg=#d78700 guibg=#444444 guisp=NONE cterm=NONE,bold gui=NONE,bold
+hi StatusLine ctermfg=173 ctermbg=233 guifg=#e18254 guibg=#262626 guisp=NONE cterm=NONE gui=NONE
 
 
 " Plug 'RRethy/vim-illuminate'
