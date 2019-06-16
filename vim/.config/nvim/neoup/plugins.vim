@@ -43,6 +43,8 @@ Plug 'RRethy/vim-illuminate'
 Plug 'terryma/vim-multiple-cursors'
 " 管理 fcitx 状态
 Plug 'lilydjwg/fcitx.vim'
+" 翻译插件
+Plug 'voldikss/vim-translate-me'
 
 " 支持 editorconfig
 Plug 'editorconfig/editorconfig-vim'

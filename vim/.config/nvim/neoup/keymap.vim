@@ -59,11 +59,19 @@ let g:which_key_map.w = {
     \ }
 
 
-" 定义 tab 相关的快捷键
+" 定义 tab、翻译 相关的快捷键
 " ======================================================================
 
+" 翻译光标下的文本，在命令行回显翻译内容
+nmap <silent> <Leader>tw <Plug>Translate
+vmap <silent> <Leader>tw <Plug>TranslateV
+" 翻译光标下的文本，在窗口中显示翻译内容
+nmap <silent> <Leader>ts <Plug>TranslateW
+vmap <silent> <Leader>ts <Plug>TranslateWV
+nmap <silent> <Leader>th <Plug>TranslateF
+
 let g:which_key_map.t = {
-    \ 'name': '+tab',
+    \ 'name': '+tab/translate',
     \ '1' :                  'tab-1'          ,
     \ '2' :                  'tab-2'          ,
     \ '3' :                  'tab-3'          ,
@@ -80,6 +88,9 @@ let g:which_key_map.t = {
     \ 'p' : ['tabprevious' , '上一个tab' ]    ,
     \ 'f' : ['tabfirst'    , '第一个tab' ]    ,
     \ 'l' : ['tablast'     , '最后一个tab' ]  ,
+    \ 'w' :                  '翻译单词'       ,
+    \ 's' :                  '展示翻译'       ,
+    \ 'h' :                  '翻译历史记录'   ,
     \ }
 
 
