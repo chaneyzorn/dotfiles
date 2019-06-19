@@ -1,12 +1,18 @@
 # If you come from bash you might have to change your $PATH.
-if [ ! $MY_PATH ]; then
-    export GOPATH=$HOME/go
-    export MY_PATH=$HOME/myutils/bin:$GOPATH/bin:$HOME/.cargo/bin:$HOME/.node_modules_global/bin
-    export PATH=$MY_PATH:$PATH
-    if which ruby >/dev/null && which gem >/dev/null; then
-        export PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
-    fi
+if [ ! $BASE_PATH ]; then
+    export BASE_PATH=$PATH
 fi
+
+export GOPATH=$HOME/go
+
+GO_BIN=$GOPATH/bin
+MY_BIN=$HOME/myutils/bin
+RUST_BIN=$HOME/cargo/bin
+NODE_BIN=$HOME/.node_modules_global/bin
+RUBY_BIN=$(ruby -r rubygems -e 'puts Gem.user_dir')/bin
+MY_PATH=$MY_BIN:$GO_BIN:$RUST_BIN:$NODE_BIN:$RUBY_BIN
+
+export PATH=$MY_PATH:$BASE_PATH
 
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
