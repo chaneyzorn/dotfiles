@@ -56,7 +56,7 @@ hi illuminatedWord cterm=underline gui=underline
 " 设置高亮单词延时
 let g:Illuminate_delay = 50
 " 设置在部分 buffer 中不做高亮
-let g:Illuminate_ftblacklist = ['nerdtree', 'qf', 'leaderf', 'help']
+let g:Illuminate_ftblacklist = ['nerdtree', 'qf', 'leaderf', 'help', 'list']
 
 
 " Plug 'sheerun/vim-polyglot'
@@ -66,6 +66,9 @@ let g:Illuminate_ftblacklist = ['nerdtree', 'qf', 'leaderf', 'help']
 " markdown 语法高亮时，不隐藏标记符号
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
+
+" 禁用空格警告，因为它会在插入模式也高亮, 我们使用 vim-better-whitespace
+let g:python_highlight_space_errors = 0
 
 
 " Plug 'ntpeters/vim-better-whitespace'
@@ -102,7 +105,7 @@ let g:indentLine_color_gui = '#626262'
 
 " let g:indentLine_char = '┊'
 " 以下类型的 buffer 里不显示缩进线
-let g:indentLine_bufTypeExclude = ['help', 'terminal']
+let g:indentLine_bufTypeExclude = ['help', 'terminal', 'list', 'qf']
 
 
 " Plug 'ervandew/supertab'
@@ -220,6 +223,10 @@ let g:Lf_NormalMap = {
 " Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 " ================================================================================
 
+" 使用 coc 的补全
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#completions_enabled = 0
+
 
 
 " Plug 'ludovicchabant/vim-gutentags'
@@ -321,11 +328,5 @@ call coc#add_extension(
             \ 'coc-go'
             \ )
 
-inoremap <silent><expr> <c-space> coc#refresh()
-
-nnoremap <silent> gd <Plug>(coc-definition)
-nnoremap <silent> gy <Plug>(coc-type-definition)
-nnoremap <silent> gi <Plug>(coc-implementation)
-nnoremap <silent> gr <Plug>(coc-references)
 
 " end plugconf

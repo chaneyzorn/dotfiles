@@ -160,15 +160,12 @@ let g:which_key_map.f = {
 
 nnoremap <Leader>gb  :<C-u>call gitblame#echo()<CR>
 
-" jedi 快捷键配置
-" g:jedi#completions_command = <Ctrl-Space>
-" g:jedi#rename_command = '<Leader>gr'
-" g:jedi#goto_definitions_command = '<Leader>gd'  # Deprecated
-" g:jedi#documentation_command = '<K>'
-
-let g:jedi#goto_command = '<Leader>gg'
-let g:jedi#goto_assignments_command = '<Leader>gs'
-let g:jedi#usages_command = '<Leader>gu'
+" coc 快捷键配置
+nmap <silent> <Leader>gg <Plug>(coc-definition)
+nmap <silent> <Leader>gs <Plug>(coc-declaration)
+nmap <silent> <Leader>gt <Plug>(coc-type-definition)
+nmap <silent> <Leader>gi <Plug>(coc-implementation)
+nmap <silent> <Leader>gr <Plug>(coc-references)
 
 " ale 快捷键配置
 nnoremap      <Leader>gl :ALELint<CR>
@@ -184,12 +181,46 @@ let g:which_key_map.g = {
     \ 'E'  :                        '跳转到上一个错误'      ,
     \ 'w'  :                        '跳转到下一个警告'      ,
     \ 'W'  :                        '跳转到上一个警告'      ,
-    \ 'g'  :                        '跳转到定义或初见'      ,
-    \ 's'  :                        '跳转到第一次可见'      ,
-    \ 'u'  :                        '展示所有引用'          ,
+    \ 'g'  :                        '跳转到定义'            ,
+    \ 's'  :                        '跳转到申明'            ,
+    \ 't'  :                        '跳转到类型'            ,
+    \ 'i'  :                        '跳转到实现'            ,
+    \ 'r'  :                        '展示所有引用'          ,
     \ 'b'  :                        'gitblame当前行'        ,
     \ 'B'  : [':Gblame'         ,   'gitblame全文件']       ,
     \ }
+
+" 定义 python 快捷键
+" ======================================================================
+" 安装 python 的 language server
+" pip install 'python-language-server[all]'
+
+" jedi 快捷键配置，速度比 coc 快
+" let g:jedi#completions_command = <Ctrl-Space>
+" let g:jedi#rename_command = '<Leader>gr'
+" let g:jedi#goto_definitions_command = '<Leader>gd'  # Deprecated
+" let g:jedi#documentation_command = '<K>'
+let g:jedi#goto_command = '<Leader>pd'
+let g:jedi#goto_assignments_command = '<Leader>ps'
+let g:jedi#usages_command = '<Leader>pu'
+
+let g:which_key_map.p = {
+    \ 'name' : '+python'        ,
+    \ 'd'  :                        '跳转到定义或初见'      ,
+    \ 's'  :                        '跳转到第一次可见'      ,
+    \ 'u'  :                        '展示所有引用'          ,
+    \ }
+
+
+
+
+" 定义 coding 快捷键
+" ======================================================================
+
+nmap <silent> <Leader>cf <Plug>(coc-format)
+vmap <silent> <Leader>cf <Plug>(coc-format-selected)
+
+inoremap <silent><expr> <c-space> coc#refresh()
 
 
 " 定义 vim 控制的控制键

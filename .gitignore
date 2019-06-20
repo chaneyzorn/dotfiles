@@ -5,4 +5,5 @@ vim/.config/nvim/autoload
 vim/.config/nvim/cache
 vim/.config/nvim/plugged
 vim/.config/nvim/swap
+vim/.config/nvim/sessions/default.vim
 
