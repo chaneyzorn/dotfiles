@@ -105,6 +105,11 @@ let g:indentLine_color_gui = '#626262'
 let g:indentLine_bufTypeExclude = ['help', 'terminal']
 
 
+" Plug 'ervandew/supertab'
+" ================================================================================
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
+
 " Plug 'scrooloose/nerdcommenter'
 " ================================================================================
 
@@ -315,19 +320,6 @@ call coc#add_extension(
             \ 'coc-python', 'coc-lists', 'coc-marketplace',
             \ 'coc-go'
             \ )
-
-
-"  使用<TAB>键采纳补全结果
-inoremap <silent><expr> <TAB>
-    \ pumvisible() ? "\<C-n>" :
-    \ <SID>check_back_space() ? "\<TAB>" :
-    \ coc#refresh()
-inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
 
 inoremap <silent><expr> <c-space> coc#refresh()
 

@@ -61,6 +61,8 @@ Plug 'mcchrish/nnn.vim'
 Plug 'liuchengxu/vista.vim'
 Plug 'majutsushi/tagbar'
 
+" 在所有的补全列表中使用 <tag> 导航
+Plug 'ervandew/supertab'
 " 书签标记跳转
 Plug 'MattesGroeger/vim-bookmarks'
 " 提权保存文件
@@ -80,7 +82,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'Shougo/echodoc'
 
 " 为 python 提供补全和跳转
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+" Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 " 自动排序 python import
 Plug 'fisadev/vim-isort', { 'for': 'python' }
 

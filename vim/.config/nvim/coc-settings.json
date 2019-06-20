@@ -6,6 +6,7 @@
             "filetypes": ["go"]
         }
     },
-    "python.linting.enabled": false
+    "python.linting.enabled": false,
+    "python.jediEnabled": true
 }
 
