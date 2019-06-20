@@ -24,6 +24,8 @@ fcitx-configtool
 fcitx-gtk2
 fcitx-gtk3
 fcitx-sogoupinyin
+frpc
+frps
 git-review
 global
 gnome-mpv
