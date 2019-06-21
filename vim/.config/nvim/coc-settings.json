@@ -62,7 +62,7 @@
                             "enabled": false
                         },
                         "pycodestyle": {
-                            "enabled": true
+                            "enabled": false
                         },
                         "pyflakes": {
                             "enabled": true
@@ -79,5 +79,9 @@
         }
     },
     "python.linting.enabled": false,
+    "python.jediEnabled": false,
+    "python.pythonPath": "python",
+    "python.venvPath": "~/Pyvenv",
+    "python.venvFolders": ["Pyvenv"],
     "suggest.acceptSuggestionOnCommitCharacter": false
 }

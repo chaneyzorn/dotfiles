@@ -85,7 +85,7 @@ au FileType help DisableWhitespace
 " 自动启用彩虹括号，设置为0以手动启用
 let g:rainbow_active = 1
 let g:rainbow_conf = {
-    \   'guifgs': ['tan', 'PaleGreen', 'SkyBlue', 'gold', 'orchid', 'goldenrod', 'orange'],
+    \   'guifgs': ['tan', 'PaleGreen', 'SkyBlue', 'gold', 'orchid', 'orange', 'fuchia', 'ivory'],
     \ }
 
 
