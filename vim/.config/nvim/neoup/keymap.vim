@@ -190,29 +190,6 @@ let g:which_key_map.g = {
     \ 'B'  : [':Gblame'         ,   'gitblame全文件']       ,
     \ }
 
-" 定义 python 快捷键
-" ======================================================================
-" 安装 python 的 language server
-" pip install 'python-language-server[all]'
-
-" jedi 快捷键配置，速度比 coc 快
-" let g:jedi#completions_command = <Ctrl-Space>
-" let g:jedi#rename_command = '<Leader>gr'
-" let g:jedi#goto_definitions_command = '<Leader>gd'  # Deprecated
-" let g:jedi#documentation_command = '<K>'
-let g:jedi#goto_command = '<Leader>pd'
-let g:jedi#goto_assignments_command = '<Leader>ps'
-let g:jedi#usages_command = '<Leader>pu'
-
-let g:which_key_map.p = {
-    \ 'name' : '+python'        ,
-    \ 'd'  :                        '跳转到定义或初见'      ,
-    \ 's'  :                        '跳转到第一次可见'      ,
-    \ 'u'  :                        '展示所有引用'          ,
-    \ }
-
-
-
 
 " 定义 coding 快捷键
 " ======================================================================

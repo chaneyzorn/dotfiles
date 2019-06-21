@@ -79,7 +79,7 @@
         }
     },
     "python.linting.enabled": false,
-    "python.jediEnabled": false,
+    "python.jediEnabled": true,
     "python.pythonPath": "python",
     "python.venvPath": "~/Pyvenv",
     "python.venvFolders": ["Pyvenv"],
