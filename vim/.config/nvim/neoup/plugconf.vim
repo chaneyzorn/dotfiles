@@ -56,7 +56,7 @@ hi illuminatedWord cterm=underline gui=underline
 " 设置高亮单词延时
 let g:Illuminate_delay = 50
 " 设置在部分 buffer 中不做高亮
-let g:Illuminate_ftblacklist = ['nerdtree', 'qf', 'leaderf', 'help', 'list']
+let g:Illuminate_ftblacklist = ['nerdtree', 'qf', 'leaderf', 'help', 'list', 'vista']
 
 
 " Plug 'sheerun/vim-polyglot'
@@ -117,7 +117,7 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 " ================================================================================
 
 " 不使用默认的键位
-let g:NERDCreateDefaultMappings = 0
+" let g:NERDCreateDefaultMappings = 0
 
 " 空格间隔，比如 /* int foo=2; */
 let g:NERDSpaceDelims = 1
@@ -172,6 +172,7 @@ let NERDTreeIgnore = ['\~$', '\.swp$', '\.pyc$', '.git$', '.idea', '.ropeproject
 " Plug 'liuchengxu/vista.vim'
 " ================================================================================
 
+let g:vista_cursor_delay = 0
 
 " Plug 'sbdchd/neoformat'
 " ================================================================================
