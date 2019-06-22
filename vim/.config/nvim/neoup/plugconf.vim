@@ -117,7 +117,7 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 " ================================================================================
 
 " 不使用默认的键位
-" let g:NERDCreateDefaultMappings = 0
+let g:NERDCreateDefaultMappings = 0
 
 " 空格间隔，比如 /* int foo=2; */
 let g:NERDSpaceDelims = 1
@@ -169,11 +169,8 @@ let NERDTreeIgnore = ['\~$', '\.swp$', '\.pyc$', '.git$', '.idea', '.ropeproject
 
 
 
-" Plug 'majutsushi/tagbar'
 " Plug 'liuchengxu/vista.vim'
 " ================================================================================
-let g:tagbar_sort = 0
-let g:tagbar_compact = 1
 
 
 " Plug 'sbdchd/neoformat'

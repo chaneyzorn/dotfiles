@@ -36,7 +36,6 @@ Plug 'tpope/vim-surround'
 " 显示缩进线
 Plug 'Yggdroot/indentLine'
 " 高亮光标下相同的单词
-" Plug 'itchyny/vim-cursorword'
 Plug 'RRethy/vim-illuminate'
 " 多光标编辑操作
 " Plug 'mg979/vim-visual-multi'
@@ -55,11 +54,8 @@ Plug 'zivyangll/git-blame.vim'
 Plug 'tpope/vim-fugitive'
 " 显示目录树
 Plug 'scrooloose/nerdtree'
-" 文件管理器
-Plug 'mcchrish/nnn.vim'
 " 侧栏显示文件结构大纲
 Plug 'liuchengxu/vista.vim'
-Plug 'majutsushi/tagbar'
 
 " 在所有的补全列表中使用 <tag> 导航
 Plug 'ervandew/supertab'

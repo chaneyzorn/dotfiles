@@ -70,8 +70,11 @@ nmap <silent> <Leader>ts <Plug>TranslateW
 vmap <silent> <Leader>ts <Plug>TranslateWV
 nmap <silent> <Leader>th <Plug>TranslateF
 
+" vista 快捷键配置
+nnoremap <silent> <Leader>tb :Vista!!<CR>
+
 let g:which_key_map.t = {
-    \ 'name': '+tab/translate',
+    \ 'name': '+tab/translate/tags',
     \ '1' :                  'tab-1'          ,
     \ '2' :                  'tab-2'          ,
     \ '3' :                  'tab-3'          ,
@@ -91,6 +94,7 @@ let g:which_key_map.t = {
     \ 'w' :                  '翻译单词'       ,
     \ 's' :                  '展示翻译'       ,
     \ 'h' :                  '翻译历史记录'   ,
+    \ 'b' :                  '切换大纲展示'   ,
     \ }
 
 
@@ -139,6 +143,9 @@ vmap <Leader>fc   <Plug>LeaderfRgBangVisualRegexNoBoundary<CR>
 nnoremap <silent> <Leader>fs    :update<CR>
 vnoremap <silent> <Leader>fs    <Esc>:update<CR>
 inoremap <silent> <Leader>fs    <Esc>:update<CR>
+nnoremap <silent> <C-s>         :update<CR>
+vnoremap <silent> <C-s>         <Esc>:update<CR>
+inoremap <silent> <C-s>         <Esc>:update<CR>
 
 " 重新加载文件
 nnoremap <silent> <Leader>fr    :edit<CR>
@@ -160,7 +167,7 @@ let g:which_key_map.f = {
 
 nnoremap <Leader>gb  :<C-u>call gitblame#echo()<CR>
 
-" coc 快捷键配置
+" coc 快捷键配置, 代码跳转
 nmap <silent> <Leader>gg <Plug>(coc-definition)
 nmap <silent> <Leader>gs <Plug>(coc-declaration)
 nmap <silent> <Leader>gt <Plug>(coc-type-definition)
@@ -176,28 +183,87 @@ nmap <silent> <Leader>gW <Plug>(ale_previous_wrap)
 
 let g:which_key_map.g = {
     \ 'name' : '+git/goto'      ,
-    \ 'l'  :                        '生成lint信息'          ,
-    \ 'e'  :                        '跳转到下一个错误'      ,
-    \ 'E'  :                        '跳转到上一个错误'      ,
-    \ 'w'  :                        '跳转到下一个警告'      ,
-    \ 'W'  :                        '跳转到上一个警告'      ,
-    \ 'g'  :                        '跳转到定义'            ,
-    \ 's'  :                        '跳转到申明'            ,
-    \ 't'  :                        '跳转到类型'            ,
-    \ 'i'  :                        '跳转到实现'            ,
-    \ 'r'  :                        '展示所有引用'          ,
-    \ 'b'  :                        'gitblame当前行'        ,
-    \ 'B'  : [':Gblame'         ,   'gitblame全文件']       ,
+    \ 'l' :                        '生成lint信息'          ,
+    \ 'e' :                        '跳转到下一个错误'      ,
+    \ 'E' :                        '跳转到上一个错误'      ,
+    \ 'w' :                        '跳转到下一个警告'      ,
+    \ 'W' :                        '跳转到上一个警告'      ,
+    \ 'g' :                        '跳转到定义'            ,
+    \ 's' :                        '跳转到申明'            ,
+    \ 't' :                        '跳转到类型'            ,
+    \ 'i' :                        '跳转到实现'            ,
+    \ 'r' :                        '展示所有引用'          ,
+    \ 'b' :                        'gitblame当前行'        ,
+    \ 'B' : [':Gblame'         ,   'gitblame全文件']       ,
     \ }
 
 
 " 定义 coding 快捷键
 " ======================================================================
 
-nmap <silent> <Leader>cf <Plug>(coc-format)
-vmap <silent> <Leader>cf <Plug>(coc-format-selected)
-
+" coc 快捷键配置
+nmap     <silent> <Leader>cf <Plug>(coc-format)
+vmap     <silent> <Leader>cf <Plug>(coc-format-selected)
+nnoremap <silent> <Leader>cp :CocCommand<CR>
 inoremap <silent><expr> <c-space> coc#refresh()
+
+
+" nerdcommenter 快捷键配置
+" 切换到第二种注释符
+nmap  <slient>  <Leader>ca           <Plug>NERDCommenterAltDelims
+" 在当前行之后放置注释符并进入插入模式
+nmap  <slient>  <Leader>cA           <Plug>NERDCommenterAppend
+" 注释并对齐
+xmap  <slient>  <Leader>cb           <Plug>NERDCommenterAlignBoth
+nmap  <slient>  <Leader>cb           <Plug>NERDCommenterAlignBoth
+" 注释代码
+xmap  <slient>  <Leader>cc           <Plug>NERDCommenterComment
+nmap  <slient>  <Leader>cc           <Plug>NERDCommenterComment
+" 反转注释状态
+xmap  <slient>  <Leader>ci           <Plug>NERDCommenterInvert
+nmap  <slient>  <Leader>ci           <Plug>NERDCommenterInvert
+" 注释并左对齐
+xmap  <slient>  <Leader>cl           <Plug>NERDCommenterAlignLeft
+nmap  <slient>  <Leader>cl           <Plug>NERDCommenterAlignLeft
+" 最少注释符的块注释
+xmap  <slient>  <Leader>cm           <Plug>NERDCommenterMinimal
+nmap  <slient>  <Leader>cm           <Plug>NERDCommenterMinimal
+" 嵌套注释
+xmap  <slient>  <Leader>cn           <Plug>NERDCommenterNested
+nmap  <slient>  <Leader>cn           <Plug>NERDCommenterNested
+" 风格精致的注释
+xmap  <slient>  <Leader>cs           <Plug>NERDCommenterSexy
+nmap  <slient>  <Leader>cs           <Plug>NERDCommenterSexy
+" 取消一层注释
+xmap  <slient>  <Leader>cu           <Plug>NERDCommenterUncomment
+nmap  <slient>  <Leader>cu           <Plug>NERDCommenterUncomment
+xmap  <slient>  <Leader>cy           <Plug>NERDCommenterYank
+nmap  <slient>  <Leader>cy           <Plug>NERDCommenterYank
+" 从光标位置注释到行尾
+nmap  <slient>  <Leader>c$           <Plug>NERDCommenterToEOL
+" 根据选中的第一行反转注释状态
+xmap  <slient>  <Leader>c<Space>     <Plug>NERDCommenterToggle
+nmap  <slient>  <Leader>c<Space>     <Plug>NERDCommenterToggle
+
+
+let g:which_key_map.c = {
+    \ 'name': '+code/coc/comment'    ,
+    \ 'a' :                        '切换副注释符'    ,
+    \ 'A' :                        '行尾注释'        ,
+    \ 'b' :                        '对齐注释'        ,
+    \ 'c' :                        '注释代码'        ,
+    \ 'i' :                        '反转注释'        ,
+    \ 'l' :                        '左对齐注释'      ,
+    \ 'm' :                        '首尾块注释'      ,
+    \ 'n' :                        '嵌套注释'        ,
+    \ 's' :                        '精致注释'        ,
+    \ 'u' :                        '取消注释'        ,
+    \ 'y' :                        '？？注释'        ,
+    \ '$' :                        '注释到行尾'      ,
+    \ '<Space>' :                  '根据首行反转注释',
+    \ 'f' :                        '全格式化'        ,
+    \ 'p' :                        'coc下拉注释'     ,
+    \ }
 
 
 " 定义 vim 控制的控制键
