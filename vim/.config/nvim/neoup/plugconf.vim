@@ -173,6 +173,44 @@ let NERDTreeIgnore = ['\~$', '\.swp$', '\.pyc$', '.git$', '.idea', '.ropeproject
 " ================================================================================
 
 let g:vista_cursor_delay = 0
+let g:vista#renderer#icons = {
+    \ "augroup": "⋐",
+    \ "class": "𝐶",
+    \ "const": "ℂ",
+    \ "constant": "ℂ",
+    \ "default": "☍",
+    \ "enum": "☷",
+    \ "enumerator": "☷",
+    \ "field": "⚆",
+    \ "fields": "⚇",
+    \ "func": "𝐹",
+    \ "function": "𝐹",
+    \ "functions": "𝐹",
+    \ "implementation": "⛣",
+    \ "interface": "⚯",
+    \ "macro": "☢",
+    \ "macros": "☢",
+    \ "map": "❴❵",
+    \ "member": "☌",
+    \ "method": "𝑚",
+    \ "module": "⬢",
+    \ "modules": "⬢",
+    \ "namespace": "",
+    \ "package": "⯄",
+    \ "packages": "⯄",
+    \ "property": "襁",
+    \ "struct": "❴❵",
+    \ "subroutine": "⥹",
+    \ "target": "🞉",
+    \ "type": "𝑇",
+    \ "typedef": "𝑇",
+    \ "typeParameter": "𝑃",
+    \ "types": "𝑇",
+    \ "union": "⚉",
+    \ "var": "𝑉",
+    \ "variable": "𝑉",
+    \ "variables": "𝑉",
+    \ }
 
 " Plug 'sbdchd/neoformat'
 " ================================================================================
