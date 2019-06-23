@@ -6,7 +6,7 @@
 " ================================================================================
 
 " 使用 neovim 浮动窗口展示快捷键提示
-" let g:which_key_use_floating_win = 1
+let g:which_key_use_floating_win = 1
 
 
 " Plug 'lambdalisue/suda.vim'
@@ -172,7 +172,12 @@ let NERDTreeIgnore = ['\~$', '\.swp$', '\.pyc$', '.git$', '.idea', '.ropeproject
 " Plug 'liuchengxu/vista.vim'
 " ================================================================================
 
+" 默认使用 coc 提供的大纲
+" let g:vista_default_executive = 'coc'
+" 大纲列表不延迟
 let g:vista_cursor_delay = 0
+let g:vista_echo_cursor_strategy = 'both'
+" 大纲列表图标
 let g:vista#renderer#icons = {
     \ "augroup": "⋐",
     \ "class": "𝐶",
