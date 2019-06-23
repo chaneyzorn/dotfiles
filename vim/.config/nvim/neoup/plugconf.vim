@@ -85,7 +85,7 @@ au FileType help DisableWhitespace
 " 自动启用彩虹括号，设置为0以手动启用
 let g:rainbow_active = 1
 let g:rainbow_conf = {
-    \   'guifgs': ['tan', 'PaleGreen', 'SkyBlue', 'gold', 'orchid', 'orange', 'fuchia', 'ivory'],
+    \   'guifgs': ['tan', 'PaleGreen', 'SkyBlue', 'gold', 'orchid', 'orange', 'Fuchsia', 'ivory'],
     \ }
 
 
@@ -172,8 +172,12 @@ let NERDTreeIgnore = ['\~$', '\.swp$', '\.pyc$', '.git$', '.idea', '.ropeproject
 " Plug 'liuchengxu/vista.vim'
 " ================================================================================
 
-" 默认使用 coc 提供的大纲
-" let g:vista_default_executive = 'coc'
+" 默认提供的大纲
+let g:vista_default_executive = 'ctags'
+let g:vista_executive_for = {
+    \ 'python': 'coc',
+    \ }
+
 " 大纲列表不延迟
 let g:vista_cursor_delay = 0
 let g:vista_echo_cursor_strategy = 'both'
