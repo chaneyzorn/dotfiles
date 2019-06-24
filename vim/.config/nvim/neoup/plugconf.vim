@@ -56,7 +56,7 @@ hi illuminatedWord cterm=underline gui=underline
 " 设置高亮单词延时
 let g:Illuminate_delay = 50
 " 设置在部分 buffer 中不做高亮
-let g:Illuminate_ftblacklist = ['nerdtree', 'qf', 'leaderf', 'help', 'list', 'vista']
+let g:Illuminate_ftblacklist = ['nerdtree', 'qf', 'leaderf', 'help', 'list', 'vista', 'man']
 
 
 " Plug 'sheerun/vim-polyglot'
@@ -105,7 +105,7 @@ let g:indentLine_color_gui = '#626262'
 
 " let g:indentLine_char = '┊'
 " 以下类型的 buffer 里不显示缩进线
-let g:indentLine_bufTypeExclude = ['help', 'terminal', 'list', 'qf']
+let g:indentLine_bufTypeExclude = ['help', 'terminal', 'list', 'nofile']
 
 
 " Plug 'ervandew/supertab'

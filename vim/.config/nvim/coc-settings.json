@@ -1,5 +1,17 @@
 {
     "languageserver": {
+        "bash": {
+            "command": "bash-language-server",
+            "args": [
+                "start"
+            ],
+            "filetypes": [
+                "sh"
+            ],
+            "ignoredRootPaths": [
+                "~"
+            ]
+        },
         "golang": {
             "command": "gopls",
             "rootPatterns": [
@@ -82,6 +94,8 @@
     "python.jediEnabled": true,
     "python.pythonPath": "python",
     "python.venvPath": "~/Pyvenv",
-    "python.venvFolders": ["Pyvenv"],
+    "python.venvFolders": [
+        "Pyvenv"
+    ],
     "suggest.acceptSuggestionOnCommitCharacter": false
 }
