@@ -131,8 +131,10 @@ let g:which_key_map.b = {
 " Leaderf 的配置项
 let g:Lf_ShortcutF = '<Leader>ff'
 " 内容关键词搜索
-nnoremap <C-f>           :Leaderf rg<CR>
-nnoremap <Leader>fw      :Leaderf rg<CR>
+nnoremap <C-f>           :<C-U>Leaderf rg<CR>
+nnoremap <Leader>fw      :<C-U>Leaderf rg<CR>
+" 光标下单词搜索文件
+nnoremap <Leader>fq      :<C-U>LeaderfFileCword<CR>
 " 注意 <Plug> 不能使用在 noremap 中
 " 光标下单词搜索
 nmap <Leader>fc   <Plug>LeaderfRgBangCwordRegexBoundary<CR>
@@ -152,7 +154,8 @@ nnoremap <silent> <Leader>fr    :edit<CR>
 
 let g:which_key_map.f = {
     \ 'name' : '+files/search'      ,
-    \ 'f' :                         '查找文件名'         ,
+    \ 'f' :                         '查找文件'           ,
+    \ 'q' :                         '查找光标下的文件'   ,
     \ 'w' :                         '查找文件内容'       ,
     \ 'c' :                         '查找光标下的单词'   ,
     \ 'r' :                         '重新加载文件'       ,
