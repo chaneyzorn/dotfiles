@@ -59,9 +59,8 @@ set autoread
 " 禁止折行
 set nowrap
 
-" don't give |ins-completion-menu| messages.
-set shortmess+=c
-set completeopt-=preview
 set tags=./.tags;,.tags,~/.cache/tags/sys-.tags
 set path=.,/usr/include,/usr/include/*,/usr/lib/*/include,/usr/lib/gcc/**/include
 
+let g:python_host_prog = "~/Pyvenv/venv2.7/bin/python2"
+let g:python3_host_prog = "~/Pyvenv/venv3/bin/python3"
