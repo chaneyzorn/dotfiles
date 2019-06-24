@@ -6,6 +6,7 @@ archlinuxcn-keyring
 aria2-fast
 aurman
 baobab
+bash-language-server
 breeze
 catfish
 ccls-git
