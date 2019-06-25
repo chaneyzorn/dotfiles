@@ -71,7 +71,7 @@ vmap <silent> <Leader>ts <Plug>TranslateWV
 nmap <silent> <Leader>th <Plug>TranslateF
 
 " vista 快捷键配置
-nnoremap <silent> <Leader>tb :Vista!!<CR>
+nnoremap <silent> <Leader>tb :Vista<CR>
 
 let g:which_key_map.t = {
     \ 'name': '+tab/translate/tags',
@@ -94,7 +94,7 @@ let g:which_key_map.t = {
     \ 'w' :                  '翻译单词'       ,
     \ 's' :                  '展示翻译'       ,
     \ 'h' :                  '翻译历史记录'   ,
-    \ 'b' :                  '切换大纲展示'   ,
+    \ 'b' :                  '显示大纲'       ,
     \ }
 
 
