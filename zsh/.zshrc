@@ -14,6 +14,7 @@ MY_PATH=$MY_BIN:$GO_BIN:$RUST_BIN:$NODE_BIN:$RUBY_BIN
 
 export PATH=$MY_PATH:$BASE_PATH
 
+export ISCRATCH=$HOME/Projects/iscratch
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
 # Path to your oh-my-zsh installation.

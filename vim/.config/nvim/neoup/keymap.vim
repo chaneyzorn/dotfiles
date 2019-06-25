@@ -281,12 +281,17 @@ noremap <Leader>vq                   :wa<CR>:q<CR>
 " 不做任何保存直接退出
 noremap <Leader>vQ                   :qa!<CR>
 
+
+" 我的快捷键
+nnoremap <Leader>vs :vsplit $ISCRATCH<CR>
+
 let g:which_key_map.v = {
-    \ 'name' : '+vim'            ,
+    \ 'name' : '+vim/my'            ,
     \ 'm' :                         '切换鼠标'              ,
     \ 'l' :                         '消除高亮&重绘界面'     ,
     \ 'q' :                         '保存全部文件并退出'    ,
     \ 'Q' :                         '不做任何保存直接退出'  ,
     \ 'r' : [':source $MYVIMRC'  ,  '重新加载vimrc']        ,
+    \ 's' :                         '快捷笔记'              ,
     \ }
 
