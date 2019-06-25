@@ -57,6 +57,8 @@ Plug 'scrooloose/nerdtree'
 " 侧栏显示文件结构大纲
 Plug 'liuchengxu/vista.vim'
 
+" 记忆上次文件位置
+Plug 'farmergreg/vim-lastplace'
 " 在所有的补全列表中使用 <tag> 导航
 Plug 'ervandew/supertab'
 " 书签标记跳转
