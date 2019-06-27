@@ -79,13 +79,13 @@ Plug 'sheerun/vim-polyglot'
 " 显示函数签名
 Plug 'Shougo/echodoc'
 
+" 为 python 提供补全和跳转
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 " 自动排序 python import
 Plug 'fisadev/vim-isort', { 'for': 'python' }
 
-
 " 提供 golang 支持
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
-
 
 " 语法检查
 Plug 'w0rp/ale'

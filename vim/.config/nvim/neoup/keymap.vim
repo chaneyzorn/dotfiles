@@ -201,6 +201,26 @@ let g:which_key_map.g = {
     \ }
 
 
+" 定义 python 快捷键
+" ======================================================================
+
+" jedi 快捷键配置，暂时和 coc 并存吧
+" let g:jedi#completions_command = <Ctrl-Space>
+" let g:jedi#rename_command = '<Leader>gr'
+" let g:jedi#goto_definitions_command = '<Leader>gd'  # Deprecated
+" let g:jedi#documentation_command = '<K>'
+let g:jedi#goto_command = '<Leader>pd'
+let g:jedi#goto_assignments_command = '<Leader>ps'
+let g:jedi#usages_command = '<Leader>pr'
+
+ let g:which_key_map.p = {
+    \ 'name' : '+python'        ,
+    \ 'd'  :                        '跳转到定义或初见'      ,
+    \ 's'  :                        '跳转到第一次可见'      ,
+    \ 'r'  :                        '展示所有引用'          ,
+    \ }
+
+
 " 定义 coding 快捷键
 " ======================================================================
 
