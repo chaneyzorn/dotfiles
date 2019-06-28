@@ -30,7 +30,7 @@ Plug 'ntpeters/vim-better-whitespace'
 " 彩虹显示匹配的括号
 Plug 'luochen1990/rainbow'
 " 补全成对括号
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
 " 成对操作括号和引号等
 Plug 'tpope/vim-surround'
 " 显示缩进线
@@ -79,6 +79,9 @@ Plug 'sheerun/vim-polyglot'
 " 显示函数签名
 Plug 'Shougo/echodoc'
 
+" 代码片段支持
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 " 为 python 提供补全和跳转
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 " 自动排序 python import
