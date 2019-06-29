@@ -98,7 +98,6 @@ plugins=(
     pip
     python
     sudo
-    safe-paste  # 杜绝粘贴内容意外运行
     thefuck
     z
 )
