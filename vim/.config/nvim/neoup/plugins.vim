@@ -68,6 +68,20 @@ Plug 'lambdalisue/suda.vim'
 " 快速移动
 Plug 'justinmk/vim-sneak'
 Plug 'easymotion/vim-easymotion'
+
+
+" 拓展文本对象 textobj
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-line'
+Plug 'glts/vim-textobj-comment'
+Plug 'jceb/vim-textobj-uri'
+Plug 'reedes/vim-textobj-sentence'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'jeetsukumaran/vim-pythonsense'
+Plug 'wellle/targets.vim'
+
+
 " 模糊搜索
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 " 代码格式化

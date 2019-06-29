@@ -10,10 +10,10 @@ let g:which_key_map['name'] =  'Leader'
 call which_key#register('\', "g:which_key_map")
 
 " 绑定单独的 <Leader> 键作为 WhichKey 的快捷键
-nnoremap <silent> <Leader>      :<c-u>WhichKey '\'<CR>
-vnoremap <silent> <leader>      :<c-u>WhichKeyVisual '\'<CR>
-nnoremap <silent> <Localleader> :<c-u>WhichKey '\'<CR>
-vnoremap <silent> <Localleader> :<c-u>WhichKeyVisual '\'<CR>
+nnoremap <silent> <Leader>      :<C-u>WhichKey '\'<CR>
+vnoremap <silent> <leader>      :<C-u>WhichKeyVisual '\'<CR>
+nnoremap <silent> <Localleader> :<C-u>WhichKey '\'<CR>
+vnoremap <silent> <Localleader> :<C-u>WhichKeyVisual '\'<CR>
 
 
 " 快速选择 window | tab | buffer
@@ -224,11 +224,15 @@ let g:jedi#usages_command = '<Leader>pr'
 " 定义 coding 快捷键
 " ======================================================================
 
+" better-whitespace 快捷键配置
+vnoremap <silent> <Leader>ct :StripWhitespace<CR>
+nnoremap <silent> <Leader>ct :<C-u>StripWhitespace<CR>
+
 " coc 快捷键配置
 nmap     <silent> <Leader>cf <Plug>(coc-format)
 vmap     <silent> <Leader>cf <Plug>(coc-format-selected)
-nnoremap <silent> <Leader>cp :CocCommand<CR>
-inoremap <silent><expr> <c-space> coc#refresh()
+nnoremap <silent> <Leader>cp :<C-u>CocCommand<CR>
+inoremap <silent><expr> <C-space> coc#refresh()
 
 
 " nerdcommenter 快捷键配置
@@ -289,13 +293,30 @@ let g:which_key_map.c = {
     \ }
 
 
+" 定义 yank to system clipboard"
+" ======================================================================
+" see :help clipboard
+
+" Copy to clipboard
+" 可视化复制选中内容到 clipboard
+vnoremap  <silent>  <C-y>        "+y
+" normal 模式复制当前行到 clipboard
+nnoremap  <silent>  <C-y>        :call moetool#YankOneLine()<CR>
+" normal 模式复制全部内容 clipboard
+nnoremap  <silent>  <Leader>yy   :<C-u>%y+<CR>
+
+" Paste from clipboard
+nnoremap  <silent>  <C-p>        "+p
+vnoremap  <silent>  <C-p>        "+p
+
+
 " 定义 vim 控制的控制键
 " ======================================================================
 
 " <C-l> 消除高亮\重绘面
 noremap <silent> <Leader>vl          :noh<CR>:redraw<CR>
 " <C-m> 切换鼠标
-noremap <Leader>vm                   :call mouse#ToggleMouse()<CR>
+noremap <Leader>vm                   :call moetool#ToggleMouse()<CR>
 " 保存全部文件并退出
 noremap <Leader>vq                   :wa<CR>:q<CR>
 " 不做任何保存直接退出

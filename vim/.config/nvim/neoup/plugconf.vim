@@ -146,6 +146,7 @@ let g:vtm_default_api = 'youdao'
 
 
 " Plug 'scrooloose/nerdtree'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
 " ================================================================================
 
 " 不显示书签和帮助
@@ -153,19 +154,7 @@ let NERDTreeMinimalUI=1
 " 默认显示隐藏文件
 let NERDTreeShowHidden=1
 " 忽略以下类型文件
-let NERDTreeIgnore = ['\~$', '\.swp$', '\.pyc$', '.git$', '.idea', '.ropeproject']
-
-" 当只剩下 nerdtree 窗口时，退出vim
-" augroup nerdtree
-"     autocmd!
-"     autocmd bufenter * :call <SID>ExitLastNERDTree()
-" augroup end
-"
-" function! s:ExitLastNERDTree()
-"     if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree())
-"         execute "normal! :q\<cr>"
-"     endif
-" endfunction
+let NERDTreeIgnore = ['\~$', '\.swp$', '\.pyc$', '.git$', '.idea$', '.ropeproject$']
 
 
 
