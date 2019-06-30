@@ -1,4 +1,5 @@
 android-udev
+ansible
 antiword
 apache-tools
 arc-gtk-theme
