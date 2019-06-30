@@ -1,4 +1,5 @@
 aria2/.aria2/aria2.session
+ansible/.ansible/tmp
 
 .netrwhist
 vim/.config/nvim/autoload
