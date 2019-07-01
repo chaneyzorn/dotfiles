@@ -91,10 +91,12 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh/custom/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+    ansible
     archlinux
     docker
     encode64
     git
+    kubectl
     pip
     python
     sudo
@@ -124,10 +126,10 @@ export EDITOR='vim'
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
-# if [[ ! -d $ZSH_CACHE_DIR ]]; then
-#   mkdir $ZSH_CACHE_DIR
-# fi
+ZSH_CACHE_DIR=$HOME/.cache/.oh-my-zsh-cache
+if [[ ! -d $ZSH_CACHE_DIR ]]; then
+  mkdir $ZSH_CACHE_DIR
+fi
 
 source $ZSH/oh-my-zsh.sh
 

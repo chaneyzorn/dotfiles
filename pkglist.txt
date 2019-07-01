@@ -39,6 +39,7 @@ htop
 hugo
 iftop
 iputils
+kubectl
 lightdm-gtk-greeter-settings
 lsd
 lxtask-gtk3
