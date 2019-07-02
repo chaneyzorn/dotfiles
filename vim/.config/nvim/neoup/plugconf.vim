@@ -146,7 +146,6 @@ let g:vtm_default_api = 'youdao'
 
 
 " Plug 'scrooloose/nerdtree'
-" Plug 'Xuyuanp/nerdtree-git-plugin'
 " ================================================================================
 
 " 不显示书签和帮助
