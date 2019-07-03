@@ -146,14 +146,19 @@ let g:vtm_default_api = 'youdao'
 
 
 " Plug 'scrooloose/nerdtree'
+" Plug 'ryanoasis/vim-devicons'
 " ================================================================================
 
 " 不显示书签和帮助
-let NERDTreeMinimalUI=1
+let NERDTreeMinimalUI = 1
 " 默认显示隐藏文件
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden = 1
 " 忽略以下类型文件
 let NERDTreeIgnore = ['\~$', '\.swp$', '\.pyc$', '.git$', '.idea$', '.ropeproject$']
+
+
+set conceallevel=2
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 
 
 
