@@ -39,6 +39,7 @@ htop
 hugo
 iftop
 iputils
+jq
 kubectl
 lightdm-gtk-greeter-settings
 lsd
