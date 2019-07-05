@@ -47,6 +47,10 @@ GNU Stow 不会对冲突的文件做任何处理并中断所有操作，我没�
 pacman -Qqet > pkglist.txt
 # 从列表文件安装软件包
 pacman -S --needed - < pkglist.txt
+# 如果其中包含AUR等外部包，需要过滤后再执行
+pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort pkglist.txt))
+# 移除没有列在文件中的包
+pacman -Rsu $(comm -23 <(pacman -Qq | sort) <(sort pkglist.txt))
 ```
 
 更多信息请参见 [pacman archlinux wiki](https://wiki.archlinux.org/index.php/Pacman/Tips_and_tricks#Install_packages_from_a_list)

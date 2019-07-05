@@ -60,7 +60,6 @@ nutstore
 pamac-gtk
 papirus-icon-theme
 peek
-postman-bin
 powerline
 proxychains-ng
 pycharm-community-edition
