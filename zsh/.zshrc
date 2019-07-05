@@ -17,6 +17,13 @@ export PATH=$MY_PATH:$BASE_PATH
 export ISCRATCH=$HOME/Projects/iscratch
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
+if [ ! $EXTEND_BASHRC ]; then
+    export EXTEND_BASHRC=$HOME/.extend.bashrc
+    if [[ -f $EXTEND_BASHRC ]]; then
+        source $EXTEND_BASHRC
+    fi
+fi
+
 # Path to your oh-my-zsh installation.
 if [[ -d /usr/share/oh-my-zsh ]]; then
     export ZSH=/usr/share/oh-my-zsh
@@ -162,9 +169,4 @@ alias vi='nvim'
 
 # 保证终端兼容性
 alias ssh='TERM=xterm-256color \ssh'
-
-
-# nnn 终端文件管理器
-# 使用 $EDITOR 指定的编辑器
-export NNN_USE_EDITOR=1
 
