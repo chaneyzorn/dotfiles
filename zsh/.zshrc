@@ -17,11 +17,9 @@ export PATH=$MY_PATH:$BASE_PATH
 export ISCRATCH=$HOME/Projects/iscratch
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
-if [ ! $EXTEND_BASHRC ]; then
-    export EXTEND_BASHRC=$HOME/.extend.bashrc
-    if [[ -f $EXTEND_BASHRC ]]; then
-        source $EXTEND_BASHRC
-    fi
+export EXTEND_BASHRC=$HOME/.extend.bashrc
+if [[ -e $EXTEND_BASHRC ]]; then
+    source $EXTEND_BASHRC
 fi
 
 # Path to your oh-my-zsh installation.
