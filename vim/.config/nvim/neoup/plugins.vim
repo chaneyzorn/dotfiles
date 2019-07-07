@@ -21,7 +21,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " 颜色主题
 Plug 'liuchengxu/space-vim-theme'
-Plug 'joshdick/onedark.vim'
 " 显示文件类型图标
 Plug 'ryanoasis/vim-devicons'
 
@@ -29,7 +28,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'ntpeters/vim-better-whitespace'
 " 彩虹显示匹配的括号
 Plug 'luochen1990/rainbow'
-" 补全成对括号
+" 补全成对括号(也可以使用 coc-pairs)
 " Plug 'jiangmiao/auto-pairs'
 " 成对操作括号和引号等
 Plug 'tpope/vim-surround'

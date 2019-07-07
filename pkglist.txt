@@ -71,6 +71,7 @@ ripgrep
 robo3t-bin
 scrcpy
 screenfetch
+screenkey
 shadowsocks-libev
 slack-desktop
 stow

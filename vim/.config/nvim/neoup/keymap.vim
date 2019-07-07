@@ -237,59 +237,73 @@ inoremap <silent><expr> <C-space> coc#refresh()
 
 " nerdcommenter 快捷键配置
 " 切换到第二种注释符
-nmap  <slient>  <Leader>ca           <Plug>NERDCommenterAltDelims
+nmap  <silent>  <Leader>ca           <Plug>NERDCommenterAltDelims
 " 在当前行之后放置注释符并进入插入模式
-nmap  <slient>  <Leader>cA           <Plug>NERDCommenterAppend
+nmap  <silent>  <Leader>cA           <Plug>NERDCommenterAppend
 " 注释并对齐
-xmap  <slient>  <Leader>cb           <Plug>NERDCommenterAlignBoth
-nmap  <slient>  <Leader>cb           <Plug>NERDCommenterAlignBoth
+xmap  <silent>  <Leader>cb           <Plug>NERDCommenterAlignBoth
+nmap  <silent>  <Leader>cb           <Plug>NERDCommenterAlignBoth
 " 注释代码
-xmap  <slient>  <Leader>cc           <Plug>NERDCommenterComment
-nmap  <slient>  <Leader>cc           <Plug>NERDCommenterComment
+xmap  <silent>  <Leader>cc           <Plug>NERDCommenterComment
+nmap  <silent>  <Leader>cc           <Plug>NERDCommenterComment
 " 反转注释状态
-xmap  <slient>  <Leader>ci           <Plug>NERDCommenterInvert
-nmap  <slient>  <Leader>ci           <Plug>NERDCommenterInvert
+xmap  <silent>  <Leader>ci           <Plug>NERDCommenterInvert
+nmap  <silent>  <Leader>ci           <Plug>NERDCommenterInvert
 " 注释并左对齐
-xmap  <slient>  <Leader>cl           <Plug>NERDCommenterAlignLeft
-nmap  <slient>  <Leader>cl           <Plug>NERDCommenterAlignLeft
+xmap  <silent>  <Leader>cl           <Plug>NERDCommenterAlignLeft
+nmap  <silent>  <Leader>cl           <Plug>NERDCommenterAlignLeft
 " 最少注释符的块注释
-xmap  <slient>  <Leader>cm           <Plug>NERDCommenterMinimal
-nmap  <slient>  <Leader>cm           <Plug>NERDCommenterMinimal
+xmap  <silent>  <Leader>cm           <Plug>NERDCommenterMinimal
+nmap  <silent>  <Leader>cm           <Plug>NERDCommenterMinimal
 " 嵌套注释
-xmap  <slient>  <Leader>cn           <Plug>NERDCommenterNested
-nmap  <slient>  <Leader>cn           <Plug>NERDCommenterNested
+xmap  <silent>  <Leader>cn           <Plug>NERDCommenterNested
+nmap  <silent>  <Leader>cn           <Plug>NERDCommenterNested
 " 风格精致的注释
-xmap  <slient>  <Leader>cs           <Plug>NERDCommenterSexy
-nmap  <slient>  <Leader>cs           <Plug>NERDCommenterSexy
+xmap  <silent>  <Leader>cs           <Plug>NERDCommenterSexy
+nmap  <silent>  <Leader>cs           <Plug>NERDCommenterSexy
 " 取消一层注释
-xmap  <slient>  <Leader>cu           <Plug>NERDCommenterUncomment
-nmap  <slient>  <Leader>cu           <Plug>NERDCommenterUncomment
-xmap  <slient>  <Leader>cy           <Plug>NERDCommenterYank
-nmap  <slient>  <Leader>cy           <Plug>NERDCommenterYank
+xmap  <silent>  <Leader>cu           <Plug>NERDCommenterUncomment
+nmap  <silent>  <Leader>cu           <Plug>NERDCommenterUncomment
+xmap  <silent>  <Leader>cy           <Plug>NERDCommenterYank
+nmap  <silent>  <Leader>cy           <Plug>NERDCommenterYank
 " 从光标位置注释到行尾
-nmap  <slient>  <Leader>c$           <Plug>NERDCommenterToEOL
+nmap  <silent>  <Leader>c$           <Plug>NERDCommenterToEOL
 " 根据选中的第一行反转注释状态
-xmap  <slient>  <Leader>c<Space>     <Plug>NERDCommenterToggle
-nmap  <slient>  <Leader>c<Space>     <Plug>NERDCommenterToggle
+xmap  <silent>  <Leader>c<Space>     <Plug>NERDCommenterToggle
+nmap  <silent>  <Leader>c<Space>     <Plug>NERDCommenterToggle
+
+
+" multiple-cursor 快捷键
+nnoremap <Leader>cr         :MultipleCursorsFind<Space>
+vnoremap <Leader>cr         :MultipleCursorsFind<Space>
+
+
+" ultisnips 快捷键
+let g:UltiSnipsExpandTrigger="<S-TAB>"
+let g:UltiSnipsJumpForwardTrigger="<TAB>"
+let g:UltiSnipsJumpBackwardTrigger="<S-TAB>"
+nnoremap <silent> <Leader>co  :<C-u>UltiSnipsEdit<CR>
 
 
 let g:which_key_map.c = {
     \ 'name': '+code/coc/comment'    ,
-    \ 'a' :                        '切换副注释符'    ,
-    \ 'A' :                        '行尾注释'        ,
-    \ 'b' :                        '对齐注释'        ,
-    \ 'c' :                        '注释代码'        ,
-    \ 'i' :                        '反转注释'        ,
-    \ 'l' :                        '左对齐注释'      ,
-    \ 'm' :                        '首尾块注释'      ,
-    \ 'n' :                        '嵌套注释'        ,
-    \ 's' :                        '精致注释'        ,
-    \ 'u' :                        '取消注释'        ,
-    \ 'y' :                        '？？注释'        ,
-    \ '$' :                        '注释到行尾'      ,
-    \ '<Spc>' :                    '根据首行反转注释',
-    \ 'f' :                        '全格式化'        ,
-    \ 'p' :                        'coc下拉注释'     ,
+    \ 'a' :                        '切换副注释符'          ,
+    \ 'A' :                        '行尾注释'              ,
+    \ 'b' :                        '对齐注释'              ,
+    \ 'c' :                        '注释代码'              ,
+    \ 'i' :                        '反转注释'              ,
+    \ 'l' :                        '左对齐注释'            ,
+    \ 'm' :                        '首尾块注释'            ,
+    \ 'n' :                        '嵌套注释'              ,
+    \ 's' :                        '精致注释'              ,
+    \ 'u' :                        '取消注释'              ,
+    \ 'y' :                        '？？注释'              ,
+    \ '$' :                        '注释到行尾'            ,
+    \ 'SPC' :                      '根据首行反转注释'      ,
+    \ 'f' :                        '全格式化'              ,
+    \ 'p' :                        'coc下拉注释'           ,
+    \ 'r' :                        '多光标选中匹配'        ,
+    \ 'o' :                        '编辑当前类型代码片段'  ,
     \ }
 
 

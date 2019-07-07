@@ -227,6 +227,15 @@ let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim = 1
 
 
+
+" Plug 'SirVer/ultisnips'
+" ================================================================================
+" 纵向分割
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetsDir=g:neohome."/moetools/UltiSnips"
+
+
+
 " Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 " ================================================================================
 
@@ -236,7 +245,7 @@ let g:Lf_StlColorscheme = 'powerline'
 let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 let g:Lf_CacheDirectory = expand('~/.vim/cache')
 
-let g:Lf_RootMarkers = ['.root', '.svn', '.git', '.hg', '.vim', '.idea', '.project']
+let g:Lf_RootMarkers = ['.root', '.svn', '.git', '.hg', '.idea', '.project']
 let g:Lf_WildIgnore = {
     \ 'dir': ['.svn','.git','.hg', 'build', 'debug', '.idea', '.ropeproject'],
     \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
