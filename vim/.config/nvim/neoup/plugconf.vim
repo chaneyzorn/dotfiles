@@ -42,8 +42,9 @@ let g:space_vim_transp_bg = 1
 
 colorscheme space_vim_theme
 
-highlight Comment    guifg=#00688B ctermfg=59
-hi WildMenu ctermfg=172 ctermbg=238 guifg=#d78700 guibg=#444444 guisp=NONE cterm=NONE,bold gui=NONE,bold
+hi Comment    guifg=#00688B ctermfg=59
+hi CursorLine ctermfg=None ctermbg=238 guifg=None guibg=#133440 guisp=NONE cterm=NONE gui=NONE
+hi WildMenu   ctermfg=172 ctermbg=238 guifg=#d78700 guibg=#444444 guisp=NONE cterm=NONE,bold gui=NONE,bold
 hi StatusLine ctermfg=173 ctermbg=233 guifg=#e18254 guibg=#262626 guisp=NONE cterm=NONE gui=NONE
 
 
