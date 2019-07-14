@@ -106,7 +106,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
 " 语法检查
 Plug 'w0rp/ale'
 " 自动补全, lsp-client
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': 'yarn install'}
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 " Plug 'Valloric/YouCompleteMe'
 
 " 自动调用 ctags/gtags 为 c/c++ 源码生成tags数据，用于查看和跳转
