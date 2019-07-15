@@ -1,5 +1,7 @@
 [elf_cluster]
 192.168.28.[2:5] ansible_user=root
+[k8s_cluster]
+192.168.72.[90:92] ansible_user=root
 [non_halo]
 192.168.27.249 ansible_user=root
 [vmware_cluster]
