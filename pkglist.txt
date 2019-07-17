@@ -73,12 +73,14 @@ scrcpy
 screenfetch
 screenkey
 shadowsocks-libev
+shellcheck
 slack-desktop
 stow
 synergy
 systemd-ui
 telegram-desktop
 thefuck
+tldr
 tmux
 transmission-gtk
 ttf-fira-code
