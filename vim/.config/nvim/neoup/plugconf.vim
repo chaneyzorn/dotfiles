@@ -161,10 +161,6 @@ let NERDTreeShowHidden = 1
 let NERDTreeIgnore = ['\~$', '\.swp$', '\.pyc$', '.git$', '.idea$', '.ropeproject$']
 
 
-set conceallevel=2
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-
-
 
 " Plug 'liuchengxu/vista.vim'
 " ================================================================================
