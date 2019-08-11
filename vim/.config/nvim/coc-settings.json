@@ -26,6 +26,7 @@
         }
     },
     "python.linting.enabled": false,
+    "python.formatting.provider": "black",
     "python.jediEnabled": true,
     "python.pythonPath": "python",
     "python.venvPath": "~/Pyvenv",
