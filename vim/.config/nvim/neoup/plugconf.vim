@@ -142,7 +142,7 @@ let g:NERDToggleCheckAllLines = 1
 
 " 不使用预设快捷键
 let g:vtm_default_mapping = 0
-g:vtm_default_engines = ["youdao", "ciba", "bing"]
+let g:vtm_default_engines = ["youdao", "ciba", "bing"]
 
 " Plug 'scrooloose/nerdtree'
 " Plug 'ryanoasis/vim-devicons'
