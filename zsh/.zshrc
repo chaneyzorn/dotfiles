@@ -13,6 +13,7 @@ RUBY_BIN=$(ruby -r rubygems -e 'puts Gem.user_dir')/bin
 MY_PATH=$MY_BIN:$GO_BIN:$RUST_BIN:$NODE_BIN:$RUBY_BIN
 
 export PATH=$MY_PATH:$BASE_PATH
+export SHELL=$(which zsh)
 
 export ISCRATCH=$HOME/Projects/iscratch
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
