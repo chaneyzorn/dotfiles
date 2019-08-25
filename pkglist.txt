@@ -14,8 +14,8 @@ ccls-git
 cinnamon
 cppcheck
 cronie
-d-feet
 dconf-editor
+d-feet
 dhclient
 dhcpcd
 docker-compose
@@ -76,6 +76,7 @@ shadowsocks-libev
 shellcheck
 slack-desktop
 stow
+syncthing-gtk
 synergy
 systemd-ui
 telegram-desktop
