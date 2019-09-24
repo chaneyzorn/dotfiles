@@ -165,6 +165,7 @@ alias smvn='cd ~/.vpn/smartx/ && sudo openvpn --config zouquan.smartx.ovpn'
 
 alias vim='nvim'
 alias vi='nvim'
+alias up='sudo pacman -Syyu'
 
 # 保证终端兼容性
 alias ssh='TERM=xterm-256color \ssh'
