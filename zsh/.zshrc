@@ -16,7 +16,7 @@ export PATH=$MY_PATH:$BASE_PATH
 export SHELL=$(which zsh)
 
 export ISCRATCH=$HOME/Projects/iscratch
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+# export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
 export EXTEND_BASHRC=$HOME/.extend.bashrc
 if [[ -e $EXTEND_BASHRC ]]; then
@@ -34,6 +34,8 @@ fi
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 if [[ "$OSTYPE" == "darwin"* ]]; then
+    # iTerm2 > Profiles > Text > Font: "Use a different font for non-ASCII text"
+    # then https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts
     POWERLEVEL9K_MODE='nerdfont-complete'
     ZSH_THEME="powerlevel9k/powerlevel9k"
 else
