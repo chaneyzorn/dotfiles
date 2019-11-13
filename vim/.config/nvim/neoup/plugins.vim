@@ -83,6 +83,7 @@ Plug 'wellle/targets.vim'
 
 " 模糊搜索
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'liuchengxu/vim-clap'
 " 代码格式化
 Plug 'sbdchd/neoformat'
 " 快捷注释文本
