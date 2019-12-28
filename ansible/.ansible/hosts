@@ -1,14 +1,6 @@
 [elf_cluster]
-192.168.28.[2:5] ansible_user=root
-[k8s_cluster]
-192.168.72.[90:92] ansible_user=root
-[non_halo]
-192.168.27.249 ansible_user=root
-[vmware_cluster]
-192.168.72.[174:176] ansible_user=root
+192.168.30.[211:214] ansible_user=root
 [elf_host_cluster]
 192.168.67.[35:37] ansible_user=root
-[cluster_3.5]
-192.168.30.[111:113] ansible_user=root
-[lsm_cluster]
-192.168.25.[140:143] ansible_user=root
+[event_cluster]
+192.168.78.[3:5] ansible_user=root

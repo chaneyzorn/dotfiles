@@ -15,11 +15,11 @@ logging.basicConfig(level=logging.INFO)
 
 
 @click.command()
-@click.option('--prefix', default="~/Projects/pyzbs/", help=u'源代码路径前缀')
-@click.option('--cluster', default="elf_cluster", help=u'ansible hosts 配置 /etc/ansible/hosts')
-@click.option('--src', default="tuna", help=u'源代码文件夹，多个使用逗号分割')
-@click.option('--dst', default="/usr/lib/python2.7/site-packages/", help=u'位于远程主机的目标路径')
-@click.option('--ask-pass', is_flag=True, help=u'询问密码')
+@click.option('--prefix', '-p', default="~/Projects/pyzbs/", help=u'源代码路径前缀')
+@click.option('--cluster', '-c', default="elf_cluster", help=u'ansible hosts 配置 /etc/ansible/hosts')
+@click.option('--src', '-s', default="tuna", help=u'源代码文件夹，多个使用逗号分割')
+@click.option('--dst', '-d', default="/usr/lib/python2.7/site-packages/", help=u'位于远程主机的目标路径')
+@click.option('--ask-pass', '-a', is_flag=True, help=u'询问密码')
 def sync(prefix, cluster, src, dst, ask_pass):
 
     # 拼接完整的源代码路径
