@@ -1,7 +1,9 @@
 [user]
-	email = chaneyzorn@gmail.com
-	name = chaney
+    email = chaneyzorn@gmail.com
+    name = chaney
 [core]
-	editor = vim
-	quotepath = false
+    editor = vim
+    quotepath = false
+[url "git@github.smartx.com:"]
+    insteadOf = https://github.smartx.com/
 
