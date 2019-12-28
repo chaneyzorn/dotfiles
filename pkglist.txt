@@ -60,7 +60,6 @@ nutstore
 pamac-gtk
 papirus-icon-theme
 peek
-powerline
 proxychains-ng
 pycharm-community-edition
 python-pylint
