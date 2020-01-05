@@ -3,7 +3,8 @@ if [ ! $BASE_PATH ]; then
     export BASE_PATH=$PATH
 fi
 
-export GOPATH=$HOME/go
+export GOROOT=$(go env GOROOT)
+export GOPATH=$(go env GOPATH)
 
 GO_BIN=$GOPATH/bin
 MY_BIN=$HOME/myutils/bin
