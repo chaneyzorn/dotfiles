@@ -366,8 +366,8 @@ let g:ale_python_pylint_use_msg_id = 1
 
 call coc#add_extension(
             \ 'coc-json', 'coc-vimlsp', 'coc-yaml', 'coc-snippets',
-            \ 'coc-python', 'coc-lists', 'coc-marketplace', 'coc-go', 'coc-pairs',
-            \ 'coc-dictionary', 'coc-word', 'coc-emoji', 'coc-syntax', 'coc-gocode',
+            \ 'coc-python', 'coc-lists', 'coc-marketplace', 'coc-pairs',
+            \ 'coc-dictionary', 'coc-word', 'coc-emoji', 'coc-syntax', 'coc-go'
             \ )
 
 

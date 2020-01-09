@@ -73,6 +73,7 @@ screenfetch
 screenkey
 shadowsocks-libev
 shellcheck
+shfmt
 slack-desktop
 stow
 syncthing-gtk
