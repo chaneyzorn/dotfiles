@@ -5,7 +5,6 @@ apache-tools
 arc-gtk-theme
 archlinuxcn-keyring
 aria2-fast
-aurman
 baobab
 bash-language-server
 breeze
@@ -99,8 +98,8 @@ xdg-su
 xdg-user-dirs
 xfce4-terminal
 xorg-xkill
-yaourt
 yarn
+yay
 youdao-dict
 zeal
 zoom
