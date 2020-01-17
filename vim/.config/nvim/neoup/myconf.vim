@@ -32,6 +32,8 @@ set updatetime=1000
 set autoindent smartindent expandtab
 " 设置缩进为4个空格 一个 <Tab> 等同于4个空格 每4个空格等同于一个 <Tab>
 set shiftround shiftwidth=4 tabstop=4 softtabstop=4
+" 设置 tab 字符的显示
+set list listchars=tab:>·
 " 设置窗口分割线为连续实线
 set fillchars=vert:\│
 " 设置搜索高亮

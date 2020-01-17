@@ -335,7 +335,9 @@ let g:ale_c_ccls_init_options = {
 let g:ale_linters = {
     \    'c': ['clangtidy', 'ccls', 'cppcheck'],
     \    'cpp': ['clangtidy', 'ccls', 'cppcheck'],
+    \    'go': ['golangci-lint'],
     \ }
+
 " 使用全局 pylint，这样可以使用 venv 中对应版本的 pylint
 let g:ale_python_pylint_use_global = 1
 let g:ale_python_pylint_options = '--rcfile ~/.config/pylintrc'
