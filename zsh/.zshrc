@@ -44,6 +44,7 @@ else
     source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
     # source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
     # install https://github.com/gabrielelana/awesome-terminal-fonts
+    # edit .config/fontconfig/conf.d/10-symbols.conf
     POWERLEVEL9K_MODE='awesome-fontconfig'
 fi
 
