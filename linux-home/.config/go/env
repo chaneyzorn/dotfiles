@@ -1,4 +1,4 @@
 GO111MODULE=on
-GOSUMDB=off
 GOPRIVATE=*.smartx.com
 GOPROXY=https://goproxy.cn,direct
+GOSUMDB=off

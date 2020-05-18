@@ -18,6 +18,7 @@ d-feet
 dhclient
 dhcpcd
 docker-compose
+earlyoom
 emoji-keyboard-git
 engrampa
 evince
