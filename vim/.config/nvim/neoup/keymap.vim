@@ -249,9 +249,6 @@ nmap  <silent>  <Leader>cc           <Plug>NERDCommenterComment
 " 反转注释状态
 xmap  <silent>  <Leader>ci           <Plug>NERDCommenterInvert
 nmap  <silent>  <Leader>ci           <Plug>NERDCommenterInvert
-" 注释并左对齐
-xmap  <silent>  <Leader>cl           <Plug>NERDCommenterAlignLeft
-nmap  <silent>  <Leader>cl           <Plug>NERDCommenterAlignLeft
 " 最少注释符的块注释
 xmap  <silent>  <Leader>cm           <Plug>NERDCommenterMinimal
 nmap  <silent>  <Leader>cm           <Plug>NERDCommenterMinimal

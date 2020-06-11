@@ -161,14 +161,13 @@ let NERDTreeIgnore = ['\~$', '\.swp$', '\.pyc$', '.git$', '.idea$', '.ropeprojec
 " ================================================================================
 
 " 默认提供的大纲
-let g:vista_default_executive = 'ctags'
+let g:vista_default_executive = 'coc'
 let g:vista_executive_for = {
-    \ 'python': 'coc',
+    \ 'python': 'ctags',
     \ }
 
 " 大纲列表不延迟
 let g:vista_cursor_delay = 0
-let g:vista_echo_cursor_strategy = 'both'
 " 大纲列表图标
 let g:vista#renderer#icons = {
     \ "augroup": "⋐",
@@ -204,9 +203,9 @@ let g:vista#renderer#icons = {
     \ "typeParameter": "𝑃",
     \ "types": "𝑇",
     \ "union": "⚉",
-    \ "var": "𝑉",
-    \ "variable": "𝑉",
-    \ "variables": "𝑉",
+    \ "var": "𝜈",
+    \ "variable": "𝜈",
+    \ "variables": "𝜈",
     \ }
 
 " Plug 'sbdchd/neoformat'
@@ -344,6 +343,7 @@ let g:ale_python_pylint_options = '--rcfile ~/.config/pylintrc'
 " 错误信息使用 pep8 msg_id
 let g:ale_python_pylint_use_msg_id = 1
 
+let g:ale_go_golangci_lint_options = '--enable-all --disable wsl'
 
 " Plug 'Valloric/YouCompleteMe'
 " ================================================================================
