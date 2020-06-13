@@ -101,9 +101,6 @@ let g:which_key_map.t = {
 " 定义 buffer 相关的快捷键
 " ======================================================================
 
-" Leaderf 的配置项
-let g:Lf_ShortcutB = '<Leader>bf'
-
 let g:which_key_map.b = {
     \ 'name' : '+buffers'      ,
     \ '1' :                'buffer-1'         ,
@@ -115,7 +112,6 @@ let g:which_key_map.b = {
     \ '7' :                'buffer-7'         ,
     \ '8' :                'buffer-8'         ,
     \ '9' :                'buffer-9'         ,
-    \ 'f' :                '查找 buffer'      ,
     \ 't' : ['bfirst'    , 'first-buffer']    ,
     \ 'l' : ['blast'     , 'last-buffer']     ,
     \ 'b' : ['bnext'     , 'next-buffer']     ,
@@ -129,7 +125,9 @@ let g:which_key_map.b = {
 " ======================================================================
 
 " Leaderf 的配置项
+let g:Lf_ShortcutB = '<Leader>fb'
 let g:Lf_ShortcutF = '<Leader>ff'
+
 " 内容关键词搜索
 nnoremap <C-f>           :<C-U>Leaderf rg<CR>
 nnoremap <Leader>fw      :<C-U>Leaderf rg<CR>
@@ -154,6 +152,7 @@ nnoremap <silent> <Leader>fr    :edit<CR>
 
 let g:which_key_map.f = {
     \ 'name' : '+files/search'      ,
+    \ 'b' :                         '查找 buffer'        ,
     \ 'f' :                         '查找文件'           ,
     \ 'q' :                         '查找光标下的文件'   ,
     \ 'w' :                         '查找文件内容'       ,
