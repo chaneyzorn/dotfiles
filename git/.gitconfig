@@ -9,3 +9,5 @@
 [url "git@github.smartx.com:"]
     insteadOf = https://github.smartx.com/
 
+[pull]
+	ff = only
