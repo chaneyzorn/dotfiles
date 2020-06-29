@@ -232,9 +232,13 @@ let g:UltiSnipsSnippetsDir=g:neohome."/moetools/UltiSnips"
 " Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 " ================================================================================
 
+" let g:Lf_WindowPosition = 'popup'
+" let g:Lf_PreviewInPopup = 1
+
+let g:Lf_UseCache = 0
 let g:Lf_HideHelp = 1
 let g:Lf_WindowHeight = 0.30
-let g:Lf_StlColorscheme = 'powerline'
+let g:Lf_StlColorscheme = 'default'
 let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 let g:Lf_CacheDirectory = expand('~/.vim/cache')
 
@@ -305,10 +309,10 @@ let g:ale_set_highlights = 0
 let g:ale_echo_msg_format = '[🐼 %linter%] %code:% %s [%severity%]'
 
 let g:ale_sign_error = '✖'
-let g:ale_sign_warning = '✹'
+let g:ale_sign_warning = '❗'
 let g:ale_sign_info = '•'
 let g:ale_echo_msg_error_str = '✖ Error'
-let g:ale_echo_msg_warning_str = '✹ Warning'
+let g:ale_echo_msg_warning_str = '❗Warning'
 let g:ale_echo_msg_info_str = '• Info'
 
 let g:ale_completion_delay = 500

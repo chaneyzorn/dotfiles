@@ -242,9 +242,9 @@ nmap  <silent>  <Leader>cA           <Plug>NERDCommenterAppend
 " 注释并对齐
 xmap  <silent>  <Leader>cb           <Plug>NERDCommenterAlignBoth
 nmap  <silent>  <Leader>cb           <Plug>NERDCommenterAlignBoth
-" 注释代码
-xmap  <silent>  <Leader>cc           <Plug>NERDCommenterComment
-nmap  <silent>  <Leader>cc           <Plug>NERDCommenterComment
+" 根据选中的第一行反转注释状态
+xmap  <silent>  <Leader>cc           <Plug>NERDCommenterToggle
+nmap  <silent>  <Leader>cc           <Plug>NERDCommenterToggle
 " 反转注释状态
 xmap  <silent>  <Leader>ci           <Plug>NERDCommenterInvert
 nmap  <silent>  <Leader>ci           <Plug>NERDCommenterInvert
@@ -264,9 +264,9 @@ xmap  <silent>  <Leader>cy           <Plug>NERDCommenterYank
 nmap  <silent>  <Leader>cy           <Plug>NERDCommenterYank
 " 从光标位置注释到行尾
 nmap  <silent>  <Leader>c$           <Plug>NERDCommenterToEOL
-" 根据选中的第一行反转注释状态
-xmap  <silent>  <Leader>c<Space>     <Plug>NERDCommenterToggle
-nmap  <silent>  <Leader>c<Space>     <Plug>NERDCommenterToggle
+" 注释代码
+xmap  <silent>  <Leader>c<Space>     <Plug>NERDCommenterComment
+nmap  <silent>  <Leader>c<Space>     <Plug>NERDCommenterComment
 
 
 " multiple-cursor 快捷键
@@ -286,7 +286,7 @@ let g:which_key_map.c = {
     \ 'a' :                        '切换副注释符'          ,
     \ 'A' :                        '行尾注释'              ,
     \ 'b' :                        '对齐注释'              ,
-    \ 'c' :                        '注释代码'              ,
+    \ 'c' :                        '根据首行反转注释'      ,
     \ 'i' :                        '反转注释'              ,
     \ 'l' :                        '左对齐注释'            ,
     \ 'm' :                        '首尾块注释'            ,
@@ -295,7 +295,7 @@ let g:which_key_map.c = {
     \ 'u' :                        '取消注释'              ,
     \ 'y' :                        '？？注释'              ,
     \ '$' :                        '注释到行尾'            ,
-    \ 'SPC' :                      '根据首行反转注释'      ,
+    \ 'SPC' :                      '注释代码'              ,
     \ 'f' :                        '全格式化'              ,
     \ 'p' :                        'coc下拉注释'           ,
     \ 'r' :                        '多光标选中匹配'        ,
