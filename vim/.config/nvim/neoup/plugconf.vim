@@ -170,17 +170,17 @@ let g:vista_cursor_delay = 0
 " 大纲列表图标
 let g:vista#renderer#icons = {
     \ "augroup": "⋐",
-    \ "class": "𝐶",
-    \ "const": "ℂ",
-    \ "constant": "ℂ",
+    \ "class": "𝒞",
+    \ "const": "🅲",
+    \ "constant": "🅲",
     \ "default": "☍",
     \ "enum": "☷",
     \ "enumerator": "☷",
     \ "field": "⚆",
     \ "fields": "⚇",
-    \ "func": "𝐹",
-    \ "function": "𝐹",
-    \ "functions": "𝐹",
+    \ "func": "𝑓",
+    \ "function": "𝑓",
+    \ "functions": "𝑓",
     \ "implementation": "⛣",
     \ "interface": "⚯",
     \ "macro": "☢",
@@ -197,10 +197,10 @@ let g:vista#renderer#icons = {
     \ "struct": "❴❵",
     \ "subroutine": "⥹",
     \ "target": "🞉",
-    \ "type": "𝑇",
-    \ "typedef": "𝑇",
-    \ "typeParameter": "𝑃",
-    \ "types": "𝑇",
+    \ "type": "𝒯",
+    \ "typedef": "𝒯",
+    \ "typeParameter": "𝒫",
+    \ "types": "𝒯",
     \ "union": "⚉",
     \ "var": "𝜈",
     \ "variable": "𝜈",
@@ -308,12 +308,12 @@ let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
 let g:ale_set_highlights = 0
 let g:ale_echo_msg_format = '[🐼 %linter%] %code:% %s [%severity%]'
 
-let g:ale_sign_error = '✖'
+let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '❗'
-let g:ale_sign_info = '•'
-let g:ale_echo_msg_error_str = '✖ Error'
+let g:ale_sign_info = '𝓲'
+let g:ale_echo_msg_error_str = '✘ Error'
 let g:ale_echo_msg_warning_str = '❗Warning'
-let g:ale_echo_msg_info_str = '• Info'
+let g:ale_echo_msg_info_str = '𝓲 Info'
 
 let g:ale_completion_delay = 500
 let g:ale_echo_delay = 20
