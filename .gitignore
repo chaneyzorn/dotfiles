@@ -2,6 +2,8 @@ aria2/.aria2/aria2.session
 ansible/.ansible/hosts
 ansible/.ansible/tmp
 
+linux-home/.local/share/nvim/
+
 .netrwhist
 vim/.config/nvim/autoload/plug.vim
 vim/.config/nvim/autoload/plug.vim.old
