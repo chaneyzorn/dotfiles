@@ -3,7 +3,8 @@ ansible/.ansible/hosts
 ansible/.ansible/tmp
 
 .netrwhist
-vim/.config/nvim/autoload
+vim/.config/nvim/autoload/plug.vim
+vim/.config/nvim/autoload/plug.vim.old
 vim/.config/nvim/cache
 vim/.config/nvim/plugged
 vim/.config/nvim/swap
