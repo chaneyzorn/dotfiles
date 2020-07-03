@@ -235,38 +235,15 @@ inoremap <silent><expr> <C-space> coc#refresh()
 
 
 " nerdcommenter 快捷键配置
-" 切换到第二种注释符
-nmap  <silent>  <Leader>ca           <Plug>NERDCommenterAltDelims
-" 在当前行之后放置注释符并进入插入模式
-nmap  <silent>  <Leader>cA           <Plug>NERDCommenterAppend
-" 注释并对齐
-xmap  <silent>  <Leader>cb           <Plug>NERDCommenterAlignBoth
-nmap  <silent>  <Leader>cb           <Plug>NERDCommenterAlignBoth
 " 根据选中的第一行反转注释状态
 xmap  <silent>  <Leader>cc           <Plug>NERDCommenterToggle
 nmap  <silent>  <Leader>cc           <Plug>NERDCommenterToggle
 " 反转注释状态
 xmap  <silent>  <Leader>ci           <Plug>NERDCommenterInvert
 nmap  <silent>  <Leader>ci           <Plug>NERDCommenterInvert
-" 最少注释符的块注释
-xmap  <silent>  <Leader>cm           <Plug>NERDCommenterMinimal
-nmap  <silent>  <Leader>cm           <Plug>NERDCommenterMinimal
-" 嵌套注释
-xmap  <silent>  <Leader>cn           <Plug>NERDCommenterNested
-nmap  <silent>  <Leader>cn           <Plug>NERDCommenterNested
 " 风格精致的注释
 xmap  <silent>  <Leader>cs           <Plug>NERDCommenterSexy
 nmap  <silent>  <Leader>cs           <Plug>NERDCommenterSexy
-" 取消一层注释
-xmap  <silent>  <Leader>cu           <Plug>NERDCommenterUncomment
-nmap  <silent>  <Leader>cu           <Plug>NERDCommenterUncomment
-xmap  <silent>  <Leader>cy           <Plug>NERDCommenterYank
-nmap  <silent>  <Leader>cy           <Plug>NERDCommenterYank
-" 从光标位置注释到行尾
-nmap  <silent>  <Leader>c$           <Plug>NERDCommenterToEOL
-" 注释代码
-xmap  <silent>  <Leader>c<Space>     <Plug>NERDCommenterComment
-nmap  <silent>  <Leader>c<Space>     <Plug>NERDCommenterComment
 
 
 " multiple-cursor 快捷键
@@ -283,21 +260,11 @@ nnoremap <silent> <Leader>co  :<C-u>UltiSnipsEdit<CR>
 
 let g:which_key_map.c = {
     \ 'name': '+code/coc/comment'    ,
-    \ 'a' :                        '切换副注释符'          ,
-    \ 'A' :                        '行尾注释'              ,
-    \ 'b' :                        '对齐注释'              ,
     \ 'c' :                        '根据首行反转注释'      ,
     \ 'i' :                        '反转注释'              ,
-    \ 'l' :                        '左对齐注释'            ,
-    \ 'm' :                        '首尾块注释'            ,
-    \ 'n' :                        '嵌套注释'              ,
     \ 's' :                        '精致注释'              ,
-    \ 'u' :                        '取消注释'              ,
-    \ 'y' :                        '？？注释'              ,
-    \ '$' :                        '注释到行尾'            ,
-    \ 'SPC' :                      '注释代码'              ,
     \ 'f' :                        '全格式化'              ,
-    \ 'p' :                        'coc下拉注释'           ,
+    \ 'p' :                        'coc下拉菜单'           ,
     \ 'r' :                        '多光标选中匹配'        ,
     \ 'o' :                        '编辑当前类型代码片段'  ,
     \ }

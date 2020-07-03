@@ -302,6 +302,12 @@ let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
 
 
 
+" 提供 golang 支持
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
+" ================================================================================
+
+
+
 " Plug 'w0rp/ale'
 " ================================================================================
 
@@ -346,7 +352,7 @@ let g:ale_python_pylint_options = '--rcfile ~/.config/pylintrc'
 " 错误信息使用 pep8 msg_id
 let g:ale_python_pylint_use_msg_id = 1
 
-let g:ale_go_golangci_lint_options = '--enable-all --disable wsl'
+let g:ale_go_golangci_lint_options = '--enable-all --disable wsl --disalbe gofumpt'
 
 " Plug 'Valloric/YouCompleteMe'
 " ================================================================================
@@ -370,10 +376,10 @@ let g:ale_go_golangci_lint_options = '--enable-all --disable wsl'
 " ================================================================================
 
 call coc#add_extension(
-            \ 'coc-json', 'coc-vimlsp', 'coc-yaml', 'coc-snippets',
-            \ 'coc-python', 'coc-lists', 'coc-marketplace', 'coc-pairs',
-            \ 'coc-dictionary', 'coc-word', 'coc-emoji', 'coc-syntax', 'coc-go'
-            \ )
+    \ 'coc-json', 'coc-vimlsp', 'coc-yaml', 'coc-snippets',
+    \ 'coc-python', 'coc-lists', 'coc-marketplace', 'coc-pairs',
+    \ 'coc-dictionary', 'coc-word', 'coc-emoji', 'coc-syntax', 'coc-go'
+    \ )
 
 
 " end plugconf
