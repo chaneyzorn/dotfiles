@@ -163,6 +163,7 @@ let NERDTreeIgnore = ['\~$', '\.swp$', '\.pyc$', '.git$', '.idea$', '.ropeprojec
 " 默认提供的大纲
 let g:vista_executive_for = {
     \ 'python': 'ctags',
+    \ 'go': 'coc',
     \ }
 
 " 大纲列表不延迟
