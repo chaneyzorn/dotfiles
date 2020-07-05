@@ -11,7 +11,8 @@ let g:which_key_use_floating_win = 1
 
 " Plug 'lambdalisue/suda.vim'
 " ================================================================================
-let g:suda_smart_edit = 1
+" https://github.com/lambdalisue/suda.vim/issues/29
+" let g:suda_smart_edit = 1
 
 
 " Plug 'vim-airline/vim-airline'
@@ -306,7 +307,7 @@ let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
 " 提供 golang 支持
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
 " ================================================================================
-
+let g:go_def_reuse_buffer = 1
 
 
 " Plug 'w0rp/ale'
