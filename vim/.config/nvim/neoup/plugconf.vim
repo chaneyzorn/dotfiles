@@ -174,7 +174,7 @@ let g:vista#renderer#icons = {
     \ "class": "𝒞",
     \ "const": "🅲",
     \ "constant": "🅲",
-    \ "default": "☍",
+    \ "default": "⎅",
     \ "enum": "☷",
     \ "enumerator": "☷",
     \ "field": "⚆",
