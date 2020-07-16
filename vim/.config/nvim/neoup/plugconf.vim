@@ -246,7 +246,7 @@ let g:Lf_CacheDirectory = expand('~/.vim/cache')
 
 let g:Lf_RootMarkers = ['.root', '.svn', '.git', '.hg', '.idea', '.project']
 let g:Lf_WildIgnore = {
-    \ 'dir': ['.svn','.git','.hg', 'build', 'debug', '.idea', '.ropeproject'],
+    \ 'dir': ['.svn','.git','.hg', 'build', 'debug', '.idea', '.ropeproject', 'vendor'],
     \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
     \ }
 
