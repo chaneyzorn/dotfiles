@@ -45,13 +45,12 @@ fi
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # iTerm2 > Profiles > Text > Font: "Use a different font for non-ASCII text"
     # then https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts
-    POWERLEVEL9K_MODE='nerdfont-complete'
-    ZSH_THEME="powerlevel9k/powerlevel9k"
 else
     source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
     # install nerd-fonts-fira-code
     # edit .config/fontconfig/conf.d/10-symbols.conf
 fi
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
