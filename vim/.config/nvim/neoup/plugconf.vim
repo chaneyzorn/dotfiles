@@ -346,6 +346,7 @@ let g:ale_linters = {
     \    'c': ['clangtidy', 'ccls', 'cppcheck'],
     \    'cpp': ['clangtidy', 'ccls', 'cppcheck'],
     \    'go': ['golangci-lint'],
+    \    'javascript': ['eslint'],
     \ }
 
 " 使用全局 pylint，这样可以使用 venv 中对应版本的 pylint
@@ -378,6 +379,7 @@ let g:ale_go_golangci_lint_options = '--enable-all --disable wsl --disalbe gofum
 " ================================================================================
 
 call coc#add_extension(
+    \ 'coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-css',
     \ 'coc-json', 'coc-vimlsp', 'coc-yaml', 'coc-snippets',
     \ 'coc-python', 'coc-lists', 'coc-marketplace', 'coc-pairs',
     \ 'coc-dictionary', 'coc-word', 'coc-emoji', 'coc-syntax', 'coc-go'
