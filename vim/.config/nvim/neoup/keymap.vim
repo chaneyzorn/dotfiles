@@ -129,7 +129,6 @@ let g:Lf_ShortcutB = '<Leader>fb'
 let g:Lf_ShortcutF = '<Leader>ff'
 
 " 内容关键词搜索
-nnoremap <C-f>           :<C-U>Leaderf rg<CR>
 nnoremap <Leader>fw      :<C-U>Leaderf rg<CR>
 " 光标下单词搜索文件
 nnoremap <Leader>fq      :<C-U>LeaderfFileCword<CR>
