@@ -55,6 +55,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 " 侧栏显示文件结构大纲
 Plug 'liuchengxu/vista.vim'
+" terminal 增强
+Plug 'voldikss/vim-floaterm'
 
 " 记忆上次文件位置
 Plug 'farmergreg/vim-lastplace'
