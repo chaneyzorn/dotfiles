@@ -103,15 +103,9 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh/custom/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    ansible
-    archlinux
-    docker
-    encode64
     git
-    kubectl
     pip
     python
-    sudo
     thefuck
     z
 )
