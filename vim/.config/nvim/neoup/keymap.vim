@@ -73,6 +73,12 @@ nmap <silent> <Leader>th <Plug>TranslateF
 " vista 快捷键配置
 nnoremap <silent> <Leader>tb :Vista<CR>
 
+" floaterm 快捷键配置
+let g:floaterm_keymap_new    = '<Leader>tr'
+let g:floaterm_keymap_prev   = '<Leader>['
+let g:floaterm_keymap_next   = '<Leader>]'
+let g:floaterm_keymap_toggle = '<Leader>tt'
+
 let g:which_key_map.t = {
     \ 'name': '+tab/translate/tags',
     \ '1' :                  'tab-1'          ,
@@ -87,12 +93,14 @@ let g:which_key_map.t = {
     \ 'n' : ['tabnew'      , '打开新 tab' ]   ,
     \ 'c' : ['tabclose'    , '关闭当前tab']   ,
     \ 'o' : ['tabonly'     , '关闭其他tab']   ,
-    \ 't' : ['tabnext'     , '下一个tab' ]    ,
-    \ 'p' : ['tabprevious' , '上一个tab' ]    ,
+    \ ']' : ['tabnext'     , '下一个tab' ]    ,
+    \ '[' : ['tabprevious' , '上一个tab' ]    ,
     \ 'f' : ['tabfirst'    , '第一个tab' ]    ,
     \ 'l' : ['tablast'     , '最后一个tab' ]  ,
     \ 'w' :                  '翻译单词'       ,
+    \ 'r' :                  '新建浮窗终端'   ,
     \ 's' :                  '展示翻译'       ,
+    \ 't' :                  '切换浮窗终端'   ,
     \ 'h' :                  '翻译历史记录'   ,
     \ 'b' :                  '显示大纲'       ,
     \ }
