@@ -5,6 +5,5 @@ indent_size = 4
 indent_style = space
 trim_trailing_whitespace = true
 max_line_length = 120
-[*.js]
-indent_style = space
+[*.{js,css}]
 indent_size = 2
