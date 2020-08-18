@@ -2,7 +2,7 @@
     email = chaneyzorn@gmail.com
     name = chaney
 [core]
-    editor = vim
+    editor = nvim
     quotepath = false
 [url "git@192.168.50.150:"]
     insteadOf = http://192.168.50.150/
