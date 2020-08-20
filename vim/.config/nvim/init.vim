@@ -13,7 +13,8 @@ let g:neohome = fnameescape(fnamemodify(resolve(expand('<sfile>:p')), ':h'))
 command! -nargs=1 IncScript execute 'source '.g:neohome.'/'.'<args>'
 
 IncScript neoup/myconf.vim
+IncScript neoup/preplugconf.vim
 IncScript neoup/plugins.vim
-IncScript neoup/plugconf.vim
+IncScript neoup/postplugconf.vim
 IncScript neoup/keymap.vim
 

@@ -1,5 +1,5 @@
-" plugconf.vim
-" 与插件定制功能相关的配置
+" preplugconf.vim
+" 与插件定制功能相关的配置，在插件载入前配置（纯变量选项配置）
 
 
 " Plug 'liuchengxu/vim-which-key'
@@ -41,12 +41,6 @@ let g:space_vim_italicize_strings = 0
 let g:space_vim_plugin_hi_groups = 1
 let g:space_vim_transp_bg = 1
 
-colorscheme space_vim_theme
-
-hi Comment    guifg=#00688B ctermfg=59
-hi CursorLine ctermbg=238 guibg=#133440
-hi WildMenu   ctermfg=172 ctermbg=238 guifg=#d78700 guibg=#444444 guisp=NONE cterm=NONE,bold gui=NONE,bold
-hi StatusLine ctermfg=173 ctermbg=233 guifg=#e18254 guibg=#262626 guisp=NONE cterm=NONE gui=NONE
 
 
 " Plug 'RRethy/vim-illuminate'
@@ -341,9 +335,11 @@ let g:go_def_reuse_buffer = 1
 " Plug 'w0rp/ale'
 " ================================================================================
 
+let g:ale_disable_lsp = 1
 let g:ale_set_highlights = 0
 let g:ale_echo_msg_format = '[🐼 %linter%] %code:% %s [%severity%]'
 
+let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '❗'
 let g:ale_sign_info = '➽'
@@ -385,33 +381,5 @@ let g:ale_python_pylint_use_msg_id = 1
 
 let g:ale_go_golangci_lint_options = '--enable-all --disable wsl --disalbe gofumpt'
 
-" Plug 'Valloric/YouCompleteMe'
-" ================================================================================
-"
-" let g:ycm_add_preview_to_completeopt = 0
-" let g:ycm_server_log_level = 'info'
-" let g:ycm_min_num_identifier_candidate_chars = 2
-" let g:ycm_collect_identifiers_from_comments_and_strings = 1
-" let g:ycm_complete_in_strings = 1
-" let g:ycm_confirm_extra_conf = 0
-" " let g:ycm_global_ycm_extra_conf = expand('~/.vim/ycm_extra_conf.py')
-"
-" let g:ycm_semantic_triggers =  {
-" \   'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
-" \   'cs,lua,javascript': ['re!\w{2}'],
-" \}
 
-
-
-" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': 'yarn install'}
-" ================================================================================
-
-call coc#add_extension(
-    \ 'coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-css',
-    \ 'coc-json', 'coc-vimlsp', 'coc-yaml', 'coc-snippets',
-    \ 'coc-python', 'coc-lists', 'coc-marketplace', 'coc-pairs',
-    \ 'coc-dictionary', 'coc-word', 'coc-emoji', 'coc-syntax', 'coc-go'
-    \ )
-
-
-" end plugconf
+" end preplugconf

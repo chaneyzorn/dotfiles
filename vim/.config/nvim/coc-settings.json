@@ -1,4 +1,5 @@
 {
+    "diagnostic.displayByAle": true,
     "languageserver": {
         "bash": {
             "command": "bash-language-server",
