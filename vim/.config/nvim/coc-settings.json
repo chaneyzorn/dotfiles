@@ -48,7 +48,7 @@
             ]
         }
     },
-    "python.linting.enabled": false,
+    "python.linting.enabled": true,
     "python.formatting.provider": "black",
     "python.formatting.blackPath":"/usr/bin/black",
     "python.jediEnabled": true,
