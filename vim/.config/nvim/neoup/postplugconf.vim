@@ -12,6 +12,13 @@ hi WildMenu   ctermfg=172 ctermbg=238 guifg=#d78700 guibg=#444444 guisp=NONE cte
 hi StatusLine ctermfg=173 ctermbg=233 guifg=#e18254 guibg=#262626 guisp=NONE cterm=NONE gui=NONE
 
 
+" Plug 'RRethy/vim-illuminate'
+" ================================================================================
+
+" 使用下划线标记光标下相同的单词
+hi illuminatedWord cterm=underline gui=underline
+
+
 " build-in terminal color
 " ================================================================================
 " xfce4/terminal/colorschemes/chaney_dark.theme

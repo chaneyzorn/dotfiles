@@ -46,9 +46,6 @@ let g:space_vim_transp_bg = 1
 " Plug 'RRethy/vim-illuminate'
 " ================================================================================
 
-" 使用下划线标记光标下相同的单词
-hi illuminatedWord cterm=underline gui=underline
-
 " 设置高亮单词延时
 let g:Illuminate_delay = 50
 " 设置在部分 buffer 中不做高亮
