@@ -311,7 +311,7 @@ let g:go_def_reuse_buffer = 1
 
 let g:ale_disable_lsp = 1
 let g:ale_set_highlights = 0
-let g:ale_echo_msg_format = '[🐼 %linter%] %code:% %s [%severity%]'
+let g:ale_echo_msg_format = '[👻%linter%] %code:% %s [%severity%]'
 
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✘'
@@ -355,5 +355,16 @@ let g:ale_python_pylint_use_msg_id = 1
 
 let g:ale_go_golangci_lint_options = '--enable-all --disable wsl --disalbe gofumpt'
 
+
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" ================================================================================
+
+let g:coc_global_extensions = [
+    \ 'coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-css',
+    \ 'coc-json', 'coc-vimlsp', 'coc-yaml', 'coc-snippets',
+    \ 'coc-python', 'coc-lists', 'coc-marketplace', 'coc-pairs',
+    \ 'coc-dictionary', 'coc-word', 'coc-emoji', 'coc-syntax',
+    \ 'coc-go', 'coc-rust-analyzer'
+    \ ]
 
 " end preplugconf

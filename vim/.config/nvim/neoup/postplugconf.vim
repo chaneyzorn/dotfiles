@@ -46,15 +46,21 @@ let g:terminal_ansi_colors = [
     \ ]
 
 
-" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': 'yarn install'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " ================================================================================
 
-call coc#add_extension(
-    \ 'coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-css',
-    \ 'coc-json', 'coc-vimlsp', 'coc-yaml', 'coc-snippets',
-    \ 'coc-python', 'coc-lists', 'coc-marketplace', 'coc-pairs',
-    \ 'coc-dictionary', 'coc-word', 'coc-emoji', 'coc-syntax', 'coc-go'
-    \ )
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " end preplugconf

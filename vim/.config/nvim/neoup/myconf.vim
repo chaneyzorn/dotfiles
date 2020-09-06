@@ -27,7 +27,9 @@ set number cursorline
 " 总是显示指示列
 set signcolumn=yes
 " Smaller updatetime for CursorHold & CursorHoldI & swapfile
-set updatetime=1000
+set updatetime=300
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
 " 开启新行时对齐到当前行; 使用合适的空格替代插入 <Tab>
 set autoindent smartindent expandtab
 " 设置缩进为4个空格 一个 <Tab> 等同于4个空格 每4个空格等同于一个 <Tab>
