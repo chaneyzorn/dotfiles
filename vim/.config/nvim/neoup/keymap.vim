@@ -71,7 +71,7 @@ vmap <silent> <Leader>ts <Plug>TranslateWV
 nmap <silent> <Leader>th <Plug>TranslateF
 
 " vista 快捷键配置
-nnoremap <silent> <Leader>tb :Vista<CR>
+nnoremap <silent> <Leader>tb :<C-u>Vista!!<CR>
 
 " floaterm 快捷键配置
 let g:floaterm_keymap_new    = '<Leader>tr'
