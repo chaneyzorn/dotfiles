@@ -234,6 +234,7 @@ let g:UltiSnipsSnippetsDir=g:neohome."/moetools/UltiSnips"
 " let g:Lf_PreviewInPopup = 1
 
 let g:Lf_UseCache = 0
+let g:Lf_ShowHidden = 1
 let g:Lf_HideHelp = 1
 let g:Lf_WindowHeight = 0.30
 let g:Lf_StlColorscheme = 'default'
@@ -245,6 +246,11 @@ let g:Lf_WildIgnore = {
     \ 'dir': ['.svn','.git','.hg', 'build', 'debug', '.idea', '.ropeproject', 'vendor'],
     \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
     \ }
+
+let g:Lf_RgConfig = [
+    \ "--glob=!node_modules/*",
+    \ "--hidden",
+    \]
 
 let g:Lf_MruMaxFiles = 2048
 let g:Lf_MruFileExclude = ['*.so', '*.exe', '*.py[co]', '*.sw?', '~$*', '*.bak', '*.tmp', '*.dll']
