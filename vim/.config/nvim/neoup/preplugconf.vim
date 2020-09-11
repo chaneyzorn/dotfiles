@@ -230,8 +230,9 @@ let g:UltiSnipsSnippetsDir=g:neohome."/moetools/UltiSnips"
 " Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 " ================================================================================
 
-" let g:Lf_WindowPosition = 'popup'
-" let g:Lf_PreviewInPopup = 1
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_PopupHeight = 0.75
+let g:Lf_PreviewInPopup = 1
 
 let g:Lf_UseCache = 0
 let g:Lf_ShowHidden = 1
@@ -250,7 +251,7 @@ let g:Lf_WildIgnore = {
 let g:Lf_RgConfig = [
     \ "--glob=!node_modules/*",
     \ "--hidden",
-    \]
+    \ ]
 
 let g:Lf_MruMaxFiles = 2048
 let g:Lf_MruFileExclude = ['*.so', '*.exe', '*.py[co]', '*.sw?', '~$*', '*.bak', '*.tmp', '*.dll']
@@ -265,6 +266,128 @@ let g:Lf_NormalMap = {
     \ "BufTag":   [["<ESC>", ':exec g:Lf_py "bufTagExplManager.quit()"<CR>']],
     \ "Function": [["<ESC>", ':exec g:Lf_py "functionExplManager.quit()"<CR>']],
     \ "Rg":       [["<ESC>", ':exec g:Lf_py "rgExplManager.quit()"<CR>']],
+    \ }
+
+let g:Lf_PopupPalette = {
+    \ 'dark': {
+    \       'Lf_hl_popup_inputText': {
+    \           'gui': 'NONE',
+    \           'font': 'NONE',
+    \           'guifg': '#B2B2B2',
+    \           'guibg': '#3B3E4C',
+    \           'cterm': 'NONE',
+    \           'ctermfg': '172',
+    \           'ctermbg': '238'
+    \       },
+    \       'Lf_hl_popup_window': {
+    \           'gui': 'NONE',
+    \           'font': 'NONE',
+    \           'guifg': '#B2B2B2',
+    \           'guibg': '#133C46',
+    \           'cterm': 'NONE',
+    \           'ctermfg': '173',
+    \           'ctermbg': '233'
+    \       },
+    \       'Lf_hl_pop_cursorline': {
+    \           'gui': 'NONE',
+    \           'font': 'NONE',
+    \           'guifg': '#B2B2B2',
+    \           'guibg': '#2D333E',
+    \           'cterm': 'NONE',
+    \           'ctermfg': '173',
+    \           'ctermbg': '233'
+    \       },
+    \       'Lf_hl_popup_category': {
+    \           'gui': 'NONE',
+    \           'font': 'NONE',
+    \           'guifg': '#000000',
+    \           'guibg': '#F28379',
+    \           'cterm': 'NONE',
+    \           'ctermfg': '16',
+    \           'ctermbg': '210'
+    \       },
+    \       'Lf_hl_popup_nameOnlyMode': {
+    \           'gui': 'NONE',
+    \           'font': 'NONE',
+    \           'guifg': '#000000',
+    \           'guibg': '#E8ED51',
+    \           'cterm': 'NONE',
+    \           'ctermfg': '16',
+    \           'ctermbg': '227'
+    \       },
+    \       'Lf_hl_popup_fullPathMode': {
+    \           'gui': 'NONE',
+    \           'font': 'NONE',
+    \           'guifg': '#000000',
+    \           'guibg': '#AAAAFF',
+    \           'cterm': 'NONE',
+    \           'ctermfg': '16',
+    \           'ctermbg': '147'
+    \       },
+    \       'Lf_hl_popup_fuzzyMode': {
+    \           'gui': 'NONE',
+    \           'font': 'NONE',
+    \           'guifg': '#000000',
+    \           'guibg': '#E8ED51',
+    \           'cterm': 'NONE',
+    \           'ctermfg': '16',
+    \           'ctermbg': '227'
+    \       },
+    \       'Lf_hl_popup_regexMode': {
+    \           'gui': 'NONE',
+    \           'font': 'NONE',
+    \           'guifg': '#000000',
+    \           'guibg': '#7FECAD',
+    \           'cterm': 'NONE',
+    \           'ctermfg': '16',
+    \           'ctermbg': '121'
+    \       },
+    \       'Lf_hl_popup_cwd': {
+    \           'gui': 'NONE',
+    \           'font': 'NONE',
+    \           'guifg': '#EBFFEF',
+    \           'guibg': '#606168',
+    \           'cterm': 'NONE',
+    \           'ctermfg': '195',
+    \           'ctermbg': '241'
+    \       },
+    \       'Lf_hl_popup_blank': {
+    \           'gui': 'NONE',
+    \           'font': 'NONE',
+    \           'guifg': 'NONE',
+    \           'guibg': '#3B3E4C',
+    \           'cterm': 'NONE',
+    \           'ctermfg': 'NONE',
+    \           'ctermbg': '237'
+    \       },
+    \       'Lf_hl_popup_spin': {
+    \           'gui': 'NONE',
+    \           'font': 'NONE',
+    \           'guifg': '#E6E666',
+    \           'guibg': '#3B3E4C',
+    \           'cterm': 'NONE',
+    \           'ctermfg': '185',
+    \           'ctermbg': '237'
+    \       },
+    \       'Lf_hl_popup_lineInfo': {
+    \           'gui': 'NONE',
+    \           'font': 'NONE',
+    \           'guifg': '#EEEEEE',
+    \           'guibg': '#606168',
+    \           'cterm': 'NONE',
+    \           'ctermfg': '16',
+    \           'ctermbg': '195'
+    \       },
+    \       'Lf_hl_popup_total': {
+    \           'gui': 'NONE',
+    \           'font': 'NONE',
+    \           'guifg': '#000000',
+    \           'guibg': '#16D5B6',
+    \           'cterm': 'NONE',
+    \           'ctermfg': '16',
+    \           'ctermbg': '149'
+    \       }
+    \    }
     \ }
 
 
