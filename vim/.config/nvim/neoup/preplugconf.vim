@@ -145,6 +145,7 @@ let NERDTreeShowHidden = 1
 " 忽略以下类型文件
 let NERDTreeIgnore = ['\~$', '\.swp$', '\.pyc$', '.git$', '.idea$', '.ropeproject$']
 
+autocmd FileType nerdtree setlocal signcolumn=no
 
 
 " Plug 'liuchengxu/vista.vim'
@@ -233,6 +234,8 @@ let g:UltiSnipsSnippetsDir=g:neohome."/moetools/UltiSnips"
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PopupHeight = 0.75
 let g:Lf_PreviewInPopup = 1
+
+autocmd FileType leaderf setlocal signcolumn=no
 
 let g:Lf_UseCache = 0
 let g:Lf_ShowHidden = 1
