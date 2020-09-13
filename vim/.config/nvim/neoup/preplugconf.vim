@@ -142,6 +142,10 @@ let g:vtm_default_engines = ["youdao", "ciba", "bing"]
 let NERDTreeMinimalUI = 1
 " 默认显示隐藏文件
 let NERDTreeShowHidden = 1
+" 展开字符
+let NERDTreeDirArrowExpandable=""
+let NERDTreeDirArrowCollapsible=""
+
 " 忽略以下类型文件
 let NERDTreeIgnore = ['\~$', '\.swp$', '\.pyc$', '.git$', '.idea$', '.ropeproject$']
 
@@ -496,7 +500,7 @@ let g:coc_global_extensions = [
     \ 'coc-json', 'coc-vimlsp', 'coc-yaml', 'coc-snippets',
     \ 'coc-python', 'coc-lists', 'coc-marketplace', 'coc-pairs',
     \ 'coc-dictionary', 'coc-word', 'coc-emoji', 'coc-syntax',
-    \ 'coc-go', 'coc-rust-analyzer'
+    \ 'coc-go', 'coc-rust-analyzer', 'coc-explorer'
     \ ]
 
 " end preplugconf
