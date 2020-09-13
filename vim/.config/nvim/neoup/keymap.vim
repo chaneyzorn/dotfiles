@@ -69,6 +69,7 @@ vmap <silent> <Leader>tw <Plug>TranslateV
 nmap <silent> <Leader>ts <Plug>TranslateW
 vmap <silent> <Leader>ts <Plug>TranslateWV
 nmap <silent> <Leader>th <Plug>TranslateF
+nmap <silent> <Leader>tx <Plug>TranslateX
 
 " vista 快捷键配置
 nnoremap <silent> <Leader>tb :<C-u>Vista!!<CR>
@@ -102,6 +103,7 @@ let g:which_key_map.t = {
     \ 's' :                  '展示翻译'       ,
     \ 't' :                  '切换浮窗终端'   ,
     \ 'h' :                  '翻译历史记录'   ,
+    \ 'x' :                  '翻译clipboard'  ,
     \ 'b' :                  '显示大纲'       ,
     \ }
 

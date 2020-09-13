@@ -95,6 +95,11 @@ Plug 'sheerun/vim-polyglot'
 " 显示函数签名
 Plug 'Shougo/echodoc'
 
+" makrdown enhance
+Plug 'ferrine/md-img-paste.vim'
+Plug 'mzlogin/vim-markdown-toc'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
 " 代码片段支持
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
