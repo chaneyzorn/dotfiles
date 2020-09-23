@@ -60,6 +60,8 @@ Plug 'voldikss/vim-floaterm'
 
 " 记忆上次文件位置
 Plug 'farmergreg/vim-lastplace'
+" 滚动条
+Plug 'Xuyuanp/scrollbar.nvim'
 " 在所有的补全列表中使用 <tag> 导航
 Plug 'ervandew/supertab'
 " 书签标记跳转
