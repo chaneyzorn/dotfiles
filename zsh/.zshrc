@@ -17,12 +17,14 @@ export GO111MODULE=$(go env GO111MODULE)
 GO_BIN=$GOPATH/bin
 MY_BIN=$HOME/myutils/bin
 RUST_BIN=$HOME/cargo/bin
+LUA_BIN=$HOME/.luarocks/bin
 NODE_BIN=$HOME/.node_modules_global/bin
 RUBY_BIN=$(ruby -r rubygems -e 'puts Gem.user_dir')/bin
-MY_PATH=$MY_BIN:$GO_BIN:$RUST_BIN:$NODE_BIN:$RUBY_BIN
+MY_PATH=$MY_BIN:$GO_BIN:$RUST_BIN:$NODE_BIN:$RUBY_BIN:$LUA_BIN
 
 export PATH=$MY_PATH:$BASE_PATH
 export SHELL=$(which zsh)
+eval `luarocks path --no-bin`
 
 export ISCRATCH=$HOME/Projects/iscratch
 # export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
