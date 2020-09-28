@@ -257,6 +257,7 @@ let g:Lf_WildIgnore = {
 
 let g:Lf_RgConfig = [
     \ "--glob=!node_modules/*",
+    \ "--glob=!.git/*",
     \ "--hidden",
     \ ]
 
