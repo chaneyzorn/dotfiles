@@ -50,6 +50,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'mhinz/vim-signify'
 " 集成 git 支持
 Plug 'zivyangll/git-blame.vim'
+Plug 'APZelos/blamer.nvim'
 Plug 'tpope/vim-fugitive'
 " 显示目录树
 Plug 'scrooloose/nerdtree'

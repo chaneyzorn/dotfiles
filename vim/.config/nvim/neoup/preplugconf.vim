@@ -102,6 +102,15 @@ let g:indentLine_color_gui = '#626262'
 let g:indentLine_bufTypeExclude = ['help', 'terminal', 'list', 'nofile']
 
 
+" Plug 'APZelos/blamer.nvim'
+" ================================================================================
+let g:blamer_enabled = 1
+let g:blamer_delay = 500
+let g:blamer_prefix = '    '
+let g:blamer_template = '<committer-time> • <author>   <summary>'
+let g:blamer_date_format = '%Y/%m/%d'
+
+
 " Plug 'ervandew/supertab'
 " ================================================================================
 let g:SuperTabDefaultCompletionType = "<c-n>"
