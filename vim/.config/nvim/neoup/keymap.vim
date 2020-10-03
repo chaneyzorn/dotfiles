@@ -266,10 +266,13 @@ let g:UltiSnipsJumpForwardTrigger="<TAB>"
 let g:UltiSnipsJumpBackwardTrigger="<S-TAB>"
 nnoremap <silent> <Leader>co  :<C-u>UltiSnipsEdit<CR>
 
+" 代码文档
+let g:doge_mapping='<Leader>cd'
 
 let g:which_key_map.c = {
     \ 'name': '+code/coc/comment'    ,
     \ 'c' :                        '根据首行反转注释'      ,
+    \ 'd' :                        '生成代码文档'      ,
     \ 'i' :                        '反转注释'              ,
     \ 's' :                        '精致注释'              ,
     \ 'f' :                        '全格式化'              ,

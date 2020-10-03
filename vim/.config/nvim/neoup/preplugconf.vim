@@ -241,6 +241,11 @@ let g:UltiSnipsSnippetsDir=g:neohome."/moetools/UltiSnips"
 
 
 
+" Plug 'kkoomen/vim-doge'
+" ================================================================================
+
+
+
 " Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 " ================================================================================
 
