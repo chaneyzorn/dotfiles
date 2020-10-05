@@ -19,6 +19,10 @@ hi StatusLine ctermfg=173 ctermbg=233 guifg=#e18254 guibg=#262626 guisp=NONE cte
 hi illuminatedWord cterm=underline gui=underline
 
 
+" Plug 'norcalli/nvim-colorizer.lua'
+" ================================================================================
+lua require('colorizer').setup()
+
 
 " build-in terminal color
 " ================================================================================

@@ -25,7 +25,7 @@ set number cursorline
 " 显示相对行号
 " set relativenumber
 " 总是显示指示列
-set signcolumn=auto:3
+set signcolumn=yes
 " Smaller updatetime for CursorHold & CursorHoldI & swapfile
 set updatetime=300
 " Don't pass messages to |ins-completion-menu|.

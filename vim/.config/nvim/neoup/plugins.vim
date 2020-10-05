@@ -28,6 +28,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'ntpeters/vim-better-whitespace'
 " 彩虹显示匹配的括号
 Plug 'luochen1990/rainbow'
+" 显示字面颜色
+Plug 'norcalli/nvim-colorizer.lua'
 " 补全成对括号(也可以使用 coc-pairs)
 " Plug 'jiangmiao/auto-pairs'
 " 成对操作括号和引号等
