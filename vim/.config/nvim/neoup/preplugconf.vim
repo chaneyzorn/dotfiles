@@ -246,6 +246,13 @@ let g:UltiSnipsSnippetsDir=g:neohome."/moetools/UltiSnips"
 
 
 
+" Plug 'TaDaa/vimade'
+" ================================================================================
+let g:vimade = {}
+let g:vimade.fadelevel = 0.6
+
+
+
 " Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 " ================================================================================
 

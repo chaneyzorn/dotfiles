@@ -74,6 +74,8 @@ Plug 'justinmk/vim-sneak'
 Plug 'easymotion/vim-easymotion'
 " 窗口交换
 Plug 'wesQ3/vim-windowswap'
+" 暗化非当前窗口
+Plug 'TaDaa/vimade'
 
 
 " 拓展文本对象 textobj
