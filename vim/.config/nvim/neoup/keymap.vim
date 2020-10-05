@@ -40,7 +40,6 @@ unlet s:i
 
 let g:which_key_map.w = {
     \ 'name' : '+windows' ,
-    \ 'w' :                 '窗口标记&交换'     ,
     \ 'p' : ['<C-W>p'     , '上一窗口']          ,
     \ 'n' : [':vnew'      , '新建窗口']          ,
     \ 'c' : ['<C-W>c'     , '关闭当前窗口']      ,

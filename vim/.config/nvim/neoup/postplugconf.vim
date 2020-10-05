@@ -19,14 +19,6 @@ hi StatusLine ctermfg=173 ctermbg=233 guifg=#e18254 guibg=#262626 guisp=NONE cte
 hi illuminatedWord cterm=underline gui=underline
 
 
-" Plug 'Xuyuanp/scrollbar.nvim'
-" ================================================================================
-augroup ScrollbarInit
-  autocmd!
-  autocmd WinEnter,FocusGained,CursorMoved,VimResized * silent! lua require('scrollbar').show()
-  autocmd WinLeave,FocusLost                          * silent! lua require('scrollbar').clear()
-augroup end
-
 
 " build-in terminal color
 " ================================================================================
