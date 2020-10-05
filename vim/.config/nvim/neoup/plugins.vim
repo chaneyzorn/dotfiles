@@ -72,6 +72,8 @@ Plug 'lambdalisue/suda.vim'
 " 快速移动
 Plug 'justinmk/vim-sneak'
 Plug 'easymotion/vim-easymotion'
+" 窗口交换
+Plug 'wesQ3/vim-windowswap'
 
 
 " 拓展文本对象 textobj
