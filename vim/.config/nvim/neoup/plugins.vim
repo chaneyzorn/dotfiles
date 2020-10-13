@@ -109,7 +109,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 " 代码文档
-Plug 'kkoomen/vim-doge'
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 " 为 python 提供补全和跳转
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 " 自动排序 python import
