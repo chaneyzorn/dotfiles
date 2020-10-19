@@ -151,7 +151,7 @@ disable=abstract-method,
         useless-object-inheritance,
         useless-suppression,
         using-cmp-argument,
-        wrong-import-order,
+        # wrong-import-order,
         xrange-builtin,
         zip-builtin-not-iterating,
 
