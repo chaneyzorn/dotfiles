@@ -72,8 +72,8 @@ Plug 'lambdalisue/suda.vim'
 " 快速移动
 Plug 'justinmk/vim-sneak'
 Plug 'easymotion/vim-easymotion'
-" 暗化非当前窗口
-Plug 'TaDaa/vimade'
+" 暗化非当前窗口（信息槽恢复存在问题，暂不使用）
+" Plug 'TaDaa/vimade'
 
 
 " 拓展文本对象 textobj
