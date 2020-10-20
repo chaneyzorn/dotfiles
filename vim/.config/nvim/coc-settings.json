@@ -3,32 +3,14 @@
     "languageserver": {
         "bash": {
             "command": "bash-language-server",
-            "args": [
-                "start"
-            ],
-            "filetypes": [
-                "sh"
-            ],
-            "ignoredRootPaths": [
-                "~"
-            ]
+            "args": ["start"],
+            "filetypes": ["sh"],
+            "ignoredRootPaths": ["~"]
         },
         "ccls": {
             "command": "ccls",
-            "filetypes": [
-                "c",
-                "cc",
-                "cpp",
-                "c++",
-                "objc",
-                "objcpp"
-            ],
-            "rootPatterns": [
-                ".ccls",
-                "compile_commands.json",
-                ".git/",
-                ".hg/"
-            ],
+            "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"],
+            "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
             "initializationOptions": {
                 "cache": {
                     "directory": "/tmp/ccls"
@@ -37,20 +19,14 @@
         },
         "golang": {
             "command": "gopls",
-            "rootPatterns": [
-                "go.mod",
-                ".vim/",
-                ".git/",
-                ".hg/"
-            ],
-            "filetypes": [
-                "go"
-            ]
+            "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+            "filetypes": ["go"]
         }
     },
     "python.linting.enabled": true,
     "python.formatting.provider": "black",
-    "python.formatting.blackPath":"/usr/bin/black",
+    "python.formatting.blackPath": "/usr/bin/black",
+    "python.formatting.blackArgs": ["--line-length=120"],
     "python.jediEnabled": true,
     "python.pythonPath": "python",
     "python.venvPath": "~/Pyvenv",
