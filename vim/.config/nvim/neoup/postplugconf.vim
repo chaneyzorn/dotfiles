@@ -6,10 +6,11 @@
 " ================================================================================
 colorscheme space_vim_theme
 
-hi Comment    guifg=#00688B ctermfg=59
-hi CursorLine ctermbg=238 guibg=#133440
-hi WildMenu   ctermfg=172 ctermbg=238 guifg=#d78700 guibg=#444444 guisp=NONE cterm=NONE,bold gui=NONE,bold
-hi StatusLine ctermfg=173 ctermbg=233 guifg=#e18254 guibg=#262626 guisp=NONE cterm=NONE gui=NONE
+hi Comment      guifg=#00688B ctermfg=59
+hi CursorLine   ctermbg=238   guibg=#133440
+hi WildMenu     ctermfg=172   ctermbg=238    guifg=#d78700 guibg=#444444 guisp=NONE cterm=NONE,bold gui=NONE,bold
+hi StatusLine   ctermfg=173   ctermbg=233    guifg=#e18254 guibg=#262626 guisp=NONE cterm=NONE gui=NONE
+hi NormalFloat  ctermfg=173   ctermbg=233    guifg=#e18254 guibg=#212121 guisp=NONE cterm=NONE gui=NONE
 
 
 " Plug 'RRethy/vim-illuminate'
