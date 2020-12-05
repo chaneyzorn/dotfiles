@@ -1,4 +1,5 @@
 {
+  "codeLens.enable": true,
   "diagnostic.displayByAle": true,
   "languageserver": {
     "bash": {

@@ -68,7 +68,7 @@ Plug 'farmergreg/vim-lastplace'
 " 在所有的补全列表中使用 <tag> 导航
 Plug 'ervandew/supertab'
 " 书签标记跳转
-Plug 'MattesGroeger/vim-bookmarks'
+" Plug 'MattesGroeger/vim-bookmarks'
 " 提权保存文件
 Plug 'lambdalisue/suda.vim'
 " 快速移动

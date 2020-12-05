@@ -1,6 +1,7 @@
 ansible
 arg
 args
+basename
 buf
 ccls
 cfg
@@ -28,10 +29,12 @@ emoji
 ENV
 Esc
 eslint
+filepath
 filetypes
 fmt
 func
 gitcommit
+gitconfig
 github
 gitme
 gmail
@@ -43,6 +46,7 @@ gtags
 gui
 guibg
 guifg
+homedir
 https
 issuecomment
 js
@@ -69,15 +73,18 @@ python3
 Pyvenv
 Quan
 regexp
+Repo
 sublicense
 systemd
 toolbar
+toplevel
 utf
 venv
 vert
 vim
 vimrc
 wiki
+xdg
 yaml
 youdao
 Zou
