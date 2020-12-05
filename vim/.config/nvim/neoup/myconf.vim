@@ -64,7 +64,7 @@ set autoread
 set nowrap
 
 " 启用拼写检查 :h spell
-set spell spelllang=en,cjk
+set nospell spelllang=en,cjk
 
 set tags=./.tags;,.tags,~/.cache/tags/sys-.tags
 set path=.,/usr/include,/usr/include/*,/usr/lib/*/include,/usr/lib/gcc/**/include

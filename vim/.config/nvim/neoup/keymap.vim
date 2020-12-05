@@ -268,13 +268,18 @@ nnoremap <silent> <Leader>co  :<C-u>UltiSnipsEdit<CR>
 " 代码文档
 let g:doge_mapping='<Leader>cd'
 
+" 拼写检查
+nnoremap <silent> <Leader>ck :set spell!<cr>
+
+
 let g:which_key_map.c = {
     \ 'name': '+code/coc/comment'    ,
     \ 'c' :                        '根据首行反转注释'      ,
-    \ 'd' :                        '生成代码文档'      ,
+    \ 'd' :                        '生成代码文档'          ,
     \ 'i' :                        '反转注释'              ,
     \ 's' :                        '精致注释'              ,
     \ 'f' :                        '全格式化'              ,
+    \ 'k' :                        '拼写检查'              ,
     \ 'p' :                        'coc下拉菜单'           ,
     \ 'r' :                        '多光标选中匹配'        ,
     \ 'o' :                        '编辑当前类型代码片段'  ,

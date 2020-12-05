@@ -102,6 +102,20 @@ let g:indentLine_color_gui = '#626262'
 let g:indentLine_bufTypeExclude = ['help', 'terminal', 'list', 'nofile']
 
 
+" Plug 'kamykn/spelunker.vim'
+" ================================================================================
+let g:spelunker_target_min_char_len = 3
+let g:spelunker_max_hi_words_each_buf = 500
+let g:spelunker_check_type = 2
+let g:spelunker_disable_uri_checking = 1
+let g:spelunker_disable_email_checking = 1
+let g:spelunker_disable_account_name_checking = 1
+let g:spelunker_disable_acronym_checking = 1
+let g:spelunker_disable_backquoted_checking = 0
+
+let g:spelunker_spell_bad_group = 'SpellBad'
+let g:spelunker_complex_or_compound_word_group = 'SpellBad'
+
 " Plug 'APZelos/blamer.nvim'
 " ================================================================================
 let g:blamer_enabled = 1

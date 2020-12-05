@@ -45,6 +45,8 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'lilydjwg/fcitx.vim'
 " 翻译插件
 Plug 'voldikss/vim-translate-me'
+" 拼写检查
+Plug 'kamykn/spelunker.vim'
 
 " 支持 editorconfig
 Plug 'editorconfig/editorconfig-vim'

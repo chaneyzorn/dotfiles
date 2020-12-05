@@ -14,4 +14,4 @@ vim/.config/nvim/cache
 vim/.config/nvim/plugged
 vim/.config/nvim/swap
 vim/.config/nvim/sessions/default.vim
-
+vim/.config/nvim/spell/en.utf-8.add.spl
