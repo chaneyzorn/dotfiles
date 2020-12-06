@@ -25,10 +25,14 @@ cterm
 ctermbg
 ctermfg
 diff
+dll
+dylib
 emoji
 ENV
+errorf
 Esc
 eslint
+exe
 filepath
 filetypes
 fmt
@@ -48,6 +52,7 @@ guibg
 guifg
 homedir
 https
+ioutil
 issuecomment
 js
 json
@@ -62,6 +67,7 @@ objc
 objcpp
 os
 pep8
+plugins
 powerline
 protobuf
 py
