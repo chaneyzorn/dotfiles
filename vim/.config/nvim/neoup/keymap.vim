@@ -137,11 +137,13 @@ let g:which_key_map.b = {
 let g:Lf_ShortcutB = '<Leader>fb'
 let g:Lf_ShortcutF = '<Leader>ff'
 
-" 内容关键词搜索
+" 内容关键词 fuzzy 搜索
 nnoremap <Leader>fw      :<C-U>Leaderf rg<CR>
 " 光标下单词搜索文件
 nnoremap <Leader>fq      :<C-U>LeaderfFileCword<CR>
 " 注意 <Plug> 不能使用在 noremap 中
+" 内容关键词搜索
+nmap <Leader>fe   <Plug>LeaderfRgPrompt
 " 光标下单词搜索
 nmap <Leader>fc   <Plug>LeaderfRgBangCwordRegexBoundary<CR>
 " 可视化下被选中的内容搜索
@@ -163,7 +165,8 @@ let g:which_key_map.f = {
     \ 'b' :                         '查找 buffer'        ,
     \ 'f' :                         '查找文件'           ,
     \ 'q' :                         '查找光标下的文件'   ,
-    \ 'w' :                         '查找文件内容'       ,
+    \ 'e' :                         '查找文件内容'       ,
+    \ 'w' :                         '模糊查找文件内容'   ,
     \ 'c' :                         '查找光标下的单词'   ,
     \ 'r' :                         '重新加载文件'       ,
     \ 's' :                         '保存文件'           ,
