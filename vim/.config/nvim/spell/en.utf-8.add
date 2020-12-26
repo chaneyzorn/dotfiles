@@ -1,4 +1,5 @@
 ansible
+app
 arg
 args
 basename
@@ -26,6 +27,7 @@ ctermbg
 ctermfg
 diff
 dll
+dotfiles
 dylib
 emoji
 ENV
@@ -35,6 +37,7 @@ eslint
 exe
 filepath
 filetypes
+floaterm
 fmt
 func
 gitcommit
@@ -56,6 +59,7 @@ ioutil
 issuecomment
 js
 json
+key
 languageserver
 linters
 linting

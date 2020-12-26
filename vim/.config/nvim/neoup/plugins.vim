@@ -3,7 +3,7 @@
 
 
 " 安装插件包到 plugged 目录
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 " 个人自定义的一些工具
 Plug g:neohome.'/moetools'
 

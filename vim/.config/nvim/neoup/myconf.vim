@@ -3,15 +3,12 @@
 " 部分默认设定由 Plug 'tpope/vim-sensible' 指定
 
 " 自动检查并安装 vim-plug 包管理器
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" 设置 <Leader> 键
-" let g:mapleader = " "
-" let g:maplocaleader = ','
 set timeoutlen=500
 
 " 设置编码为 utf-8
@@ -71,3 +68,7 @@ set path=.,/usr/include,/usr/include/*,/usr/lib/*/include,/usr/lib/gcc/**/includ
 
 let g:python_host_prog = "~/Pyvenv/venv2.7/bin/python2"
 let g:python3_host_prog = "~/Pyvenv/venv3/bin/python3"
+
+" disable netrw
+let g:loaded_netrw       = 1
+let g:loaded_netrwPlugin = 1
