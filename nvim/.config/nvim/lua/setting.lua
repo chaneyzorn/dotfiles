@@ -1,7 +1,6 @@
 -- myconf.vim
 -- vim 内置选项的自定义设定
 -- 部分默认设定由 Plug 'tpope/vim-sensible' 指定
-
 local go = vim.o
 
 -- 设置编码为 utf-8
@@ -82,8 +81,11 @@ go.spelllang = "en,cjk"
 
 go.tags = "./.tags;,.tags,~/.cache/tags/sys-.tags"
 go.path = table.concat({
-    ".", "/usr/include", "/usr/include/*", "/usr/lib/*/include",
-    "/usr/lib/gcc/**/include"
+  ".",
+  "/usr/include",
+  "/usr/include/*",
+  "/usr/lib/*/include",
+  "/usr/lib/gcc/**/include",
 }, ",")
 
 vim.g.python_host_prog = "~/Pyvenv/venv2.7/bin/python2"
