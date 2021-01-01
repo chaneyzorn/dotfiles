@@ -165,7 +165,8 @@ alias py3='source ~/Pyvenv/venv3/bin/activate'
 alias smvn='cd ~/.vpn/smartx/ && sudo openvpn --config zouquan.smartx.ovpn'
 
 alias vim='nvim'
-alias vi='~/myutils/bin/nvim.appimage'
+alias vi='nvim'
+alias v='~/myutils/bin/nvim.appimage'
 
 # 保证终端兼容性
 alias ssh='TERM=xterm-256color \ssh'
