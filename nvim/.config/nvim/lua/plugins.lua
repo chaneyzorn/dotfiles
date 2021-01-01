@@ -1,0 +1,147 @@
+-- Automatically install packer.nvim at bootstrapping
+local pack_path = "/site/pack/packer/opt/packer.nvim"
+local install_path = vim.fn.stdpath("data")..pack_path
+local packer_repo = "https://github.com/wbthomason/packer.nvim"
+
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+    vim.cmd(table.concat({"!git clone", packer_repo, install_path}, " "))
+end
+
+-- Only required if you have packer in your `opt` pack
+vim.cmd [[packadd packer.nvim]]
+
+-- Automatically run :PackerCompile whenever plugins.lua is updated with an autocommand
+vim.cmd [[ autocmd BufWritePost plugins.lua PackerCompile ]]
+
+
+return require("packer").startup({
+    function()
+        -- Packer can manage itself as an optional plugin
+        use { "wbthomason/packer.nvim", opt = true }
+
+        -- 一组最通用的默认配置
+        use "tpope/vim-sensible"
+        -- vim 启动第一屏
+        use "mhinz/vim-startify"
+
+        -- 指示快捷键
+        use "liuchengxu/vim-which-key"
+        -- 增强的状态栏
+        use "vim-airline/vim-airline"
+        -- 状态栏主题包
+        use "vim-airline/vim-airline-themes"
+        -- 颜色主题
+        use "liuchengxu/space-vim-theme"
+        -- 显示文件类型图标
+        use "ryanoasis/vim-devicons"
+
+        -- 显示出尾部的无用空格
+        use "ntpeters/vim-better-whitespace"
+        -- 彩虹显示匹配的括号
+        use "luochen1990/rainbow"
+        -- 显示字面颜色
+        use "norcalli/nvim-colorizer.lua"
+        -- 补全成对括号(也可以使用 coc-pairs)
+        -- use "jiangmiao/auto-pairs"
+        -- 成对操作括号和引号等
+        use "tpope/vim-surround"
+        -- 显示缩进线
+        use "Yggdroot/indentLine"
+        -- 高亮光标下相同的单词
+        use "RRethy/vim-illuminate"
+        -- 多光标编辑操作
+        -- use "mg979/vim-visual-multi"
+        use "terryma/vim-multiple-cursors"
+        -- 管理 fcitx 状态
+        use "lilydjwg/fcitx.vim"
+        -- 翻译插件
+        use "voldikss/vim-translate-me"
+        -- 拼写检查
+        use "kamykn/spelunker.vim"
+
+        -- 支持 editorconfig
+        use "editorconfig/editorconfig-vim"
+        -- 显示来自版本控制的修改状态
+        use "mhinz/vim-signify"
+        -- 集成 git 支持
+        use "zivyangll/git-blame.vim"
+        use "APZelos/blamer.nvim"
+        use "tpope/vim-fugitive"
+        -- 显示目录树
+        use "scrooloose/nerdtree"
+        -- 侧栏显示文件结构大纲
+        use "liuchengxu/vista.vim"
+        -- terminal 增强
+        use "voldikss/vim-floaterm"
+
+        -- 记忆上次文件位置
+        use "farmergreg/vim-lastplace"
+        -- 在所有的补全列表中使用 <tag> 导航
+        use "ervandew/supertab"
+        -- 书签标记跳转
+        -- use "MattesGroeger/vim-bookmarks"
+        -- 提权保存文件
+        use "lambdalisue/suda.vim"
+        -- 快速移动
+        use "justinmk/vim-sneak"
+        use "easymotion/vim-easymotion"
+        -- 暗化非当前窗口（信息槽恢复存在问题，暂不使用）
+        -- use "TaDaa/vimade"
+
+        -- 拓展文本对象 textobj
+        use "kana/vim-textobj-user"
+        use "kana/vim-textobj-entire"
+        use "kana/vim-textobj-line"
+        use "glts/vim-textobj-comment"
+        use "jceb/vim-textobj-uri"
+        use "reedes/vim-textobj-sentence"
+        use "michaeljsmith/vim-indent-object"
+        use "jeetsukumaran/vim-pythonsense"
+        use "wellle/targets.vim"
+
+
+        -- 模糊搜索
+        use { "Yggdroot/LeaderF", run = "./install.sh" }
+        use "liuchengxu/vim-clap"
+
+        -- 代码格式化
+        use "sbdchd/neoformat"
+        -- 快捷注释文本
+        use "scrooloose/nerdcommenter"
+        -- 全面而且统一的语法高亮和缩进
+        use "sheerun/vim-polyglot"
+        -- 显示函数签名
+        use "Shougo/echodoc"
+
+        -- markdown enhance
+        use "ferrine/md-img-paste.vim"
+        use "mzlogin/vim-markdown-toc"
+        use { "iamcco/markdown-preview.nvim", run = "cd app && yarn install" }
+
+        -- 代码片段支持
+        use "SirVer/ultisnips"
+        use "honza/vim-snippets"
+        -- 代码文档
+        use { "kkoomen/vim-doge", run = vim.fn["doge#install"] }
+        -- 为 python 提供补全和跳转
+        use { "davidhalter/jedi-vim", ft = "python" }
+        -- 自动排序 python import
+        use { "fisadev/vim-isort", ft = "python" }
+
+        -- 提供 golang 支持
+        use { "fatih/vim-go", run = ":GoUpdateBinaries", ft = "go" }
+
+        -- 语法检查
+        use "w0rp/ale"
+        -- 自动补全, lsp-client
+        use { "neoclide/coc.nvim", branch = "release"}
+    end,
+    config = {
+        git = {
+            clone_timeout = false
+        },
+        display = {
+            working_sym = "🗘"
+        }
+    }
+})
