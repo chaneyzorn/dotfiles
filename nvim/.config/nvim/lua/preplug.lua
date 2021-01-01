@@ -127,7 +127,7 @@ end)("scrooloose/nerdcommenter");
     vim.g.vtm_default_engines = {"youdao", "ciba", "bing"}
 end)("voldikss/vim-translate-me");
 
-(function() end)("scrooloose/nerdtree");
+(function() end)("ryanoasis/vim-devicons");
 
 (function()
     -- 不显示书签和帮助
@@ -139,11 +139,12 @@ end)("voldikss/vim-translate-me");
     vim.g.NERDTreeDirArrowCollapsible = ""
     -- 忽略以下类型文件
     vim.g.NERDTreeIgnore = {
-        "~$", ".swp$", ".pyc$", ".git$", ".idea$", ".ropeproject$"
+        [[\~$]], [[\.swp$]], [[\.pyc$]], [[\.git$]], [[\.idea$]],
+        [[\.ropeproject$]]
     }
 
     vim.cmd [[autocmd FileType nerdtree setlocal signcolumn=no]]
-end)("ryanoasis/vim-devicons");
+end)("scrooloose/nerdtree");
 
 (function()
     -- 默认提供的大纲
