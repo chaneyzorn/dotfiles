@@ -10,4 +10,5 @@
     insteadOf = https://github.smartx.com/
 
 [pull]
-	ff = only
+    ff = only
+
