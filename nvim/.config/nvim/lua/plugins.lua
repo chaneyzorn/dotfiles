@@ -120,7 +120,7 @@ return require("packer").startup({
     use "SirVer/ultisnips"
     use "honza/vim-snippets"
     -- 代码文档
-    use {"kkoomen/vim-doge", run = vim.fn["doge#install"]}
+    use {"kkoomen/vim-doge", run = ":call doge#install()"}
     -- 为 python 提供补全和跳转
     use {"davidhalter/jedi-vim", ft = "python"}
     -- 自动排序 python import
@@ -134,5 +134,8 @@ return require("packer").startup({
     -- 自动补全, lsp-client
     use {"neoclide/coc.nvim", branch = "release"}
   end,
-  config = {git = {clone_timeout = false}, display = {working_sym = "🗘"}},
+  config = {
+    git = {clone_timeout = false},
+    display = {working_sym = "🗘", open_fn = require("packer.util").float},
+  },
 })

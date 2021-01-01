@@ -90,6 +90,8 @@ end)("jiangmiao/auto-pairs");
 end)("Yggdroot/indentLine");
 
 (function()
+  vim.g.enable_spelunker_vim = 0
+  vim.g.enable_spelunker_vim_on_readonly = 0
   vim.g.spelunker_target_min_char_len = 3
   vim.g.spelunker_max_hi_words_each_buf = 500
   vim.g.spelunker_check_type = 2

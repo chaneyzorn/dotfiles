@@ -32,5 +32,6 @@
   "python.pythonPath": "python",
   "python.venvPath": "~/Pyvenv",
   "python.venvFolders": ["Pyvenv"],
+  "lua.version": "5.3",
   "suggest.acceptSuggestionOnCommitCharacter": false
 }

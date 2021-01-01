@@ -2,6 +2,7 @@
 -- vim 内置选项的自定义设定
 -- 部分默认设定由 Plug 'tpope/vim-sensible' 指定
 local go = vim.o
+local gg = vim.g
 
 -- 设置编码为 utf-8
 go.encoding = "UTF-8"
@@ -88,9 +89,9 @@ go.path = table.concat({
   "/usr/lib/gcc/**/include",
 }, ",")
 
-vim.g.python_host_prog = "~/Pyvenv/venv2.7/bin/python2"
-vim.g.python3_host_prog = "~/Pyvenv/venv3/bin/python3"
+gg.python_host_prog = "~/Pyvenv/venv2.7/bin/python2"
+gg.python3_host_prog = "~/Pyvenv/venv3/bin/python3"
 
 -- disable netrw
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+gg.loaded_netrw = 1
+gg.loaded_netrwPlugin = 1
