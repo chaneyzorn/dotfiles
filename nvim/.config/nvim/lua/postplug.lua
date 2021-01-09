@@ -15,7 +15,12 @@ end)('liuchengxu/space-vim-theme');
 
 (function()
   -- 使用下划线标记光标下相同的单词
-  vim.api.nvim_exec([[hi illuminatedWord cterm=underline gui=underline]], '')
+  vim.api.nvim_exec([[
+    augroup illuminate_augroup
+      autocmd!
+      autocmd VimEnter * hi illuminatedWord cterm=underline gui=underline
+    augroup END
+  ]], '')
 end)('RRethy/vim-illuminate');
 
 (function()

@@ -13,15 +13,14 @@ vim.cmd [[packadd packer.nvim]]
 -- Automatically run :PackerCompile whenever plugins.lua is updated with an autocommand
 vim.cmd [[ autocmd BufWritePost plugins.lua PackerCompile ]]
 
-return require("packer").startup({
+local packer = require("packer")
+
+return packer.startup({
   function()
+    local use = packer.use
+
     -- Packer can manage itself as an optional plugin
     use {"wbthomason/packer.nvim", opt = true}
-
-    -- 一组最通用的默认配置
-    use "tpope/vim-sensible"
-    -- vim 启动第一屏
-    use "mhinz/vim-startify"
 
     -- 指示快捷键
     use "liuchengxu/vim-which-key"
@@ -33,6 +32,7 @@ return require("packer").startup({
     use "liuchengxu/space-vim-theme"
     -- 显示文件类型图标
     use "ryanoasis/vim-devicons"
+    use "kyazdani42/nvim-web-devicons"
 
     -- 显示出尾部的无用空格
     use "ntpeters/vim-better-whitespace"
@@ -40,17 +40,11 @@ return require("packer").startup({
     use "luochen1990/rainbow"
     -- 显示字面颜色
     use "norcalli/nvim-colorizer.lua"
-    -- 补全成对括号(也可以使用 coc-pairs)
-    -- use "jiangmiao/auto-pairs"
-    -- 成对操作括号和引号等
-    use "tpope/vim-surround"
     -- 显示缩进线
     use "Yggdroot/indentLine"
     -- 高亮光标下相同的单词
     use "RRethy/vim-illuminate"
-    -- 多光标编辑操作
-    -- use "mg979/vim-visual-multi"
-    use "terryma/vim-multiple-cursors"
+
     -- 管理 fcitx 状态
     use "lilydjwg/fcitx.vim"
     -- 翻译插件
@@ -67,7 +61,7 @@ return require("packer").startup({
     use "APZelos/blamer.nvim"
     use "tpope/vim-fugitive"
     -- 显示目录树
-    use "scrooloose/nerdtree"
+    use "kyazdani42/nvim-tree.lua"
     -- 侧栏显示文件结构大纲
     use "liuchengxu/vista.vim"
     -- terminal 增强
@@ -77,8 +71,6 @@ return require("packer").startup({
     use "farmergreg/vim-lastplace"
     -- 在所有的补全列表中使用 <tag> 导航
     use "ervandew/supertab"
-    -- 书签标记跳转
-    -- use "MattesGroeger/vim-bookmarks"
     -- 提权保存文件
     use "lambdalisue/suda.vim"
     -- 快速移动
@@ -86,6 +78,15 @@ return require("packer").startup({
     use "easymotion/vim-easymotion"
     -- 暗化非当前窗口（信息槽恢复存在问题，暂不使用）
     -- use "TaDaa/vimade"
+
+    -- 补全成对括号(也可以使用 coc-pairs)
+    -- use "jiangmiao/auto-pairs"
+    -- 成对操作括号和引号等
+    use "tpope/vim-surround"
+
+    -- 多光标编辑操作
+    -- use "mg979/vim-visual-multi"
+    use "terryma/vim-multiple-cursors"
 
     -- 拓展文本对象 textobj
     use "kana/vim-textobj-user"
@@ -121,8 +122,6 @@ return require("packer").startup({
     use "honza/vim-snippets"
     -- 代码文档
     use {"kkoomen/vim-doge", run = ":call doge#install()"}
-    -- 为 python 提供补全和跳转
-    use {"davidhalter/jedi-vim", ft = "python"}
     -- 自动排序 python import
     use {"fisadev/vim-isort", ft = "python"}
 

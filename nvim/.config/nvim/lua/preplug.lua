@@ -1,38 +1,41 @@
 -- preplug.lua
 -- 与插件定制功能相关的配置，在插件载入前配置（纯变量选项配置）
+local gg = vim.g;
+
 (function()
   -- 使用 neovim 浮动窗口展示快捷键提示
-  vim.g.which_key_use_floating_win = 1
+  gg.which_key_use_floating_win = 1
 end)("liuchengxu/vim-which-key");
 
 (function()
   -- https://github.com/lambdalisue/suda.vim/issues/29
-  -- vim.g.suda_smart_edit = 1
+  -- gg.suda_smart_edit = 1
 end)("lambdalisue/suda.vim");
 
 (function()
   -- 状态栏使用 powerline 字体
-  vim.g.airline_powerline_fonts = 1
+  gg.airline_powerline_fonts = 1
   -- 选择一个状态栏主题
-  vim.g.airline_theme = "minimalist"
+  gg.airline_theme = "minimalist"
   -- 显示 ale 诊断信
   vim.g["airline#extensions#ale#enabled"] = 1
 end)("vim-airline/vim-airline", "vim-airline/vim-airline-themes");
 
 (function()
   -- 使用 space-vim-theme 色彩方案
-  vim.g.space_vim_italic = 1
-  vim.g.space_vim_italicize_strings = 0
-  vim.g.space_vim_plugin_hi_groups = 1
-  vim.g.space_vim_transp_bg = 1
+  gg.space_vim_italic = 1
+  gg.space_vim_italicize_strings = 0
+  gg.space_vim_plugin_hi_groups = 1
+  gg.space_vim_transp_bg = 1
 end)("liuchengxu/space-vim-theme");
 
 (function()
   -- 设置高亮单词延时
-  vim.g.Illuminate_delay = 50
+  gg.Illuminate_delay = 50
   -- 设置在部分 buffer 中不做高亮
-  vim.g.Illuminate_ftblacklist = {
+  gg.Illuminate_ftblacklist = {
     "nerdtree",
+    "NvimTree",
     "qf",
     "leaderf",
     "help",
@@ -45,10 +48,10 @@ end)("RRethy/vim-illuminate");
 (function()
   -- "插件是一系列语法高亮插件的合集，具体设置项需要参见各自插件的文"
   -- markdown 语法高亮时，不隐藏标记符号
-  vim.g.vim_markdown_conceal = 0
-  vim.g.vim_markdown_conceal_code_blocks = 0
+  gg.vim_markdown_conceal = 0
+  gg.vim_markdown_conceal_code_blocks = 0
   -- 禁用空格警告，因为它会在插入模式也高亮, 我们使用 vim-better-whitespace
-  vim.g.python_highlight_space_errors = 0
+  gg.python_highlight_space_errors = 0
 end)("sheerun/vim-polyglot");
 
 (function()
@@ -59,8 +62,8 @@ end)("ntpeters/vim-better-whitespace");
 
 (function()
   -- 自动启用彩虹括号，设置为0以手动启用
-  vim.g.rainbow_active = 1
-  vim.g.rainbow_conf = {
+  gg.rainbow_active = 1
+  gg.rainbow_conf = {
     guifgs = {
       "tan",
       "PaleGreen",
@@ -77,100 +80,138 @@ end)("luochen1990/rainbow");
 
 (function()
   -- 禁用自动回退匹配字符，在vimrc中常常误退掉注释符引号
-  vim.g.AutoPairsMapBS = 0
+  gg.AutoPairsMapBS = 0
 end)("jiangmiao/auto-pairs");
 
 (function()
   -- 缩进线颜色
-  vim.g.indentLine_color_term = 239
-  vim.g.indentLine_color_gui = "#626262"
-  -- vim.g.indentLine_char = "┊"
+  gg.indentLine_color_term = 239
+  gg.indentLine_color_gui = "#626262"
+  -- gg.indentLine_char = "┊"
   -- 以下类型的 buffer 里不显示缩进线
-  vim.g.indentLine_bufTypeExclude = {"help", "terminal", "list", "nofile"}
+  gg.indentLine_bufTypeExclude = {"help", "terminal", "list", "nofile"}
 end)("Yggdroot/indentLine");
 
 (function()
-  vim.g.enable_spelunker_vim = 0
-  vim.g.enable_spelunker_vim_on_readonly = 0
-  vim.g.spelunker_target_min_char_len = 3
-  vim.g.spelunker_max_hi_words_each_buf = 500
-  vim.g.spelunker_check_type = 2
-  vim.g.spelunker_disable_uri_checking = 1
-  vim.g.spelunker_disable_email_checking = 1
-  vim.g.spelunker_disable_account_name_checking = 1
-  vim.g.spelunker_disable_acronym_checking = 1
-  vim.g.spelunker_disable_backquoted_checking = 0
+  gg.enable_spelunker_vim = 0
+  gg.enable_spelunker_vim_on_readonly = 0
+  gg.spelunker_target_min_char_len = 3
+  gg.spelunker_max_hi_words_each_buf = 500
+  gg.spelunker_check_type = 2
+  gg.spelunker_disable_uri_checking = 1
+  gg.spelunker_disable_email_checking = 1
+  gg.spelunker_disable_account_name_checking = 1
+  gg.spelunker_disable_acronym_checking = 1
+  gg.spelunker_disable_backquoted_checking = 0
 
-  vim.g.spelunker_spell_bad_group = "SpellBad"
-  vim.g.spelunker_complex_or_compound_word_group = "SpellBad"
+  gg.spelunker_spell_bad_group = "SpellBad"
+  gg.spelunker_complex_or_compound_word_group = "SpellBad"
 end)("kamykn/spelunker.vim");
 
 (function()
-  vim.g.blamer_enabled = 1
-  vim.g.blamer_show_in_visual_modes = 0
-  vim.g.blamer_show_in_insert_modes = 0
+  gg.blamer_enabled = 1
+  gg.blamer_show_in_visual_modes = 0
+  gg.blamer_show_in_insert_modes = 0
 
-  vim.g.blamer_delay = 1000
-  vim.g.blamer_prefix = "    "
-  vim.g.blamer_template = "<committer-time> • <author>   <summary>"
-  vim.g.blamer_date_format = "%Y/%m/%d"
+  gg.blamer_delay = 1000
+  gg.blamer_prefix = "    "
+  gg.blamer_template = "<committer-time>   <author>   <summary>"
+  gg.blamer_date_format = "%Y/%m/%d"
 end)("APZelos/blamer.nvim");
 
 (function()
-  vim.g.SuperTabDefaultCompletionType = "<c-n>"
+  gg.SuperTabDefaultCompletionType = "<c-n>"
 end)("ervandew/supertab");
 
 (function()
   -- 不使用默认的键位
-  -- vim.g.NERDCreateDefaultMappings = 0
+  -- gg.NERDCreateDefaultMappings = 0
   -- 空格间隔，比如 /* int foo=2; */
-  vim.g.NERDSpaceDelims = 1
-  vim.g.NERDRemoveExtraSpaces = 1
+  gg.NERDSpaceDelims = 1
+  gg.NERDRemoveExtraSpaces = 1
   -- 取消空白行注释时，连同去掉多余的空格
-  vim.g.NERDTrimTrailingWhitespace = 1
+  gg.NERDTrimTrailingWhitespace = 1
   -- 按代码左对齐注释
-  vim.g.NERDDefaultAlign = "left"
+  gg.NERDDefaultAlign = "left"
   -- 将空行一起处理
-  vim.g.NERDCommentEmptyLines = 1
+  gg.NERDCommentEmptyLines = 1
   -- 检查并注释选中范围中未注释的行
-  vim.g.NERDToggleCheckAllLines = 1
+  gg.NERDToggleCheckAllLines = 1
 end)("scrooloose/nerdcommenter");
 
 (function()
   -- 不使用预设快捷键
-  vim.g.vtm_default_mapping = 0
-  vim.g.vtm_default_engines = {"youdao", "ciba", "bing"}
+  gg.vtm_default_mapping = 0
+  gg.vtm_default_engines = {"youdao", "ciba", "bing"}
 end)("voldikss/vim-translate-me");
 
 (function()
-end)("ryanoasis/vim-devicons");
+  gg.nvim_tree_side = 'left'
+  gg.nvim_tree_width = 30
+  gg.nvim_tree_ignore = {
+    "*.swp",
+    "*.pyc",
+    ".git",
+    ".idea",
+    ".ropeproject",
+    "node_modules",
+  }
+  gg.nvim_tree_auto_open = 1
+  gg.nvim_tree_auto_close = 1
+  gg.nvim_tree_quit_on_open = 0
+  gg.nvim_tree_follow = 1
+  gg.nvim_tree_indent_markers = 1
+  gg.nvim_tree_hide_dotfiles = 0
+  gg.nvim_tree_git_hl = 1
+  gg.nvim_tree_root_folder_modifier = ':~'
+  gg.nvim_tree_tab_open = 1
+  gg.nvim_tree_width_allow_resize = 1
+  gg.nvim_tree_show_icons = {git = 1, folders = 1, files = 1}
 
-(function()
-  -- 不显示书签和帮助
-  vim.g.NERDTreeMinimalUI = 1
-  -- 默认显示隐藏文件
-  vim.g.NERDTreeShowHidden = 1
-  -- 展开字符
-  vim.g.NERDTreeDirArrowExpandable = ""
-  vim.g.NERDTreeDirArrowCollapsible = ""
-  -- 忽略以下类型文件
-  vim.g.NERDTreeIgnore = {
-    [[\~$]],
-    [[\.swp$]],
-    [[\.pyc$]],
-    [[\.git$]],
-    [[\.idea$]],
-    [[\.ropeproject$]],
+  gg.nvim_tree_bindings = {
+    edit = {'<CR>', 'o'},
+    edit_vsplit = '<C-v>',
+    edit_split = '<C-x>',
+    edit_tab = '<C-t>',
+    close_node = {'<S-CR>', '<BS>'},
+    toggle_ignored = 'I',
+    toggle_dotfiles = 'H',
+    refresh = 'R',
+    preview = '<Tab>',
+    cd = '<C-]>',
+    create = 'a',
+    remove = 'd',
+    rename = 'r',
+    cut = 'x',
+    copy = 'c',
+    paste = 'p',
+    prev_git_item = '[c',
+    next_git_item = ']c',
   }
 
-  vim.cmd [[autocmd FileType nerdtree setlocal signcolumn=no]]
-end)("scrooloose/nerdtree");
+  gg.nvim_tree_disable_keybindings = 0
+
+  gg.nvim_tree_icons = {
+    default = '',
+    symlink = '',
+    git = {
+      unstaged = "",
+      staged = "",
+      unmerged = "",
+      renamed = "➜",
+      untracked = "六",
+    },
+    folder = {default = "", open = "", symlink = ""},
+  }
+
+  -- vim.cmd [[autocmd FileType NvimTree setlocal signcolumn=no]]
+end)("kyazdani42/nvim-tree.lua");
 
 (function()
   -- 默认提供的大纲
-  vim.g.vista_executive_for = {python = "coc", go = "coc"}
+  gg.vista_executive_for = {python = "coc", go = "coc"}
   -- 大纲列表不延迟
-  vim.g.vista_cursor_delay = 0
+  gg.vista_cursor_delay = 0
   -- 大纲列表图标
   vim.g["vista#renderer#icons"] = {
     ["augroup"] = "⋐",
@@ -216,46 +257,46 @@ end)("liuchengxu/vista.vim");
 end)("voldikss/vim-floaterm");
 
 (function()
-  vim.g.neoformat_enabled_python = {"autopep8", "yapf", "docformatter"}
+  gg.neoformat_enabled_python = {"autopep8", "yapf", "docformatter"}
   -- 默认格式化对齐
-  vim.g.neoformat_basic_format_align = 1
+  gg.neoformat_basic_format_align = 1
   -- 默认转换 tab 字符为空格
-  vim.g.neoformat_basic_format_retab = 1
+  gg.neoformat_basic_format_retab = 1
   -- 默认去掉行尾空格
-  vim.g.neoformat_basic_format_trim = 1
+  gg.neoformat_basic_format_trim = 1
 end)("sbdchd/neoformat");
 
 (function()
   -- 纵向分割
-  vim.g.UltiSnipsEditSplit = "vertical"
-  vim.g.UltiSnipsSnippetsDir = vim.fn.stdpath("config") .. "/moetools/UltiSnips"
+  gg.UltiSnipsEditSplit = "vertical"
+  gg.UltiSnipsSnippetsDir = vim.fn.stdpath("config") .. "/moetools/UltiSnips"
 end)("SirVer/ultisnips");
 
 (function()
 end)("kkoomen/vim-doge");
 
 (function()
-  vim.g.vimade = {}
-  vim.g.vimade.fadelevel = 0.6
+  gg.vimade = {}
+  gg.vimade.fadelevel = 0.6
 end)("TaDaa/vimade");
 
 (function()
-  vim.g.Lf_WindowPosition = "popup"
-  vim.g.Lf_PopupHeight = 0.75
-  vim.g.Lf_PreviewInPopup = 1
+  gg.Lf_WindowPosition = "popup"
+  gg.Lf_PopupHeight = 0.75
+  gg.Lf_PreviewInPopup = 1
 
   vim.cmd [[autocmd FileType leaderf setlocal signcolumn=no]]
 
-  vim.g.Lf_UseCache = 0
-  vim.g.Lf_ShowHidden = 1
-  vim.g.Lf_HideHelp = 1
-  vim.g.Lf_WindowHeight = 0.30
-  vim.g.Lf_StlColorscheme = "default"
-  vim.g.Lf_StlSeparator = {left = "", right = ""}
-  vim.g.Lf_CacheDirectory = vim.fn.expand("~/.vim/cache")
+  gg.Lf_UseCache = 0
+  gg.Lf_ShowHidden = 1
+  gg.Lf_HideHelp = 1
+  gg.Lf_WindowHeight = 0.30
+  gg.Lf_StlColorscheme = "default"
+  gg.Lf_StlSeparator = {left = "", right = ""}
+  gg.Lf_CacheDirectory = vim.fn.expand("~/.vim/cache")
 
-  vim.g.Lf_RootMarkers = {".root", ".svn", ".git", ".hg", ".idea", ".project"}
-  vim.g.Lf_WildIgnore = {
+  gg.Lf_RootMarkers = {".root", ".svn", ".git", ".hg", ".idea", ".project"}
+  gg.Lf_WildIgnore = {
     dir = {
       ".svn",
       ".git",
@@ -269,10 +310,10 @@ end)("TaDaa/vimade");
     file = {"*.sw?", "~$*", "*.bak", "*.exe", "*.o", "*.so", "*.py[co]"},
   }
 
-  vim.g.Lf_RgConfig = {"--glob=!node_modules/*", "--glob=!.git/*", "--hidden"}
+  gg.Lf_RgConfig = {"--glob=!node_modules/*", "--glob=!.git/*", "--hidden"}
 
-  vim.g.Lf_MruMaxFiles = 2048
-  vim.g.Lf_MruFileExclude = {
+  gg.Lf_MruMaxFiles = 2048
+  gg.Lf_MruFileExclude = {
     "*.so",
     "*.exe",
     "*.py[co]",
@@ -283,9 +324,9 @@ end)("TaDaa/vimade");
     "*.dll",
   }
 
-  vim.g.Lf_PreviewResult = {Function = 0, BufTag = 0}
+  gg.Lf_PreviewResult = {Function = 0, BufTag = 0}
 
-  vim.g.Lf_PopupPalette = {
+  gg.Lf_PopupPalette = {
     dark = {
       Lf_hl_popup_inputText = {
         gui = "NONE",
@@ -409,31 +450,25 @@ end)("TaDaa/vimade");
 end)("Yggdroot/LeaderF");
 
 (function()
-  -- 使用 coc 的补全
-  vim.g["jedi#auto_vim_configuration"] = 0
-  vim.g["jedi#completions_enabled"] = 0
-end)("davidhalter/jedi-vim");
-
-(function()
   -- 不使用默认键位
-  vim.g.gutentags_plus_nomap = 1
+  gg.gutentags_plus_nomap = 1
   -- 使用 pygments 辅助 gtags 支持更多的语言
   vim.env.GTAGSLABEL = "native-pygments"
   vim.env.GTAGSCONF = "/usr/share/gtags/gtags.conf"
   -- gutentags 搜索工程目录的标志，当前文件路径向上递归直到碰到这些文件/目录名
-  vim.g.gutentags_project_root = {".root", ".svn", ".git", ".hg", ".project"}
+  gg.gutentags_project_root = {".root", ".svn", ".git", ".hg", ".project"}
   -- 所生成的数据文件的名称
-  vim.g.gutentags_ctags_tagfile = ".tags"
+  gg.gutentags_ctags_tagfile = ".tags"
   -- 同时开启 ctags 和 gtags 支持：
-  vim.g.gutentags_modules = {"ctags", "gtags_cscope"}
+  gg.gutentags_modules = {"ctags", "gtags_cscope"}
 
   -- 将自动生成的 ctags/gtags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
-  vim.g.gutentags_cache_dir = vim.fn.expand("~/.cache/tags")
+  gg.gutentags_cache_dir = vim.fn.expand("~/.cache/tags")
   -- 禁用 gutentags 自动加载 gtags 数据库的行为
-  vim.g.gutentags_auto_add_gtags_cscope = 0
+  gg.gutentags_auto_add_gtags_cscope = 0
 
   -- 配置 ctags 的参数
-  vim.g.gutentags_ctags_extra_args = {
+  gg.gutentags_ctags_extra_args = {
     "--fields=+niazS",
     "--extra=+q",
     "--c++-kinds=+px",
@@ -443,40 +478,40 @@ end)("davidhalter/jedi-vim");
 end)("ludovicchabant/vim-gutentags", "skywind3000/gutentags_plus");
 
 (function()
-  vim.g.go_def_reuse_buffer = 1
+  gg.go_def_reuse_buffer = 1
 end)("fatih/vim-go");
 
 (function()
-  vim.g.ale_disable_lsp = 1
-  vim.g.ale_set_highlights = 0
-  vim.g.ale_echo_msg_format = "[👻%linter%] %code:% %s [%severity%]"
+  gg.ale_disable_lsp = 1
+  gg.ale_set_highlights = 0
+  gg.ale_echo_msg_format = "%severity% ⏽ %linter% ⏽ %s (%code%)"
 
-  vim.g.ale_sign_column_always = 1
-  vim.g.ale_sign_error = "✘"
-  vim.g.ale_sign_warning = "❗"
-  vim.g.ale_sign_info = "➽"
-  vim.g.ale_echo_msg_error_str = "✘ Error"
-  vim.g.ale_echo_msg_warning_str = "❗Warning"
-  vim.g.ale_echo_msg_info_str = "➽ Info"
+  gg.ale_sign_column_always = 1
+  gg.ale_sign_error = ""
+  gg.ale_sign_warning = ""
+  gg.ale_sign_info = ""
+  gg.ale_echo_msg_error_str = "  ERROR"
+  gg.ale_echo_msg_warning_str = "  WARNING"
+  gg.ale_echo_msg_info_str = "  INFO"
 
-  vim.g.ale_completion_delay = 500
-  vim.g.ale_echo_delay = 20
-  vim.g.ale_lint_delay = 500
-  vim.g.ale_lint_on_text_changed = "normal"
-  vim.g.ale_lint_on_insert_leave = 1
+  gg.ale_completion_delay = 500
+  gg.ale_echo_delay = 20
+  gg.ale_lint_delay = 500
+  gg.ale_lint_on_text_changed = "normal"
+  gg.ale_lint_on_insert_leave = 1
 
   -- compile_commands.json still not work well with clang easily
   -- see https://github.com/w0rp/ale/issues/1163#issuecomment-352585720
-  vim.g.ale_c_build_dir_names = {"build", "debug", "bin"}
-  vim.g.ale_c_parse_compile_commands = 1
+  gg.ale_c_build_dir_names = {"build", "debug", "bin"}
+  gg.ale_c_parse_compile_commands = 1
 
   -- see https://github.com/MaskRay/ccls/wiki/Customization
-  vim.g.ale_c_ccls_init_options = {cacheDirectory = "~/.cache/ccls"}
+  gg.ale_c_ccls_init_options = {cacheDirectory = "~/.cache/ccls"}
 
   -- 未明确指定 linter 的依然会使用全部可能的linter
-  -- 除非 vim.g.ale_linters_explicit = 1
+  -- 除非 gg.ale_linters_explicit = 1
   -- 显示指定要使用的 linter
-  vim.g.ale_linters = {
+  gg.ale_linters = {
     c = {"clangtidy", "ccls", "cppcheck"},
     cpp = {"clangtidy", "ccls", "cppcheck"},
     go = {"golangci-lint"},
@@ -484,17 +519,17 @@ end)("fatih/vim-go");
   }
 
   -- 使用全局 pylint，这样可以使用 venv 中对应版本的 pylint
-  vim.g.ale_python_pylint_use_global = 1
-  vim.g.ale_python_pylint_options = "--rcfile ~/.config/pylintrc"
+  gg.ale_python_pylint_use_global = 1
+  gg.ale_python_pylint_options = "--rcfile ~/.config/pylintrc"
   -- 错误信息使用 pep8 msg_id
-  vim.g.ale_python_pylint_use_msg_id = 1
+  gg.ale_python_pylint_use_msg_id = 1
 
-  vim.g.ale_go_golangci_lint_options =
+  gg.ale_go_golangci_lint_options =
     "--enable-all --disable wsl --disalbe gofumpt"
 end)("w0rp/ale");
 
 (function()
-  vim.g.coc_global_extensions = {
+  gg.coc_global_extensions = {
     "coc-tsserver",
     "coc-eslint",
     "coc-prettier",

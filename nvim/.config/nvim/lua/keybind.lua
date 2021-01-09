@@ -115,8 +115,8 @@ which_key_map.f = {
   ["c"] = "查找光标下的单词",
   ["r"] = "重新加载文件",
   ["s"] = "保存文件",
-  ["t"] = {":NERDTreeToggle", "切换显示目录树"},
-  ["l"] = {":NERDTreeFind", "在目录树中定位"},
+  ["t"] = {":NvimTreeToggle", "切换显示目录树"},
+  ["l"] = {":NvimTreeFindFile", "在目录树中定位"},
 }
 
 -- 定义 git 和 跳转相关的快捷键
