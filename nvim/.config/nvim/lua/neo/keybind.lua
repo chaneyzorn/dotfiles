@@ -1,7 +1,7 @@
 -- keybind.lua
 -- vim 快捷键设定
 -- 注意 <Plug> 不能使用在 noremap 中
-local U = require("moetools")
+local U = require("neo.tools")
 
 -- vim-which-key 插件配置
 local which_key_map = {name = "Leader"}
@@ -43,12 +43,6 @@ U.nmap("<Leader>tx", "<Plug>TranslateX")
 -- vista 快捷键配置
 U.nmap("<Leader>tb", ":<C-u>Vista!!<CR>")
 
--- floaterm 快捷键配置
-vim.g.floaterm_keymap_new = "<Leader>tr"
-vim.g.floaterm_keymap_prev = "<Leader>["
-vim.g.floaterm_keymap_next = "<Leader>]"
-vim.g.floaterm_keymap_toggle = "<Leader>tt"
-
 which_key_map.t = {
   ["name"] = "+tab/translate/tags",
   ["n"] = {"tabnew", "打开新 tab"},
@@ -79,10 +73,6 @@ which_key_map.b = {
 }
 
 -- 定义文件相关的快捷键
-
--- Leaderf 的配置项
-vim.g.Lf_ShortcutB = "<Leader>fb"
-vim.g.Lf_ShortcutF = "<Leader>ff"
 
 -- 内容关键词 fuzzy 搜索
 U.nmap("<Leader>fw", ":<C-U>Leaderf rg<CR>")
@@ -179,13 +169,7 @@ U.nmap("<Leader>cr", ":MultipleCursorsFind<Space>")
 U.vmap("<Leader>cr", ":MultipleCursorsFind<Space>")
 
 -- ultisnips 快捷键
-vim.g.UltiSnipsExpandTrigger = "<S-TAB>"
-vim.g.UltiSnipsJumpForwardTrigger = "<TAB>"
-vim.g.UltiSnipsJumpBackwardTrigger = "<S-TAB>"
 U.nmap("<Leader>co", ":<C-u>UltiSnipsEdit<CR>")
-
--- 代码文档
-vim.g.doge_mapping = "<Leader>cd"
 
 -- 拼写检查
 U.nmap("<Leader>ck", ":set spell!<CR>")

@@ -15,7 +15,7 @@ vim.cmd [[ autocmd BufWritePost plugins.lua PackerCompile ]]
 
 local packer = require("packer")
 
-return packer.startup({
+packer.startup({
   function()
     local use = packer.use
 

@@ -254,6 +254,11 @@ end)("kyazdani42/nvim-tree.lua");
 end)("liuchengxu/vista.vim");
 
 (function()
+  -- floaterm 快捷键配置
+  gg.floaterm_keymap_new = "<Leader>tr"
+  gg.floaterm_keymap_prev = "<Leader>["
+  gg.floaterm_keymap_next = "<Leader>]"
+  gg.floaterm_keymap_toggle = "<Leader>tt"
 end)("voldikss/vim-floaterm");
 
 (function()
@@ -267,12 +272,17 @@ end)("voldikss/vim-floaterm");
 end)("sbdchd/neoformat");
 
 (function()
+  gg.UltiSnipsExpandTrigger = "<S-TAB>"
+  gg.UltiSnipsJumpForwardTrigger = "<TAB>"
+  gg.UltiSnipsJumpBackwardTrigger = "<S-TAB>"
+
   -- 纵向分割
   gg.UltiSnipsEditSplit = "vertical"
   gg.UltiSnipsSnippetsDir = vim.fn.stdpath("config") .. "/moetools/UltiSnips"
 end)("SirVer/ultisnips");
 
 (function()
+  gg.doge_mapping = "<Leader>cd"
 end)("kkoomen/vim-doge");
 
 (function()
@@ -281,20 +291,22 @@ end)("kkoomen/vim-doge");
 end)("TaDaa/vimade");
 
 (function()
+  gg.Lf_ShortcutB = "<Leader>fb"
+  gg.Lf_ShortcutF = "<Leader>ff"
+
   gg.Lf_WindowPosition = "popup"
   gg.Lf_PopupHeight = 0.75
   gg.Lf_PreviewInPopup = 1
-
-  vim.cmd [[autocmd FileType leaderf setlocal signcolumn=no]]
-
-  gg.Lf_UseCache = 0
   gg.Lf_ShowHidden = 1
   gg.Lf_HideHelp = 1
   gg.Lf_WindowHeight = 0.30
   gg.Lf_StlColorscheme = "default"
   gg.Lf_StlSeparator = {left = "", right = ""}
-  gg.Lf_CacheDirectory = vim.fn.expand("~/.vim/cache")
 
+  vim.cmd [[autocmd FileType leaderf setlocal signcolumn=no]]
+
+  gg.Lf_UseCache = 0
+  gg.Lf_CacheDirectory = vim.fn.expand("~/.vim/cache")
   gg.Lf_RootMarkers = {".root", ".svn", ".git", ".hg", ".idea", ".project"}
   gg.Lf_WildIgnore = {
     dir = {

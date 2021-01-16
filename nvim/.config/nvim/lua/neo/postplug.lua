@@ -10,7 +10,10 @@
     hi StatusLine           ctermfg=173     ctermbg=233    guifg=#e18254 guibg=#262626 guisp=NONE cterm=NONE gui=NONE
     hi NormalFloat          ctermfg=173     ctermbg=233    guifg=#e18254 guibg=#212121 guisp=NONE cterm=NONE gui=NONE
     hi CocHighlightText     ctermfg=236     ctermbg=47     guifg=#303030 guibg=#f2cc8f
-  ]], '')
+
+    hi Floaterm             guibg=NONE
+    hi FloatermBorder       guibg=NONE      guifg=gray
+  ]], false)
 end)('liuchengxu/space-vim-theme');
 
 (function()
@@ -20,7 +23,7 @@ end)('liuchengxu/space-vim-theme');
       autocmd!
       autocmd VimEnter * hi illuminatedWord cterm=underline gui=underline
     augroup END
-  ]], '')
+  ]], false)
 end)('RRethy/vim-illuminate');
 
 (function()
@@ -65,3 +68,4 @@ end)('norcalli/nvim-colorizer.lua');
     "#fdf6e3",
   }
 end)('build-in terminal color');
+
