@@ -30,6 +30,7 @@ packer.startup({
     use "vim-airline/vim-airline-themes"
     -- 颜色主题
     use "liuchengxu/space-vim-theme"
+    use "sainnhe/sonokai"
     -- 显示文件类型图标
     use "ryanoasis/vim-devicons"
     use "kyazdani42/nvim-web-devicons"

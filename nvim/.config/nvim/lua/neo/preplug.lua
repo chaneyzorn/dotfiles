@@ -13,13 +13,13 @@ end)("liuchengxu/vim-which-key");
 end)("lambdalisue/suda.vim");
 
 (function()
-  -- 状态栏使用 powerline 字体
-  gg.airline_powerline_fonts = 1
-  -- 选择一个状态栏主题
-  gg.airline_theme = "minimalist"
-  -- 显示 ale 诊断信
-  vim.g["airline#extensions#ale#enabled"] = 1
-end)("vim-airline/vim-airline", "vim-airline/vim-airline-themes");
+  -- 使用 sainnhe/sonokai 色彩方案
+  gg.sonokai_style = 'andromeda'
+  gg.sonokai_enable_italic = 1
+  gg.sonokai_disable_italic_comment = 0
+  gg.sonokai_transparent_background = 0
+  gg.sonokai_sign_column_background = 'default'
+end)("sainnhe/sonokai");
 
 (function()
   -- 使用 space-vim-theme 色彩方案
@@ -28,6 +28,15 @@ end)("vim-airline/vim-airline", "vim-airline/vim-airline-themes");
   gg.space_vim_plugin_hi_groups = 1
   gg.space_vim_transp_bg = 1
 end)("liuchengxu/space-vim-theme");
+
+(function()
+  -- 状态栏使用 powerline 字体
+  gg.airline_powerline_fonts = 1
+  -- 选择一个状态栏主题
+  gg.airline_theme = "minimalist"
+  -- 显示 ale 诊断信
+  vim.g["airline#extensions#ale#enabled"] = 1
+end)("vim-airline/vim-airline", "vim-airline/vim-airline-themes");
 
 (function()
   -- 设置高亮单词延时
@@ -107,6 +116,14 @@ end)("Yggdroot/indentLine");
   gg.spelunker_spell_bad_group = "SpellBad"
   gg.spelunker_complex_or_compound_word_group = "SpellBad"
 end)("kamykn/spelunker.vim");
+
+(function()
+  -- │
+  gg.signify_sign_add = '▎'
+  gg.signify_sign_delete = '▎'
+  gg.signify_sign_delete_first_line = ''
+  gg.signify_sign_change = '▎'
+end)("mhinz/vim-signify");
 
 (function()
   gg.blamer_enabled = 1

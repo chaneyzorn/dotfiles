@@ -1,16 +1,11 @@
 -- postplug.lua
 -- 与插件定制功能相关的配置，在插件载入后配置（调用型的配置）
 (function()
+  -- colorscheme space_vim_theme
   vim.api.nvim_exec([[
-    colorscheme space_vim_theme
+    colorscheme sonokai
 
-    hi Comment              ctermfg=59      guifg=#00688B
-    hi CursorLine           ctermbg=238     guibg=#133440
-    hi WildMenu             ctermfg=172     ctermbg=238    guifg=#d78700 guibg=#444444 guisp=NONE cterm=NONE,bold gui=NONE,bold
-    hi StatusLine           ctermfg=173     ctermbg=233    guifg=#e18254 guibg=#262626 guisp=NONE cterm=NONE gui=NONE
-    hi NormalFloat          ctermfg=173     ctermbg=233    guifg=#e18254 guibg=#212121 guisp=NONE cterm=NONE gui=NONE
     hi CocHighlightText     ctermfg=236     ctermbg=47     guifg=#303030 guibg=#f2cc8f
-
     hi Floaterm             guibg=NONE
     hi FloatermBorder       guibg=NONE      guifg=gray
   ]], false)
