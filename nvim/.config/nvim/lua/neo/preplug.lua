@@ -558,6 +558,7 @@ end)("fatih/vim-go");
 end)("w0rp/ale");
 
 (function()
+  gg.coc_start_at_startup = 0
   gg.coc_global_extensions = {
     "coc-tsserver",
     "coc-eslint",
@@ -570,13 +571,11 @@ end)("w0rp/ale");
     "coc-python",
     "coc-lists",
     "coc-marketplace",
-    "coc-pairs",
     "coc-dictionary",
     "coc-word",
     "coc-emoji",
     "coc-syntax",
     "coc-go",
     "coc-rust-analyzer",
-    "coc-explorer",
   }
 end)("neoclide/coc.nvim");

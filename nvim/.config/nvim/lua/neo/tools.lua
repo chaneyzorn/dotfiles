@@ -34,17 +34,17 @@ end
 -- action like ^"+yg_ but without moving cursor
 function U.YankOneLine()
   fn.setreg("+", fn.trim(fn.getline('.')))
-  print("[moetools.YankOneLine] one line yanked to system clipboard")
+  print("[YankOneLine] one line yanked to system clipboard")
 end
 
 -- toggle mouse
 function U.ToggleMouse()
   if vim.o.mouse == "" then
     vim.o.mouse = "a"
-    print("[moetools.ToggleMouse] mouse enabled")
+    print("[ToggleMouse] mouse enabled")
   else
     vim.o.mouse = ""
-    print("[moetools.ToggleMouse] mouse disabled")
+    print("[ToggleMouse] mouse disabled")
   end
 end
 

@@ -181,6 +181,9 @@ U.nmap("<Leader>co", ":<C-u>UltiSnipsEdit<CR>")
 -- 拼写检查
 U.nmap("<Leader>ck", ":set spell!<CR>")
 
+-- 手动启动 Coc Service
+U.nmap("<Leader>cx", ":<C-u>CocStart<CR>")
+
 which_key_map.c = {
   ["name"] = "+code/coc/comment",
   ["c"] = "根据首行反转注释",
@@ -212,9 +215,10 @@ U.vmap("<C-p>", [["+p]])
 -- 定义 vim 控制的控制键
 
 -- <C-l> 消除高亮/重绘面
+U.nmap("<C-l>", ":noh<CR>:redraw<CR>")
 U.nmap("<Leader>vl", ":noh<CR>:redraw<CR>")
 -- <C-m> 切换鼠标
-U.nmap("<Leader>vm", ":lua require('moetools').ToggleMouose()<CR>")
+U.nmap("<Leader>vm", ":lua require('neo.tools').ToggleMouse()<CR>")
 -- 保存全部文件并退出
 U.nmap("<Leader>vq", ":wa<CR>:q<CR>")
 -- 不做任何保存直接退出

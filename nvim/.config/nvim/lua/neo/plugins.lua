@@ -80,14 +80,14 @@ packer.startup({
     -- 暗化非当前窗口（信息槽恢复存在问题，暂不使用）
     -- use "TaDaa/vimade"
 
-    -- 补全成对括号(也可以使用 coc-pairs)
-    -- use "jiangmiao/auto-pairs"
+    -- 补全成对括号
+    use "jiangmiao/auto-pairs"
     -- 成对操作括号和引号等
     use "tpope/vim-surround"
 
     -- 多光标编辑操作
     -- use "mg979/vim-visual-multi"
-    use "terryma/vim-multiple-cursors"
+    -- use "terryma/vim-multiple-cursors"
 
     -- 拓展文本对象 textobj
     use "kana/vim-textobj-user"
