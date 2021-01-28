@@ -74,14 +74,14 @@ end)("ntpeters/vim-better-whitespace");
   gg.rainbow_active = 1
   gg.rainbow_conf = {
     guifgs = {
-      "tan",
+      "Tan",
       "PaleGreen",
       "SkyBlue",
-      "gold",
-      "orchid",
-      "orange",
+      "Gold",
+      "Orchid",
+      "Orange",
       "Fuchsia",
-      "ivory",
+      "Ivory",
     },
     separately = {nerdtree = 0},
   }
