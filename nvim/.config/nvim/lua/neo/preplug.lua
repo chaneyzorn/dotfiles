@@ -18,7 +18,7 @@ end)("lambdalisue/suda.vim");
   gg.sonokai_enable_italic = 1
   gg.sonokai_disable_italic_comment = 0
   gg.sonokai_transparent_background = 0
-  gg.sonokai_sign_column_background = 'default'
+  gg.sonokai_sign_column_background = 'none'
 end)("sainnhe/sonokai");
 
 (function()

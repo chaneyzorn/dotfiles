@@ -126,6 +126,10 @@ U.nmap("<Leader>gE", "<Plug>(ale_previous_wrap_error)")
 U.nmap("<Leader>gw", "<Plug>(ale_next_wrap)")
 U.nmap("<Leader>gW", "<Plug>(ale_previous_wrap)")
 
+-- vim-signify 快捷键配置
+U.nmap("<Leader>gd", ":SignifyHunkDiff<CR>")
+U.nmap("<Leader>gu", ":SignifyHunkUndo<CR>")
+
 which_key_map.g = {
   ["name"] = "+git/goto",
   ["l"] = "生成lint信息",
@@ -138,6 +142,8 @@ which_key_map.g = {
   ["t"] = "跳转到类型",
   ["i"] = "跳转到实现",
   ["r"] = "展示所有引用",
+  ["d"] = "展示当前行变动diff",
+  ["u"] = "将当前行回退到版本控制",
   ["b"] = "gitblame当前行",
   ["B"] = {":Gblame", "gitblame全文件"},
 }
