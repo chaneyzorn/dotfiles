@@ -156,9 +156,15 @@ U.vmap("<Leader>ct", ":StripWhitespace<CR>")
 U.nmap("<Leader>ct", ":<C-u>StripWhitespace<CR>")
 
 -- coc 快捷键配置
-U.nmap("<Leader>cf", "<Plug>(coc-format)")
-U.vmap("<Leader>cf", "<Plug>(coc-format-selected)")
+U.nmap("<Leader>ct", "<Plug>(coc-format)")
+U.vmap("<Leader>ct", "<Plug>(coc-format-selected)")
 U.nmap("<Leader>cp", ":<C-u>CocCommand<CR>")
+-- 手动启动 Coc Service
+U.nmap("<Leader>cx", ":<C-u>CocStart<CR>")
+
+-- sbdchd/neoformat 快捷键配置
+U.nmap("<Leader>cf", ":<C-u>Neoformat<CR>")
+U.vmap("<Leader>cf", ":<C-u>Neoformat<CR>")
 
 -- nerdcommenter 快捷键配置
 -- 根据选中的第一行反转注释状态
@@ -181,16 +187,14 @@ U.nmap("<Leader>co", ":<C-u>UltiSnipsEdit<CR>")
 -- 拼写检查
 U.nmap("<Leader>ck", ":set spell!<CR>")
 
--- 手动启动 Coc Service
-U.nmap("<Leader>cx", ":<C-u>CocStart<CR>")
-
 which_key_map.c = {
   ["name"] = "+code/coc/comment",
   ["c"] = "根据首行反转注释",
   ["d"] = "生成代码文档",
   ["i"] = "反转注释",
   ["s"] = "精致注释",
-  ["f"] = "全格式化",
+  ["f"] = "格式化代码",
+  ["t"] = "coc全格式化代码",
   ["k"] = "拼写检查",
   ["p"] = "coc下拉菜单",
   ["r"] = "多光标选中匹配",
