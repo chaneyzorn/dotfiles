@@ -29,7 +29,6 @@ packer.startup({
     -- 状态栏主题包
     use "vim-airline/vim-airline-themes"
     -- 颜色主题
-    use "liuchengxu/space-vim-theme"
     use "sainnhe/sonokai"
     -- 显示文件类型图标
     use "ryanoasis/vim-devicons"
