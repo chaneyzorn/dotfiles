@@ -25,7 +25,9 @@ ctags
 cterm
 ctermbg
 ctermfg
+datetime
 diff
+diskstats
 dll
 dotfiles
 dylib
@@ -53,6 +55,7 @@ gtags
 gui
 guibg
 guifg
+healthd
 homedir
 https
 ioutil
@@ -102,5 +105,6 @@ xclip
 xdg
 yaml
 youdao
+zbs
 Zou
 zsh
