@@ -48,4 +48,10 @@ function U.ToggleMouse()
   end
 end
 
+-- 获取换行符模式
+function U.GetLineEnd()
+  local label = {unix = "LF", mac = "CR", dos = "CRLF"}
+  return label[vim.bo.fileformat]
+end
+
 return U

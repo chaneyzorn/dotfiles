@@ -39,11 +39,14 @@ end)("liuchengxu/space-vim-theme");
     linenr = "",
     maxlinenr = "",
     branch = "",
-    dirty = "",
+    dirty = " ",
+    readonly = "",
   }
+  -- 配置 airline_section
+  vg.airline_section_z = vim.fn["airline#section#create"]({"linenr", "maxlinenr"})
   -- 显示 ale 诊断信
   vim.g["airline#extensions#ale#enabled"] = 1
-  vim.g["airline#extensions#ale#error_symbol"] = " "
+  vim.g["airline#extensions#ale#error_symbol"] = " "
   vim.g["airline#extensions#ale#warning_symbol"] = " "
   vim.g["airline#extensions#ale#show_line_numbers"] = 0
 end)("vim-airline/vim-airline", "vim-airline/vim-airline-themes");
@@ -526,10 +529,10 @@ end)("fatih/vim-go");
   vg.ale_echo_msg_format = "%severity% ⏽ %linter% ⏽ %s (%code%)"
 
   vg.ale_sign_column_always = 1
-  vg.ale_sign_error = ""
+  vg.ale_sign_error = ""
   vg.ale_sign_warning = ""
   vg.ale_sign_info = ""
-  vg.ale_echo_msg_error_str = "  ERROR"
+  vg.ale_echo_msg_error_str = "  ERROR"
   vg.ale_echo_msg_warning_str = "  WARNING"
   vg.ale_echo_msg_info_str = "  INFO"
 
