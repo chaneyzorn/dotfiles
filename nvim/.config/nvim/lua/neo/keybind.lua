@@ -208,7 +208,7 @@ which_key_map.c = {
 -- 可视化复制选中内容到 clipboard
 U.vmap("<C-y>", [["+y]])
 -- normal 模式复制当前行到 clipboard
-U.nmap("<C-y>", ":lua require('moetools').YankOneLine()<CR>")
+U.nmap("<C-y>", ":lua require('neo.tools').YankOneLine()<CR>")
 -- normal 模式复制全部内容 clipboard
 U.nmap("<Leader>yy", ":<C-u>%y+<CR>")
 
