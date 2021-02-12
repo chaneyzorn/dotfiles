@@ -33,6 +33,8 @@ packer.startup({
     -- 显示文件类型图标
     use "ryanoasis/vim-devicons"
     use "kyazdani42/nvim-web-devicons"
+    -- 暗化非当前窗口（信息槽恢复存在问题，暂不使用）
+    -- use "TaDaa/vimade"
 
     -- 显示出尾部的无用空格
     use "ntpeters/vim-better-whitespace"
@@ -74,10 +76,8 @@ packer.startup({
     -- 提权保存文件
     use "lambdalisue/suda.vim"
     -- 快速移动
-    use "justinmk/vim-sneak"
     use "easymotion/vim-easymotion"
-    -- 暗化非当前窗口（信息槽恢复存在问题，暂不使用）
-    -- use "TaDaa/vimade"
+    -- use "phaazon/hop.nvim"
 
     -- 补全成对括号
     use "jiangmiao/auto-pairs"
@@ -89,19 +89,19 @@ packer.startup({
     -- use "terryma/vim-multiple-cursors"
 
     -- 拓展文本对象 textobj
-    use "kana/vim-textobj-user"
-    use "kana/vim-textobj-entire"
-    use "kana/vim-textobj-line"
-    use "glts/vim-textobj-comment"
-    use "jceb/vim-textobj-uri"
-    use "reedes/vim-textobj-sentence"
-    use "michaeljsmith/vim-indent-object"
-    use "jeetsukumaran/vim-pythonsense"
-    use "wellle/targets.vim"
+    -- use "kana/vim-textobj-user"
+    -- use "kana/vim-textobj-entire"
+    -- use "kana/vim-textobj-line"
+    -- use "glts/vim-textobj-comment"
+    -- use "jceb/vim-textobj-uri"
+    -- use "reedes/vim-textobj-sentence"
+    -- use "michaeljsmith/vim-indent-object"
+    -- use "jeetsukumaran/vim-pythonsense"
+    -- use "wellle/targets.vim"
 
     -- 模糊搜索
     use {"Yggdroot/LeaderF", run = "./install.sh"}
-    use "liuchengxu/vim-clap"
+    -- use "liuchengxu/vim-clap"
 
     -- 代码格式化
     use "sbdchd/neoformat"
@@ -109,8 +109,6 @@ packer.startup({
     use "scrooloose/nerdcommenter"
     -- 全面而且统一的语法高亮和缩进
     use "sheerun/vim-polyglot"
-    -- 显示函数签名
-    use "Shougo/echodoc"
 
     -- markdown enhance
     use "ferrine/md-img-paste.vim"

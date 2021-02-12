@@ -5,6 +5,10 @@ local vg = vim.g;
 (function()
   -- 使用 neovim 浮动窗口展示快捷键提示
   vg.which_key_use_floating_win = 1
+  -- 浮动窗口不需要考虑避开行号和信号槽
+  vg.which_key_disable_default_offset = 1
+  -- 不需要中间对齐
+  vg.which_key_centered = 0
 end)("liuchengxu/vim-which-key");
 
 (function()
@@ -238,8 +242,6 @@ end)("voldikss/vim-translate-me");
 end)("kyazdani42/nvim-tree.lua");
 
 (function()
-  -- 默认提供的大纲
-  vg.vista_executive_for = {python = "coc", go = "coc"}
   -- 大纲列表不延迟
   vg.vista_cursor_delay = 0
   -- 大纲列表图标

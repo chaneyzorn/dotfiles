@@ -6,6 +6,10 @@ local vg = vim.g
 local vwo = vim.wo
 local vbo = vim.bo
 
+-- 设置空格键为 leader
+vg.mapleader = " "
+vg.maplocalleader = " "
+
 -- 设置编码为 utf-8
 vo.encoding = "UTF-8"
 

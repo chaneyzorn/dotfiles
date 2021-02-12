@@ -76,11 +76,11 @@ which_key_map.b = {
 -- 定义文件相关的快捷键
 
 -- 搜索窗口
-U.nmap("<Leader>fw", ":<C-U>LeaderfWindow<CR>")
+U.nmap("<Leader>fw", ":<C-u>LeaderfWindow<CR>")
 -- 内容关键词 fuzzy 搜索
-U.nmap("<Leader>fd", ":<C-U>Leaderf rg<CR>")
+U.nmap("<Leader>fd", ":<C-u>Leaderf rg<CR>")
 -- 光标下单词搜索文件
-U.nmap("<Leader>fq", ":<C-U>LeaderfFileCword<CR>")
+U.nmap("<Leader>fq", ":<C-u>LeaderfFileCword<CR>")
 -- 内容关键词搜索
 U.nmap("<Leader>fe", "<Plug>LeaderfRgPrompt")
 -- 光标下单词搜索
@@ -88,10 +88,11 @@ U.nmap("<Leader>fc", "<Plug>LeaderfRgBangCwordRegexBoundary<CR>")
 -- 可视化下被选中的内容搜索
 U.vmap("<Leader>fc", "<Plug>LeaderfRgBangVisualRegexNoBoundary<CR>")
 
+-- 强制保存
+U.nmap("<Leader>fs", ":<C-u>SudaWrite<CR>")
+U.vmap("<Leader>fs", "<Esc>:<C-u>SudaWrite<CR>")
+U.imap("<Leader>fs", "<Esc>:<C-u>SudaWrite<CR>")
 -- 快速保存
-U.nmap("<Leader>fs", ":update<CR>")
-U.vmap("<Leader>fs", "<Esc>:update<CR>")
-U.imap("<Leader>fs", "<Esc>:update<CR>")
 U.nmap("<C-s>", ":update<CR>")
 U.vmap("<C-s>", "<Esc>:update<CR>")
 U.imap("<C-s>", "<Esc>:update<CR>")
@@ -108,7 +109,7 @@ which_key_map.f = {
   ["d"] = "模糊查找文件内容",
   ["c"] = "查找光标下的单词",
   ["r"] = "重新加载文件",
-  ["s"] = "保存文件",
+  ["s"] = "提权保存",
   ["t"] = {":NvimTreeToggle", "切换显示目录树"},
   ["l"] = {":NvimTreeFindFile", "在目录树中定位"},
 }
@@ -247,11 +248,12 @@ which_key_map.v = {
 -- 元访问器只对 vim.g 有效，因此 vim.g.which_key_map.x
 -- 不会触发元访问器来更新 vim.g.which_key_map 中的 x
 vim.g.which_key_map = which_key_map
--- 显式绑定到 "\"，写成 <Leader> 无效
-vim.fn["which_key#register"]("\\", "g:which_key_map")
+
+-- 显式绑定到 "<Space>"，写成 <Leader> 无效
+vim.fn["which_key#register"]("<Space>", "g:which_key_map")
 
 -- 绑定单独的 <Leader> 键作为 WhichKey 的快捷键
-U.nmap("<Leader>", ":<C-u>WhichKey '\\'<CR>")
-U.vmap("<Leader>", ":<C-u>WhichKeyVisual '\\'<CR>")
-U.nmap("<Localleader>", ":<C-u>WhichKey '\\'<CR>")
-U.vmap("<Localleader>", ":<C-u>WhichKeyVisual '\\'<CR>")
+U.nmap("<Leader>", ":<C-u>WhichKey '<Space>'<CR>")
+U.vmap("<Leader>", ":<C-u>WhichKeyVisual '<Space>'<CR>")
+U.nmap("<Localleader>", ":<C-u>WhichKey '<Space>'<CR>")
+U.vmap("<Localleader>", ":<C-u>WhichKeyVisual '<Space>'<CR>")
