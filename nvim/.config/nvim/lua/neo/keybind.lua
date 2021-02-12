@@ -75,8 +75,10 @@ which_key_map.b = {
 
 -- 定义文件相关的快捷键
 
+-- 搜索窗口
+U.nmap("<Leader>fw", ":<C-U>LeaderfWindow<CR>")
 -- 内容关键词 fuzzy 搜索
-U.nmap("<Leader>fw", ":<C-U>Leaderf rg<CR>")
+U.nmap("<Leader>fd", ":<C-U>Leaderf rg<CR>")
 -- 光标下单词搜索文件
 U.nmap("<Leader>fq", ":<C-U>LeaderfFileCword<CR>")
 -- 内容关键词搜索
@@ -102,7 +104,8 @@ which_key_map.f = {
   ["f"] = "查找文件",
   ["q"] = "查找光标下的文件",
   ["e"] = "查找文件内容",
-  ["w"] = "模糊查找文件内容",
+  ["w"] = "查找窗口",
+  ["d"] = "模糊查找文件内容",
   ["c"] = "查找光标下的单词",
   ["r"] = "重新加载文件",
   ["s"] = "保存文件",
@@ -121,7 +124,7 @@ U.nmap("<Leader>gi", "<Plug>(coc-implementation)")
 U.nmap("<Leader>gr", "<Plug>(coc-references)")
 
 -- ale 快捷键配置
-U.nmap("<Leader>gl", ":ALELint<CR>", {silent = false})
+U.nmap("<Leader>gl", "<Plug>(ale_toggle)", {silent = false})
 U.nmap("<Leader>ge", "<Plug>(ale_next_wrap_error)")
 U.nmap("<Leader>gE", "<Plug>(ale_previous_wrap_error)")
 U.nmap("<Leader>gw", "<Plug>(ale_next_wrap)")
@@ -133,7 +136,7 @@ U.nmap("<Leader>gu", ":SignifyHunkUndo<CR>")
 
 which_key_map.g = {
   ["name"] = "+git/goto",
-  ["l"] = "生成lint信息",
+  ["l"] = "开启/关闭 ale lint",
   ["e"] = "跳转到下一个错误",
   ["E"] = "跳转到上一个错误",
   ["w"] = "跳转到下一个警告",

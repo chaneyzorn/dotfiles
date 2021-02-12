@@ -524,6 +524,7 @@ end)("ludovicchabant/vim-gutentags", "skywind3000/gutentags_plus");
 end)("fatih/vim-go");
 
 (function()
+  vg.ale_enabled = 0
   vg.ale_disable_lsp = 1
   vg.ale_set_highlights = 0
   vg.ale_echo_msg_format = "%severity% ⏽ %linter% ⏽ %s (%code%)"
