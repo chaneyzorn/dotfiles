@@ -6,7 +6,7 @@ local U = require("neo.tools")
 -- vim-which-key 插件配置
 local which_key_map = {name = "Leader"}
 
---> leader-w: 定义窗口相关的快捷键
+-- leader-w: 定义窗口相关的快捷键
 
 -- 以下形式表示以 <Leader>w 为前缀的快捷键，map 中的键为后续按键，以此类推
 -- 当 map 中的值是 list 时，第一列表示新定义的按键映射，第二列是这个快捷键的说明
@@ -31,7 +31,7 @@ which_key_map.w = {
   ["/"] = {"<C-W>=", "令窗口平分长度"},
 }
 
---> leader-t: 定义 tab、翻译 相关的快捷键
+-- leader-t: 定义 tab、翻译 相关的快捷键
 
 -- 翻译光标下的文本，在命令行回显翻译内容
 U.nmap("<Leader>tw", "<Plug>Translate")
@@ -63,7 +63,7 @@ which_key_map.t = {
   ["b"] = "显示大纲",
 }
 
---> leader-b: 定义 buffer 相关的快捷键
+-- leader-b: 定义 buffer 相关的快捷键
 
 which_key_map.b = {
   ["name"] = "buffers",
@@ -75,7 +75,7 @@ which_key_map.b = {
   ["h"] = {"Startify", "home-buffer"},
 }
 
---> leader-e: 定义快速位移
+-- leader-e: 定义快速位移
 U.nmap("<Leader>eb", "<Plug>(easymotion-b)")
 U.nmap("<Leader>ee", "<Plug>(easymotion-e)")
 U.nmap("<Leader>ef", "<Plug>(easymotion-f)")
@@ -99,7 +99,7 @@ which_key_map.e = {
   ["w"] = "easymotion-w word",
 }
 
---> leader-f: 定义文件相关的快捷键
+-- leader-f: 定义文件相关的快捷键
 
 -- 搜索窗口
 U.nmap("<Leader>fw", ":<C-u>LeaderfWindow<CR>")
@@ -117,7 +117,6 @@ U.vmap("<Leader>fc", "<Plug>LeaderfRgBangVisualRegexNoBoundary<CR>")
 -- 强制保存
 U.nmap("<Leader>fs", ":<C-u>SudaWrite<CR>")
 U.vmap("<Leader>fs", "<Esc>:<C-u>SudaWrite<CR>")
-U.imap("<Leader>fs", "<Esc>:<C-u>SudaWrite<CR>")
 -- 快速保存
 U.nmap("<C-s>", ":update<CR>")
 U.vmap("<C-s>", "<Esc>:update<CR>")
@@ -140,7 +139,7 @@ which_key_map.f = {
   ["l"] = {":NvimTreeFindFile", "在目录树中定位"},
 }
 
---> leader-g: 定义 git 和 跳转相关的快捷键
+-- leader-g: 定义 git 和 跳转相关的快捷键
 
 U.nmap("<Leader>gb", ":<C-u>call gitblame#echo()<CR>", {silent = false})
 
@@ -180,7 +179,7 @@ which_key_map.g = {
   ["B"] = {":Gblame", "gitblame全文件"},
 }
 
---> leader-c: 定义 coding 快捷键
+-- leader-c: 定义 coding 快捷键
 
 -- better-whitespace 快捷键配置
 U.vmap("<Leader>ct", ":StripWhitespace<CR>")
@@ -247,7 +246,7 @@ U.nmap("<Leader>yy", ":<C-u>%y+<CR>")
 U.nmap("<C-p>", [["+p]])
 U.vmap("<C-p>", [["+p]])
 
---> leader-v: 定义 vim 控制的控制键
+-- leader-v: 定义 vim 控制的控制键
 
 -- <C-l> 消除高亮/重绘面
 U.nmap("<C-l>", ":noh<CR>:redraw<CR>")
