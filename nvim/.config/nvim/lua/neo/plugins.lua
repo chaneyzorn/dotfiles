@@ -80,7 +80,7 @@ packer.startup({
     -- use "phaazon/hop.nvim"
 
     -- 补全成对括号
-    use "jiangmiao/auto-pairs"
+    use "LunarWatcher/auto-pairs"
     -- 成对操作括号和引号等
     use "tpope/vim-surround"
 

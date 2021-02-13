@@ -6,12 +6,13 @@ local U = require("neo.tools")
 -- vim-which-key 插件配置
 local which_key_map = {name = "Leader"}
 
--- 定义窗口相关的快捷键
+--> leader-w: 定义窗口相关的快捷键
+
 -- 以下形式表示以 <Leader>w 为前缀的快捷键，map 中的键为后续按键，以此类推
 -- 当 map 中的值是 list 时，第一列表示新定义的按键映射，第二列是这个快捷键的说明
 -- 当 map 中的值是 字符串 时，表示为已有快捷键的说明
 which_key_map.w = {
-  ["name"] = "+windows",
+  ["name"] = "windows",
   ["p"] = {"<C-W>p", "上一窗口"},
   ["n"] = {":vnew", "新建窗口"},
   ["c"] = {"<C-W>c", "关闭当前窗口"},
@@ -30,7 +31,7 @@ which_key_map.w = {
   ["/"] = {"<C-W>=", "令窗口平分长度"},
 }
 
--- 定义 tab、翻译 相关的快捷键
+--> leader-t: 定义 tab、翻译 相关的快捷键
 
 -- 翻译光标下的文本，在命令行回显翻译内容
 U.nmap("<Leader>tw", "<Plug>Translate")
@@ -45,7 +46,7 @@ U.nmap("<Leader>tx", "<Plug>TranslateX")
 U.nmap("<Leader>tb", ":<C-u>Vista!!<CR>")
 
 which_key_map.t = {
-  ["name"] = "+tab/translate/tags",
+  ["name"] = "tab/translate/tags",
   ["n"] = {"tabnew", "打开新 tab"},
   ["c"] = {"tabclose", "关闭当前tab"},
   ["o"] = {"tabonly", "关闭其他tab"},
@@ -62,9 +63,10 @@ which_key_map.t = {
   ["b"] = "显示大纲",
 }
 
--- 定义 buffer 相关的快捷键
+--> leader-b: 定义 buffer 相关的快捷键
+
 which_key_map.b = {
-  ["name"] = "+buffers",
+  ["name"] = "buffers",
   ["t"] = {"bfirst", "first-buffer"},
   ["l"] = {"blast", "last-buffer"},
   ["b"] = {"bnext", "next-buffer"},
@@ -73,7 +75,31 @@ which_key_map.b = {
   ["h"] = {"Startify", "home-buffer"},
 }
 
--- 定义文件相关的快捷键
+--> leader-e: 定义快速位移
+U.nmap("<Leader>eb", "<Plug>(easymotion-b)")
+U.nmap("<Leader>ee", "<Plug>(easymotion-e)")
+U.nmap("<Leader>ef", "<Plug>(easymotion-f)")
+U.nmap("<Leader>ej", "<Plug>(easymotion-j)")
+U.nmap("<Leader>ek", "<Plug>(easymotion-k)")
+U.nmap("<Leader>en", "<Plug>(easymotion-n)")
+U.nmap("<Leader>es", "<Plug>(easymotion-s)")
+U.nmap("<Leader>et", "<Plug>(easymotion-t)")
+U.nmap("<Leader>ew", "<Plug>(easymotion-w)")
+
+which_key_map.e = {
+  ["name"] = "easymotion",
+  ["b"] = "easymotion-b back word",
+  ["e"] = "easymotion-e end word",
+  ["f"] = "easymotion-f char",
+  ["j"] = "easymotion-j line",
+  ["k"] = "easymotion-k back line",
+  ["n"] = "easymotion-n search",
+  ["s"] = "easymotion-s search",
+  ["t"] = "easymotion-t till char",
+  ["w"] = "easymotion-w word",
+}
+
+--> leader-f: 定义文件相关的快捷键
 
 -- 搜索窗口
 U.nmap("<Leader>fw", ":<C-u>LeaderfWindow<CR>")
@@ -100,7 +126,7 @@ U.imap("<C-s>", "<Esc>:update<CR>")
 U.nmap("<Leader>fr", ":edit<CR>")
 
 which_key_map.f = {
-  ["name"] = "+files/search",
+  ["name"] = "files/search",
   ["b"] = "查找 buffer",
   ["f"] = "查找文件",
   ["q"] = "查找光标下的文件",
@@ -114,7 +140,8 @@ which_key_map.f = {
   ["l"] = {":NvimTreeFindFile", "在目录树中定位"},
 }
 
--- 定义 git 和 跳转相关的快捷键
+--> leader-g: 定义 git 和 跳转相关的快捷键
+
 U.nmap("<Leader>gb", ":<C-u>call gitblame#echo()<CR>", {silent = false})
 
 -- coc 快捷键配置, 代码跳转
@@ -136,7 +163,7 @@ U.nmap("<Leader>gd", ":SignifyHunkDiff<CR>")
 U.nmap("<Leader>gu", ":SignifyHunkUndo<CR>")
 
 which_key_map.g = {
-  ["name"] = "+git/goto",
+  ["name"] = "git/goto",
   ["l"] = "开启/关闭 ale lint",
   ["e"] = "跳转到下一个错误",
   ["E"] = "跳转到上一个错误",
@@ -153,7 +180,7 @@ which_key_map.g = {
   ["B"] = {":Gblame", "gitblame全文件"},
 }
 
--- 定义 coding 快捷键
+--> leader-c: 定义 coding 快捷键
 
 -- better-whitespace 快捷键配置
 U.vmap("<Leader>ct", ":StripWhitespace<CR>")
@@ -192,7 +219,7 @@ U.nmap("<Leader>co", ":<C-u>UltiSnipsEdit<CR>")
 U.nmap("<Leader>ck", ":set spell!<CR>")
 
 which_key_map.c = {
-  ["name"] = "+code/coc/comment",
+  ["name"] = "code/coc/comment",
   ["c"] = "根据首行反转注释",
   ["d"] = "生成代码文档",
   ["i"] = "反转注释",
@@ -220,7 +247,7 @@ U.nmap("<Leader>yy", ":<C-u>%y+<CR>")
 U.nmap("<C-p>", [["+p]])
 U.vmap("<C-p>", [["+p]])
 
--- 定义 vim 控制的控制键
+--> leader-v: 定义 vim 控制的控制键
 
 -- <C-l> 消除高亮/重绘面
 U.nmap("<C-l>", ":noh<CR>:redraw<CR>")
