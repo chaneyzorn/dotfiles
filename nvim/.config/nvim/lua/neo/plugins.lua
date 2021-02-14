@@ -83,10 +83,10 @@ packer.startup({
     use "LunarWatcher/auto-pairs"
     -- 成对操作括号和引号等
     use "tpope/vim-surround"
+    -- use "machakann/vim-sandwich"
 
     -- 多光标编辑操作
-    -- use "mg979/vim-visual-multi"
-    -- use "terryma/vim-multiple-cursors"
+    use "mg979/vim-visual-multi"
 
     -- 拓展文本对象 textobj
     -- use "kana/vim-textobj-user"
