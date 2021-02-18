@@ -231,7 +231,7 @@ which_key_map.c = {
   ["o"] = "编辑当前类型代码片段",
 }
 
--- 定义 yank to system clipboard"
+-- leader-y: 定义 yank to system clipboard"
 -- see :help clipboard
 
 -- Copy to clipboard
@@ -239,12 +239,14 @@ which_key_map.c = {
 U.vmap("<C-y>", [["+y]])
 -- normal 模式复制当前行到 clipboard
 U.nmap("<C-y>", ":lua require('neo.tools').YankOneLine()<CR>")
--- normal 模式复制全部内容 clipboard
+-- normal 模式复制全部内容到 clipboard
 U.nmap("<Leader>yy", ":<C-u>%y+<CR>")
 
 -- Paste from clipboard
 U.nmap("<C-p>", [["+p]])
 U.vmap("<C-p>", [["+p]])
+
+which_key_map.y = {["name"] = "yank", ["y"] = "复制全部内容到 clipboard"}
 
 -- leader-v: 定义 vim 控制的控制键
 
@@ -262,7 +264,7 @@ U.nmap("<Leader>vQ", ":qa!<CR>")
 U.nmap("<Leader>vs", ":vsplit $ISCRATCH<CR>")
 
 which_key_map.v = {
-  ["name"] = "+vim/my",
+  ["name"] = "vim/my",
   ["m"] = "切换鼠标",
   ["l"] = "消除高亮&重绘界面",
   ["q"] = "保存全部文件并退出",
