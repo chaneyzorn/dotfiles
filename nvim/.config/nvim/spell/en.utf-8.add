@@ -3,8 +3,10 @@ app
 arg
 args
 basename
+bool
 buf
 ccls
+celsius
 cfg
 chaneyzorn
 charset
@@ -58,6 +60,8 @@ guifg
 healthd
 homedir
 https
+io
+iops
 ioutil
 issuecomment
 js
@@ -74,6 +78,8 @@ namespace
 nvim
 objc
 objcpp
+objs
+offline
 os
 pep8
 plugins
@@ -87,8 +93,10 @@ python2
 python3
 Pyvenv
 Quan
+readwrite
 regexp
 Repo
+SCVM
 sublicense
 systemd
 tmux
@@ -96,6 +104,7 @@ toolbar
 toplevel
 truecolor
 utf
+util
 venv
 vert
 vim
