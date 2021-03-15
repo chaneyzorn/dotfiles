@@ -273,7 +273,7 @@ end)("liuchengxu/vista.vim");
 end)("voldikss/vim-floaterm");
 
 (function()
-  vg.neoformat_enabled_python = {"autopep8", "yapf", "docformatter"}
+  vg.neoformat_enabled_python = {"autopep8", "yapf", "docformatter", "black"}
   -- 默认格式化对齐
   vg.neoformat_basic_format_align = 1
   -- 默认转换 tab 字符为空格
