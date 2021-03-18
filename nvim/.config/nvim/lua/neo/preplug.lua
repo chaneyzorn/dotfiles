@@ -205,7 +205,7 @@ end)("voldikss/vim-translate-me");
   vg.nvim_tree_show_icons = {git = 1, folders = 1, files = 1}
 
   vg.nvim_tree_icons = {
-    default = '',
+    default = '',
     symlink = '',
     git = {
       unstaged = "",
@@ -214,7 +214,7 @@ end)("voldikss/vim-translate-me");
       renamed = "➜",
       untracked = "六",
     },
-    folder = {default = "", open = "", symlink = ""},
+    folder = {default = "", open = "ﱮ", symlink = ""},
   }
 
   -- vim.cmd [[autocmd FileType NvimTree setlocal signcolumn=no]]
