@@ -176,7 +176,7 @@ which_key_map.g = {
   ["d"] = "展示当前行变动diff",
   ["u"] = "将当前行回退到版本控制",
   ["b"] = "gitblame当前行",
-  ["B"] = {":Gblame", "gitblame全文件"},
+  ["B"] = {":Git blame", "gitblame全文件"},
 }
 
 -- leader-c: 定义 coding 快捷键

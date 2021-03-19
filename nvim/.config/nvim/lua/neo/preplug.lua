@@ -273,7 +273,7 @@ end)("liuchengxu/vista.vim");
 end)("voldikss/vim-floaterm");
 
 (function()
-  vg.neoformat_enabled_python = {"autopep8", "yapf", "docformatter", "black"}
+  vg.neoformat_enabled_python = {"black"}
   -- 默认格式化对齐
   vg.neoformat_basic_format_align = 1
   -- 默认转换 tab 字符为空格
@@ -514,9 +514,9 @@ end)("fatih/vim-go");
   vg.ale_sign_error = ""
   vg.ale_sign_warning = ""
   vg.ale_sign_info = ""
-  vg.ale_echo_msg_error_str = "  ERROR"
-  vg.ale_echo_msg_warning_str = "  WARNING"
-  vg.ale_echo_msg_info_str = "  INFO"
+  vg.ale_echo_msg_error_str = ""
+  vg.ale_echo_msg_warning_str = ""
+  vg.ale_echo_msg_info_str = ""
 
   vg.ale_completion_delay = 500
   vg.ale_echo_delay = 20
@@ -544,9 +544,8 @@ end)("fatih/vim-go");
 
   -- 使用全局 pylint，这样可以使用 venv 中对应版本的 pylint
   vg.ale_python_pylint_use_global = 1
+  vg.ale_python_pylint_auto_pipenv = 1
   vg.ale_python_pylint_options = "--rcfile ~/.config/pylintrc"
-  -- 错误信息使用 pep8 msg_id
-  vg.ale_python_pylint_use_msg_id = 1
 
   vg.ale_go_golangci_lint_options =
     "--enable-all --disable wsl --disalbe gofumpt"

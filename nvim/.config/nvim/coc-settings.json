@@ -24,7 +24,7 @@
       "filetypes": ["go"]
     }
   },
-  "python.linting.enabled": true,
+  "python.linting.enabled": false,
   "python.formatting.provider": "black",
   "python.formatting.blackPath": "/usr/bin/black",
   "python.formatting.blackArgs": ["--line-length=120"],

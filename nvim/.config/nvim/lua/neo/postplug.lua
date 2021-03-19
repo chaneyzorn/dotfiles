@@ -5,7 +5,6 @@
   vim.api.nvim_exec([[
     colorscheme sonokai
 
-    hi CocHighlightText     ctermfg=236     ctermbg=47     guifg=#303030 guibg=#f2cc8f
     hi Floaterm             guibg=NONE
     hi FloatermBorder       guibg=NONE      guifg=gray
   ]], false)
