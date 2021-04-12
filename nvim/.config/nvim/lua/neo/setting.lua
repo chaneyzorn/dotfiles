@@ -26,9 +26,11 @@ vo.scrolloff = 5
 -- 显示行号
 vo.number = true
 vwo.number = true
+
 -- 相对行号
-vo.relativenumber = true
-vwo.relativenumber = true
+-- vo.relativenumber = true
+-- vwo.relativenumber = true
+
 -- 高亮光标所在的行
 vo.cursorline = true
 
