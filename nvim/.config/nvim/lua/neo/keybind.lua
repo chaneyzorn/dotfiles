@@ -144,6 +144,7 @@ which_key_map.f = {
 U.nmap("<Leader>gb", ":<C-u>call gitblame#echo()<CR>", {silent = false})
 
 -- coc 快捷键配置, 代码跳转
+U.nmap("<C-j>", "<Plug>(coc-definition)")
 U.nmap("<Leader>gg", "<Plug>(coc-definition)")
 U.nmap("<Leader>gs", "<Plug>(coc-declaration)")
 U.nmap("<Leader>gt", "<Plug>(coc-type-definition)")
