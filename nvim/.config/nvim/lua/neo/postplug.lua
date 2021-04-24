@@ -63,3 +63,45 @@ end)('norcalli/nvim-colorizer.lua');
   }
 end)('build-in terminal color');
 
+(function()
+  require('bufferline').setup {
+    options = {
+      view = "multiwindow",
+      numbers = "none",
+      number_style = "none",
+      mappings = false,
+      buffer_close_icon = '',
+      modified_icon = '',
+      close_icon = '',
+      left_trunc_marker = '',
+      right_trunc_marker = '',
+      max_name_length = 18,
+      max_prefix_length = 15,
+      tab_size = 18,
+      diagnostics = false,
+      diagnostics_indicator = function(count, level, diagnostics_dict)
+        return "(" .. count .. ")"
+      end,
+      custom_filter = function(buf_number)
+        return true
+      end,
+      show_buffer_close_icons = true,
+      show_close_icon = true,
+      show_tab_indicators = true,
+      persist_buffer_sort = true,
+      separator_style = "thin",
+      enforce_regular_tabs = true,
+      always_show_bufferline = false,
+      sort_by = 'directory',
+    },
+  }
+end)("akinsho/nvim-bufferline.lua");
+
+(function()
+  require'nvim-treesitter.configs'.setup {
+    ensure_installed = "maintained",
+    ignore_install = {},
+    highlight = {enable = true, disable = {}},
+    indent = {enable = true},
+  }
+end)("nvim-treesitter/nvim-treesitter")

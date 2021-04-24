@@ -28,6 +28,8 @@ packer.startup({
     use "vim-airline/vim-airline"
     -- 状态栏主题包
     use "vim-airline/vim-airline-themes"
+    -- 增强标签页栏
+    use "akinsho/nvim-bufferline.lua"
     -- 颜色主题
     use "sainnhe/sonokai"
     -- 显示文件类型图标
@@ -80,7 +82,7 @@ packer.startup({
     -- use "phaazon/hop.nvim"
 
     -- 补全成对括号
-    use "LunarWatcher/auto-pairs"
+    -- use "LunarWatcher/auto-pairs"
     -- 成对操作括号和引号等
     use "tpope/vim-surround"
     -- use "machakann/vim-sandwich"
@@ -108,7 +110,8 @@ packer.startup({
     -- 快捷注释文本
     use "scrooloose/nerdcommenter"
     -- 全面而且统一的语法高亮和缩进
-    use "sheerun/vim-polyglot"
+    -- use "sheerun/vim-polyglot"
+    use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
 
     -- markdown enhance
     use "ferrine/md-img-paste.vim"

@@ -67,12 +67,12 @@ which_key_map.t = {
 
 which_key_map.b = {
   ["name"] = "buffers",
-  ["t"] = {"bfirst", "first-buffer"},
+  ["b"] = {":BufferLineCycleNext", "next-buffer"},
+  ["h"] = {":BufferLineCyclePrev", "previous-buffer"},
+  ["p"] = {":BufferLinePick", "pick-buffer"},
   ["l"] = {"blast", "last-buffer"},
-  ["b"] = {"bnext", "next-buffer"},
-  ["p"] = {"bprevious", "previous-buffer"},
+  ["f"] = {"bfirst", "first-buffer"},
   ["d"] = {"bdelete", "delete-buffer"},
-  ["h"] = {"Startify", "home-buffer"},
 }
 
 -- leader-e: 定义快速位移
