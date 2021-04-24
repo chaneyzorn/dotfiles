@@ -191,6 +191,7 @@ U.vmap("<Leader>ct", "<Plug>(coc-format-selected)")
 U.nmap("<Leader>cp", ":<C-u>CocCommand<CR>")
 -- 手动启动 Coc Service
 U.nmap("<Leader>cx", ":<C-u>CocStart<CR>")
+U.nmap("<Leader>cv", ":<C-u>CocStart<CR>:ALEEnable<CR>:call spelunker#toggle()<CR>")
 
 -- sbdchd/neoformat 快捷键配置
 U.nmap("<Leader>cf", ":<C-u>Neoformat<CR>")
@@ -229,6 +230,8 @@ which_key_map.c = {
   ["p"] = "coc下拉菜单",
   ["r"] = "多光标选中匹配",
   ["o"] = "编辑当前类型代码片段",
+  ["x"] = "开启 coc lsp",
+  ["v"] = "开启代码智能辅助",
 }
 
 -- leader-y: 定义 yank to system clipboard"
