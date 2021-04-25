@@ -102,6 +102,5 @@ end)("akinsho/nvim-bufferline.lua");
     ensure_installed = "maintained",
     ignore_install = {},
     highlight = {enable = true, disable = {}},
-    indent = {enable = true},
   }
 end)("nvim-treesitter/nvim-treesitter")
