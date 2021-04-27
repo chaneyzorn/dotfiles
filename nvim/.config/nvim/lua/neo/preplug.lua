@@ -193,7 +193,7 @@ end)("voldikss/vim-translate-me");
     ".ropeproject",
     "node_modules",
   }
-  vg.nvim_tree_auto_open = 1
+  vg.nvim_tree_auto_open = 0
   vg.nvim_tree_auto_close = 1
   vg.nvim_tree_quit_on_open = 0
   vg.nvim_tree_follow = 1
