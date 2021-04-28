@@ -11,12 +11,14 @@ auth
 badblock
 badblocks
 basename
+blk
 bool
 buf
 ccls
 celsius
 cfg
 cgroup
+cgroups
 chaneyzorn
 changelog
 changelogs
@@ -67,6 +69,7 @@ dmidecode
 dns
 dockerfiles
 dotfiles
+dup
 dylib
 egrep
 emoji
@@ -112,6 +115,7 @@ hostnamectl
 https
 hugepage
 hugepagesz
+hypervisor
 ibdev
 iface
 ifaces
@@ -134,6 +138,7 @@ iscsi
 iset
 isfile
 isinstance
+islink
 issuecomment
 iteritems
 jenkinsfile
@@ -175,6 +180,7 @@ ntp
 ntptime
 numa
 nvim
+nvme
 objc
 objcpp
 objs
@@ -182,6 +188,7 @@ oem
 offline
 os
 outdate
+ovs
 ovsbr
 passphrase
 passthrough
@@ -210,14 +217,18 @@ qiuping
 quan
 rdma
 readline
+readlines
 readwrite
+realpath
 regexp
 repo
 resolv
 returncode
 rpmdb
 rpms
+rstrip
 rtcode
+scsi
 scvm
 sdk
 sdr
@@ -229,6 +240,7 @@ smartclt
 smartctl
 smartx
 smtx
+splitlines
 ssd
 ssl
 startswith
@@ -237,7 +249,9 @@ stdout
 strftime
 struct
 sublicense
+symlink
 sysconfig
+sysfs
 systemd
 taskd
 timemachine
@@ -254,6 +268,7 @@ uid
 umount
 unconfigured
 unparted
+usb
 utf
 util
 uuid
@@ -281,6 +296,7 @@ warnflag
 warnflags
 wearout
 wiki
+wms
 writestr
 wwid
 xclip
