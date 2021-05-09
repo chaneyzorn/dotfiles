@@ -23,6 +23,7 @@ end)("lambdalisue/suda.vim");
   vg.sonokai_disable_italic_comment = 0
   vg.sonokai_transparent_background = 0
   vg.sonokai_sign_column_background = 'none'
+  vg.sonokai_menu_selection_background = 'green'
 end)("sainnhe/sonokai");
 
 (function()
