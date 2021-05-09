@@ -50,7 +50,7 @@ packer.startup({
     use "RRethy/vim-illuminate"
 
     -- 管理 fcitx 状态
-    use "lilydjwg/fcitx.vim"
+    use {"lilydjwg/fcitx.vim", branch = "fcitx5"}
     -- 翻译插件
     use "voldikss/vim-translate-me"
     -- 拼写检查
