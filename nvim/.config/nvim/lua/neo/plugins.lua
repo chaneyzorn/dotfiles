@@ -45,7 +45,7 @@ packer.startup({
     -- 显示字面颜色
     use "norcalli/nvim-colorizer.lua"
     -- 显示缩进线
-    use "Yggdroot/indentLine"
+    use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
     -- 高亮光标下相同的单词
     use "RRethy/vim-illuminate"
 

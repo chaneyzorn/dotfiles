@@ -114,13 +114,12 @@ end)("luochen1990/rainbow");
 end)("jiangmiao/auto-pairs");
 
 (function()
-  -- 缩进线颜色
-  vg.indentLine_color_term = 239
-  vg.indentLine_color_gui = "#626262"
-  -- vg.indentLine_char = "┊"
+  vg.indent_blankline_char = '|'
+  vg.indent_blankline_char_list = {'|', '¦', '┆', '┊'}
   -- 以下类型的 buffer 里不显示缩进线
-  vg.indentLine_bufTypeExclude = {"help", "terminal", "list", "nofile"}
-end)("Yggdroot/indentLine");
+  vg.indent_blankline_filetype_exclude = {"help", "terminal", "list", "nofile"}
+  vg.indent_blankline_buftype_exclude = {"help", "terminal", "list", "nofile"}
+end)("lukas-reineke/indent-blankline.nvim");
 
 (function()
   vg.enable_spelunker_vim = 0
