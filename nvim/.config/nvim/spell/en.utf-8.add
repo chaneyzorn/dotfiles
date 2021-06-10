@@ -6,6 +6,7 @@ ansible
 app
 arg
 args
+arp
 asctime
 auth
 badblock
@@ -14,6 +15,7 @@ basename
 blk
 bool
 buf
+builtin
 ccls
 celsius
 cfg
@@ -58,6 +60,7 @@ daxregion
 debian
 debuginfo
 deepcopy
+dep
 deployer
 dhcp
 diff
@@ -67,8 +70,10 @@ diskstats
 dll
 dmidecode
 dns
+dnsmasq
 dockerfiles
 dotfiles
+dst
 dup
 dylib
 egrep
@@ -114,9 +119,12 @@ hostname
 hostnamectl
 https
 hugepage
+hugepages
 hugepagesz
+hwaddr
 hypervisor
 ibdev
+ibdevs
 iface
 ifaces
 ifcfg
@@ -130,11 +138,13 @@ iops
 ioutil
 ip
 ipaddr
+ipaddress
 ipmctl
 ipmi
 ipmitool
 ips
 iscsi
+isdir
 iset
 isfile
 isinstance
@@ -157,11 +167,14 @@ localtime
 lsblk
 lsm
 lua
+macaddr
 mdadm
 mdstat
 mem
+metaclass
 metad
 mgt
+mongo
 mongodb
 mountpoint
 msg
@@ -170,6 +183,7 @@ namespace
 namespaces
 ndctl
 netmask
+nfs
 nguid
 nic
 nics
@@ -177,6 +191,8 @@ nodeps
 noqa
 nsid
 ntp
+ntpd
+ntpdate
 ntptime
 numa
 nvim
@@ -186,6 +202,8 @@ objcpp
 objs
 oem
 offline
+openibd
+openvswitch
 os
 outdate
 ovs
@@ -223,7 +241,9 @@ realpath
 regexp
 repo
 resolv
+ret
 returncode
+rpc
 rpmdb
 rpms
 rstrip
@@ -235,6 +255,7 @@ sdr
 sed
 segs
 selftest
+shutil
 slb
 smartclt
 smartctl
@@ -249,13 +270,18 @@ stdout
 strftime
 struct
 sublicense
+subnetmask
 symlink
 sysconfig
+sysctl
 sysfs
+systemctl
 systemd
 taskd
+timedelta
 timemachine
 timestamp
+tmpl
 tmux
 toolbar
 toplevel
@@ -266,9 +292,11 @@ udev
 udevadm
 uid
 umount
+umounted
 unconfigured
 unparted
 usb
+username
 utf
 util
 uuid
@@ -297,6 +325,7 @@ warnflags
 wearout
 wiki
 wms
+workflow
 writestr
 wwid
 xclip
@@ -307,6 +336,7 @@ yaml
 youdao
 zbs
 zipfile
+zooid
 zookeeper
 zou
 zsh
