@@ -215,7 +215,7 @@ end)("voldikss/vim-translate-me");
       renamed = "➜",
       untracked = "六",
     },
-    folder = {default = "", open = "ﱮ", symlink = ""},
+    folder = {default = "", open = "", symlink = ""},
   }
 
   -- vim.cmd [[autocmd FileType NvimTree setlocal signcolumn=no]]

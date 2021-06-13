@@ -2,9 +2,10 @@
 -- vim 快捷键设定
 -- 注意 <Plug> 不能使用在 noremap 中
 local U = require("neo.tools")
+local wk = require("which-key")
 
--- vim-which-key 插件配置
-local which_key_map = {name = "Leader"}
+-- which-key.nvim 插件配置
+local which_key_map = {}
 
 -- leader-w: 定义窗口相关的快捷键
 
@@ -14,7 +15,7 @@ local which_key_map = {name = "Leader"}
 which_key_map.w = {
   ["name"] = "windows",
   ["p"] = {"<C-W>p", "上一窗口"},
-  ["n"] = {":vnew", "新建窗口"},
+  ["n"] = {"<Cmd>vnew<CR>", "新建窗口"},
   ["c"] = {"<C-W>c", "关闭当前窗口"},
   ["o"] = {"<C-W>o", "关闭其他窗口"},
   ["s"] = {"<C-W>s", "水平分割窗口"},
@@ -26,8 +27,8 @@ which_key_map.w = {
   ["k"] = {"<C-W>k", "选择上边的窗口"},
   ["["] = {"<C-W>5<", "向左扩大窗口"},
   ["]"] = {"<C-W>5>", "向右扩大窗口"},
-  ["="] = {":resize +5", "向下扩大窗口"},
-  ["-"] = {":resize -5", "向上扩大窗口"},
+  ["="] = {"<Cmd>resize +5<CR>", "向下扩大窗口"},
+  ["-"] = {"<Cmd>resize -5<CR>", "向上扩大窗口"},
   ["/"] = {"<C-W>=", "令窗口平分长度"},
 }
 
@@ -43,7 +44,7 @@ U.nmap("<Leader>th", "<Plug>TranslateF")
 U.nmap("<Leader>tx", "<Plug>TranslateX")
 
 -- vista 快捷键配置
-U.nmap("<Leader>tb", ":<C-u>Vista!!<CR>")
+U.nmap("<Leader>tb", "<Cmd>Vista!!<CR>")
 
 which_key_map.t = {
   ["name"] = "tab/translate/tags",
@@ -67,9 +68,9 @@ which_key_map.t = {
 
 which_key_map.b = {
   ["name"] = "buffers",
-  ["b"] = {":BufferLineCycleNext", "next-buffer"},
-  ["h"] = {":BufferLineCyclePrev", "previous-buffer"},
-  ["p"] = {":BufferLinePick", "pick-buffer"},
+  ["b"] = {"<Cmd>BufferLineCycleNext<CR>", "next-buffer"},
+  ["h"] = {"<Cmd>BufferLineCyclePrev<CR>", "previous-buffer"},
+  ["p"] = {"<Cmd>BufferLinePick<CR>", "pick-buffer"},
   ["l"] = {"blast", "last-buffer"},
   ["f"] = {"bfirst", "first-buffer"},
   ["d"] = {"bdelete", "delete-buffer"},
@@ -102,11 +103,11 @@ which_key_map.e = {
 -- leader-f: 定义文件相关的快捷键
 
 -- 搜索窗口
-U.nmap("<Leader>fw", ":<C-u>LeaderfWindow<CR>")
+U.nmap("<Leader>fw", "<Cmd>LeaderfWindow<CR>")
 -- 内容关键词 fuzzy 搜索
-U.nmap("<Leader>fd", ":<C-u>Leaderf rg<CR>")
+U.nmap("<Leader>fd", "<Cmd>Leaderf rg<CR>")
 -- 光标下单词搜索文件
-U.nmap("<Leader>fq", ":<C-u>LeaderfFileCword<CR>")
+U.nmap("<Leader>fq", "<Cmd>LeaderfFileCword<CR>")
 -- 内容关键词搜索
 U.nmap("<Leader>fe", "<Plug>LeaderfRgPrompt")
 -- 光标下单词搜索
@@ -115,14 +116,14 @@ U.nmap("<Leader>fc", "<Plug>LeaderfRgBangCwordRegexBoundary<CR>")
 U.vmap("<Leader>fc", "<Plug>LeaderfRgBangVisualRegexNoBoundary<CR>")
 
 -- 强制保存
-U.nmap("<Leader>fs", ":<C-u>SudaWrite<CR>")
-U.vmap("<Leader>fs", "<Esc>:<C-u>SudaWrite<CR>")
+U.nmap("<Leader>fs", "<Cmd>SudaWrite<CR>")
+U.vmap("<Leader>fs", "<Esc><Cmd>SudaWrite<CR>")
 -- 快速保存
-U.nmap("<C-s>", ":update<CR>")
-U.vmap("<C-s>", "<Esc>:update<CR>")
-U.imap("<C-s>", "<Esc>:update<CR>")
+U.nmap("<C-s>", "<Cmd>update<CR>")
+U.vmap("<C-s>", "<Esc><Cmd>update<CR>")
+U.imap("<C-s>", "<Esc><Cmd>update<CR>")
 -- 重新加载文件
-U.nmap("<Leader>fr", ":edit<CR>")
+U.nmap("<Leader>fr", "<Cmd>edit<CR>")
 
 which_key_map.f = {
   ["name"] = "files/search",
@@ -135,13 +136,13 @@ which_key_map.f = {
   ["c"] = "查找光标下的单词",
   ["r"] = "重新加载文件",
   ["s"] = "提权保存",
-  ["t"] = {":NvimTreeToggle", "切换显示目录树"},
-  ["l"] = {":NvimTreeFindFile", "在目录树中定位"},
+  ["t"] = {"<Cmd>NvimTreeToggle<CR>", "切换显示目录树"},
+  ["l"] = {"<Cmd>NvimTreeFindFile<CR>", "在目录树中定位"},
 }
 
 -- leader-g: 定义 git 和 跳转相关的快捷键
 
-U.nmap("<Leader>gb", ":<C-u>call gitblame#echo()<CR>", {silent = false})
+U.nmap("<Leader>gb", "<Cmd>call gitblame#echo()<CR>", {silent = false})
 
 -- coc 快捷键配置, 代码跳转
 U.nmap("<C-j>", "<Plug>(coc-definition)")
@@ -159,8 +160,8 @@ U.nmap("<Leader>gw", "<Plug>(ale_next_wrap)")
 U.nmap("<Leader>gW", "<Plug>(ale_previous_wrap)")
 
 -- vim-signify 快捷键配置
-U.nmap("<Leader>gd", ":SignifyHunkDiff<CR>")
-U.nmap("<Leader>gu", ":SignifyHunkUndo<CR>")
+U.nmap("<Leader>gd", "<Cmd>SignifyHunkDiff<CR>")
+U.nmap("<Leader>gu", "<Cmd>SignifyHunkUndo<CR>")
 
 which_key_map.g = {
   ["name"] = "git/goto",
@@ -177,26 +178,27 @@ which_key_map.g = {
   ["d"] = "展示当前行变动diff",
   ["u"] = "将当前行回退到版本控制",
   ["b"] = "gitblame当前行",
-  ["B"] = {":Git blame", "gitblame全文件"},
+  ["B"] = {"<Cmd>Git blame<CR>", "gitblame全文件"},
 }
 
 -- leader-c: 定义 coding 快捷键
 
 -- better-whitespace 快捷键配置
-U.vmap("<Leader>ct", ":StripWhitespace<CR>")
-U.nmap("<Leader>ct", ":<C-u>StripWhitespace<CR>")
+U.vmap("<Leader>ct", "<Cmd>StripWhitespace<CR>")
+U.nmap("<Leader>ct", "<Cmd>StripWhitespace<CR>")
 
 -- coc 快捷键配置
 U.nmap("<Leader>ct", "<Plug>(coc-format)")
 U.vmap("<Leader>ct", "<Plug>(coc-format-selected)")
-U.nmap("<Leader>cp", ":<C-u>CocCommand<CR>")
+U.nmap("<Leader>cp", "<Cmd>CocCommand<CR>")
 -- 手动启动 Coc Service
-U.nmap("<Leader>cx", ":<C-u>CocStart<CR>")
-U.nmap("<Leader>cv", ":<C-u>CocStart<CR>:ALEEnable<CR>:call spelunker#toggle()<CR>")
+U.nmap("<Leader>cx", "<Cmd>CocStart<CR>")
+U.nmap("<Leader>cv",
+       "<Cmd>CocStart<CR>:ALEEnable<CR>:call spelunker#toggle()<CR>")
 
 -- sbdchd/neoformat 快捷键配置
-U.nmap("<Leader>cf", ":<C-u>Neoformat<CR>")
-U.vmap("<Leader>cf", ":<C-u>Neoformat<CR>")
+U.nmap("<Leader>cf", "<Cmd>Neoformat<CR>")
+U.vmap("<Leader>cf", "<Cmd>Neoformat<CR>")
 
 -- nerdcommenter 快捷键配置
 -- 根据选中的第一行反转注释状态
@@ -210,14 +212,14 @@ U.xmap("<Leader>cs", "<Plug>NERDCommenterSexy")
 U.nmap("<Leader>cs", "<Plug>NERDCommenterSexy")
 
 -- multiple-cursor 快捷键
-U.nmap("<Leader>cr", ":MultipleCursorsFind<Space>")
-U.vmap("<Leader>cr", ":MultipleCursorsFind<Space>")
+U.nmap("<Leader>cr", "<Cmd>MultipleCursorsFind<Space>")
+U.vmap("<Leader>cr", "<Cmd>MultipleCursorsFind<Space>")
 
 -- ultisnips 快捷键
-U.nmap("<Leader>co", ":<C-u>UltiSnipsEdit<CR>")
+U.nmap("<Leader>co", "<Cmd>UltiSnipsEdit<CR>")
 
 -- 拼写检查
-U.nmap("<Leader>ck", ":set spell!<CR>")
+U.nmap("<Leader>ck", "<Cmd>set spell!<CR>")
 
 which_key_map.c = {
   ["name"] = "code/coc/comment",
@@ -242,9 +244,9 @@ which_key_map.c = {
 -- 可视化复制选中内容到 clipboard
 U.vmap("<C-y>", [["+y]])
 -- normal 模式复制当前行到 clipboard
-U.nmap("<C-y>", ":lua require('neo.tools').YankOneLine()<CR>")
+U.nmap("<C-y>", "<Cmd>lua require('neo.tools').YankOneLine()<CR>")
 -- normal 模式复制全部内容到 clipboard
-U.nmap("<Leader>yy", ":<C-u>%y+<CR>")
+U.nmap("<Leader>yy", "<Cmd>%y+<CR>")
 
 -- Paste from clipboard
 U.nmap("<C-p>", [["+p]])
@@ -255,17 +257,17 @@ which_key_map.y = {["name"] = "yank", ["y"] = "复制全部内容到 clipboard"}
 -- leader-v: 定义 vim 控制的控制键
 
 -- <C-l> 消除高亮/重绘面
-U.nmap("<C-l>", ":noh<CR>:redraw<CR>")
-U.nmap("<Leader>vl", ":noh<CR>:redraw<CR>")
+U.nmap("<C-l>", "<Cmd>noh<CR>:redraw<CR>")
+U.nmap("<Leader>vl", "<Cmd>noh<CR>:redraw<CR>")
 -- <C-m> 切换鼠标
-U.nmap("<Leader>vm", ":lua require('neo.tools').ToggleMouse()<CR>")
+U.nmap("<Leader>vm", "<Cmd>lua require('neo.tools').ToggleMouse()<CR>")
 -- 保存全部文件并退出
-U.nmap("<Leader>vq", ":wa<CR>:q<CR>")
+U.nmap("<Leader>vq", "<Cmd>wa<CR>:q<CR>")
 -- 不做任何保存直接退出
-U.nmap("<Leader>vQ", ":qa!<CR>")
+U.nmap("<Leader>vQ", "<Cmd>qa!<CR>")
 
 -- 我的快捷键
-U.nmap("<Leader>vs", ":vsplit $ISCRATCH<CR>")
+U.nmap("<Leader>vs", "<Cmd>vsplit $ISCRATCH<CR>")
 
 which_key_map.v = {
   ["name"] = "vim/my",
@@ -278,13 +280,6 @@ which_key_map.v = {
 
 -- 元访问器只对 vim.g 有效，因此 vim.g.which_key_map.x
 -- 不会触发元访问器来更新 vim.g.which_key_map 中的 x
-vim.g.which_key_map = which_key_map
+-- vim.g.which_key_map = which_key_map
 
--- 显式绑定到 "<Space>"，写成 <Leader> 无效
-vim.fn["which_key#register"]("<Space>", "g:which_key_map")
-
--- 绑定单独的 <Leader> 键作为 WhichKey 的快捷键
-U.nmap("<Leader>", ":<C-u>WhichKey '<Space>'<CR>")
-U.vmap("<Leader>", ":<C-u>WhichKeyVisual '<Space>'<CR>")
-U.nmap("<Localleader>", ":<C-u>WhichKey '<Space>'<CR>")
-U.vmap("<Localleader>", ":<C-u>WhichKeyVisual '<Space>'<CR>")
+wk.register(which_key_map, {prefix = "<Leader>"})

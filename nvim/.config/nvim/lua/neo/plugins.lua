@@ -23,7 +23,7 @@ packer.startup({
     use {"wbthomason/packer.nvim", opt = true}
 
     -- 指示快捷键
-    use "liuchengxu/vim-which-key"
+    use "folke/which-key.nvim"
     -- 增强的状态栏
     use "vim-airline/vim-airline"
     -- 状态栏主题包
@@ -70,6 +70,10 @@ packer.startup({
     use "liuchengxu/vista.vim"
     -- terminal 增强
     use "voldikss/vim-floaterm"
+    use {
+      "nvim-telescope/telescope.nvim",
+      requires = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}},
+    }
 
     -- 记忆上次文件位置
     use "farmergreg/vim-lastplace"
