@@ -7,6 +7,7 @@
 
     hi Floaterm             guibg=NONE
     hi FloatermBorder       guibg=NONE      guifg=gray
+    hi clear TSError
   ]], false)
 end)('liuchengxu/space-vim-theme');
 

@@ -1,2 +1,4 @@
-lua require('neo.postplug')
-lua require('neo.keybind')
+lua << EOF
+require('neo.postplug')
+require('neo.keybind')
+EOF

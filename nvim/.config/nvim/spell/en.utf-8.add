@@ -6,6 +6,7 @@ ansible
 app
 arg
 args
+argv
 arp
 asctime
 auth
@@ -218,6 +219,7 @@ pmem
 pmems
 popen
 powerline
+poweroff
 proto
 protobuf
 psutil
@@ -260,6 +262,7 @@ slb
 smartclt
 smartctl
 smartx
+smbus
 smtx
 splitlines
 ssd
