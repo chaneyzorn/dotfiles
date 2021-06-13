@@ -3,15 +3,6 @@
 local vg = vim.g;
 
 (function()
-  -- 使用 neovim 浮动窗口展示快捷键提示
-  vg.which_key_use_floating_win = 1
-  -- 浮动窗口不需要考虑避开行号和信号槽
-  vg.which_key_disable_default_offset = 1
-  -- 不需要中间对齐
-  vg.which_key_centered = 0
-end)("liuchengxu/vim-which-key");
-
-(function()
   -- https://github.com/lambdalisue/suda.vim/issues/29
   -- vg.suda_smart_edit = 1
 end)("lambdalisue/suda.vim");
@@ -25,14 +16,6 @@ end)("lambdalisue/suda.vim");
   vg.sonokai_sign_column_background = 'none'
   vg.sonokai_menu_selection_background = 'green'
 end)("sainnhe/sonokai");
-
-(function()
-  -- 使用 space-vim-theme 色彩方案
-  vg.space_vim_italic = 1
-  vg.space_vim_italicize_strings = 0
-  vg.space_vim_plugin_hi_groups = 1
-  vg.space_vim_transp_bg = 1
-end)("liuchengxu/space-vim-theme");
 
 (function()
   -- 状态栏使用 powerline 字体
