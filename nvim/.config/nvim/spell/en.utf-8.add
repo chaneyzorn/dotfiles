@@ -4,6 +4,7 @@ ahci
 amphi
 ansible
 app
+appveyor
 arg
 args
 argv
@@ -13,6 +14,7 @@ auth
 badblock
 badblocks
 basename
+basetype
 blk
 bool
 buf
@@ -63,6 +65,7 @@ debuginfo
 deepcopy
 dep
 deployer
+deps
 dhcp
 diff
 dimm
@@ -88,6 +91,7 @@ esc
 eslint
 esxi
 eth
+excepthook
 exe
 exsi
 filepath
@@ -133,6 +137,7 @@ ifdown
 ifname
 ifup
 infos
+inplace
 io
 iommu
 iops
@@ -140,6 +145,7 @@ ioutil
 ip
 ipaddr
 ipaddress
+ipc
 ipmctl
 ipmi
 ipmitool
@@ -160,6 +166,7 @@ keymap
 kvm
 kwargs
 languageserver
+libuv
 linters
 linting
 loadavg
@@ -169,6 +176,7 @@ lsblk
 lsm
 lua
 macaddr
+manylinux
 mdadm
 mdstat
 mem
@@ -180,6 +188,7 @@ mongodb
 mountpoint
 msg
 mtu
+multihandles
 namespace
 namespaces
 ndctl
@@ -225,12 +234,14 @@ protobuf
 psutil
 py
 pyc
+pycache
 pyerror
 pygments
 pylint
 pyproject
 python2
 python3
+pyuv
 pyvenv
 pyzbs
 qiuping
@@ -240,6 +251,7 @@ readline
 readlines
 readwrite
 realpath
+recv
 regexp
 repo
 resolv
@@ -248,6 +260,7 @@ returncode
 rpc
 rpmdb
 rpms
+rst
 rstrip
 rtcode
 scsi
@@ -258,6 +271,7 @@ sed
 segs
 selftest
 shutil
+signum
 slb
 smartclt
 smartctl
@@ -269,6 +283,7 @@ ssd
 ssl
 startswith
 stderr
+stdin
 stdout
 strftime
 struct
@@ -281,6 +296,7 @@ sysfs
 systemctl
 systemd
 taskd
+threadpool
 timedelta
 timemachine
 timestamp
@@ -289,7 +305,9 @@ tmux
 toolbar
 toplevel
 topo
+tox
 truecolor
+tty
 txt
 udev
 udevadm

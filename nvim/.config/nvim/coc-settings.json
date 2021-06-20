@@ -24,14 +24,5 @@
       "filetypes": ["go"]
     }
   },
-  "python.linting.enabled": false,
-  "python.formatting.provider": "black",
-  "python.formatting.blackPath": "/usr/bin/black",
-  "python.formatting.blackArgs": ["--line-length=120"],
-  "python.jediEnabled": true,
-  "python.pythonPath": "python",
-  "python.venvPath": "~/Pyvenv",
-  "python.venvFolders": ["Pyvenv"],
-  "lua.version": "5.3",
   "suggest.acceptSuggestionOnCommitCharacter": false
 }
