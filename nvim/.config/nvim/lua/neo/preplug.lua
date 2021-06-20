@@ -57,15 +57,6 @@ end)("vim-airline/vim-airline", "vim-airline/vim-airline-themes");
 end)("RRethy/vim-illuminate");
 
 (function()
-  -- "插件是一系列语法高亮插件的合集，具体设置项需要参见各自插件的文"
-  -- markdown 语法高亮时，不隐藏标记符号
-  vg.vim_markdown_conceal = 0
-  vg.vim_markdown_conceal_code_blocks = 0
-  -- 禁用空格警告，因为它会在插入模式也高亮, 我们使用 vim-better-whitespace
-  vg.python_highlight_space_errors = 0
-end)("sheerun/vim-polyglot");
-
-(function()
   -- 使用 g:better_whitespace_filetypes_blacklist 无效
   -- https://github.com/ntpeters/vim-better-whitespace/issues/108
   vim.cmd [[ autocmd FileType help DisableWhitespace ]]
@@ -90,11 +81,6 @@ end)("ntpeters/vim-better-whitespace");
     separately = {nerdtree = 0},
   }
 end)("luochen1990/rainbow");
-
-(function()
-  -- 禁用自动回退匹配字符，在vimrc中常常误退掉注释符引号
-  vg.AutoPairsMapBS = 0
-end)("jiangmiao/auto-pairs");
 
 (function()
   vg.indent_blankline_char = '┊'
@@ -268,25 +254,6 @@ end)("voldikss/vim-floaterm");
 end)("sbdchd/neoformat");
 
 (function()
-  vg.UltiSnipsExpandTrigger = "<S-TAB>"
-  vg.UltiSnipsJumpForwardTrigger = "<TAB>"
-  vg.UltiSnipsJumpBackwardTrigger = "<S-TAB>"
-
-  -- 纵向分割
-  vg.UltiSnipsEditSplit = "vertical"
-  vg.UltiSnipsSnippetsDir = vim.fn.stdpath("config") .. "/moetools/UltiSnips"
-end)("SirVer/ultisnips");
-
-(function()
-  vg.doge_mapping = "<Leader>cd"
-end)("kkoomen/vim-doge");
-
-(function()
-  vg.vimade = {}
-  vg.vimade.fadelevel = 0.6
-end)("TaDaa/vimade");
-
-(function()
   vg.Lf_ShortcutB = "<Leader>fb"
   vg.Lf_ShortcutF = "<Leader>ff"
 
@@ -456,34 +423,6 @@ end)("TaDaa/vimade");
     },
   }
 end)("Yggdroot/LeaderF");
-
-(function()
-  -- 不使用默认键位
-  vg.gutentags_plus_nomap = 1
-  -- 使用 pygments 辅助 gtags 支持更多的语言
-  vim.env.GTAGSLABEL = "native-pygments"
-  vim.env.GTAGSCONF = "/usr/share/gtags/gtags.conf"
-  -- gutentags 搜索工程目录的标志，当前文件路径向上递归直到碰到这些文件/目录名
-  vg.gutentags_project_root = {".root", ".svn", ".git", ".hg", ".project"}
-  -- 所生成的数据文件的名称
-  vg.gutentags_ctags_tagfile = ".tags"
-  -- 同时开启 ctags 和 gtags 支持：
-  vg.gutentags_modules = {"ctags", "gtags_cscope"}
-
-  -- 将自动生成的 ctags/gtags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
-  vg.gutentags_cache_dir = vim.fn.expand("~/.cache/tags")
-  -- 禁用 gutentags 自动加载 gtags 数据库的行为
-  vg.gutentags_auto_add_gtags_cscope = 0
-
-  -- 配置 ctags 的参数
-  vg.gutentags_ctags_extra_args = {
-    "--fields=+niazS",
-    "--extra=+q",
-    "--c++-kinds=+px",
-    "--c-kinds=+px",
-    "--output-format=e-ctags",
-  }
-end)("ludovicchabant/vim-gutentags", "skywind3000/gutentags_plus");
 
 (function()
   vg.go_def_reuse_buffer = 1

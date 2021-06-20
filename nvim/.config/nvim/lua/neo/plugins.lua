@@ -108,47 +108,6 @@ packer.startup({
     use "w0rp/ale"
     -- 自动补全, lsp-client
     use {"neoclide/coc.nvim", branch = "release"}
-
-    -- 暗化非当前窗口（信息槽恢复存在问题，暂不使用）
-    -- use "TaDaa/vimade"
-    --
-    -- 补全成对括号
-    -- use "LunarWatcher/auto-pairs"
-    --
-    -- extend textobj
-    -- use "kana/vim-textobj-user"
-    -- use "kana/vim-textobj-entire"
-    -- use "kana/vim-textobj-line"
-    -- use "glts/vim-textobj-comment"
-    -- use "jceb/vim-textobj-uri"
-    -- use "reedes/vim-textobj-sentence"
-    -- use "michaeljsmith/vim-indent-object"
-    -- use "jeetsukumaran/vim-pythonsense"
-    -- use "wellle/targets.vim"
-    --
-    -- 多光标编辑操作
-    -- use "mg979/vim-visual-multi"
-    --
-    -- fuzzy finder
-    -- use "liuchengxu/vim-clap"
-    --
-    -- syntax highlight
-    -- use "sheerun/vim-polyglot"
-    --
-    -- 代码片段支持
-    -- use "SirVer/ultisnips"
-    -- use "honza/vim-snippets"
-    --
-    -- 代码文档
-    -- use {"kkoomen/vim-doge", run = ":call doge#install()"}
-    --
-    -- 自动排序 python import
-    -- use {"fisadev/vim-isort", ft = "python"}
-    --
-    -- markdown enhance
-    -- use "ferrine/md-img-paste.vim"
-    -- use "mzlogin/vim-markdown-toc"
-    -- use {"iamcco/markdown-preview.nvim", run = "cd app && yarn install"}
   end,
   config = {
     git = {clone_timeout = false},
