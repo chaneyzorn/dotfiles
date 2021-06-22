@@ -12,7 +12,6 @@ fi
 
 export GOROOT=$(go env GOROOT)
 export GOPATH=$(go env GOPATH)
-export GO111MODULE=$(go env GO111MODULE)
 
 GO_BIN=$GOPATH/bin
 MY_BIN=$HOME/myutils/bin
