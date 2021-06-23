@@ -58,6 +58,9 @@ cterm
 ctermbg
 ctermfg
 ctypes
+datacenter
+datacenters
+datastore
 datetime
 daxregion
 debian
@@ -112,6 +115,7 @@ golang
 golangci
 google
 gopls
+govmomi
 grpc
 gtags
 gui
@@ -191,6 +195,7 @@ mtu
 multihandles
 namespace
 namespaces
+nas
 ndctl
 netmask
 nfs
@@ -308,6 +313,7 @@ topo
 tox
 truecolor
 tty
+tunasdk
 txt
 udev
 udevadm
@@ -316,11 +322,13 @@ umount
 umounted
 unconfigured
 unparted
+unregister
 usb
 username
 utf
 util
 uuid
+uuids
 vagrantfile
 vcenter
 vcpu
@@ -328,15 +336,19 @@ vcpus
 vdisk
 vds
 venv
+ver
 vert
 vhost
 vim
 vimrc
 vip
 vips
+virtualization
 vlan
 vm
+vmdk
 vmem
+vms
 vmtools
 vmware
 vsd

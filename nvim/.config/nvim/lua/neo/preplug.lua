@@ -426,6 +426,7 @@ end)("Yggdroot/LeaderF");
 
 (function()
   vg.go_def_reuse_buffer = 1
+  vg.go_fmt_autosave = 0
 end)("fatih/vim-go");
 
 (function()
