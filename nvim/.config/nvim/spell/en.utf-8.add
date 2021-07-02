@@ -1,4 +1,5 @@
 aarch
+accesslog
 addr
 ahci
 amphi
@@ -11,10 +12,12 @@ argv
 arp
 asctime
 auth
+authpriv
 badblock
 badblocks
 basename
 basetype
+binascii
 blk
 bool
 buf
@@ -61,6 +64,7 @@ ctypes
 datacenter
 datacenters
 datastore
+datefmt
 datetime
 daxregion
 debian
@@ -73,6 +77,7 @@ dhcp
 diff
 dimm
 dimms
+dirname
 diskstats
 dll
 dmidecode
@@ -90,6 +95,7 @@ env
 errflag
 errflags
 errorf
+errorlog
 esc
 eslint
 esxi
@@ -97,14 +103,19 @@ eth
 excepthook
 exe
 exsi
+fileno
 filepath
 filetypes
 fisheye
 floaterm
 fmt
+formating
 fping
 func
+getattr
+getitem
 getlist
+getpid
 gitcommit
 gitconfig
 github
@@ -121,6 +132,8 @@ gtags
 gui
 guibg
 guifg
+gunicorn
+hasattr
 hddtemp
 healthd
 homedir
@@ -155,6 +168,7 @@ ipmi
 ipmitool
 ips
 iscsi
+isdigit
 isdir
 iset
 isfile
@@ -170,15 +184,19 @@ keymap
 kvm
 kwargs
 languageserver
+levelname
 libuv
 linters
 linting
 loadavg
 localleader
 localtime
+logconfig
+loglevel
 lsblk
 lsm
 lua
+lvl
 macaddr
 manylinux
 mdadm
@@ -250,6 +268,7 @@ pyuv
 pyvenv
 pyzbs
 qiuping
+qualname
 quan
 rdma
 readline
@@ -259,6 +278,7 @@ realpath
 recv
 regexp
 repo
+req
 resolv
 ret
 returncode
@@ -283,6 +303,7 @@ smartctl
 smartx
 smbus
 smtx
+socktype
 splitlines
 ssd
 ssl
@@ -295,9 +316,11 @@ struct
 sublicense
 subnetmask
 symlink
+sys
 sysconfig
 sysctl
 sysfs
+syslog
 systemctl
 systemd
 taskd
@@ -311,6 +334,7 @@ toolbar
 toplevel
 topo
 tox
+traceback
 truecolor
 tty
 tunasdk
