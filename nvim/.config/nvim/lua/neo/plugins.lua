@@ -43,7 +43,7 @@ packer.startup({
     -- 显示字面颜色
     use "norcalli/nvim-colorizer.lua"
     -- 显示缩进线
-    use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
+    use "lukas-reineke/indent-blankline.nvim"
     -- 高亮光标下相同的单词
     use "RRethy/vim-illuminate"
 
