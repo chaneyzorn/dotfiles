@@ -88,7 +88,6 @@ packer.startup({
     -- use "machakann/vim-sandwich"
 
     -- 模糊搜索
-    use {"Yggdroot/LeaderF", run = "./install.sh"}
     use {
       "nvim-telescope/telescope.nvim",
       requires = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}},

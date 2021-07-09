@@ -102,18 +102,16 @@ which_key_map.e = {
 
 -- leader-f: 定义文件相关的快捷键
 
--- 搜索窗口
-U.nmap("<Leader>fw", "<Cmd>LeaderfWindow<CR>")
+-- find files
+U.nmap("<Leader>ff", "<Cmd>Telescope find_files<CR>")
+-- find buffers
+U.nmap("<Leader>fb", "<Cmd>Telescope buffers<CR>")
 -- 内容关键词 fuzzy 搜索
-U.nmap("<Leader>fd", "<Cmd>Leaderf rg<CR>")
--- 光标下单词搜索文件
-U.nmap("<Leader>fq", "<Cmd>LeaderfFileCword<CR>")
--- 内容关键词搜索
-U.nmap("<Leader>fe", "<Plug>LeaderfRgPrompt")
+U.nmap("<Leader>fg", "<Cmd>Telescope live_grep<CR>")
 -- 光标下单词搜索
-U.nmap("<Leader>fc", "<Plug>LeaderfRgBangCwordRegexBoundary<CR>")
--- 可视化下被选中的内容搜索
-U.vmap("<Leader>fc", "<Plug>LeaderfRgBangVisualRegexNoBoundary<CR>")
+U.nmap("<Leader>fc", "<Cmd>Telescope grep_string<CR>")
+-- find git diff
+U.nmap("<Leader>fd", "<Cmd>Telescope git_status<CR>")
 
 -- 强制保存
 U.nmap("<Leader>fs", "<Cmd>SudaWrite<CR>")
@@ -128,11 +126,9 @@ U.nmap("<Leader>fr", "<Cmd>edit<CR>")
 which_key_map.f = {
   ["name"] = "files/search",
   ["b"] = "查找 buffer",
+  ["d"] = "查找被修改的文件",
   ["f"] = "查找文件",
-  ["q"] = "查找光标下的文件",
-  ["e"] = "查找文件内容",
-  ["w"] = "查找窗口",
-  ["d"] = "模糊查找文件内容",
+  ["g"] = "查找文件内容",
   ["c"] = "查找光标下的单词",
   ["r"] = "重新加载文件",
   ["s"] = "提权保存",
