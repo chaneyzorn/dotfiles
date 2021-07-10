@@ -109,7 +109,14 @@ packer.startup({
     use {"neoclide/coc.nvim", branch = "release"}
   end,
   config = {
+    max_jobs = 10,
     git = {clone_timeout = false},
-    display = {working_sym = "🗘", open_fn = require("packer.util").float},
+    display = {
+      working_sym = "🗘",
+      prompt_border = "rounded",
+      open_fn = function()
+        return require('packer.util').float({border = "rounded"})
+      end,
+    },
   },
 })

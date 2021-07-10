@@ -48,7 +48,6 @@ end)("vim-airline/vim-airline", "vim-airline/vim-airline-themes");
     "nerdtree",
     "NvimTree",
     "qf",
-    "leaderf",
     "help",
     "list",
     "vista",
