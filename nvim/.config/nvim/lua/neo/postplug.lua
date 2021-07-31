@@ -2,28 +2,34 @@
 -- 与插件定制功能相关的配置，在插件载入后配置（调用型的配置）
 (function()
   -- colorscheme space_vim_theme
-  vim.api.nvim_exec([[
+  vim.api.nvim_exec(
+    [[
     colorscheme sonokai
 
     hi Floaterm             guibg=NONE
     hi FloatermBorder       guibg=NONE      guifg=gray
     hi clear TSError
-  ]], false)
-end)('liuchengxu/space-vim-theme');
+    ]],
+    false
+  )
+end)("liuchengxu/space-vim-theme");
 
 (function()
   -- 使用下划线标记光标下相同的单词
-  vim.api.nvim_exec([[
+  vim.api.nvim_exec(
+    [[
     augroup illuminate_augroup
       autocmd!
       autocmd VimEnter * hi illuminatedWord cterm=underline gui=underline
     augroup END
-  ]], false)
-end)('RRethy/vim-illuminate');
+    ]],
+    false
+  )
+end)("RRethy/vim-illuminate");
 
 (function()
-  require('colorizer').setup()
-end)('norcalli/nvim-colorizer.lua');
+  require("colorizer").setup()
+end)("norcalli/nvim-colorizer.lua");
 
 (function()
   -- xfce4/terminal/colorschemes/chaney_dark.theme
@@ -62,20 +68,20 @@ end)('norcalli/nvim-colorizer.lua');
     "#93a1a1",
     "#fdf6e3",
   }
-end)('build-in terminal color');
+end)("build-in terminal color");
 
 (function()
-  require('bufferline').setup {
+  require("bufferline").setup({
     options = {
       view = "multiwindow",
       numbers = "none",
       number_style = "none",
       mappings = false,
-      buffer_close_icon = '',
-      modified_icon = '',
-      close_icon = '',
-      left_trunc_marker = '',
-      right_trunc_marker = '',
+      buffer_close_icon = "",
+      modified_icon = "",
+      close_icon = "",
+      left_trunc_marker = "",
+      right_trunc_marker = "",
       max_name_length = 18,
       max_prefix_length = 15,
       tab_size = 18,
@@ -93,14 +99,14 @@ end)('build-in terminal color');
       separator_style = "thin",
       enforce_regular_tabs = false,
       always_show_bufferline = false,
-      sort_by = 'directory',
+      sort_by = "directory",
     },
-  }
+  })
 end)("akinsho/nvim-bufferline.lua");
 
 (function()
-  local actions = require('telescope.actions')
-  require('telescope').setup {
+  local actions = require("telescope.actions")
+  require("telescope").setup({
     defaults = {
       mappings = {
         i = {
@@ -109,25 +115,25 @@ end)("akinsho/nvim-bufferline.lua");
         },
       },
       vimgrep_arguments = {
-        'rg',
-        '--color=never',
-        '--no-heading',
-        '--with-filename',
-        '--line-number',
-        '--column',
-        '--smart-case',
-        '--hidden',
+        "rg",
+        "--color=never",
+        "--no-heading",
+        "--with-filename",
+        "--line-number",
+        "--column",
+        "--smart-case",
+        "--hidden",
       },
-      file_ignore_patterns = {"node_modules", ".git"},
+      file_ignore_patterns = { "node_modules", ".git" },
     },
-    pickers = {find_files = {hidden = true}},
-  }
+    pickers = { find_files = { hidden = true } },
+  })
 end)("nvim-telescope/telescope.nvim");
 
 (function()
-  require'nvim-treesitter.configs'.setup {
+  require("nvim-treesitter.configs").setup({
     ensure_installed = "maintained",
     ignore_install = {},
-    highlight = {enable = true, disable = {}},
-  }
+    highlight = { enable = true, disable = {} },
+  })
 end)("nvim-treesitter/nvim-treesitter")

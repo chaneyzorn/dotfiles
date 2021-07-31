@@ -14,22 +14,22 @@ local which_key_map = {}
 -- 当 map 中的值是 字符串 时，表示为已有快捷键的说明
 which_key_map.w = {
   ["name"] = "windows",
-  ["p"] = {"<C-W>p", "上一窗口"},
-  ["n"] = {"<Cmd>vnew<CR>", "新建窗口"},
-  ["c"] = {"<C-W>c", "关闭当前窗口"},
-  ["o"] = {"<C-W>o", "关闭其他窗口"},
-  ["s"] = {"<C-W>s", "水平分割窗口"},
-  ["v"] = {"<C-W>v", "垂直分割窗口"},
-  ["w"] = {"<C-W>w", "选择下一个窗口"},
-  ["h"] = {"<C-W>h", "选择左边的窗口"},
-  ["j"] = {"<C-W>j", "选择下边的窗口"},
-  ["l"] = {"<C-W>l", "选择右边的窗口"},
-  ["k"] = {"<C-W>k", "选择上边的窗口"},
-  ["["] = {"<C-W>5<", "向左扩大窗口"},
-  ["]"] = {"<C-W>5>", "向右扩大窗口"},
-  ["="] = {"<Cmd>resize +5<CR>", "向下扩大窗口"},
-  ["-"] = {"<Cmd>resize -5<CR>", "向上扩大窗口"},
-  ["/"] = {"<C-W>=", "令窗口平分长度"},
+  ["p"] = { "<C-W>p", "上一窗口" },
+  ["n"] = { "<Cmd>vnew<CR>", "新建窗口" },
+  ["c"] = { "<C-W>c", "关闭当前窗口" },
+  ["o"] = { "<C-W>o", "关闭其他窗口" },
+  ["s"] = { "<C-W>s", "水平分割窗口" },
+  ["v"] = { "<C-W>v", "垂直分割窗口" },
+  ["w"] = { "<C-W>w", "选择下一个窗口" },
+  ["h"] = { "<C-W>h", "选择左边的窗口" },
+  ["j"] = { "<C-W>j", "选择下边的窗口" },
+  ["l"] = { "<C-W>l", "选择右边的窗口" },
+  ["k"] = { "<C-W>k", "选择上边的窗口" },
+  ["["] = { "<C-W>5<", "向左扩大窗口" },
+  ["]"] = { "<C-W>5>", "向右扩大窗口" },
+  ["="] = { "<Cmd>resize +5<CR>", "向下扩大窗口" },
+  ["-"] = { "<Cmd>resize -5<CR>", "向上扩大窗口" },
+  ["/"] = { "<C-W>=", "令窗口平分长度" },
 }
 
 -- leader-t: 定义 tab、翻译 相关的快捷键
@@ -48,13 +48,13 @@ U.nmap("<Leader>tb", "<Cmd>Vista!!<CR>")
 
 which_key_map.t = {
   ["name"] = "tab/translate/tags",
-  ["n"] = {"tabnew", "打开新 tab"},
-  ["c"] = {"tabclose", "关闭当前tab"},
-  ["o"] = {"tabonly", "关闭其他tab"},
-  ["]"] = {"tabnext", "下一个tab"},
-  ["["] = {"tabprevious", "上一个tab"},
-  ["f"] = {"tabfirst", "第一个tab"},
-  ["l"] = {"tablast", "最后一个tab"},
+  ["n"] = { "tabnew", "打开新 tab" },
+  ["c"] = { "tabclose", "关闭当前tab" },
+  ["o"] = { "tabonly", "关闭其他tab" },
+  ["]"] = { "tabnext", "下一个tab" },
+  ["["] = { "tabprevious", "上一个tab" },
+  ["f"] = { "tabfirst", "第一个tab" },
+  ["l"] = { "tablast", "最后一个tab" },
   ["w"] = "翻译单词",
   ["r"] = "新建浮窗终端",
   ["s"] = "展示翻译",
@@ -68,12 +68,12 @@ which_key_map.t = {
 
 which_key_map.b = {
   ["name"] = "buffers",
-  ["b"] = {"<Cmd>BufferLineCycleNext<CR>", "next-buffer"},
-  ["h"] = {"<Cmd>BufferLineCyclePrev<CR>", "previous-buffer"},
-  ["p"] = {"<Cmd>BufferLinePick<CR>", "pick-buffer"},
-  ["l"] = {"blast", "last-buffer"},
-  ["f"] = {"bfirst", "first-buffer"},
-  ["d"] = {"bdelete", "delete-buffer"},
+  ["b"] = { "<Cmd>BufferLineCycleNext<CR>", "next-buffer" },
+  ["h"] = { "<Cmd>BufferLineCyclePrev<CR>", "previous-buffer" },
+  ["p"] = { "<Cmd>BufferLinePick<CR>", "pick-buffer" },
+  ["l"] = { "blast", "last-buffer" },
+  ["f"] = { "bfirst", "first-buffer" },
+  ["d"] = { "bdelete", "delete-buffer" },
 }
 
 -- leader-e: 定义快速位移
@@ -132,13 +132,13 @@ which_key_map.f = {
   ["c"] = "查找光标下的单词",
   ["r"] = "重新加载文件",
   ["s"] = "提权保存",
-  ["t"] = {"<Cmd>NvimTreeToggle<CR>", "切换显示目录树"},
-  ["l"] = {"<Cmd>NvimTreeFindFile<CR>", "在目录树中定位"},
+  ["t"] = { "<Cmd>NvimTreeToggle<CR>", "切换显示目录树" },
+  ["l"] = { "<Cmd>NvimTreeFindFile<CR>", "在目录树中定位" },
 }
 
 -- leader-g: 定义 git 和 跳转相关的快捷键
 
-U.nmap("<Leader>gb", "<Cmd>call gitblame#echo()<CR>", {silent = false})
+U.nmap("<Leader>gb", "<Cmd>call gitblame#echo()<CR>", { silent = false })
 
 -- coc 快捷键配置, 代码跳转
 U.nmap("<C-j>", "<Plug>(coc-definition)")
@@ -149,7 +149,7 @@ U.nmap("<Leader>gi", "<Plug>(coc-implementation)")
 U.nmap("<Leader>gr", "<Plug>(coc-references)")
 
 -- ale 快捷键配置
-U.nmap("<Leader>gl", "<Plug>(ale_toggle)", {silent = false})
+U.nmap("<Leader>gl", "<Plug>(ale_toggle)", { silent = false })
 U.nmap("<Leader>ge", "<Plug>(ale_next_wrap_error)")
 U.nmap("<Leader>gE", "<Plug>(ale_previous_wrap_error)")
 U.nmap("<Leader>gw", "<Plug>(ale_next_wrap)")
@@ -174,7 +174,7 @@ which_key_map.g = {
   ["d"] = "展示当前行变动diff",
   ["u"] = "将当前行回退到版本控制",
   ["b"] = "gitblame当前行",
-  ["B"] = {"<Cmd>Git blame<CR>", "gitblame全文件"},
+  ["B"] = { "<Cmd>Git blame<CR>", "gitblame全文件" },
 }
 
 -- leader-c: 定义 coding 快捷键
@@ -189,8 +189,7 @@ U.vmap("<Leader>ct", "<Plug>(coc-format-selected)")
 U.nmap("<Leader>cp", "<Cmd>CocCommand<CR>")
 -- 手动启动 Coc Service
 U.nmap("<Leader>cx", "<Cmd>CocStart<CR>")
-U.nmap("<Leader>cv",
-       "<Cmd>CocStart<CR>:ALEEnable<CR>:call spelunker#toggle()<CR>")
+U.nmap("<Leader>cv", "<Cmd>CocStart<CR>:ALEEnable<CR>:call spelunker#toggle()<CR>")
 
 -- sbdchd/neoformat 快捷键配置
 U.nmap("<Leader>cf", "<Cmd>Neoformat<CR>")
@@ -248,7 +247,10 @@ U.nmap("<Leader>yy", "<Cmd>%y+<CR>")
 U.nmap("<C-p>", [["+p]])
 U.vmap("<C-p>", [["+p]])
 
-which_key_map.y = {["name"] = "yank", ["y"] = "复制全部内容到 clipboard"}
+which_key_map.y = {
+  ["name"] = "yank",
+  ["y"] = "复制全部内容到 clipboard",
+}
 
 -- leader-v: 定义 vim 控制的控制键
 
@@ -278,4 +280,4 @@ which_key_map.v = {
 -- 不会触发元访问器来更新 vim.g.which_key_map 中的 x
 -- vim.g.which_key_map = which_key_map
 
-wk.register(which_key_map, {prefix = "<Leader>"})
+wk.register(which_key_map, { prefix = "<Leader>" })

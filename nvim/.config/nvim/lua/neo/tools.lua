@@ -3,14 +3,12 @@ local fn = vim.fn
 
 -- Key mapping
 function U.map(mode, key, action, opts)
-  opts = vim.tbl_extend('keep', opts or {},
-                        {noremap = true, silent = true, expr = false})
+  opts = vim.tbl_extend("keep", opts or {}, { noremap = true, silent = true, expr = false })
   vim.api.nvim_set_keymap(mode, key, action, opts)
 end
 
 function U.plugmap(mode, key, action, opts)
-  opts = vim.tbl_extend('keep', opts or {},
-                        {noremap = not vim.startswith(action, "<Plug>")})
+  opts = vim.tbl_extend("keep", opts or {}, { noremap = not vim.startswith(action, "<Plug>") })
   U.map(mode, key, action, opts)
 end
 
@@ -33,7 +31,7 @@ end
 -- 复制当前行到 system clipboard
 -- action like ^"+yg_ but without moving cursor
 function U.YankOneLine()
-  fn.setreg("+", fn.trim(fn.getline('.')))
+  fn.setreg("+", fn.trim(fn.getline(".")))
   print("[YankOneLine] one line yanked to system clipboard")
 end
 
@@ -50,7 +48,7 @@ end
 
 -- 获取换行符模式
 function U.GetLineEnd()
-  local label = {unix = "LF", mac = "CR", dos = "CRLF"}
+  local label = { unix = "LF", mac = "CR", dos = "CRLF" }
   return label[vim.bo.fileformat]
 end
 

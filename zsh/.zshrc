@@ -15,7 +15,7 @@ export GOPATH=$(go env GOPATH)
 
 GO_BIN=$GOPATH/bin
 MY_BIN=$HOME/myutils/bin
-RUST_BIN=$HOME/cargo/bin
+RUST_BIN=$HOME/.cargo/bin
 LUA_BIN=$HOME/.luarocks/bin
 NODE_BIN=$HOME/.node_modules_global/bin
 RUBY_BIN=$(ruby -r rubygems -e 'puts Gem.user_dir')/bin

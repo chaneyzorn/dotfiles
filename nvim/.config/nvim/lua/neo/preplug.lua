@@ -9,12 +9,12 @@ end)("lambdalisue/suda.vim");
 
 (function()
   -- 使用 sainnhe/sonokai 色彩方案
-  vg.sonokai_style = 'andromeda'
+  vg.sonokai_style = "andromeda"
   vg.sonokai_enable_italic = 1
   vg.sonokai_disable_italic_comment = 0
   vg.sonokai_transparent_background = 0
-  vg.sonokai_sign_column_background = 'none'
-  vg.sonokai_menu_selection_background = 'green'
+  vg.sonokai_sign_column_background = "none"
+  vg.sonokai_menu_selection_background = "green"
 end)("sainnhe/sonokai");
 
 (function()
@@ -31,8 +31,7 @@ end)("sainnhe/sonokai");
     readonly = "",
   }
   -- 配置 airline_section
-  vg.airline_section_z = vim.fn["airline#section#create"](
-                           {"linenr", "maxlinenr"})
+  vg.airline_section_z = vim.fn["airline#section#create"]({ "linenr", "maxlinenr" })
   -- 显示 ale 诊断信
   vim.g["airline#extensions#ale#enabled"] = 1
   vim.g["airline#extensions#ale#error_symbol"] = " "
@@ -58,7 +57,7 @@ end)("RRethy/vim-illuminate");
 (function()
   -- 使用 g:better_whitespace_filetypes_blacklist 无效
   -- https://github.com/ntpeters/vim-better-whitespace/issues/108
-  vim.cmd [[ autocmd FileType help DisableWhitespace ]]
+  vim.cmd([[ autocmd FileType help DisableWhitespace ]])
   -- 禁用默认 keymap
   vg.better_whitespace_operator = ""
 end)("ntpeters/vim-better-whitespace");
@@ -77,16 +76,30 @@ end)("ntpeters/vim-better-whitespace");
       "Fuchsia",
       "Ivory",
     },
-    separately = {nerdtree = 0},
+    separately = { nerdtree = 0 },
   }
 end)("luochen1990/rainbow");
 
 (function()
-  vg.indent_blankline_char = '┊'
+  vg.indent_blankline_char = "┊"
   -- vg.indent_blankline_char_list = {'|', '¦', '┆', '┊'}
   -- 以下类型的 buffer 里不显示缩进线
-  vg.indent_blankline_filetype_exclude = {"help", "terminal", "list", "nofile", "make", "go"}
-  vg.indent_blankline_buftype_exclude = {"help", "terminal", "list", "nofile"}
+  vg.indent_blankline_filetype_exclude = { "help", "terminal", "list", "nofile", "make", "go" }
+  vg.indent_blankline_buftype_exclude = { "help", "terminal", "list", "nofile" }
+  vg.indent_blankline_show_current_context = true
+  vg.indent_blankline_context_patterns = {
+    "class",
+    "function",
+    "method",
+    "block",
+    "list_literal",
+    "selector",
+    "^if",
+    "^table",
+    "if_statement",
+    "while",
+    "for",
+  }
 end)("lukas-reineke/indent-blankline.nvim");
 
 (function()
@@ -107,10 +120,10 @@ end)("kamykn/spelunker.vim");
 
 (function()
   -- │
-  vg.signify_sign_add = '▎'
-  vg.signify_sign_delete = '▎'
-  vg.signify_sign_delete_first_line = ''
-  vg.signify_sign_change = '▎'
+  vg.signify_sign_add = "▎"
+  vg.signify_sign_delete = "▎"
+  vg.signify_sign_delete_first_line = ""
+  vg.signify_sign_change = "▎"
 end)("mhinz/vim-signify");
 
 (function()
@@ -147,11 +160,11 @@ end)("scrooloose/nerdcommenter");
 (function()
   -- 不使用预设快捷键
   vg.vtm_default_mapping = 0
-  vg.vtm_default_engines = {"youdao", "ciba", "bing"}
+  vg.vtm_default_engines = { "youdao", "ciba", "bing" }
 end)("voldikss/vim-translate-me");
 
 (function()
-  vg.nvim_tree_side = 'left'
+  vg.nvim_tree_side = "left"
   vg.nvim_tree_width = 30
   vg.nvim_tree_ignore = {
     "*.swp",
@@ -168,14 +181,14 @@ end)("voldikss/vim-translate-me");
   vg.nvim_tree_indent_markers = 1
   vg.nvim_tree_hide_dotfiles = 0
   vg.nvim_tree_git_hl = 1
-  vg.nvim_tree_root_folder_modifier = ':~'
+  vg.nvim_tree_root_folder_modifier = ":~"
   vg.nvim_tree_tab_open = 1
   vg.nvim_tree_width_allow_resize = 1
-  vg.nvim_tree_show_icons = {git = 1, folders = 1, files = 1}
+  vg.nvim_tree_show_icons = { git = 1, folders = 1, files = 1 }
 
   vg.nvim_tree_icons = {
-    default = '',
-    symlink = '',
+    default = "",
+    symlink = "",
     git = {
       unstaged = "",
       staged = "",
@@ -183,7 +196,7 @@ end)("voldikss/vim-translate-me");
       renamed = "➜",
       untracked = "六",
     },
-    folder = {default = "", open = "", symlink = ""},
+    folder = { default = "", open = "", symlink = "" },
   }
 
   -- vim.cmd [[autocmd FileType NvimTree setlocal signcolumn=no]]
@@ -192,7 +205,7 @@ end)("kyazdani42/nvim-tree.lua");
 (function()
   -- 大纲列表不延迟
   vg.vista_cursor_delay = 0
-  vg.vista_executive_for = {python = "coc"}
+  vg.vista_executive_for = { python = "coc" }
   -- 大纲列表图标
   vim.g["vista#renderer#icons"] = {
     ["augroup"] = "⋐",
@@ -243,7 +256,7 @@ end)("liuchengxu/vista.vim");
 end)("voldikss/vim-floaterm");
 
 (function()
-  vg.neoformat_enabled_python = {"black"}
+  vg.neoformat_enabled_python = { "black" }
   -- 默认格式化对齐
   vg.neoformat_basic_format_align = 1
   -- 默认转换 tab 字符为空格
@@ -279,20 +292,20 @@ end)("fatih/vim-go");
 
   -- compile_commands.json still not work well with clang easily
   -- see https://github.com/w0rp/ale/issues/1163#issuecomment-352585720
-  vg.ale_c_build_dir_names = {"build", "debug", "bin"}
+  vg.ale_c_build_dir_names = { "build", "debug", "bin" }
   vg.ale_c_parse_compile_commands = 1
 
   -- see https://github.com/MaskRay/ccls/wiki/Customization
-  vg.ale_c_ccls_init_options = {cacheDirectory = "~/.cache/ccls"}
+  vg.ale_c_ccls_init_options = { cacheDirectory = "~/.cache/ccls" }
 
   -- 未明确指定 linter 的依然会使用全部可能的linter
   -- 除非 vg.ale_linters_explicit = 1
   -- 显示指定要使用的 linter
   vg.ale_linters = {
-    c = {"clangtidy", "ccls", "cppcheck"},
-    cpp = {"clangtidy", "ccls", "cppcheck"},
-    go = {"golangci-lint"},
-    javascript = {"eslint"},
+    c = { "clangtidy", "ccls", "cppcheck" },
+    cpp = { "clangtidy", "ccls", "cppcheck" },
+    go = { "golangci-lint" },
+    javascript = { "eslint" },
   }
 
   -- 使用全局 pylint，这样可以使用 venv 中对应版本的 pylint
@@ -300,8 +313,7 @@ end)("fatih/vim-go");
   vg.ale_python_pylint_auto_pipenv = 1
   vg.ale_python_pylint_options = "--rcfile ~/.config/pylintrc"
 
-  vg.ale_go_golangci_lint_options =
-    "--enable-all --disable wsl --disalbe gofumpt"
+  vg.ale_go_golangci_lint_options = "--enable-all --disable wsl --disalbe gofumpt"
 end)("w0rp/ale");
 
 (function()
@@ -325,4 +337,4 @@ end)("w0rp/ale");
     "coc-word",
     "coc-yaml",
   }
-end)("neoclide/coc.nvim");
+end)("neoclide/coc.nvim")
