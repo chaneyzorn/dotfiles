@@ -1,7 +1,6 @@
 -- postplug.lua
 -- 与插件定制功能相关的配置，在插件载入后配置（调用型的配置）
 (function()
-  -- colorscheme space_vim_theme
   vim.api.nvim_exec(
     [[
     colorscheme sonokai
