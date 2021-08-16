@@ -158,6 +158,7 @@ inplace
 io
 iommu
 iops
+iostat
 ioutil
 ip
 ipaddr
@@ -192,6 +193,7 @@ loadavg
 localleader
 localtime
 logconfig
+logging
 loglevel
 lsblk
 lsm
