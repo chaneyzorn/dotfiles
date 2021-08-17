@@ -102,10 +102,6 @@ packer.startup({
     use("scrooloose/nerdcommenter")
     -- 全面而且统一的语法高亮和缩进
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-
-    -- 提供 golang 支持
-    use({ "fatih/vim-go", run = ":GoUpdateBinaries", ft = "go" })
-
     -- 语法检查
     use("w0rp/ale")
     -- 自动补全, lsp-client
