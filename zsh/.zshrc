@@ -176,3 +176,8 @@ alias ssh='TERM=xterm-256color \ssh'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# since https://gitlab.gnome.org/GNOME/vte/-/issues/347
+# we add env LANG=en_US.UTF-8 to xfce-terminal.desktop
+# set back LANG=zh_CN.UTF-8 here
+export LANG=zh_CN.UTF-8
