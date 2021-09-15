@@ -8,6 +8,8 @@
     insteadOf = http://192.168.50.150/
 [url "git@github.smartx.com:"]
     insteadOf = https://github.smartx.com/
+[url "git@newgh.smartx.com:"]
+    insteadOf = http://newgh.smartx.com/
 [pull]
     ff = only
 
