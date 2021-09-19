@@ -167,9 +167,9 @@ NVIM_NIGHTLY="~/myutils/bin/nvim.appimage"
 alias nvimup="wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -O $NVIM_NIGHTLY"
 
 alias v=$NVIM_NIGHTLY
-alias vi=$NVIM_NIGHTLY
-alias vim=$NVIM_NIGHTLY
-alias nvim=$NVIM_NIGHTLY
+# alias vi=$NVIM_NIGHTLY
+# alias vim=$NVIM_NIGHTLY
+# alias nvim=$NVIM_NIGHTLY
 
 # 保证终端兼容性
 alias ssh='TERM=xterm-256color \ssh'
