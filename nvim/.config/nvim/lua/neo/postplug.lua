@@ -11,7 +11,7 @@
     ]],
     false
   )
-end)("liuchengxu/space-vim-theme");
+end)("colorscheme");
 
 (function()
   -- 使用下划线标记光标下相同的单词
@@ -74,8 +74,6 @@ end)("build-in terminal color");
     options = {
       view = "multiwindow",
       numbers = "none",
-      number_style = "none",
-      mappings = false,
       buffer_close_icon = "",
       modified_icon = "",
       close_icon = "",
@@ -128,6 +126,14 @@ end)("akinsho/nvim-bufferline.lua");
     pickers = { find_files = { hidden = true } },
   })
 end)("nvim-telescope/telescope.nvim");
+
+(function()
+  require("diffview").setup({
+    diff_binaries = false,
+    use_icons = true,
+    enhanced_diff_hl = false,
+  })
+end)("sindrets/diffview.nvim");
 
 (function()
   require("nvim-treesitter.configs").setup({

@@ -65,6 +65,7 @@ packer.startup({
     use("APZelos/blamer.nvim")
     -- 在 vim 中发起 git 命令
     use("tpope/vim-fugitive")
+    use("sindrets/diffview.nvim")
 
     -- 显示目录树
     use("kyazdani42/nvim-tree.lua")

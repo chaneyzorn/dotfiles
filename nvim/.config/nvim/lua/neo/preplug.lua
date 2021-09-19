@@ -198,8 +198,6 @@ end)("voldikss/vim-translate-me");
     },
     folder = { default = "", open = "", symlink = "" },
   }
-
-  -- vim.cmd [[autocmd FileType NvimTree setlocal signcolumn=no]]
 end)("kyazdani42/nvim-tree.lua");
 
 (function()
