@@ -174,15 +174,11 @@ end)("voldikss/vim-translate-me");
     ".ropeproject",
     "node_modules",
   }
-  vg.nvim_tree_auto_open = 0
-  vg.nvim_tree_auto_close = 1
   vg.nvim_tree_quit_on_open = 0
-  vg.nvim_tree_follow = 1
   vg.nvim_tree_indent_markers = 1
   vg.nvim_tree_hide_dotfiles = 0
   vg.nvim_tree_git_hl = 1
   vg.nvim_tree_root_folder_modifier = ":~"
-  vg.nvim_tree_tab_open = 1
   vg.nvim_tree_width_allow_resize = 1
   vg.nvim_tree_show_icons = { git = 1, folders = 1, files = 1 }
 
