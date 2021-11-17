@@ -12,4 +12,6 @@
     insteadOf = http://newgh.smartx.com/
 [pull]
     ff = only
+[alias]
+    root = rev-parse --show-toplevel
 
