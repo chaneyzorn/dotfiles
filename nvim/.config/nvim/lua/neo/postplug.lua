@@ -55,6 +55,17 @@ end)("colorscheme");
         list = {},
       },
     },
+    filters = {
+      dotfiles = false,
+      custom = {
+        "*.swp",
+        "*.pyc",
+        ".git",
+        ".idea",
+        ".ropeproject",
+        "node_modules",
+      },
+    },
   })
 end)("kyazdani42/nvim-tree.lua");
 

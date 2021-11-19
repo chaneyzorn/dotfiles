@@ -166,17 +166,8 @@ end)("voldikss/vim-translate-me");
 (function()
   vg.nvim_tree_side = "left"
   vg.nvim_tree_width = 30
-  vg.nvim_tree_ignore = {
-    "*.swp",
-    "*.pyc",
-    ".git",
-    ".idea",
-    ".ropeproject",
-    "node_modules",
-  }
   vg.nvim_tree_quit_on_open = 0
   vg.nvim_tree_indent_markers = 1
-  vg.nvim_tree_hide_dotfiles = 0
   vg.nvim_tree_git_hl = 1
   vg.nvim_tree_root_folder_modifier = ":~"
   vg.nvim_tree_width_allow_resize = 1
