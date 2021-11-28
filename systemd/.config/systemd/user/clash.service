@@ -1,0 +1,23 @@
+; see https://docs.syncthing.net/users/autostart.html#linux
+; see https://www.freedesktop.org/software/systemd/man/systemd.unit.html
+;
+; enable and start as system service:
+; systemctl enable clash@chaney.service
+; systemctl start clash@chaney.service
+;
+; enable and start as user service:
+; copy clash.service to ~/.config/systemd/user/
+; systemctl --user enable clash.service
+; systemctl --user start clash.service
+
+[Unit]
+Description=A rule based proxy in Go.
+After=network.target
+
+[Service]
+Type=exec
+Restart=on-abort
+ExecStart=/usr/bin/clash
+
+[Install]
+WantedBy=default.target

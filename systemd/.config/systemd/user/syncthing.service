@@ -1,3 +1,15 @@
+; see https://docs.syncthing.net/users/autostart.html#linux
+; see https://www.freedesktop.org/software/systemd/man/systemd.unit.html
+;
+; enable and start as system service:
+; systemctl enable syncthing@chaney.service
+; systemctl start syncthing@chaney.service
+;
+; enable and start as user service:
+; copy syncthing.service to ~/.config/systemd/user/
+; systemctl --user enable syncthing.service
+; systemctl --user start syncthing.service
+
 [Unit]
 Description=Syncthing - Open Source Continuous File Synchronization
 Documentation=man:syncthing(1)
