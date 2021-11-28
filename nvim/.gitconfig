@@ -14,4 +14,5 @@
     ff = only
 [alias]
     root = rev-parse --show-toplevel
+    shown = show --name-only
 
