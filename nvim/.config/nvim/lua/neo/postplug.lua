@@ -159,7 +159,8 @@ end)("akinsho/nvim-bufferline.lua");
 
 (function()
   local actions = require("telescope.actions")
-  require("telescope").setup({
+  telescope = require("telescope")
+  telescope.setup({
     defaults = {
       mappings = {
         i = {
@@ -180,7 +181,16 @@ end)("akinsho/nvim-bufferline.lua");
       file_ignore_patterns = { "node_modules", ".git" },
     },
     pickers = { find_files = { hidden = true } },
+    extensions = {
+      fzf = {
+        fuzzy = true,
+        override_generic_sorter = true,
+        override_file_sorter = true,
+        case_mode = "smart_case",
+      },
+    },
   })
+  telescope.load_extension("fzf")
 end)("nvim-telescope/telescope.nvim");
 
 (function()

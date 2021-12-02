@@ -96,6 +96,9 @@ packer.startup({
         { "nvim-lua/plenary.nvim" },
       },
     })
+    use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+    use({ "Yggdroot/LeaderF", run = ":LeaderfInstallCExtension" })
+    use({ "junegunn/fzf.vim" })
 
     -- 代码格式化
     use("sbdchd/neoformat")
