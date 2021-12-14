@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # If you come from bash you might have to change your $PATH.
 if [ ! $BASE_PATH ]; then
     export BASE_PATH=$PATH
@@ -46,9 +39,8 @@ fi
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # iTerm2 > Profiles > Text > Font: "Use a different font for non-ASCII text"
     # then https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts
-    ZSH_THEME="powerlevel10k/powerlevel10k"
+    # ZSH_THEME="powerlevel10k/powerlevel10k"
 else
-    source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
     # install nerd-fonts-fira-code
     # edit .config/fontconfig/conf.d/10-symbols.conf
 fi
@@ -183,3 +175,5 @@ alias systemctlu="systemctl --user"
 # we add env LANG=en_US.UTF-8 to xfce-terminal.desktop
 # set back LANG=zh_CN.UTF-8 here
 export LANG=zh_CN.UTF-8
+
+eval "$(starship init zsh)"
