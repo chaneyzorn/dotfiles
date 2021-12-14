@@ -188,6 +188,15 @@ end)("voldikss/vim-translate-me");
 end)("kyazdani42/nvim-tree.lua");
 
 (function()
+  vg.fzf_layout = {
+    window = {
+      width = 0.9,
+      height = 0.9,
+    },
+  }
+end)("junegunn/fzf.vim");
+
+(function()
   -- 大纲列表不延迟
   vg.vista_cursor_delay = 0
   vg.vista_executive_for = { python = "coc" }
