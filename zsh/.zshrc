@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 if [ ! $BASE_PATH ]; then
     export BASE_PATH=$PATH
@@ -18,18 +25,10 @@ export PATH=$MY_PATH:$BASE_PATH
 export SHELL=$(which zsh)
 eval `luarocks path --no-bin`
 
-export ISCRATCH=$HOME/Projects/iscratch
-# export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
-
-export EXTEND_BASHRC=$HOME/.extend.bashrc
-if [[ -e $EXTEND_BASHRC ]]; then
-    source $EXTEND_BASHRC
-fi
-
 # Path to your oh-my-zsh installation.
 if [[ -d /usr/share/oh-my-zsh ]]; then
     export ZSH=/usr/share/oh-my-zsh
-else
+elif [[ -d $HOME/.oh-my-zsh ]]; then
     export ZSH=$HOME/.oh-my-zsh
 fi
 
@@ -39,10 +38,11 @@ fi
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # iTerm2 > Profiles > Text > Font: "Use a different font for non-ASCII text"
     # then https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts
-    # ZSH_THEME="powerlevel10k/powerlevel10k"
-else
+    ZSH_THEME="powerlevel10k/powerlevel10k"
+elif [[ -f /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme ]]; then
     # install nerd-fonts-fira-code
     # edit .config/fontconfig/conf.d/10-symbols.conf
+    source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 fi
 
 # Set list of themes to load
@@ -176,4 +176,4 @@ alias systemctlu="systemctl --user"
 # set back LANG=zh_CN.UTF-8 here
 export LANG=zh_CN.UTF-8
 
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
