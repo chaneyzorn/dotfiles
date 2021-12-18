@@ -1,0 +1,8 @@
+windows:
+  - name: chaney-pi
+    root: ~
+    layout: main-vertical
+    panes:
+      - ssh chaney-pi1.local
+      - ssh chaney-pi2.local
+      - ssh chaney-pi3.local
