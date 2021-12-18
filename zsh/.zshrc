@@ -26,16 +26,17 @@ export SHELL=$(which zsh)
 eval `luarocks path --no-bin`
 
 # Path to your oh-my-zsh installation.
-if [[ -d /usr/share/oh-my-zsh ]]; then
-    export ZSH=/usr/share/oh-my-zsh
-elif [[ -d $HOME/.oh-my-zsh ]]; then
+if [[ -d $HOME/.oh-my-zsh ]]; then
     export ZSH=$HOME/.oh-my-zsh
+elif [[ -d /usr/share/oh-my-zsh ]]; then
+    export ZSH=/usr/share/oh-my-zsh
 fi
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-if [[ "$OSTYPE" == "darwin"* ]]; then
+if [[ -d $HOME/.oh-my-zsh ]]; then
+    # macOS:
     # iTerm2 > Profiles > Text > Font: "Use a different font for non-ASCII text"
     # then https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts
     ZSH_THEME="powerlevel10k/powerlevel10k"
