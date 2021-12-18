@@ -1,3 +1,4 @@
+name: chaney
 windows:
   - name: chaney-pi
     root: ~
