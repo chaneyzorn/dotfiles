@@ -39,10 +39,12 @@ if [[ -d $HOME/.oh-my-zsh ]]; then
     # macOS:
     # iTerm2 > Profiles > Text > Font: "Use a different font for non-ASCII text"
     # then https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts
+    # git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
     ZSH_THEME="powerlevel10k/powerlevel10k"
 elif [[ -f /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme ]]; then
     # install nerd-fonts-fira-code
     # edit .config/fontconfig/conf.d/10-symbols.conf
+    # yay -S zsh-theme-powerlevel10k-git
     source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 fi
 
