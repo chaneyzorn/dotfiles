@@ -66,6 +66,11 @@ end)("colorscheme");
         "node_modules",
       },
     },
+    git = {
+      enable = true,
+      ignore = false,
+      timeout = 500,
+    },
   })
 end)("kyazdani42/nvim-tree.lua");
 
