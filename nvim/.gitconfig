@@ -4,7 +4,7 @@
 [core]
     editor = nvim
     quotepath = false
-	pager = less -x1,5
+    pager = less -x1,5
 [url "git@192.168.50.150:"]
     insteadOf = http://192.168.50.150/
 [url "git@github.smartx.com:"]
