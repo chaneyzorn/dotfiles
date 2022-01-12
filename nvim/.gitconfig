@@ -16,4 +16,5 @@
 [alias]
     root = rev-parse --show-toplevel
     showf = show --name-only
+    logf = log --name-only
 
