@@ -163,7 +163,7 @@ alias py3='source ~/Pyvenv/venv3/bin/activate'
 alias smvn='cd ~/.vpn/smartx/ && sudo openvpn --config zouquan.smartx.ovpn'
 
 NVIM_NIGHTLY="~/myutils/bin/nvim.appimage"
-alias nvimup="wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -O $NVIM_NIGHTLY"
+alias nvimup="curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -o $NVIM_NIGHTLY"
 
 alias v=$NVIM_NIGHTLY
 # alias vi=$NVIM_NIGHTLY
