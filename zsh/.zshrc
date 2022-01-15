@@ -10,16 +10,22 @@ if [ ! $BASE_PATH ]; then
     export BASE_PATH=$PATH
 fi
 
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+
 export GOROOT=$(go env GOROOT)
 export GOPATH=$(go env GOPATH)
 
+LOCAL_BIN=/usr/local/bin
+LOCAL_SBIN=/usr/local/sbin
 GO_BIN=$GOPATH/bin
 MY_BIN=$HOME/myutils/bin
 RUST_BIN=$HOME/.cargo/bin
 LUA_BIN=$HOME/.luarocks/bin
 NODE_BIN=$HOME/.node_modules_global/bin
 RUBY_BIN=$(ruby -r rubygems -e 'puts Gem.user_dir')/bin
-MY_PATH=$MY_BIN:$GO_BIN:$RUST_BIN:$NODE_BIN:$RUBY_BIN:$LUA_BIN
+MY_PATH=$MY_BIN:$GO_BIN:$RUST_BIN:$NODE_BIN:$RUBY_BIN:$LUA_BIN:$LOCAL_BIN:$LOCAL_SBIN
 
 export PATH=$MY_PATH:$BASE_PATH
 export SHELL=$(which zsh)
@@ -165,7 +171,8 @@ alias smvn='cd ~/.vpn/smartx/ && sudo openvpn --config zouquan.smartx.ovpn'
 NVIM_NIGHTLY="~/myutils/bin/nvim.appimage"
 alias nvimup="curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -o $NVIM_NIGHTLY"
 
-alias v=$NVIM_NIGHTLY
+alias v=nvim
+alias nv=$NVIM_NIGHTLY
 # alias vi=$NVIM_NIGHTLY
 # alias vim=$NVIM_NIGHTLY
 # alias nvim=$NVIM_NIGHTLY

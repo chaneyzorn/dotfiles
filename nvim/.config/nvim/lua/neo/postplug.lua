@@ -1,5 +1,8 @@
 -- postplug.lua
 -- 与插件定制功能相关的配置，在插件载入后配置（调用型的配置）
+
+local vg = vim.g;
+
 (function()
   vim.api.nvim_exec(
     [[
@@ -12,6 +15,10 @@
     false
   )
 end)("colorscheme");
+
+(function()
+  vg.airline_section_z = vim.fn["airline#section#create"]({ "linenr", "maxlinenr" })
+end)("vim-airline/vim-airline", "vim-airline/vim-airline-themes");
 
 (function()
   require("nvim-tree").setup({
