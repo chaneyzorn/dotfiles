@@ -86,7 +86,7 @@ end)("kamykn/spelunker.vim");
   vg.blamer_delay = 1000
   vg.blamer_prefix = "    "
   vg.blamer_template = "<committer-time>   <author>   <summary>"
-  vg.blamer_date_format = "%Y/%m/%d"
+  vg.blamer_date_format = "%Y-%m-%d"
 end)("APZelos/blamer.nvim");
 
 (function()

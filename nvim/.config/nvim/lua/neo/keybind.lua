@@ -114,7 +114,6 @@ which_key_map.f = {
 
 -- leader-g: 定义 git 和 跳转相关的快捷键
 
-U.nmap("<Leader>gb", "<Cmd>call gitblame#echo()<CR>", { silent = false })
 
 -- coc
 U.nmap("<C-j>", "<Plug>(coc-definition)")
@@ -134,6 +133,7 @@ U.nmap("<Leader>gW", "<Plug>(ale_previous_wrap)")
 -- gitsigns
 U.nmap("]c", "&diff ? ']c' : '<Cmd>Gitsigns next_hunk<CR>'", { expr = true })
 U.nmap("[c", "&diff ? '[c' : '<Cmd>Gitsigns prev_hunk<CR>'", { expr = true })
+U.nmap("<Leader>gb", "<Cmd>Gitsigns blame_line<CR>", { silent = false })
 U.nmap("<Leader>gd", "<Cmd>Gitsigns preview_hunk<CR>")
 U.nmap("<Leader>gu", "<Cmd>Gitsigns reset_hunk<CR>")
 

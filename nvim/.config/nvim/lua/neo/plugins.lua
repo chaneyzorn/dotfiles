@@ -62,13 +62,7 @@ packer.startup({
 
     -- git integration
     use("tpope/vim-fugitive")
-    use({
-      "lewis6991/gitsigns.nvim",
-      requires = {
-        "nvim-lua/plenary.nvim",
-      },
-    })
-    use("zivyangll/git-blame.vim")
+    use({ "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } })
     use("APZelos/blamer.nvim")
     use("sindrets/diffview.nvim")
 
