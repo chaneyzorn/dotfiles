@@ -173,39 +173,16 @@ U.nmap("<Leader>cv", "<Cmd>CocStart<CR>:ALEEnable<CR>:call spelunker#toggle()<CR
 U.nmap("<Leader>cf", "<Cmd>Neoformat<CR>")
 U.vmap("<Leader>cf", "<Cmd>Neoformat<CR>")
 
--- nerdcommenter 快捷键配置
--- 根据选中的第一行反转注释状态
-U.xmap("<Leader>cc", "<Plug>NERDCommenterToggle")
-U.nmap("<Leader>cc", "<Plug>NERDCommenterToggle")
--- 反转注释状态
-U.xmap("<Leader>ci", "<Plug>NERDCommenterInvert")
-U.nmap("<Leader>ci", "<Plug>NERDCommenterInvert")
--- 风格精致的注释
-U.xmap("<Leader>cs", "<Plug>NERDCommenterSexy")
-U.nmap("<Leader>cs", "<Plug>NERDCommenterSexy")
-
--- multiple-cursor 快捷键
-U.nmap("<Leader>cr", "<Cmd>MultipleCursorsFind<Space>")
-U.vmap("<Leader>cr", "<Cmd>MultipleCursorsFind<Space>")
-
--- ultisnips 快捷键
-U.nmap("<Leader>co", "<Cmd>UltiSnipsEdit<CR>")
-
 -- 拼写检查
 U.nmap("<Leader>ck", "<Cmd>set spell!<CR>")
 
 which_key_map.c = {
   ["name"] = "code/coc/comment",
-  ["c"] = "根据首行反转注释",
   ["d"] = "生成代码文档",
-  ["i"] = "反转注释",
-  ["s"] = "精致注释",
   ["f"] = "格式化代码",
   ["t"] = "coc全格式化代码",
   ["k"] = "拼写检查",
   ["p"] = "coc下拉菜单",
-  ["r"] = "多光标选中匹配",
-  ["o"] = "编辑当前类型代码片段",
   ["x"] = "开启 coc lsp",
   ["v"] = "开启代码智能辅助",
 }

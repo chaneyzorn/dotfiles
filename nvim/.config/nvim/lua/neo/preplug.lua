@@ -94,22 +94,6 @@ end)("APZelos/blamer.nvim");
 end)("ervandew/supertab");
 
 (function()
-  -- 不使用默认的键位
-  -- vg.NERDCreateDefaultMappings = 0
-  -- 空格间隔，比如 /* int foo=2; */
-  vg.NERDSpaceDelims = 1
-  vg.NERDRemoveExtraSpaces = 1
-  -- 取消空白行注释时，连同去掉多余的空格
-  vg.NERDTrimTrailingWhitespace = 1
-  -- 按代码左对齐注释
-  vg.NERDDefaultAlign = "left"
-  -- 将空行一起处理
-  vg.NERDCommentEmptyLines = 1
-  -- 检查并注释选中范围中未注释的行
-  vg.NERDToggleCheckAllLines = 1
-end)("scrooloose/nerdcommenter");
-
-(function()
   vg.translator_default_engines = { "bing", "youdao", "haici" }
 end)("voldikss/vim-translator");
 

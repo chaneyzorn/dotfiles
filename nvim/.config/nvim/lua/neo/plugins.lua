@@ -62,13 +62,16 @@ packer.startup({
 
     -- git integration
     use("tpope/vim-fugitive")
-    use({ "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } })
+    use({
+      "lewis6991/gitsigns.nvim",
+      requires = { "nvim-lua/plenary.nvim" },
+    })
     use("APZelos/blamer.nvim")
     use("sindrets/diffview.nvim")
 
     -- coding helper
     use("sbdchd/neoformat")
-    use("scrooloose/nerdcommenter")
+    use("numToStr/Comment.nvim")
     use("w0rp/ale")
     use({ "neoclide/coc.nvim", branch = "release" })
   end,
