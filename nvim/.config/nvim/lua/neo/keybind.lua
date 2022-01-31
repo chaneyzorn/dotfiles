@@ -76,30 +76,6 @@ which_key_map.b = {
   ["d"] = { "bdelete", "delete-buffer" },
 }
 
--- leader-e: 定义快速位移
-U.nmap("<Leader>eb", "<Plug>(easymotion-b)")
-U.nmap("<Leader>ee", "<Plug>(easymotion-e)")
-U.nmap("<Leader>ef", "<Plug>(easymotion-f)")
-U.nmap("<Leader>ej", "<Plug>(easymotion-j)")
-U.nmap("<Leader>ek", "<Plug>(easymotion-k)")
-U.nmap("<Leader>en", "<Plug>(easymotion-n)")
-U.nmap("<Leader>es", "<Plug>(easymotion-s)")
-U.nmap("<Leader>et", "<Plug>(easymotion-t)")
-U.nmap("<Leader>ew", "<Plug>(easymotion-w)")
-
-which_key_map.e = {
-  ["name"] = "easymotion",
-  ["b"] = "easymotion-b back word",
-  ["e"] = "easymotion-e end word",
-  ["f"] = "easymotion-f char",
-  ["j"] = "easymotion-j line",
-  ["k"] = "easymotion-k back line",
-  ["n"] = "easymotion-n search",
-  ["s"] = "easymotion-s search",
-  ["t"] = "easymotion-t till char",
-  ["w"] = "easymotion-w word",
-}
-
 -- leader-f: 定义文件相关的快捷键
 
 -- find files

@@ -33,8 +33,8 @@ packer.startup({
     use("p00f/nvim-ts-rainbow")
 
     -- cursor quickly move
-    use("easymotion/vim-easymotion") -- use "phaazon/hop.nvim"
-    use("tpope/vim-surround") -- use "machakann/vim-sandwich"
+    use("ggandor/lightspeed.nvim")
+    use("tpope/vim-surround")
 
     -- status-line and buffer-line
     use("nvim-lualine/lualine.nvim")
