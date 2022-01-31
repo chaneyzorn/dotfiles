@@ -19,38 +19,39 @@ packer.startup({
     -- Packer can manage itself
     use("wbthomason/packer.nvim")
 
-    use("folke/which-key.nvim")
-    use("nvim-lualine/lualine.nvim")
-    use("akinsho/nvim-bufferline.lua")
+    -- theme and icons
     use("sainnhe/sonokai")
     use("ryanoasis/vim-devicons")
     use("kyazdani42/nvim-web-devicons")
+
+    -- editor content hints
     use("ntpeters/vim-better-whitespace")
-    use("luochen1990/rainbow")
     use("norcalli/nvim-colorizer.lua")
     use("lukas-reineke/indent-blankline.nvim")
     use("RRethy/vim-illuminate")
-    use({ "lilydjwg/fcitx.vim", branch = "fcitx5" })
-    use("voldikss/vim-translate-me")
-    use("kamykn/spelunker.vim")
-    use("editorconfig/editorconfig-vim")
-    use("mhinz/vim-signify")
-    use("zivyangll/git-blame.vim")
-    use("APZelos/blamer.nvim")
-    use("tpope/vim-fugitive")
-    use("sindrets/diffview.nvim")
+    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+    use("p00f/nvim-ts-rainbow")
+
+    -- cursor quickly move
+    use("easymotion/vim-easymotion") -- use "phaazon/hop.nvim"
+    use("tpope/vim-surround") -- use "machakann/vim-sandwich"
+
+    -- status-line and buffer-line
+    use("nvim-lualine/lualine.nvim")
+    use("akinsho/nvim-bufferline.lua")
+
+    -- editor evn function enhance
+    use("folke/which-key.nvim")
     use("kyazdani42/nvim-tree.lua")
     use("liuchengxu/vista.vim")
     use("voldikss/vim-floaterm")
+    use("voldikss/vim-translate-me")
+    use("editorconfig/editorconfig-vim")
+    use({ "lilydjwg/fcitx.vim", branch = "fcitx5" })
+    use("kamykn/spelunker.vim")
     use("farmergreg/vim-lastplace")
     use("ervandew/supertab")
     use("lambdalisue/suda.vim")
-    use("easymotion/vim-easymotion")
-    -- use "phaazon/hop.nvim"
-
-    use("tpope/vim-surround")
-    -- use "machakann/vim-sandwich"
-
     use({
       "nvim-telescope/telescope.nvim",
       requires = {
@@ -59,9 +60,16 @@ packer.startup({
       },
     })
 
+    -- git integration
+    use("tpope/vim-fugitive")
+    use("mhinz/vim-signify")
+    use("zivyangll/git-blame.vim")
+    use("APZelos/blamer.nvim")
+    use("sindrets/diffview.nvim")
+
+    -- coding helper
     use("sbdchd/neoformat")
     use("scrooloose/nerdcommenter")
-    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
     use("w0rp/ale")
     use({ "neoclide/coc.nvim", branch = "release" })
   end,

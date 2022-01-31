@@ -41,24 +41,6 @@ end)("RRethy/vim-illuminate");
 end)("ntpeters/vim-better-whitespace");
 
 (function()
-  -- 自动启用彩虹括号，设置为0以手动启用
-  vg.rainbow_active = 1
-  vg.rainbow_conf = {
-    guifgs = {
-      "Tan",
-      "PaleGreen",
-      "SkyBlue",
-      "Gold",
-      "Orchid",
-      "Orange",
-      "Fuchsia",
-      "Ivory",
-    },
-    separately = { nerdtree = 0 },
-  }
-end)("luochen1990/rainbow");
-
-(function()
   vg.indent_blankline_char = "┊"
   -- vg.indent_blankline_char_list = {'|', '¦', '┆', '┊'}
   -- 以下类型的 buffer 里不显示缩进线
