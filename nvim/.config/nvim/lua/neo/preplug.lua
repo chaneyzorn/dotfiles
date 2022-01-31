@@ -118,10 +118,8 @@ end)("ervandew/supertab");
 end)("scrooloose/nerdcommenter");
 
 (function()
-  -- 不使用预设快捷键
-  vg.vtm_default_mapping = 0
-  vg.vtm_default_engines = { "youdao", "ciba", "bing" }
-end)("voldikss/vim-translate-me");
+  vg.translator_default_engines = { "bing", "youdao", "haici" }
+end)("voldikss/vim-translator");
 
 (function()
   vg.nvim_tree_side = "left"

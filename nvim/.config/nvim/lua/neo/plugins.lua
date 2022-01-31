@@ -45,7 +45,7 @@ packer.startup({
     use("kyazdani42/nvim-tree.lua")
     use("liuchengxu/vista.vim")
     use("voldikss/vim-floaterm")
-    use("voldikss/vim-translate-me")
+    use("voldikss/vim-translator")
     use("editorconfig/editorconfig-vim")
     use({ "lilydjwg/fcitx.vim", branch = "fcitx5" })
     use("kamykn/spelunker.vim")
