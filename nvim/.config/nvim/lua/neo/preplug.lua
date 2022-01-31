@@ -18,25 +18,6 @@ end)("lambdalisue/suda.vim");
 end)("sainnhe/sonokai");
 
 (function()
-  -- 状态栏使用 powerline 字体
-  vg.airline_powerline_fonts = 1
-  -- 选择一个状态栏主题
-  vg.airline_theme = "minimalist"
-  -- 配置显示符号
-  vg.airline_symbols = {
-    linenr = "",
-    maxlinenr = "",
-    branch = "",
-    dirty = " ",
-    readonly = "",
-  }
-  -- 显示 ale 诊断信
-  vim.g["airline#extensions#ale#enabled"] = 1 vim.g["airline#extensions#ale#error_symbol"] = " "
-  vim.g["airline#extensions#ale#warning_symbol"] = " "
-  vim.g["airline#extensions#ale#show_line_numbers"] = 0
-end)("vim-airline/vim-airline", "vim-airline/vim-airline-themes");
-
-(function()
   -- 设置高亮单词延时
   vg.Illuminate_delay = 50
   -- 设置在部分 buffer 中不做高亮

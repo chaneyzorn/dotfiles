@@ -1,8 +1,6 @@
 -- postplug.lua
 -- 与插件定制功能相关的配置，在插件载入后配置（调用型的配置）
 
-local vg = vim.g;
-
 (function()
   vim.api.nvim_exec(
     [[
@@ -17,8 +15,63 @@ local vg = vim.g;
 end)("colorscheme");
 
 (function()
-  vg.airline_section_z = vim.fn["airline#section#create"]({ "linenr", "maxlinenr" })
-end)("vim-airline/vim-airline", "vim-airline/vim-airline-themes");
+  require("lualine").setup({
+    options = {
+      icons_enabled = true,
+      theme = "auto",
+      component_separators = { left = "", right = "" },
+      section_separators = { left = "", right = "" },
+      disabled_filetypes = {},
+      always_divide_middle = true,
+    },
+    sections = {
+      lualine_a = { "mode" },
+      lualine_b = {
+        {
+          "branch",
+          icon = "",
+        },
+        "diff",
+        {
+          "diagnostics",
+          sources = { "ale" },
+          sections = { "error", "warn" },
+          symbols = { error = " ", warn = " ", info = "", hint = "" },
+        },
+      },
+      lualine_c = {
+        {
+          "filename",
+          symbols = {
+            modified = "[]",
+            readonly = "[]",
+            unnamed = "[No Name]",
+          },
+        },
+      },
+      lualine_x = {
+        "encoding",
+        {
+          "fileformat",
+          icons_enabled = false,
+        },
+        "filetype",
+      },
+      lualine_y = { "progress" },
+      lualine_z = { "location" },
+    },
+    inactive_sections = {
+      lualine_a = {},
+      lualine_b = {},
+      lualine_c = { "filename" },
+      lualine_x = { "location" },
+      lualine_y = {},
+      lualine_z = {},
+    },
+    tabline = {},
+    extensions = {},
+  })
+end)("nvim-lualine/lualine.nvim");
 
 (function()
   require("nvim-tree").setup({
