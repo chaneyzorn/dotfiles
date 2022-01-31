@@ -116,7 +116,7 @@ which_key_map.f = {
 
 U.nmap("<Leader>gb", "<Cmd>call gitblame#echo()<CR>", { silent = false })
 
--- coc 快捷键配置, 代码跳转
+-- coc
 U.nmap("<C-j>", "<Plug>(coc-definition)")
 U.nmap("<Leader>gg", "<Plug>(coc-definition)")
 U.nmap("<Leader>gs", "<Plug>(coc-declaration)")
@@ -124,16 +124,18 @@ U.nmap("<Leader>gt", "<Plug>(coc-type-definition)")
 U.nmap("<Leader>gi", "<Plug>(coc-implementation)")
 U.nmap("<Leader>gr", "<Plug>(coc-references)")
 
--- ale 快捷键配置
+-- ale
 U.nmap("<Leader>gl", "<Plug>(ale_toggle)", { silent = false })
 U.nmap("<Leader>ge", "<Plug>(ale_next_wrap_error)")
 U.nmap("<Leader>gE", "<Plug>(ale_previous_wrap_error)")
 U.nmap("<Leader>gw", "<Plug>(ale_next_wrap)")
 U.nmap("<Leader>gW", "<Plug>(ale_previous_wrap)")
 
--- vim-signify 快捷键配置
-U.nmap("<Leader>gd", "<Cmd>SignifyHunkDiff<CR>")
-U.nmap("<Leader>gu", "<Cmd>SignifyHunkUndo<CR>")
+-- gitsigns
+U.nmap("]c", "&diff ? ']c' : '<Cmd>Gitsigns next_hunk<CR>'", { expr = true })
+U.nmap("[c", "&diff ? '[c' : '<Cmd>Gitsigns prev_hunk<CR>'", { expr = true })
+U.nmap("<Leader>gd", "<Cmd>Gitsigns preview_hunk<CR>")
+U.nmap("<Leader>gu", "<Cmd>Gitsigns reset_hunk<CR>")
 
 which_key_map.g = {
   ["name"] = "git/goto",

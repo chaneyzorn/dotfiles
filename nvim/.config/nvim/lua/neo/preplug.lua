@@ -79,14 +79,6 @@ end)("lukas-reineke/indent-blankline.nvim");
 end)("kamykn/spelunker.vim");
 
 (function()
-  -- │
-  vg.signify_sign_add = "▎"
-  vg.signify_sign_delete = "▎"
-  vg.signify_sign_delete_first_line = ""
-  vg.signify_sign_change = "▎"
-end)("mhinz/vim-signify");
-
-(function()
   vg.blamer_enabled = 1
   vg.blamer_show_in_visual_modes = 0
   vg.blamer_show_in_insert_modes = 0
