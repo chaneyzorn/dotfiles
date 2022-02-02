@@ -103,14 +103,19 @@ function M.ensure_packer()
   local packer_repo = "https://github.com/wbthomason/packer.nvim"
 
   if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    vim.fn.system({ "git", "clone", "--depth", "1", packer_repo, install_path })
+    return vim.fn.system({ "git", "clone", "--depth", "1", packer_repo, install_path })
   end
+
+  return false
 end
 
 function M.record_pkgs()
   require("packer").startup({
     function(use)
       use(M._pkgs)
+      if M.ensure_packer() then
+        require("packer").sync()
+      end
     end,
     config = {
       max_jobs = 10,
