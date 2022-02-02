@@ -1,4 +1,8 @@
-(function()
+local M = {}
+
+function M.pre() end
+
+function M.post()
   require("lualine").setup({
     options = {
       icons_enabled = true,
@@ -55,4 +59,6 @@
     tabline = {},
     extensions = {},
   })
-end)("nvim-lualine/lualine.nvim")
+end
+
+return M

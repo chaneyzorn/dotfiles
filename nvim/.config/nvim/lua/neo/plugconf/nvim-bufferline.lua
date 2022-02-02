@@ -1,4 +1,8 @@
-(function()
+local M = {}
+
+function M.pre() end
+
+function M.post()
   require("bufferline").setup({
     options = {
       view = "multiwindow",
@@ -28,4 +32,6 @@
       sort_by = "directory",
     },
   })
-end)("akinsho/nvim-bufferline.lua");
+end
+
+return M

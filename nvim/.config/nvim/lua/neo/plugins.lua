@@ -1,89 +1,186 @@
--- Automatically install packer.nvim at bootstrapping
-local pack_path = "/site/pack/packer/start/packer.nvim"
-local install_path = vim.fn.stdpath("data") .. pack_path
-local packer_repo = "https://github.com/wbthomason/packer.nvim"
+local M = {}
 
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  vim.fn.system({ "git", "clone", "--depth", "1", packer_repo, install_path })
-end
+M._pkgs = {
+  -- Packer can manage itself
+  { "wbthomason/packer.nvim" },
+  -- theme and icons
+  {
+    "sainnhe/sonokai",
+    apply_config = "colorscheme",
+  },
+  { "ryanoasis/vim-devicons" },
+  { "kyazdani42/nvim-web-devicons" },
 
--- Automatically run :PackerCompile whenever plugins.lua is updated with an autocommand
-vim.cmd([[ autocmd BufWritePost plugins.lua PackerCompile ]])
+  -- editor content hints
+  {
+    "ntpeters/vim-better-whitespace",
+    apply_config = "vim-better-whitespace",
+  },
+  {
+    "norcalli/nvim-colorizer.lua",
+    apply_config = "nvim-colorizer",
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    apply_config = "indent-blankline",
+  },
+  {
+    "RRethy/vim-illuminate",
+    apply_config = "vim-illuminate",
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    apply_config = "nvim-treesitter",
+    run = ":TSUpdate",
+  },
+  { "p00f/nvim-ts-rainbow" },
 
-local packer = require("packer")
+  -- cursor quickly move
+  { "ggandor/lightspeed.nvim" },
+  { "tpope/vim-surround" },
 
-packer.startup({
-  function()
-    local use = packer.use
+  -- status-line and buffer-line
+  {
+    "nvim-lualine/lualine.nvim",
+    apply_config = "lualine",
+  },
+  {
+    "akinsho/nvim-bufferline.lua",
+    apply_config = "nvim-bufferline",
+  },
 
-    -- Packer can manage itself
-    use("wbthomason/packer.nvim")
-
-    -- theme and icons
-    use("sainnhe/sonokai")
-    use("ryanoasis/vim-devicons")
-    use("kyazdani42/nvim-web-devicons")
-
-    -- editor content hints
-    use("ntpeters/vim-better-whitespace")
-    use("norcalli/nvim-colorizer.lua")
-    use("lukas-reineke/indent-blankline.nvim")
-    use("RRethy/vim-illuminate")
-    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-    use("p00f/nvim-ts-rainbow")
-
-    -- cursor quickly move
-    use("ggandor/lightspeed.nvim")
-    use("tpope/vim-surround")
-
-    -- status-line and buffer-line
-    use("nvim-lualine/lualine.nvim")
-    use("akinsho/nvim-bufferline.lua")
-
-    -- editor evn function enhance
-    use("folke/which-key.nvim")
-    use("kyazdani42/nvim-tree.lua")
-    use("liuchengxu/vista.vim")
-    use("voldikss/vim-floaterm")
-    use("voldikss/vim-translator")
-    use("editorconfig/editorconfig-vim")
-    use({ "lilydjwg/fcitx.vim", branch = "fcitx5" })
-    use("kamykn/spelunker.vim")
-    use("farmergreg/vim-lastplace")
-    use("ervandew/supertab")
-    use("lambdalisue/suda.vim")
-    use({
-      "nvim-telescope/telescope.nvim",
-      requires = {
-        { "nvim-lua/popup.nvim" },
-        { "nvim-lua/plenary.nvim" },
-      },
-    })
-
-    -- git integration
-    use("tpope/vim-fugitive")
-    use({
-      "lewis6991/gitsigns.nvim",
-      requires = { "nvim-lua/plenary.nvim" },
-    })
-    use("APZelos/blamer.nvim")
-    use("sindrets/diffview.nvim")
-
-    -- coding helper
-    use("sbdchd/neoformat")
-    use("numToStr/Comment.nvim")
-    use("w0rp/ale")
-    use({ "neoclide/coc.nvim", branch = "release" })
-  end,
-  config = {
-    max_jobs = 10,
-    git = { clone_timeout = false },
-    display = {
-      working_sym = "🗘",
-      prompt_border = "rounded",
-      open_fn = function()
-        return require("packer.util").float({ border = "rounded" })
-      end,
+  -- editor evn function enhance
+  { "folke/which-key.nvim" },
+  {
+    "kyazdani42/nvim-tree.lua",
+    apply_config = "nvim-tree",
+  },
+  {
+    "liuchengxu/vista.vim",
+    apply_config = "vista",
+  },
+  {
+    "voldikss/vim-floaterm",
+    apply_config = "vim-floaterm",
+  },
+  {
+    "voldikss/vim-translator",
+    apply_config = "vim-translator",
+  },
+  { "editorconfig/editorconfig-vim" },
+  {
+    "lilydjwg/fcitx.vim",
+    branch = "fcitx5",
+  },
+  {
+    "kamykn/spelunker.vim",
+    apply_config = "spelunker",
+  },
+  { "farmergreg/vim-lastplace" },
+  {
+    "ervandew/supertab",
+    apply_config = "supertab",
+  },
+  {
+    "lambdalisue/suda.vim",
+    apply_config = "suda",
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    apply_config = "telescope",
+    requires = {
+      "nvim-lua/popup.nvim",
+      "nvim-lua/plenary.nvim",
     },
   },
-})
+
+  -- git integration
+  { "tpope/vim-fugitive" },
+  {
+    "lewis6991/gitsigns.nvim",
+    apply_config = "gitsigns",
+    requires = {
+      "nvim-lua/plenary.nvim",
+    },
+  },
+  {
+    "APZelos/blamer.nvim",
+    apply_config = "blamer",
+  },
+  {
+    "sindrets/diffview.nvim",
+    apply_config = "diffview",
+  },
+
+  -- coding helper
+  {
+    "sbdchd/neoformat",
+    apply_config = "neoformat",
+  },
+  {
+    "numToStr/Comment.nvim",
+    apply_config = "comment",
+  },
+  {
+    "w0rp/ale",
+    apply_config = "ale",
+  },
+  {
+    "neoclide/coc.nvim",
+    apply_config = "coc",
+    branch = "release",
+  },
+}
+
+function M.ensure_packer()
+  -- Automatically install packer.nvim at bootstrapping
+  local pack_path = "/site/pack/packer/start/packer.nvim"
+  local install_path = vim.fn.stdpath("data") .. pack_path
+  local packer_repo = "https://github.com/wbthomason/packer.nvim"
+
+  if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+    vim.fn.system({ "git", "clone", "--depth", "1", packer_repo, install_path })
+  end
+end
+
+function M.record_pkgs()
+  require("packer").startup({
+    function(use)
+      use(M._pkgs)
+    end,
+    config = {
+      max_jobs = 10,
+      git = { clone_timeout = false },
+      display = {
+        working_sym = "🗘",
+        prompt_border = "rounded",
+        open_fn = function()
+          return require("packer.util").float({ border = "rounded" })
+        end,
+      },
+    },
+  })
+end
+
+function M.pre_conf()
+  for _, v in ipairs(M._pkgs) do
+    if v.apply_config then
+      require("neo.plugconf." .. v.apply_config).pre()
+    end
+  end
+end
+
+function M.setup()
+  M.pre_conf()
+  M.record_pkgs()
+end
+
+function M.post_conf()
+  for _, v in ipairs(M._pkgs) do
+    if v.apply_config then
+      require("neo.plugconf." .. v.apply_config).post()
+    end
+  end
+end
+
+return M

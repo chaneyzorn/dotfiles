@@ -1,3 +1,9 @@
-(function()
+local M = {}
+
+function M.pre() end
+
+function M.post()
   require("colorizer").setup()
-end)("norcalli/nvim-colorizer.lua")
+end
+
+return M

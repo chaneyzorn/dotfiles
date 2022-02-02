@@ -114,7 +114,6 @@ which_key_map.f = {
 
 -- leader-g: 定义 git 和 跳转相关的快捷键
 
-
 -- coc
 U.nmap("<C-j>", "<Plug>(coc-definition)")
 U.nmap("<Leader>gg", "<Plug>(coc-definition)")
@@ -177,7 +176,7 @@ U.vmap("<Leader>cf", "<Cmd>Neoformat<CR>")
 U.nmap("<Leader>ck", "<Cmd>set spell!<CR>")
 
 which_key_map.c = {
-  ["name"] = "code/coc/comment",
+  ["name"] = "coding",
   ["d"] = "生成代码文档",
   ["f"] = "格式化代码",
   ["t"] = "coc全格式化代码",
@@ -209,9 +208,6 @@ which_key_map.y = {
 
 -- leader-v: 定义 vim 控制的控制键
 
--- <C-l> 消除高亮/重绘面
-U.nmap("<C-l>", "<Cmd>noh<CR>:redraw<CR>")
-U.nmap("<Leader>vl", "<Cmd>noh<CR>:redraw<CR>")
 -- <C-m> 切换鼠标
 U.nmap("<Leader>vm", "<Cmd>lua require('neo.tools').ToggleMouse()<CR>")
 -- 保存全部文件并退出
@@ -225,7 +221,6 @@ U.nmap("<Leader>vs", "<Cmd>vsplit $ISCRATCH<CR>")
 which_key_map.v = {
   ["name"] = "vim/my",
   ["m"] = "切换鼠标",
-  ["l"] = "消除高亮&重绘界面",
   ["q"] = "保存全部文件并退出",
   ["Q"] = "不做任何保存直接退出",
   ["s"] = "快捷笔记",

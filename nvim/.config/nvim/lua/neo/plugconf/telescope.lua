@@ -1,4 +1,8 @@
-(function()
+local M = {}
+
+function M.pre() end
+
+function M.post()
   local actions = require("telescope.actions")
   telescope = require("telescope")
   telescope.setup({
@@ -23,4 +27,6 @@
     },
     pickers = { find_files = { hidden = true } },
   })
-end)("nvim-telescope/telescope.nvim")
+end
+
+return M

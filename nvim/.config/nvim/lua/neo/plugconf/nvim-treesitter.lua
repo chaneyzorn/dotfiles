@@ -1,4 +1,8 @@
-(function()
+local M = {}
+
+function M.pre() end
+
+function M.post()
   require("nvim-treesitter.configs").setup({
     ensure_installed = "maintained",
     ignore_install = {},
@@ -15,4 +19,6 @@
       -- termcolors = {"Tan", "PaleGreen", "SkyBlue", "Gold", "Orchid", "Orange", "Fuchsia", "Ivory"},
     },
   })
-end)("nvim-treesitter/nvim-treesitter")
+end
+
+return M
