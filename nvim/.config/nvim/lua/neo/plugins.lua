@@ -1,135 +1,99 @@
 local M = {}
 
+local C = function(plug, conf)
+  if type(plug) == "string" then
+    plug = { plug }
+  end
+
+  if conf then
+    plug._c = conf
+  else
+    local conf_name = vim.split(plug[1], "/")
+    conf_name = vim.split(conf_name[#conf_name], ".", { plain = true })
+    plug._c = conf_name[1]:lower()
+  end
+
+  return plug
+end
+
+local D = function(plug)
+  if type(plug) == "string" then
+    plug = { plug }
+  end
+
+  return plug
+end
+
 M._pkgs = {
   -- Packer can manage itself
-  { "wbthomason/packer.nvim" },
+  D("wbthomason/packer.nvim"),
+
   -- theme and icons
-  {
-    "sainnhe/sonokai",
-    apply_config = "colorscheme",
-  },
-  { "ryanoasis/vim-devicons" },
-  { "kyazdani42/nvim-web-devicons" },
+  C("sainnhe/sonokai", "colorscheme"),
+  D("ryanoasis/vim-devicons"),
+  D("kyazdani42/nvim-web-devicons"),
 
   -- editor content hints
-  {
-    "ntpeters/vim-better-whitespace",
-    apply_config = "vim-better-whitespace",
-  },
-  {
-    "norcalli/nvim-colorizer.lua",
-    apply_config = "nvim-colorizer",
-  },
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    apply_config = "indent-blankline",
-  },
-  {
-    "RRethy/vim-illuminate",
-    apply_config = "vim-illuminate",
-  },
-  {
+  C("ntpeters/vim-better-whitespace"),
+  C("norcalli/nvim-colorizer.lua"),
+  C("lukas-reineke/indent-blankline.nvim"),
+  C("RRethy/vim-illuminate"),
+  C({
     "nvim-treesitter/nvim-treesitter",
-    apply_config = "nvim-treesitter",
     run = ":TSUpdate",
-  },
-  { "p00f/nvim-ts-rainbow" },
+  }),
+  D("p00f/nvim-ts-rainbow"),
 
   -- cursor quickly move
-  { "ggandor/lightspeed.nvim" },
-  { "tpope/vim-surround" },
+  D("ggandor/lightspeed.nvim"),
+  D("tpope/vim-surround"),
 
   -- status-line and buffer-line
-  {
-    "nvim-lualine/lualine.nvim",
-    apply_config = "lualine",
-  },
-  {
-    "akinsho/nvim-bufferline.lua",
-    apply_config = "nvim-bufferline",
-  },
+  C("nvim-lualine/lualine.nvim"),
+  C("akinsho/nvim-bufferline.lua"),
 
   -- editor evn function enhance
-  { "folke/which-key.nvim" },
-  {
-    "kyazdani42/nvim-tree.lua",
-    apply_config = "nvim-tree",
-  },
-  {
-    "liuchengxu/vista.vim",
-    apply_config = "vista",
-  },
-  {
-    "voldikss/vim-floaterm",
-    apply_config = "vim-floaterm",
-  },
-  {
-    "voldikss/vim-translator",
-    apply_config = "vim-translator",
-  },
-  { "editorconfig/editorconfig-vim" },
-  {
+  D("folke/which-key.nvim"),
+  C("kyazdani42/nvim-tree.lua"),
+  C("liuchengxu/vista.vim"),
+  C("voldikss/vim-floaterm"),
+  C("voldikss/vim-translator"),
+  D("editorconfig/editorconfig-vim"),
+  D({
     "lilydjwg/fcitx.vim",
     branch = "fcitx5",
-  },
-  {
-    "kamykn/spelunker.vim",
-    apply_config = "spelunker",
-  },
-  { "farmergreg/vim-lastplace" },
-  {
-    "ervandew/supertab",
-    apply_config = "supertab",
-  },
-  {
-    "lambdalisue/suda.vim",
-    apply_config = "suda",
-  },
-  {
+  }),
+  C("kamykn/spelunker.vim"),
+  D("farmergreg/vim-lastplace"),
+  C("ervandew/supertab"),
+  C("lambdalisue/suda.vim"),
+  C({
     "nvim-telescope/telescope.nvim",
-    apply_config = "telescope",
     requires = {
       "nvim-lua/popup.nvim",
       "nvim-lua/plenary.nvim",
     },
-  },
+  }),
 
   -- git integration
-  { "tpope/vim-fugitive" },
-  {
+  D("tpope/vim-fugitive"),
+  C({
     "lewis6991/gitsigns.nvim",
-    apply_config = "gitsigns",
     requires = {
       "nvim-lua/plenary.nvim",
     },
-  },
-  {
-    "APZelos/blamer.nvim",
-    apply_config = "blamer",
-  },
-  {
-    "sindrets/diffview.nvim",
-    apply_config = "diffview",
-  },
+  }),
+  C("APZelos/blamer.nvim"),
+  C("sindrets/diffview.nvim"),
 
   -- coding helper
-  {
-    "sbdchd/neoformat",
-    apply_config = "neoformat",
-  },
-  {
-    "numToStr/Comment.nvim",
-    apply_config = "comment",
-  },
-  {
-    "w0rp/ale",
-    apply_config = "ale",
-  },
-  {
+  C("sbdchd/neoformat"),
+  C("numToStr/Comment.nvim"),
+  C("w0rp/ale"),
+  C({
     "neoclide/coc.nvim",
-    apply_config = "coc",
     branch = "release",
-  },
+  }),
 }
 
 function M.ensure_packer()
@@ -164,8 +128,8 @@ end
 
 function M.pre_conf()
   for _, v in ipairs(M._pkgs) do
-    if v.apply_config then
-      require("neo.plugconf." .. v.apply_config).pre()
+    if v._c then
+      require("neo.plugconf." .. v._c).pre()
     end
   end
 end
@@ -177,8 +141,8 @@ end
 
 function M.post_conf()
   for _, v in ipairs(M._pkgs) do
-    if v.apply_config then
-      require("neo.plugconf." .. v.apply_config).post()
+    if v._c then
+      require("neo.plugconf." .. v._c).post()
     end
   end
 end
