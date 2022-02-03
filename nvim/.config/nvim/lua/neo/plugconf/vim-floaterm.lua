@@ -12,4 +12,11 @@ end
 
 function M.post() end
 
+function M.keybind()
+  require("neo.keybind").leader_help({
+    tt = "切入切出浮窗终端",
+    tr = "创建新浮窗终端",
+  })
+end
+
 return M

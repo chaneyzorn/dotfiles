@@ -9,4 +9,14 @@ end
 
 function M.post() end
 
+function M.keybind()
+  local U = require("neo.tools")
+  U.nmap("<Leader>fs", "<Cmd>SudaWrite<CR>")
+  U.vmap("<Leader>fs", "<Esc><Cmd>SudaWrite<CR>")
+
+  require("neo.keybind").leader_help({
+    fs = "请求管理员权限保存文件",
+  })
+end
+
 return M

@@ -87,4 +87,15 @@ function M.post()
   })
 end
 
+function M.keybind()
+  local U = require("neo.tools")
+  U.nmap("<Leader>ft", "<Cmd>NvimTreeToggle<CR>")
+  U.nmap("<Leader>fl", "<Cmd>NvimTreeFindFile<CR>")
+
+  require("neo.keybind").leader_help({
+    ft = "打开文件树",
+    fl = "在文件树中定位此文件",
+  })
+end
+
 return M

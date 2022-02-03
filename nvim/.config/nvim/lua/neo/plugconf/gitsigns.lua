@@ -14,4 +14,20 @@ function M.post()
   })
 end
 
+function M.keybind()
+  local U = require("neo.tools")
+
+  U.nmap("]c", "&diff ? ']c' : '<Cmd>Gitsigns next_hunk<CR>'", { expr = true })
+  U.nmap("[c", "&diff ? '[c' : '<Cmd>Gitsigns prev_hunk<CR>'", { expr = true })
+  U.nmap("<Leader>gb", "<Cmd>Gitsigns blame_line<CR>", { silent = false })
+  U.nmap("<Leader>gd", "<Cmd>Gitsigns preview_hunk<CR>")
+  U.nmap("<Leader>gu", "<Cmd>Gitsigns reset_hunk<CR>")
+
+  require("neo.keybind").leader_help({
+    gb = "gitblame 当前行",
+    gd = "展示当前行变动diff",
+    gu = "将当前行回退到版本控制",
+  })
+end
+
 return M

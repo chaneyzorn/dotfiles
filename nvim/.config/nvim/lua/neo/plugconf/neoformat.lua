@@ -14,4 +14,14 @@ end
 
 function M.post() end
 
+function M.keybind()
+  local U = require("neo.tools")
+  U.nmap("<Leader>cf", "<Cmd>Neoformat<CR>")
+  U.vmap("<Leader>cf", "<Cmd>Neoformat<CR>")
+
+  require("neo.keybind").leader_help({
+    cf = "格式化代码",
+  })
+end
+
 return M

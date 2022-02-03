@@ -24,7 +24,7 @@ local D = function(plug)
   return plug
 end
 
-M._pkgs = {
+local pkgs = {
   -- Packer can manage itself
   D("wbthomason/packer.nvim"),
 
@@ -76,7 +76,7 @@ M._pkgs = {
   }),
 
   -- git integration
-  D("tpope/vim-fugitive"),
+  C("tpope/vim-fugitive"),
   C({
     "lewis6991/gitsigns.nvim",
     requires = {
@@ -112,7 +112,7 @@ end
 function M.record_pkgs()
   require("packer").startup({
     function(use)
-      use(M._pkgs)
+      use(pkgs)
       if M.ensure_packer() then
         require("packer").sync()
       end
@@ -132,7 +132,7 @@ function M.record_pkgs()
 end
 
 function M.pre_conf()
-  for _, v in ipairs(M._pkgs) do
+  for _, v in ipairs(pkgs) do
     if v._c then
       require("neo.plugconf." .. v._c).pre()
     end
@@ -145,9 +145,17 @@ function M.setup()
 end
 
 function M.post_conf()
-  for _, v in ipairs(M._pkgs) do
+  for _, v in ipairs(pkgs) do
     if v._c then
       require("neo.plugconf." .. v._c).post()
+    end
+  end
+end
+
+function M.keybind()
+  for _, v in ipairs(pkgs) do
+    if v._c then
+      require("neo.plugconf." .. v._c).keybind()
     end
   end
 end

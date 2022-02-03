@@ -49,4 +49,13 @@ end
 
 function M.post() end
 
+function M.keybind()
+  local U = require("neo.tools")
+  U.nmap("<Leader>tb", "<Cmd>Vista!!<CR>")
+
+  require("neo.keybind").leader_help({
+    tb = "展示文件梗概结构",
+  })
+end
+
 return M

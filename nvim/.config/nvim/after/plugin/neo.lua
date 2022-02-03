@@ -1,2 +1,5 @@
-require("neo.plugins").post_conf()
-require("neo.keybind")
+plug = require("neo.plugins")
+plug.post_conf()
+plug.keybind()
+
+require("neo.keybind").register_keymap()

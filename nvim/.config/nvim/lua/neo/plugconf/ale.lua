@@ -50,4 +50,21 @@ end
 
 function M.post() end
 
+function M.keybind()
+  local U = require("neo.tools")
+  U.nmap("<Leader>gl", "<Plug>(ale_toggle)", { silent = false })
+  U.nmap("<Leader>ge", "<Plug>(ale_next_wrap_error)")
+  U.nmap("<Leader>gE", "<Plug>(ale_previous_wrap_error)")
+  U.nmap("<Leader>gw", "<Plug>(ale_next_wrap)")
+  U.nmap("<Leader>gW", "<Plug>(ale_previous_wrap)")
+
+  require("neo.keybind").leader_help({
+    gl = "开启/关闭 ale lint",
+    ge = "跳转到下一个错误",
+    gE = "跳转到上一个错误",
+    gw = "跳转到下一个警告",
+    gW = "跳转到上一个警告",
+  })
+end
+
 return M

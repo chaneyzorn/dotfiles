@@ -62,4 +62,6 @@ function M.post()
   )
 end
 
+function M.keybind() end
+
 return M

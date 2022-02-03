@@ -12,4 +12,14 @@ end
 
 function M.post() end
 
+function M.keybind()
+  local U = require("neo.tools")
+  U.vmap("<Leader>ct", "<Cmd>StripWhitespace<CR>")
+  U.nmap("<Leader>ct", "<Cmd>StripWhitespace<CR>")
+
+  require("neo.keybind").leader_help({
+    ct = "清除尾部空格",
+  })
+end
+
 return M
