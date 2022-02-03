@@ -1,30 +1,16 @@
 local M = {}
 
-function M.pre()
-  local vg = vim.g
+function M.pre() end
 
-  vg.indent_blankline_char = "┊"
-  -- vg.indent_blankline_char_list = {'|', '¦', '┆', '┊'}
-  -- 以下类型的 buffer 里不显示缩进线
-  vg.indent_blankline_filetype_exclude = { "help", "terminal", "list", "nofile", "make", "go" }
-  vg.indent_blankline_buftype_exclude = { "help", "terminal", "list", "nofile" }
-  vg.indent_blankline_show_current_context = true
-  vg.indent_blankline_context_patterns = {
-    "class",
-    "function",
-    "method",
-    "block",
-    "list_literal",
-    "selector",
-    "^if",
-    "^table",
-    "if_statement",
-    "while",
-    "for",
-  }
+function M.post()
+  require("indent_blankline").setup({
+    char = "┊",
+    -- char_list = {'|', '¦', '┆', '┊'}
+    show_current_context = true,
+    filetype_exclude = { "help", "terminal", "list", "nofile", "make", "go" },
+    buftype_exclude = { "help", "terminal", "list", "nofile" },
+  })
 end
-
-function M.post() end
 
 function M.keybind() end
 

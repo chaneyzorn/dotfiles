@@ -68,7 +68,7 @@ which_key_map.v = {
 
 local M = {}
 
-M._add_help = function(fk, help)
+local add_help = function(fk, help)
   first_key = fk:sub(1, 1)
   if not which_key_map[first_key] then
     which_key_map[first_key] = {}
@@ -87,7 +87,7 @@ end
 
 M.leader_help = function(key_help_tb)
   for k, v in pairs(key_help_tb) do
-    M._add_help(k, v)
+    add_help(k, v)
   end
 end
 
