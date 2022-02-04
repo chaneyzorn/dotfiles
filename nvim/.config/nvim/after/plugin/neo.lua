@@ -1,4 +1,4 @@
-plug = require("neo.plugins")
+local plug = require("neo.plugins")
 plug.post_conf()
 plug.keybind()
 

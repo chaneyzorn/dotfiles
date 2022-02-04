@@ -4,7 +4,7 @@ function M.pre() end
 
 function M.post()
   local actions = require("telescope.actions")
-  telescope = require("telescope")
+  local telescope = require("telescope")
   telescope.setup({
     defaults = {
       mappings = {
@@ -44,7 +44,6 @@ function M.keybind()
     fg = "查找 git status 文件",
     fr = "查找文件内容",
   })
-
 end
 
 return M

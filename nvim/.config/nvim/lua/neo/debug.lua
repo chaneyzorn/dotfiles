@@ -2,7 +2,7 @@ local M = {}
 
 function M.print_rtp()
   local count = 0
-  for key, value in ipairs(vim.api.nvim_list_runtime_paths()) do
+  for _, value in ipairs(vim.api.nvim_list_runtime_paths()) do
     print(value)
     count = count + 1
   end

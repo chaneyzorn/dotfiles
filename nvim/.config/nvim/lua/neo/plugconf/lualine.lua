@@ -3,6 +3,8 @@ local M = {}
 function M.pre() end
 
 function M.post()
+  local U = require("neo.tools")
+
   require("lualine").setup({
     options = {
       icons_enabled = true,
@@ -22,9 +24,16 @@ function M.post()
         "diff",
         {
           "diagnostics",
-          sources = { "ale" },
-          sections = { "error", "warn" },
-          symbols = { error = " ", warn = " ", info = "", hint = "" },
+          sources = { "nvim_diagnostic" },
+          sections = { "error", "warn", "info" },
+          symbols = { error = " ", warn = " ", info = " ", hint = " " },
+          diagnostics_color = {
+            error = { fg = U.colors.red },
+            warn = { fg = U.colors.yellow },
+            info = { fg = U.colors.cyan },
+            hint = { fg = U.colors.orange },
+          },
+          colored = true,
         },
       },
       lualine_c = {

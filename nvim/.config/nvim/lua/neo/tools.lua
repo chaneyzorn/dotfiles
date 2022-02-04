@@ -1,6 +1,20 @@
 local U = {}
 local fn = vim.fn
 
+U.colors = {
+  bg = "#202328",
+  fg = "#bbc2cf",
+  yellow = "#ECBE7B",
+  cyan = "#008080",
+  darkblue = "#081633",
+  green = "#98be65",
+  orange = "#FF8800",
+  violet = "#a9a1e1",
+  magenta = "#c678dd",
+  blue = "#51afef",
+  red = "#ec5f67",
+}
+
 -- Key mapping
 function U.map(mode, key, action, opts)
   opts = vim.tbl_extend("keep", opts or {}, { noremap = true, silent = true, expr = false })

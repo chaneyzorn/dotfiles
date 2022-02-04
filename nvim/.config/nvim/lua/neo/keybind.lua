@@ -69,13 +69,13 @@ which_key_map.v = {
 local M = {}
 
 local add_help = function(fk, help)
-  first_key = fk:sub(1, 1)
+  local first_key = fk:sub(1, 1)
   if not which_key_map[first_key] then
     which_key_map[first_key] = {}
   end
 
-  second_key = fk:sub(2, 2)
-  exist_help = which_key_map[first_key][second_key]
+  local second_key = fk:sub(2, 2)
+  local exist_help = which_key_map[first_key][second_key]
   if exist_help then
     vim.notify(
       "keymap <Leader>" .. fk .. " already exists for: " .. exist_help .. " replace to: " .. help,

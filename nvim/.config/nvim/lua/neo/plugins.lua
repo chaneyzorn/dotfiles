@@ -67,33 +67,43 @@ local pkgs = {
   D("farmergreg/vim-lastplace"),
   C("ervandew/supertab"),
   C("lambdalisue/suda.vim"),
+  D("nvim-lua/plenary.nvim"),
   C({
     "nvim-telescope/telescope.nvim",
     requires = {
       "nvim-lua/popup.nvim",
-      "nvim-lua/plenary.nvim",
     },
   }),
 
   -- git integration
   C("tpope/vim-fugitive"),
-  C({
-    "lewis6991/gitsigns.nvim",
-    requires = {
-      "nvim-lua/plenary.nvim",
-    },
-  }),
+  C("lewis6991/gitsigns.nvim"),
   C("APZelos/blamer.nvim"),
   C("sindrets/diffview.nvim"),
 
   -- coding helper
-  C("sbdchd/neoformat"),
   C("numToStr/Comment.nvim"),
-  C("w0rp/ale"),
-  C({
-    "neoclide/coc.nvim",
-    branch = "release",
-  }),
+
+  C("neovim/nvim-lspconfig"),
+  C('williamboman/nvim-lsp-installer'),
+  C("jose-elias-alvarez/null-ls.nvim"),
+  C("folke/trouble.nvim"),
+
+  -- nvim-cmp
+  D("hrsh7th/cmp-nvim-lsp"),
+  D("hrsh7th/cmp-buffer"),
+  D("hrsh7th/cmp-path"),
+  D("hrsh7th/cmp-cmdline"),
+  C("hrsh7th/nvim-cmp"),
+
+  D("saadparwaiz1/cmp_luasnip"),
+  D("rafamadriz/friendly-snippets"),
+  C("L3MON4D3/LuaSnip"),
+
+  -- deprecated
+  -- C("w0rp/ale"),
+  -- C("sbdchd/neoformat"),
+  -- C({ "neoclide/coc.nvim", branch = "release" }),
 }
 
 function M.ensure_packer()
