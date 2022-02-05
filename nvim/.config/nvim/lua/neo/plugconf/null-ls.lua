@@ -4,44 +4,45 @@ function M.pre() end
 
 function M.post()
   local nls = require("null-ls")
+  local bt = nls.builtins
   nls.setup({
     fallback_severity = vim.diagnostic.severity.WARN,
     sources = {
       -- c/c++
-      nls.builtins.formatting.clang_format,
-      nls.builtins.diagnostics.cppcheck,
+      bt.formatting.clang_format,
+      bt.diagnostics.cppcheck,
 
       -- python
-      nls.builtins.formatting.black,
-      nls.builtins.diagnostics.pylint,
+      bt.formatting.black,
+      bt.diagnostics.pylint,
 
       -- golang
-      nls.builtins.formatting.gofmt,
-      nls.builtins.formatting.goimports,
-      nls.builtins.diagnostics.golangci_lint,
+      bt.formatting.gofmt,
+      bt.formatting.goimports,
+      bt.diagnostics.golangci_lint,
 
       -- lua
-      nls.builtins.formatting.stylua,
-      nls.builtins.diagnostics.luacheck,
+      bt.formatting.stylua,
+      bt.diagnostics.luacheck,
 
       -- javascript / css / json / yaml
-      nls.builtins.formatting.prettier,
-      nls.builtins.diagnostics.eslint,
-      nls.builtins.diagnostics.stylelint,
-      nls.builtins.diagnostics.jsonlint,
-      nls.builtins.diagnostics.yamllint,
+      bt.formatting.prettier,
+      bt.diagnostics.eslint,
+      bt.diagnostics.stylelint,
+      bt.diagnostics.jsonlint,
+      bt.diagnostics.yamllint,
 
       -- shell
-      nls.builtins.diagnostics.shellcheck,
+      bt.diagnostics.shellcheck,
 
       -- markdown
-      nls.builtins.diagnostics.markdownlint,
+      bt.diagnostics.markdownlint,
 
       -- other
-      nls.builtins.diagnostics.cspell.with({
+      bt.diagnostics.cspell.with({
         extra_args = { "--config", vim.fn.expand("~/.config/nvim/neo-cspell.yaml") },
       }),
-      nls.builtins.completion.spell,
+      bt.completion.spell,
     },
   })
 
