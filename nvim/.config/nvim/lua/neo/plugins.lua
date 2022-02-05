@@ -63,7 +63,6 @@ local pkgs = {
     "lilydjwg/fcitx.vim",
     branch = "fcitx5",
   }),
-  C("kamykn/spelunker.vim"),
   D("farmergreg/vim-lastplace"),
   C("ervandew/supertab"),
   C("lambdalisue/suda.vim"),
@@ -103,6 +102,7 @@ local pkgs = {
   -- deprecated
   -- C("w0rp/ale"),
   -- C("sbdchd/neoformat"),
+  -- C("kamykn/spelunker.vim"),
   -- C({ "neoclide/coc.nvim", branch = "release" }),
 }
 

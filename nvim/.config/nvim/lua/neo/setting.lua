@@ -92,6 +92,8 @@ vwo.wrap = false
 -- 启用拼写检查 :h spell
 vo.spell = false
 vo.spelllang = "en,cjk"
+vo.spellcapcheck = ""
+vo.spelloptions = "camel"
 
 vo.tags = "./.tags;,.tags,~/.cache/tags/sys-.tags"
 vo.path = table.concat({

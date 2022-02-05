@@ -8,16 +8,16 @@ function M.post()
 
   vim.diagnostic.config({
     virtual_text = {
-      prefix = "",
+      prefix = "",
       format = function(diagnostic)
         if diagnostic.severity == vim.diagnostic.severity.ERROR then
-          return string.format("%s %s: %s", symbols.Error, diagnostic.source, diagnostic.message)
+          return string.format("%s: %s %s", diagnostic.source, diagnostic.message, symbols.Error)
         elseif diagnostic.severity == vim.diagnostic.severity.WARN then
-          return string.format("%s %s: %s", symbols.Warn, diagnostic.source, diagnostic.message)
+          return string.format("%s: %s %s", diagnostic.source, diagnostic.message, symbols.Warn)
         elseif diagnostic.severity == vim.diagnostic.severity.INFO then
-          return string.format("%s %s: %s", symbols.Info, diagnostic.source, diagnostic.message)
+          return string.format("%s: %s %s", diagnostic.source, diagnostic.message, symbols.Info)
         elseif diagnostic.severity == vim.diagnostic.severity.HINT then
-          return string.format("%s %s: %s", symbols.Hint, diagnostic.source, diagnostic.message)
+          return string.format("%s: %s %s", diagnostic.source, diagnostic.message, symbols.Hint)
         end
 
         return diagnostic.message
@@ -52,6 +52,9 @@ function M.keybind()
   U.nmap("<Leader>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>")
   U.nmap("<Leader>cf", "<Cmd>lua vim.lsp.buf.formatting()<CR>")
   U.nmap("<Leader>rn", "<Cmd>lua vim.lsp.buf.rename()<CR>")
+  U.nmap("<Leader>cv", "<Cmd>lua require('neo.tools').EnableCodingVision()<CR>")
+  U.nmap("<Leader>cx", "<Cmd>lua require('neo.tools').DisableCodingVision()<CR>")
+  U.nmap("<Leader>zg", "<Cmd>lua require('neo.tools').RefreshCSpell()<CR>")
 
   require("neo.keybind").leader_help({
     gg = "跳转到定义",
@@ -63,6 +66,9 @@ function M.keybind()
     ca = "Code Action",
     cf = "格式化代码",
     rn = "重命名符号",
+    cv = "Coding Vision",
+    cx = "Coding XVision",
+    zg = "Refresh CSpell",
   })
 end
 

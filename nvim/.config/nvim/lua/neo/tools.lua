@@ -66,4 +66,35 @@ function U.GetLineEnd()
   return label[vim.bo.fileformat]
 end
 
+function U.EnableCodingVision()
+  -- enable diagnostics
+  local nls = require("null-ls")
+  nls.enable({ method = nls.methods.DIAGNOSTICS })
+  -- enable LSP server, from lspconfig
+  vim.cmd("LspStart")
+  -- enable spell check
+  vim.o.spell = true
+
+  print("Coding Vision Enabled")
+end
+
+function U.DisableCodingVision()
+  -- disable diagnostics
+  local nls = require("null-ls")
+  nls.disable({ method = nls.methods.DIAGNOSTICS })
+  -- disable LSP server, from lspconfig
+  vim.cmd("LspStop")
+  -- disable spell check
+  vim.o.spell = false
+
+  print("Coding Vision Disabled")
+end
+
+function U.RefreshCSpell()
+  local nls = require("null-ls")
+  nls.enable({ name = "cspell", method = nls.methods.DIAGNOSTICS })
+
+  print("CSpell Refreshed")
+end
+
 return U
