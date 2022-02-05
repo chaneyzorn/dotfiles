@@ -5,6 +5,7 @@ function M.pre() end
 function M.post()
   local nls = require("null-ls")
   nls.setup({
+    fallback_severity = vim.diagnostic.severity.WARN,
     sources = {
       -- c/c++
       nls.builtins.formatting.clang_format,
@@ -13,7 +14,6 @@ function M.post()
       -- python
       nls.builtins.formatting.black,
       nls.builtins.diagnostics.pylint,
-      nls.builtins.diagnostics.flake8,
 
       -- golang
       nls.builtins.formatting.gofmt,

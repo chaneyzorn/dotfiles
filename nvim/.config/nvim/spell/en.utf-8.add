@@ -61,6 +61,7 @@ cpp
 cppcheck
 cpu
 cpuinfo
+cpus
 CRLF
 cron
 cscope
@@ -138,6 +139,7 @@ getitem
 getline
 getlist
 getpid
+gevent
 gitcommit
 gitconfig
 github
@@ -216,6 +218,7 @@ keymap
 kvm
 kwargs
 languageserver
+ledctl
 levelname
 libuv
 lightspeed
@@ -290,6 +293,7 @@ ovsbr
 passphrase
 passthrough
 pep8
+perccli
 pinfo
 pkgs
 plugconf
@@ -360,6 +364,7 @@ smartcase
 smartclt
 smartctl
 smartindent
+smartpqi
 smartx
 smbus
 smtx
@@ -376,6 +381,7 @@ stderr
 stdin
 stdout
 stdpath
+storcli
 strftime
 struct
 stylua
