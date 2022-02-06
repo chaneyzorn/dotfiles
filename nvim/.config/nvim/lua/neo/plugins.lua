@@ -47,6 +47,7 @@ local pkgs = {
   -- cursor quickly move
   D("ggandor/lightspeed.nvim"),
   D("tpope/vim-surround"),
+  C("windwp/nvim-autopairs"),
 
   -- status-line and buffer-line
   C("nvim-lualine/lualine.nvim"),
@@ -84,7 +85,7 @@ local pkgs = {
   C("numToStr/Comment.nvim"),
 
   C("neovim/nvim-lspconfig"),
-  C('williamboman/nvim-lsp-installer'),
+  C("williamboman/nvim-lsp-installer"),
   C("jose-elias-alvarez/null-ls.nvim"),
   C("folke/trouble.nvim"),
 
