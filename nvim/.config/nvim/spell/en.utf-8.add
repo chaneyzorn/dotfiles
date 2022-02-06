@@ -237,6 +237,7 @@ lsp
 lspconfig
 lua
 luacheck
+luasnip
 lvl
 macaddr
 manylinux

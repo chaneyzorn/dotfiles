@@ -6,6 +6,34 @@ function M.post()
   local cmp = require("cmp")
   local luasnip = require("luasnip")
 
+  local kind_icons = {
+    Text = "",
+    Method = "𝑚",
+    Function = "𝑓",
+    Constructor = "⎅",
+    Field = "⚇",
+    Variable = "𝜈",
+    Class = "𝒞",
+    Interface = "⚯",
+    Module = "",
+    Property = "",
+    Unit = "⛣",
+    Value = "",
+    Enum = "☷",
+    Keyword = "",
+    Snippet = "",
+    Color = "",
+    File = "",
+    Reference = "",
+    Folder = "",
+    EnumMember = "",
+    Constant = "🅲",
+    Struct = "",
+    Event = "",
+    Operator = "",
+    TypeParameter = "𝒯",
+  }
+
   cmp.setup({
     sources = {
       { name = "nvim_lsp" },
@@ -16,6 +44,15 @@ function M.post()
     snippet = {
       expand = function(args)
         luasnip.lsp_expand(args.body)
+      end,
+    },
+    formatting = {
+      fields = { "abbr", "menu", "kind" },
+      format = function(_, item)
+        if kind_icons[item.kind] then
+          item.kind = string.format("%s ", kind_icons[item.kind])
+        end
+        return item
       end,
     },
     mapping = {
