@@ -3,7 +3,8 @@ local M = {}
 function M.pre() end
 
 function M.post()
-  require("trouble").setup({
+  local trouble = require("trouble")
+  trouble.setup({
     position = "bottom",
     height = 10,
     width = 50,
@@ -19,6 +20,10 @@ function M.post()
     auto_preview = true,
     auto_fold = false,
     auto_jump = { "lsp_definitions" },
+    action_keys = {
+      cspell_good = "f",
+      cspell_all_good = "sg",
+    },
     signs = {
       error = "",
       warning = "",
@@ -28,6 +33,39 @@ function M.post()
     },
     use_diagnostic_signs = false,
   })
+
+  trouble.cspell_good = function()
+    local line = vim.fn.getline(".")
+    local word = string.match(line, "Unknown word %((.+)%) cspell")
+    if word ~= nil or word ~= "" then
+      vim.cmd("spellgood " .. word:lower())
+    end
+  end
+
+  trouble.cspell_all_good = function()
+    local words = {}
+    for _, item in pairs(trouble.get_items()) do
+      if item.source == "cspell" then
+        local word = string.match(item.text, "Unknown word %((.+)%)")
+        if word ~= nil or word ~= "" then
+          words[word:lower()] = true
+        end
+      end
+    end
+
+    if vim.tbl_isempty(words) then
+      return
+    end
+
+    local count = 0
+    for word, _ in pairs(words) do
+      vim.cmd("silent! spellgood " .. word)
+      count = count + 1
+    end
+
+    local spell_file = vim.opt.spellfile:get()[1]
+    print(string.format("%s word(s) added to the %s.", count, spell_file))
+  end
 end
 
 function M.keybind()

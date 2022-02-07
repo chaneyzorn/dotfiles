@@ -103,6 +103,7 @@ dst
 dup
 dylib
 egrep
+elif
 emoji
 endswith
 env
@@ -202,6 +203,7 @@ ips
 iscsi
 isdigit
 isdir
+isempty
 iset
 isfile
 isinstance
@@ -228,6 +230,7 @@ listchars
 loadavg
 localleader
 localtime
+loclist
 logconfig
 logging
 loglevel
@@ -278,6 +281,7 @@ ntpd
 ntpdate
 ntptime
 numa
+nums
 nvim
 nvme
 objc
@@ -324,6 +328,7 @@ pyzbs
 qiuping
 qualname
 quan
+quickfix
 rdma
 readline
 readlines
@@ -372,6 +377,8 @@ smtx
 socktype
 softtabstop
 spellcapcheck
+spellfile
+spellgood
 spelllang
 spelloptions
 splitlines
