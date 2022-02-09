@@ -2,6 +2,8 @@ aria2/.aria2/aria2.session
 ansible/.ansible/hosts
 ansible/.ansible/tmp
 
+.DS_Store
+
 fontconfig/.config/fontconfig/conf.d/78-Reject.conf
 
 linux-home/.local/share/nvim/
