@@ -107,6 +107,8 @@ local pkgs = {
   -- C({ "neoclide/coc.nvim", branch = "release" }),
 }
 
+M._fetch_packer = false
+
 function M.ensure_packer()
   -- Automatically install packer.nvim at bootstrapping
   local pack_path = "/site/pack/packer/start/packer.nvim"
@@ -114,17 +116,19 @@ function M.ensure_packer()
   local packer_repo = "https://github.com/wbthomason/packer.nvim"
 
   if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    return vim.fn.system({ "git", "clone", "--depth", "1", packer_repo, install_path })
+    M._fetch_packer = vim.fn.system({ "git", "clone", "--depth", "1", packer_repo, install_path })
+  else
+    M._fetch_packer = false
   end
 
-  return false
+  return M
 end
 
-function M.record_pkgs()
+local record_pkgs = function()
   require("packer").startup({
     function(use)
       use(pkgs)
-      if M.ensure_packer() then
+      if M._fetch_packer then
         require("packer").sync()
       end
     end,
@@ -142,7 +146,7 @@ function M.record_pkgs()
   })
 end
 
-function M.pre_conf()
+local pre_conf = function()
   for _, v in ipairs(pkgs) do
     if v._c then
       require("neo.plugconf." .. v._c).pre()
@@ -151,8 +155,9 @@ function M.pre_conf()
 end
 
 function M.setup()
-  M.pre_conf()
-  M.record_pkgs()
+  record_pkgs()
+  pre_conf()
+  return M
 end
 
 function M.post_conf()
@@ -161,6 +166,7 @@ function M.post_conf()
       require("neo.plugconf." .. v._c).post()
     end
   end
+  return M
 end
 
 function M.keybind()
@@ -169,6 +175,7 @@ function M.keybind()
       require("neo.plugconf." .. v._c).keybind()
     end
   end
+  return M
 end
 
 return M

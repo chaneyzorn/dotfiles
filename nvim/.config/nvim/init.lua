@@ -1,4 +1,4 @@
 -- init.lua
 
 require("neo.setting")
-require("neo.plugins").setup()
+require("neo.plugins").ensure_packer().setup()
