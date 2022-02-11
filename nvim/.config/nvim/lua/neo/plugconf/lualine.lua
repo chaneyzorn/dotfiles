@@ -25,8 +25,8 @@ function M.post()
         {
           "diagnostics",
           sources = { "nvim_diagnostic" },
-          sections = { "error", "warn", "info" },
-          symbols = { error = " ", warn = " ", info = " ", hint = " " },
+          sections = { "error", "warn", "info", "hint" },
+          symbols = { error = " ", warn = " ", info = " ", hint = "ﯦ " },
           diagnostics_color = {
             error = { fg = U.colors.red },
             warn = { fg = U.colors.yellow },
