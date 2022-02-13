@@ -5,18 +5,21 @@ indent_size = 4
 indent_style = space
 trim_trailing_whitespace = true
 insert_final_newline = true
-max_line_length = 120
 
 [*.{js,css,json,yml,yaml,lua}]
 indent_size = 2
+max_line_length = 120
 
 [*.py]
 profile = black
 indent_style = space
 indent_size = 4
+max_line_length = 120
 
 [*.go]
 indent_style = tab
+max_line_length = 120
 
 [Makefile]
 indent_style = tab
+max_line_length = 120
