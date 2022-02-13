@@ -6,7 +6,6 @@ function M.post()
   local nls = require("null-ls")
   local bt = nls.builtins
   nls.setup({
-    fallback_severity = vim.diagnostic.severity.WARN,
     sources = {
       -- c/c++
       bt.formatting.clang_format,
@@ -41,6 +40,9 @@ function M.post()
       -- other
       bt.diagnostics.cspell.with({
         extra_args = { "--config", vim.fn.expand("~/.config/nvim/neo-cspell.yaml") },
+        diagnostics_postprocess = function(diagnostic)
+          diagnostic.severity = vim.diagnostic.severity.HINT
+        end,
       }),
       bt.completion.spell,
     },
