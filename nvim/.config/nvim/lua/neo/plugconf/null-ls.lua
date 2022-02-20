@@ -32,6 +32,7 @@ function M.post()
       bt.diagnostics.yamllint,
 
       -- shell
+      bt.formatting.shfmt,
       bt.diagnostics.shellcheck,
 
       -- markdown

@@ -185,6 +185,7 @@ ignorecase
 imap
 incsearch
 infos
+init
 inplace
 io
 iommu
@@ -254,6 +255,7 @@ metaclass
 metad
 mgt
 mongo
+mongod
 mongodb
 mountpoint
 msg
@@ -306,6 +308,7 @@ plugins
 plugmap
 pmem
 pmems
+podman
 popen
 postprocess
 powerline
