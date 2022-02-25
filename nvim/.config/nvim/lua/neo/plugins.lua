@@ -27,6 +27,7 @@ end
 local pkgs = {
   -- Packer can manage itself
   D("wbthomason/packer.nvim"),
+  D("lewis6991/impatient.nvim"),
 
   -- theme and icons
   C("sainnhe/sonokai", "colorscheme"),
