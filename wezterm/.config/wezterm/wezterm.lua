@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 
-return {
+local M = {
   font = wezterm.font_with_fallback({ "JetBrains Mono", "Symbols Nerd Font" }),
   font_size = 10.0,
   color_scheme = "chaney_dark",
@@ -26,3 +26,9 @@ return {
   scrollback_lines = 100000,
   enable_scroll_bar = true,
 }
+
+if wezterm.target_triple == "x86_64-apple-darwin" then
+  M.font_size = 14.0
+end
+
+return M
