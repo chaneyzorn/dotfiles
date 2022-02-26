@@ -27,6 +27,7 @@ local M = {
   window_background_opacity = 0.96,
   scrollback_lines = 100000,
   enable_scroll_bar = true,
+  exit_behavior = "Close",
 }
 
 if wezterm.target_triple == "x86_64-apple-darwin" then
