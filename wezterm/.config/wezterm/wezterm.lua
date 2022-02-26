@@ -1,5 +1,7 @@
 local wezterm = require("wezterm")
 
+local hostname = wezterm.hostname()
+
 local M = {
   font = wezterm.font_with_fallback({ "JetBrains Mono", "Symbols Nerd Font" }),
   font_size = 10.0,
@@ -30,5 +32,15 @@ local M = {
 if wezterm.target_triple == "x86_64-apple-darwin" then
   M.font_size = 14.0
 end
+
+wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
+  return "@"
+    .. hostname
+    .. "{"
+    .. tab.active_pane.current_working_dir
+    .. "}"
+    .. " $"
+    .. tab.active_pane.foreground_process_name
+end)
 
 return M
