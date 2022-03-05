@@ -5,7 +5,6 @@ function M.pre()
 
   -- 大纲列表不延迟
   vg.vista_cursor_delay = 0
-  vg.vista_executive_for = { python = "coc" }
   -- 大纲列表图标
   vim.g["vista#renderer#icons"] = {
     ["augroup"] = "⋐",
