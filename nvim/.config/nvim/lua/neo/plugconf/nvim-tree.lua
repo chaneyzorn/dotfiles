@@ -5,7 +5,6 @@ function M.pre()
 
   vg.nvim_tree_side = "left"
   vg.nvim_tree_width = 30
-  vg.nvim_tree_quit_on_open = 0
   vg.nvim_tree_indent_markers = 1
   vg.nvim_tree_git_hl = 1
   vg.nvim_tree_root_folder_modifier = ":~"
@@ -83,6 +82,24 @@ function M.post()
       enable = true,
       ignore = false,
       timeout = 500,
+    },
+    actions = {
+      change_dir = {
+        enable = true,
+        global = false,
+      },
+      open_file = {
+        quit_on_open = false,
+        resize_window = false,
+        window_picker = {
+          enable = true,
+          chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+          exclude = {
+            filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
+            buftype = { "nofile", "terminal", "help" },
+          },
+        },
+      },
     },
   })
 end
