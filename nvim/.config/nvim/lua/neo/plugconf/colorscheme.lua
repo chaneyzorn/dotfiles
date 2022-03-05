@@ -56,7 +56,12 @@ function M.post()
 
     hi Floaterm             guibg=NONE
     hi FloatermBorder       guibg=NONE      guifg=gray
-    hi clear TSError
+
+    hi! link SpellBad   None
+    hi! link SpellCap   None
+    hi! link SpellRare  None
+    hi! link SpellLocal None
+    hi! link TSError    None
     ]],
     false
   )
