@@ -22,6 +22,8 @@ local M = {
     },
   },
   use_fancy_tab_bar = false,
+  tab_bar_at_bottom = true,
+  hide_tab_bar_if_only_one_tab = true,
   colors = {
     tab_bar = {
       background = "#213549",
@@ -62,11 +64,10 @@ local M = {
       },
     },
   },
-  hide_tab_bar_if_only_one_tab = true,
-  window_padding = { left = 0, right = 1, top = 0, bottom = 0 },
+  window_padding = { left = 0, right = 0, top = 0, bottom = 0 },
   window_background_opacity = 1.0,
   scrollback_lines = 100000,
-  enable_scroll_bar = true,
+  enable_scroll_bar = false,
   exit_behavior = "Close",
 }
 
