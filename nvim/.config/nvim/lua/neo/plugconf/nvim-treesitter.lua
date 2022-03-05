@@ -1,6 +1,9 @@
 local M = {}
 
-function M.pre() end
+function M.pre()
+  vim.o.foldmethod = "expr"
+  vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+end
 
 function M.post()
   require("nvim-treesitter.configs").setup({
