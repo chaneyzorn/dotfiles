@@ -47,6 +47,7 @@ cmdheight
 cmdline
 cmds
 cmp
+CN
 coc
 colorscheme
 command
@@ -352,6 +353,7 @@ rpms
 rst
 rstrip
 rtcode
+san
 scrolloff
 scsi
 scvm
@@ -394,6 +396,7 @@ stdin
 stdout
 stdpath
 storcli
+str
 strftime
 struct
 stylua
@@ -484,11 +487,13 @@ xclip
 xdg
 xen
 xenserver
+xenserver7
 xmap
 yaml
 yamllint
 youdao
 zbs
+zh
 zipfile
 zooid
 zookeeper

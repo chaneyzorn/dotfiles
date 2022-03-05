@@ -54,7 +54,7 @@ local pkgs = {
   C("nvim-lualine/lualine.nvim"),
   C("akinsho/nvim-bufferline.lua"),
 
-  -- editor evn function enhance
+  -- editor env function enhance
   D("folke/which-key.nvim"),
   C("kyazdani42/nvim-tree.lua"),
   C("liuchengxu/vista.vim"),
