@@ -89,6 +89,7 @@ local pkgs = {
   C("williamboman/nvim-lsp-installer"),
   C("jose-elias-alvarez/null-ls.nvim"),
   C("folke/trouble.nvim"),
+  C("j-hui/fidget.nvim"),
 
   -- nvim-cmp
   D("hrsh7th/cmp-nvim-lsp"),
