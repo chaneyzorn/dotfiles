@@ -1,6 +1,8 @@
 local M = {}
 
 function M.pre()
+  -- disable auto fold: use `zi` to toggle it
+  vim.o.foldenable = false
   vim.o.foldmethod = "expr"
   vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 end
