@@ -12,7 +12,9 @@ function M.post()
       bt.diagnostics.cppcheck,
 
       -- python
-      bt.formatting.black,
+      bt.formatting.black.with({
+        command = vim.fn.expand("~/.local/bin/black"),
+      }),
       bt.diagnostics.pylint,
 
       -- golang

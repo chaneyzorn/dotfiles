@@ -47,6 +47,10 @@ function M.post()
         -- This will be the default in neovim 0.7+
         debounce_text_changes = 150,
       },
+      on_attach = function(client)
+        client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
+      end,
     }
 
     if enhance_server_opts[server.name] then
