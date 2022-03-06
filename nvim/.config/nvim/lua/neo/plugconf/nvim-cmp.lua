@@ -34,13 +34,14 @@ function M.post()
     TypeParameter = "𝒯",
   }
 
-  cmp.setup({
-    sources = {
+  cmp.setup.global({
+    sources = cmp.config.sources({
       { name = "nvim_lsp" },
       { name = "luasnip" },
+    }, {
       { name = "buffer" },
       { name = "path" },
-    },
+    }),
     snippet = {
       expand = function(args)
         luasnip.lsp_expand(args.body)
@@ -48,10 +49,8 @@ function M.post()
     },
     formatting = {
       fields = { "abbr", "menu", "kind" },
-      format = function(_, item)
-        if kind_icons[item.kind] then
-          item.kind = string.format("%s ", kind_icons[item.kind])
-        end
+      format = function(entry, item)
+        item.kind = string.format("%s %s ", kind_icons[item.kind] or item.kind, entry.source.name)
         return item
       end,
     },

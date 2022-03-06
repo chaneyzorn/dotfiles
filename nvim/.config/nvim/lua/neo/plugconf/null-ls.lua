@@ -47,7 +47,6 @@ function M.post()
           diagnostic.severity = vim.diagnostic.severity.HINT
         end,
       }),
-      bt.completion.spell,
     },
   })
 
