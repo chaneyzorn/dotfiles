@@ -76,17 +76,7 @@ if wezterm.target_triple == "x86_64-apple-darwin" then
 end
 
 wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
-  return "$"
-    .. tab.active_pane.title
-    .. "{"
-    .. tab.active_pane.foreground_process_name
-    .. "}"
-    .. " "
-    .. "@"
-    .. hostname
-    .. "{"
-    .. tab.active_pane.current_working_dir
-    .. "}"
+  return "$" .. tab.active_pane.foreground_process_name .. "@" .. hostname
 end)
 
 return M
