@@ -1,3 +1,6 @@
+CN
+CRLF
+CSpell
 aarch
 accesslog
 addr
@@ -26,6 +29,8 @@ blankline
 blk
 bool
 buf
+bufnr
+buftype
 builtin
 builtins
 ccls
@@ -48,7 +53,6 @@ cmdheight
 cmdline
 cmds
 cmp
-CN
 coc
 colorscheme
 command
@@ -64,12 +68,10 @@ cppcheck
 cpu
 cpuinfo
 cpus
-CRLF
 cron
 cscope
 csmi
 cspell
-CSpell
 css
 ctags
 cterm
@@ -278,6 +280,7 @@ nic
 nics
 nmap
 nodeps
+nofile
 noqa
 noremap
 nsid
@@ -366,6 +369,7 @@ segs
 selftest
 setreg
 shellcheck
+shfmt
 shiftround
 shiftwidth
 shortmess

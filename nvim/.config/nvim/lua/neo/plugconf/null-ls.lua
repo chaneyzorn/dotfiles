@@ -48,6 +48,19 @@ function M.post()
         end,
       }),
     },
+    should_attach = function(bufnr)
+      local file_type = vim.api.nvim_buf_get_option(bufnr, "filetype")
+      if vim.tbl_contains({ "NvimTree" }, file_type) then
+        return false
+      end
+
+      local buftype = vim.api.nvim_buf_get_option(bufnr, "buftype")
+      if buftype ~= "" then
+        return false
+      end
+
+      return true
+    end,
   })
 
   -- disable all diagnostics capacity at init
