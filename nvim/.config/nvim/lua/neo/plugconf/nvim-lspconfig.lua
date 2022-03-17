@@ -41,13 +41,15 @@ function M.keybind()
 
   U.nmap("<C-k>", "<Cmd>lua vim.lsp.buf.signature_help()<CR>")
   U.nmap("<C-K>", "<Cmd>lua vim.lsp.buf.hover()<CR>")
-  U.nmap("<C-j>", "<Cmd>lua vim.lsp.buf.definition()<CR>")
 
-  U.nmap("<Leader>gg", "<Cmd>lua vim.lsp.buf.definition()<CR>")
   U.nmap("<Leader>gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>")
   U.nmap("<Leader>gi", "<Cmd>lua vim.lsp.buf.implementation()<CR>")
-  U.nmap("<Leader>gt", "<Cmd>lua vim.lsp.buf.type_definition()<CR>")
-  U.nmap("<Leader>gr", "<Cmd>lua vim.lsp.buf.references()<CR>")
+
+  -- use trouble.nvim as lsp list
+  U.nmap("<C-j>", "<Cmd>TroubleToggle lsp_definitions<CR>")
+  U.nmap("<Leader>gg", "<Cmd>TroubleToggle lsp_definitions<CR>")
+  U.nmap("<Leader>gt", "<Cmd>TroubleToggle lsp_type_definitions<CR>")
+  U.nmap("<Leader>gr", "<Cmd>TroubleToggle lsp_references<CR>")
 
   U.nmap("<Leader>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>")
   U.nmap("<Leader>cf", "<Cmd>lua vim.lsp.buf.formatting()<CR>")
