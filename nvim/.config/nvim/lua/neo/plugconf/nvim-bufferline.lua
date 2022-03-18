@@ -5,7 +5,6 @@ function M.pre() end
 function M.post()
   require("bufferline").setup({
     options = {
-      view = "multiwindow",
       numbers = "none",
       buffer_close_icon = "",
       modified_icon = "",

@@ -25,20 +25,22 @@ which_key_map.w = {
 
 which_key_map.t = {
   ["name"] = "tab/translate/tags",
-  ["n"] = { "tabnew", "打开新 tab" },
-  ["c"] = { "tabclose", "关闭当前tab" },
-  ["o"] = { "tabonly", "关闭其他tab" },
-  ["]"] = { "tabnext", "下一个tab" },
-  ["["] = { "tabprevious", "上一个tab" },
-  ["f"] = { "tabfirst", "第一个tab" },
-  ["l"] = { "tablast", "最后一个tab" },
+  ["n"] = { "<Cmd>tabnew<CR>", "打开新 tab" },
+  ["c"] = { "<Cmd>tabclose<CR>", "关闭当前tab" },
+  ["o"] = { "<Cmd>tabonly<CR>", "关闭其他tab" },
+  ["]"] = { "<Cmd>tabnext<CR>", "下一个tab" },
+  ["["] = { "<Cmd>tabprevious<CR>", "上一个tab" },
+  ["f"] = { "<Cmd>tabfirst<CR>", "第一个tab" },
+  ["l"] = { "<Cmd>tablast<CR>", "最后一个tab" },
 }
 
 which_key_map.b = {
   ["name"] = "buffers",
-  ["l"] = { "blast", "last-buffer" },
-  ["f"] = { "bfirst", "first-buffer" },
-  ["d"] = { "bdelete", "delete-buffer" },
+  ["l"] = { "<Cmd>blast<CR>", "last buffer" },
+  ["f"] = { "<Cmd>bfirst<CR>", "first buffer" },
+  ["d"] = { "<Cmd>bdelete<CR>", "delete buffer" },
+  ["]"] = { "<Cmd>bnext<CR>", "next buffer" },
+  ["["] = { "<Cmd>bprevious<CR>", "previous buffer" },
 }
 
 which_key_map.f = {
@@ -93,6 +95,14 @@ end
 
 M.register_keymap = function()
   local U = require("neo.tools")
+
+  -- easy switch
+  U.nmap("[b", "<Cmd>bprevious<CR>")
+  U.nmap("]b", "<Cmd>bnext<CR>")
+  U.nmap("[t", "<Cmd>tabprevious<CR>")
+  U.nmap("]t", "<Cmd>tabnext<CR>")
+  U.nmap("[w", "<C-W>p")
+  U.nmap("]w", "<C-W>w")
 
   U.nmap("<C-s>", "<Cmd>update<CR>")
   U.vmap("<C-s>", "<Esc><Cmd>update<CR>")
