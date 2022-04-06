@@ -3,13 +3,16 @@ local M = {}
 function M.pre()
   local vg = vim.g
 
-  -- 使用 sainnhe/sonokai 色彩方案
+  -- use sainnhe/sonokai colorscheme
   vg.sonokai_style = "andromeda"
   vg.sonokai_enable_italic = 1
   vg.sonokai_disable_italic_comment = 0
   vg.sonokai_transparent_background = 0
   vg.sonokai_sign_column_background = "none"
   vg.sonokai_menu_selection_background = "green"
+
+  -- use marko-cerovac/material.nvim colorscheme
+  vg.material_style = "palenight"
 
   -- xfce4/terminal/colorschemes/chaney_dark.theme
   vg.terminal_color_0 = "#073642"
@@ -50,7 +53,45 @@ function M.pre()
 end
 
 function M.post()
+  require("material").setup({
+    contrast = {
+      sidebars = true,
+      floating_windows = false,
+      line_numbers = false,
+      sign_column = false,
+      cursor_line = false,
+      non_current_windows = false,
+      popup_menu = false,
+    },
+    italics = {
+      comments = true,
+      keywords = false,
+      functions = false,
+      strings = false,
+      variables = false,
+    },
+    contrast_filetypes = {
+      "terminal",
+      "packer",
+      "qf",
+    },
+    high_visibility = {
+      lighter = false,
+      darker = false,
+    },
+    disable = {
+      borders = false,
+      background = false,
+      term_colors = false,
+      eob_lines = false,
+    },
+    lualine_style = "default",
+    async_loading = true,
+    custom_highlights = {},
+  })
+
   vim.api.nvim_exec(
+    -- colorscheme material
     [[
     colorscheme sonokai
 
