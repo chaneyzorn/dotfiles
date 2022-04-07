@@ -12,7 +12,7 @@ function M.pre()
   vg.sonokai_menu_selection_background = "green"
 
   -- use marko-cerovac/material.nvim colorscheme
-  vg.material_style = "palenight"
+  vg.material_style = "deep ocean"
 
   -- xfce4/terminal/colorschemes/chaney_dark.theme
   vg.terminal_color_0 = "#073642"
@@ -92,6 +92,7 @@ function M.post()
 
   vim.api.nvim_exec(
     -- colorscheme material
+    -- colorscheme sonokai
     [[
     colorscheme sonokai
 
