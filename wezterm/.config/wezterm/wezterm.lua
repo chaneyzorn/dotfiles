@@ -69,6 +69,8 @@ local M = {
   scrollback_lines = 100000,
   enable_scroll_bar = false,
   exit_behavior = "Close",
+  -- https://github.com/wez/wezterm/issues/1928
+  custom_block_glyphs = true,
 }
 
 if wezterm.target_triple == "x86_64-apple-darwin" then
