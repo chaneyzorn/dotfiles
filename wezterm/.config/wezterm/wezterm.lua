@@ -70,7 +70,7 @@ local M = {
   enable_scroll_bar = false,
   exit_behavior = "Close",
   -- https://github.com/wez/wezterm/issues/1928
-  custom_block_glyphs = true,
+  custom_block_glyphs = false,
 }
 
 if wezterm.target_triple == "x86_64-apple-darwin" then
