@@ -140,7 +140,7 @@ local record_pkgs = function()
       max_jobs = 10,
       git = { clone_timeout = false },
       display = {
-        working_sym = "🗘",
+        -- working_sym = "🗘",
         prompt_border = "rounded",
         open_fn = function()
           return require("packer.util").float({ border = "rounded" })
