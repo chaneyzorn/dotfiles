@@ -30,8 +30,9 @@ local pkgs = {
   D("lewis6991/impatient.nvim"),
 
   -- theme and icons
-  D("sainnhe/sonokai"),
-  C("marko-cerovac/material.nvim", "colorscheme"),
+  -- D("marko-cerovac/material.nvim"),
+  -- D("EdenEast/nightfox.nvim"),
+  C("sainnhe/sonokai", "colorscheme"),
   D("ryanoasis/vim-devicons"),
   D("kyazdani42/nvim-web-devicons"),
 

@@ -52,7 +52,7 @@ function M.pre()
   }
 end
 
-function M.post()
+local config_scheme = function()
   require("material").setup({
     contrast = {
       sidebars = true,
@@ -90,9 +90,24 @@ function M.post()
     custom_highlights = {},
   })
 
+  require("nightfox").setup({
+    options = {
+      styles = {
+        comments = "italic",
+        keywords = "bold",
+        types = "italic,bold",
+      },
+    },
+  })
+end
+
+function M.post()
+  -- config_scheme()
+
   vim.api.nvim_exec(
     -- colorscheme material
     -- colorscheme sonokai
+    -- colorscheme nightfox
     [[
     colorscheme sonokai
 
