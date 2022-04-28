@@ -36,14 +36,18 @@ end
 function M.keybind()
   local U = require("neo.tools")
 
-  U.nmap("[e", "<Cmd>lua vim.diagnostic.goto_prev()<CR>")
-  U.nmap("]e", "<Cmd>lua vim.diagnostic.goto_next()<CR>")
+  local nkset = function(key, func)
+    vim.keymap.set("n", key, func)
+  end
 
-  U.nmap("<C-k>", "<Cmd>lua vim.lsp.buf.signature_help()<CR>")
-  U.nmap("<C-K>", "<Cmd>lua vim.lsp.buf.hover()<CR>")
+  nkset("[e", vim.diagnostic.goto_prev)
+  nkset("]e", vim.diagnostic.goto_next)
 
-  U.nmap("<Leader>gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>")
-  U.nmap("<Leader>gi", "<Cmd>lua vim.lsp.buf.implementation()<CR>")
+  nkset("<C-k>", vim.lsp.buf.signature_help)
+  nkset("<C-K>", vim.lsp.buf.hover)
+
+  nkset("<Leader>gD", vim.lsp.buf.declaration)
+  nkset("<Leader>gi", vim.lsp.buf.implementation)
 
   -- use trouble.nvim as lsp list
   U.nmap("<C-j>", "<Cmd>TroubleToggle lsp_definitions<CR>")
@@ -51,12 +55,12 @@ function M.keybind()
   U.nmap("<Leader>gt", "<Cmd>TroubleToggle lsp_type_definitions<CR>")
   U.nmap("<Leader>gr", "<Cmd>TroubleToggle lsp_references<CR>")
 
-  U.nmap("<Leader>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>")
-  U.nmap("<Leader>cf", "<Cmd>lua vim.lsp.buf.formatting()<CR>")
-  U.nmap("<Leader>rn", "<Cmd>lua vim.lsp.buf.rename()<CR>")
-  U.nmap("<Leader>cv", "<Cmd>lua require('neo.tools').EnableCodingVision()<CR>")
-  U.nmap("<Leader>cx", "<Cmd>lua require('neo.tools').DisableCodingVision()<CR>")
-  U.nmap("<Leader>zg", "<Cmd>lua require('neo.tools').RefreshCSpell()<CR>")
+  nkset("<Leader>ca", vim.lsp.buf.code_action)
+  nkset("<Leader>cf", vim.lsp.buf.formatting)
+  nkset("<Leader>rn", vim.lsp.buf.rename)
+  nkset("<Leader>cv", U.EnableCodingVision)
+  nkset("<Leader>cx", U.DisableCodingVision)
+  nkset("<Leader>zg", U.RefreshCSpell)
 
   require("neo.keybind").leader_help({
     gg = "跳转到定义",

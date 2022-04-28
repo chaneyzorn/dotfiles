@@ -63,7 +63,7 @@ which_key_map.y = {
 
 which_key_map.v = {
   ["name"] = "vim",
-  ["m"] = { "<Cmd>lua require('neo.tools').ToggleMouse()<CR>", "切换鼠标" },
+  ["m"] = { require("neo.tools").ToggleMouse, "切换鼠标" },
   ["q"] = { "<Cmd>wa<CR>:q<CR>", "保存全部文件并退出" },
   ["Q"] = { "<Cmd>qa!<CR>", "不做任何保存直接退出" },
 }
@@ -109,7 +109,7 @@ M.register_keymap = function()
   U.imap("<C-s>", "<Esc><Cmd>update<CR>")
 
   -- normal 模式复制当前行到 clipboard
-  U.nmap("<C-y>", "<Cmd>lua require('neo.tools').YankOneLine()<CR>")
+  vim.keymap.set("n", "<C-y>", U.YankOneLine)
   -- 可视化复制选中内容到 clipboard
   U.vmap("<C-y>", [["+y]])
   -- Paste from clipboard
