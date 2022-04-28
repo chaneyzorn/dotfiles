@@ -55,10 +55,14 @@ vo.softtabstop = 4
 
 -- 设置 tab 字符的显示
 vo.list = true
-vo.listchars = "tab:»·,trail:∙,precedes:←,extends:→,eol:¬,nbsp:␣"
-
--- 设置窗口分割线为连续实线
-vo.fillchars = "vert:│"
+vim.opt.listchars = {
+  tab = "»·",
+  trail = "∙",
+  precedes = "←",
+  extends = "→",
+  eol = "¬",
+  nbsp = "␣",
+}
 
 -- 设置搜索高亮
 vo.hlsearch = true
