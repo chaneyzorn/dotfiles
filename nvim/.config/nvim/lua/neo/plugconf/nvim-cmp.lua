@@ -8,7 +8,7 @@ function M.post()
 
   local kind_icons = {
     Text = "",
-    Method = "𝑚",
+    Method = "",
     Function = "",
     Constructor = "",
     Field = "ﰠ",
@@ -27,7 +27,7 @@ function M.post()
     Reference = "",
     Folder = "",
     EnumMember = "",
-    Constant = "🅲",
+    Constant = "",
     Struct = "פּ",
     Event = "",
     Operator = "",
