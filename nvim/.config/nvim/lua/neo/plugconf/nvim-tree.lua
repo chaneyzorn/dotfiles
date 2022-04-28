@@ -5,7 +5,6 @@ function M.pre()
 
   vg.nvim_tree_side = "left"
   vg.nvim_tree_width = 30
-  vg.nvim_tree_indent_markers = 1
   vg.nvim_tree_git_hl = 1
   vg.nvim_tree_root_folder_modifier = ":~"
   vg.nvim_tree_width_allow_resize = 1
@@ -32,12 +31,21 @@ function M.post()
     open_on_setup = false,
     ignore_ft_on_setup = {},
     open_on_tab = false,
-    update_to_buf_dir = {
-      enable = true,
-      auto_open = true,
-    },
     hijack_cursor = false,
     update_cwd = false,
+    renderer = {
+      indent_markers = {
+        enable = true,
+        icons = {
+          corner = "└ ",
+          edge = "│ ",
+          none = "  ",
+        },
+      },
+      icons = {
+        webdev_colors = true,
+      },
+    },
     diagnostics = {
       enable = false,
       icons = {
@@ -51,20 +59,6 @@ function M.post()
       enable = true,
       update_cwd = false,
       ignore_list = {},
-    },
-    system_open = {
-      cmd = nil,
-      args = {},
-    },
-    view = {
-      width = 30,
-      height = 30,
-      side = "left",
-      auto_resize = true,
-      mappings = {
-        custom_only = false,
-        list = {},
-      },
     },
     filters = {
       dotfiles = false,
