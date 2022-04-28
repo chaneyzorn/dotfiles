@@ -40,6 +40,7 @@ function M.post()
       lualine_c = {
         {
           "filename",
+          path = 1,
           symbols = {
             modified = "[]",
             readonly = "[]",
