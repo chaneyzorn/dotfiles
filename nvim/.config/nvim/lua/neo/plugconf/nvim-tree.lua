@@ -95,6 +95,18 @@ function M.post()
       },
     },
   })
+
+  -- automatically close the tab/vim when nvim-tree is the last window in the tab
+  -- autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+  vim.api.nvim_create_autocmd({ "BufEnter" }, {
+    pattern = { "*" },
+    nested = true,
+    callback = function()
+      if vim.fn.winnr("$") == 1 and vim.fn.bufname() == "NvimTree_" .. vim.fn.tabpagenr() then
+        vim.api.nvim_command(":silent qa!")
+      end
+    end,
+  })
 end
 
 function M.keybind()
