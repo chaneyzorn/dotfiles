@@ -11,6 +11,12 @@ function M.pre()
   vg.sonokai_sign_column_background = "none"
   vg.sonokai_menu_selection_background = "green"
 
+  -- use Mofiqul/vscode.nvim
+  vim.g.vscode_style = "dark" -- light
+  vim.g.vscode_transparent = 1
+  vim.g.vscode_italic_comment = 1
+  vim.g.vscode_disable_nvimtree_bg = false
+
   -- use marko-cerovac/material.nvim colorscheme
   vg.material_style = "deep ocean"
 
@@ -108,6 +114,7 @@ function M.post()
     -- colorscheme material
     -- colorscheme sonokai
     -- colorscheme nightfox
+    -- colorscheme vscode
     [[
     colorscheme sonokai
 
