@@ -108,6 +108,8 @@ M.register_keymap = function()
   U.vmap("<C-s>", "<Esc><Cmd>update<CR>")
   U.imap("<C-s>", "<Esc><Cmd>update<CR>")
 
+  U.nmap("<C-c>", "<Esc><Cmd>quit<CR>")
+
   -- normal 模式复制当前行到 clipboard
   vim.keymap.set("n", "<C-y>", U.YankOneLine)
   -- 可视化复制选中内容到 clipboard
