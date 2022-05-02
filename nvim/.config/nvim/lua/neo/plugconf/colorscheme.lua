@@ -11,15 +11,6 @@ function M.pre()
   vg.sonokai_sign_column_background = "none"
   vg.sonokai_menu_selection_background = "green"
 
-  -- use Mofiqul/vscode.nvim
-  vim.g.vscode_style = "dark" -- light
-  vim.g.vscode_transparent = 1
-  vim.g.vscode_italic_comment = 1
-  vim.g.vscode_disable_nvimtree_bg = false
-
-  -- use marko-cerovac/material.nvim colorscheme
-  vg.material_style = "deep ocean"
-
   -- xfce4/terminal/colorschemes/chaney_dark.theme
   vg.terminal_color_0 = "#073642"
   vg.terminal_color_1 = "#dc322f"
@@ -59,64 +50,32 @@ function M.pre()
 end
 
 local config_scheme = function()
-  require("material").setup({
-    contrast = {
-      sidebars = true,
-      floating_windows = false,
-      line_numbers = false,
-      sign_column = false,
-      cursor_line = false,
-      non_current_windows = false,
-      popup_menu = false,
-    },
-    italics = {
-      comments = true,
-      keywords = false,
-      functions = false,
-      strings = false,
-      variables = false,
-    },
-    contrast_filetypes = {
-      "terminal",
-      "packer",
-      "qf",
-    },
-    high_visibility = {
-      lighter = false,
-      darker = false,
-    },
-    disable = {
-      borders = false,
-      background = false,
-      term_colors = false,
-      eob_lines = false,
-    },
-    lualine_style = "default",
-    async_loading = true,
-    custom_highlights = {},
-  })
-
-  require("nightfox").setup({
-    options = {
-      styles = {
-        comments = "italic",
-        keywords = "bold",
-        types = "italic,bold",
-      },
-    },
+  require("kanagawa").setup({
+    undercurl = true,
+    commentStyle = "italic",
+    functionStyle = "NONE",
+    keywordStyle = "bold",
+    statementStyle = "bold",
+    typeStyle = "NONE",
+    variablebuiltinStyle = "italic",
+    specialReturn = true,
+    specialException = true,
+    transparent = false,
+    dimInactive = true,
+    globalStatus = true,
+    colors = {},
+    overrides = {},
   })
 end
 
 function M.post()
-  -- config_scheme()
+  config_scheme()
 
   vim.api.nvim_exec(
-    -- colorscheme material
     -- colorscheme sonokai
-    -- colorscheme nightfox
-    -- colorscheme vscode
+    -- colorscheme kanagawa
     [[
-    colorscheme sonokai
+    colorscheme kanagawa
 
     hi Floaterm             guibg=NONE
     hi FloatermBorder       guibg=NONE      guifg=gray
