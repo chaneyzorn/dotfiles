@@ -12,7 +12,7 @@ function M.post()
     Function = "",
     Constructor = "",
     Field = "ﰠ",
-    Variable = "",
+    Variable = "",
     Class = "ﴯ",
     Interface = "",
     Module = "",
