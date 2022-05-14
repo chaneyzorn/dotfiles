@@ -17,7 +17,7 @@ export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bot
 export GOROOT=$(go env GOROOT)
 export GOPATH=$(go env GOPATH)
 
-export PNPM_HOME="/home/chaney/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 
 LOCAL_BIN=/usr/local/bin
 LOCAL_SBIN=/usr/local/sbin
