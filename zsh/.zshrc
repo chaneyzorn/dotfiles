@@ -17,6 +17,8 @@ export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bot
 export GOROOT=$(go env GOROOT)
 export GOPATH=$(go env GOPATH)
 
+export PNPM_HOME="/home/chaney/.local/share/pnpm"
+
 LOCAL_BIN=/usr/local/bin
 LOCAL_SBIN=/usr/local/sbin
 GO_BIN=$GOPATH/bin
@@ -25,7 +27,7 @@ RUST_BIN=$HOME/.cargo/bin
 LUA_BIN=$HOME/.luarocks/bin
 NODE_BIN=$HOME/.node_modules_global/bin
 RUBY_BIN=$(ruby -r rubygems -e 'puts Gem.user_dir')/bin
-MY_PATH=$MY_BIN:$GO_BIN:$RUST_BIN:$NODE_BIN:$RUBY_BIN:$LUA_BIN:$LOCAL_BIN:$LOCAL_SBIN
+MY_PATH=$MY_BIN:$GO_BIN:$RUST_BIN:$PNPM_HOME:$NODE_BIN:$RUBY_BIN:$LUA_BIN:$LOCAL_BIN:$LOCAL_SBIN
 
 export PATH=$MY_PATH:$BASE_PATH
 export SHELL=$(which zsh)
@@ -189,5 +191,3 @@ alias systemctlu="systemctl --user"
 # we add env LANG=en_US.UTF-8 to xfce-terminal.desktop
 # set back LANG=zh_CN.UTF-8 here
 export LANG=zh_CN.UTF-8
-
-# eval "$(starship init zsh)"
