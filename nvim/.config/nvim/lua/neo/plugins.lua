@@ -48,6 +48,7 @@ local pkgs = {
 
   -- cursor quickly move
   D("ggandor/lightspeed.nvim"),
+  -- C("ggandor/leap.nvim"),
   D("tpope/vim-surround"),
   C("windwp/nvim-autopairs"),
 
