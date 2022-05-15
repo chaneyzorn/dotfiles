@@ -7,6 +7,10 @@ function M.post()
     text = {
       spinner = "dots",
     },
+    timer = {
+      fidget_decay = 100,
+      task_decay = 100,
+    },
   })
 end
 
