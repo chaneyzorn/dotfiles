@@ -65,8 +65,8 @@ function M.post()
       custom = {
         "*.swp",
         "*.pyc",
-        ".git",
-        ".idea",
+        ".git$",
+        ".idea$",
         ".ropeproject",
         "node_modules",
       },
