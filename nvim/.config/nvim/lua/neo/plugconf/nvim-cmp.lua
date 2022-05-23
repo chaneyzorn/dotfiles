@@ -34,6 +34,15 @@ function M.post()
     TypeParameter = "",
   }
 
+  local has_words_before = function()
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    if col == 0 then
+      return false
+    end
+    local above_line = vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]
+    return above_line:sub(col, col):match("%s") == nil
+  end
+
   cmp.setup.global({
     sources = cmp.config.sources({
       { name = "nvim_lsp" },
