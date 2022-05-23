@@ -1,6 +1,3 @@
-CN
-CRLF
-CSpell
 aarch
 accesslog
 addr
@@ -53,6 +50,7 @@ cmdheight
 cmdline
 cmds
 cmp
+CN
 coc
 colorscheme
 command
@@ -68,10 +66,12 @@ cppcheck
 cpu
 cpuinfo
 cpus
+CRLF
 cron
 cscope
 csmi
 cspell
+CSpell
 css
 ctags
 cterm
@@ -166,6 +166,7 @@ guibg
 guifg
 gunicorn
 hasattr
+hashicorp
 hddtemp
 healthd
 hlsearch
@@ -274,6 +275,7 @@ neo
 neovim
 netmask
 netrw
+newgh
 nfs
 nguid
 nic
@@ -305,6 +307,7 @@ ovs
 ovsbr
 passphrase
 passthrough
+Pdeathsig
 pep8
 perccli
 pinfo
