@@ -3,8 +3,13 @@ local M = {}
 function M.pre() end
 
 function M.post()
-  -- Add additional capabilities supported by nvim-cmp
   local capabilities = vim.lsp.protocol.make_client_capabilities()
+  -- kevinhwang91/nvim-ufo
+  capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true,
+  }
+  -- Add additional capabilities supported by nvim-cmp
   capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
   local enhance_server_opts = {
@@ -43,10 +48,6 @@ function M.post()
       -- apply to all lsp servers
       autostart = false,
       capabilities = capabilities,
-      flags = {
-        -- This will be the default in neovim 0.7+
-        debounce_text_changes = 150,
-      },
       on_attach = function(client)
         client.resolved_capabilities.document_formatting = false
         client.resolved_capabilities.document_range_formatting = false

@@ -135,6 +135,10 @@ fisheye
 floaterm
 fmt
 fn
+foldcolumn
+foldenable
+foldlevel
+foldlevelstart
 formating
 fping
 func
@@ -234,6 +238,7 @@ lightspeed
 linters
 linting
 listchars
+lnum
 loadavg
 localleader
 localtime
@@ -406,6 +411,7 @@ stdout
 stdpath
 storcli
 str
+strdisplaywidth
 strftime
 struct
 stylua
@@ -472,6 +478,7 @@ vim
 vimrc
 vip
 vips
+virt
 virtualization
 vlan
 vm

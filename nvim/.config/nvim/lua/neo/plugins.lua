@@ -45,6 +45,10 @@ local pkgs = {
     run = ":TSUpdate",
   }),
   D("p00f/nvim-ts-rainbow"),
+  C({
+    "kevinhwang91/nvim-ufo",
+    requires = "kevinhwang91/promise-async",
+  }),
 
   -- cursor quickly move
   D("ggandor/lightspeed.nvim"),

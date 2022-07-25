@@ -7,6 +7,9 @@ function M.post()
     disable_netrw = true,
     hijack_netrw = true,
     open_on_setup = false,
+    view = {
+      adaptive_size = true,
+    },
     git = {
       ignore = false,
     },
