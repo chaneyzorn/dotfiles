@@ -64,6 +64,14 @@ vim.opt.listchars = {
   nbsp = "␣",
 }
 
+vim.opt.fillchars = {
+  eob = " ",
+  fold = " ",
+  foldopen = "",
+  foldsep = " ",
+  foldclose = "",
+}
+
 -- 设置搜索高亮
 vo.hlsearch = true
 vo.incsearch = true
