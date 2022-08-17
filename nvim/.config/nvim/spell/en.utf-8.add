@@ -265,9 +265,12 @@ mem
 metaclass
 metad
 mgt
+mktemp
 mongo
 mongod
 mongodb
+mongodump
+mongoup
 mountpoint
 msg
 mtu
