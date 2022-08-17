@@ -56,7 +56,7 @@ function M.keybind()
   U.nmap("<Leader>gr", "<Cmd>TroubleToggle lsp_references<CR>")
 
   nkset("<Leader>ca", vim.lsp.buf.code_action)
-  nkset("<Leader>cf", vim.lsp.buf.formatting)
+  nkset("<Leader>cf", vim.lsp.buf.format or vim.lsp.buf.formatting)
   nkset("<Leader>rn", vim.lsp.buf.rename)
   nkset("<Leader>cv", U.EnableCodingVision)
   nkset("<Leader>cx", U.DisableCodingVision)
