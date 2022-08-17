@@ -3,14 +3,12 @@ local M = {}
 function M.pre()
   vim.o.foldcolumn = "1"
   vim.o.foldlevel = 99
-  vim.o.foldlevelstart = -1
+  vim.o.foldlevelstart = 99
   vim.o.foldenable = true
 end
 
 function M.post()
-  local ft_map = {
-    TelescopePrompt = "",
-  }
+  local ft_map = {}
 
   local virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
     local newVirtText = {}
@@ -40,13 +38,33 @@ function M.post()
     return newVirtText
   end
 
+  -- https://github.com/kevinhwang91/nvim-ufo/issues/63
+  -- https://github.com/kevinhwang91/nvim-ufo/blob/main/doc/example.lua
+  local function customizeSelector(bufnr)
+    local function handleFallbackException(err, providerName)
+      if type(err) == "string" and err:match("UfoFallbackException") then
+        return require("ufo").getFolds(providerName, bufnr)
+      else
+        return require("promise").reject(err)
+      end
+    end
+
+    return require("ufo")
+      .getFolds("lsp", bufnr)
+      :catch(function(err)
+        return handleFallbackException(err, "treesitter")
+      end)
+      :catch(function(err)
+        return handleFallbackException(err, "indent")
+      end)
+  end
+
   require("ufo").setup({
     provider_selector = function(bufnr, filetype, buftype)
       if not filetype then
         return { "indent" }
       end
-
-      return ft_map[filetype] or { "lsp", "treesitter", "indent" }
+      return ft_map[filetype] or customizeSelector
     end,
     fold_virt_text_handler = virt_text_handler,
   })
