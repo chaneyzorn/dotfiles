@@ -1,32 +1,30 @@
 local M = {}
 
-function M.pre()
-  local vg = vim.g
-
-  -- 设置高亮单词延时
-  vg.Illuminate_delay = 50
-  -- 设置在部分 buffer 中不做高亮
-  vg.Illuminate_ftblacklist = {
-    "nerdtree",
-    "NvimTree",
-    "qf",
-    "help",
-    "list",
-    "vista",
-    "man",
-  }
-end
+function M.pre() end
 
 function M.post()
-  vim.api.nvim_exec(
-    [[
-    augroup illuminate_augroup
-      autocmd!
-      autocmd VimEnter * hi illuminatedWord cterm=underline gui=underline
-    augroup END
-    ]],
-    false
-  )
+  require("illuminate").configure({
+    providers = {
+      "lsp",
+      "treesitter",
+      "regex",
+    },
+    delay = 100,
+    filetype_overrides = {},
+    filetypes_denylist = {
+      "dirvish",
+      "fugitive",
+      "nerdtree",
+      "NvimTree",
+      "qf",
+      "help",
+      "list",
+      "vista",
+      "man",
+    },
+    filetypes_allowlist = {},
+    under_cursor = true,
+  })
 end
 
 function M.keybind() end
