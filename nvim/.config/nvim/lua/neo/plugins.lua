@@ -45,6 +45,7 @@ local pkgs = {
     run = ":TSUpdate",
   }),
   D("p00f/nvim-ts-rainbow"),
+  C("levouh/tint.nvim"),
   C({
     "kevinhwang91/nvim-ufo",
     requires = "kevinhwang91/promise-async",
@@ -55,6 +56,7 @@ local pkgs = {
   -- C("ggandor/leap.nvim"),
   D("tpope/vim-surround"),
   C("windwp/nvim-autopairs"),
+  C("declancm/cinnamon.nvim"),
 
   -- status-line and buffer-line
   C("nvim-lualine/lualine.nvim"),
@@ -107,12 +109,6 @@ local pkgs = {
   D("saadparwaiz1/cmp_luasnip"),
   D("rafamadriz/friendly-snippets"),
   C("L3MON4D3/LuaSnip"),
-
-  -- deprecated
-  -- C("w0rp/ale"),
-  -- C("sbdchd/neoformat"),
-  -- C("kamykn/spelunker.vim"),
-  -- C({ "neoclide/coc.nvim", branch = "release" }),
 }
 
 M._fetch_packer = false
