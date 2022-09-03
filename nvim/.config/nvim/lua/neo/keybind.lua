@@ -58,7 +58,8 @@ which_key_map.c = {
 
 which_key_map.y = {
   ["name"] = "yank",
-  ["y"] = { "<Cmd>%y+<CR>", "复制全部内容到 clipboard" },
+  ["y"] = { "<Cmd>%y+<CR>", "yank all buf content to system clipboard" },
+  ["o"] = { require("neo.tools").YankOneLine, "yank one line to system clipboard" },
 }
 
 which_key_map.v = {
@@ -110,8 +111,6 @@ M.register_keymap = function()
 
   U.nmap("<C-c>", "<Esc><Cmd>quit<CR>")
 
-  -- normal 模式复制当前行到 clipboard
-  vim.keymap.set("n", "<C-y>", U.YankOneLine)
   -- 可视化复制选中内容到 clipboard
   U.vmap("<C-y>", [["+y]])
   -- Paste from clipboard
