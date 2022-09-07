@@ -1,6 +1,21 @@
 local M = {}
 
-function M.pre() end
+local filetypes_denylist = {
+  "dirvish",
+  "fugitive",
+  "nerdtree",
+  "NvimTree",
+  "qf",
+  "help",
+  "list",
+  "vista",
+  "man",
+}
+
+function M.pre()
+  -- I don't know why
+  vim.g.Illuminate_ftblacklist = filetypes_denylist
+end
 
 function M.post()
   require("illuminate").configure({
@@ -10,19 +25,7 @@ function M.post()
       "regex",
     },
     delay = 100,
-    filetype_overrides = {},
-    filetypes_denylist = {
-      "dirvish",
-      "fugitive",
-      "nerdtree",
-      "NvimTree",
-      "qf",
-      "help",
-      "list",
-      "vista",
-      "man",
-    },
-    filetypes_allowlist = {},
+    filetypes_denylist = filetypes_denylist,
     under_cursor = true,
   })
 end
