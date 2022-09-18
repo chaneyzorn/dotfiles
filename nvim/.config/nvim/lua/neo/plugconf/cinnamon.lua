@@ -9,7 +9,7 @@ function M.post()
     extended_keymaps = true,
     override_keymaps = false,
 
-    default_delay = 1,
+    default_delay = 3,
     hide_cursor = true,
     scroll_limit = 100,
   })

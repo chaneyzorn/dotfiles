@@ -5,6 +5,7 @@ local filetypes_denylist = {
   "fugitive",
   "nerdtree",
   "NvimTree",
+  "DiffviewFiles",
   "qf",
   "help",
   "list",
