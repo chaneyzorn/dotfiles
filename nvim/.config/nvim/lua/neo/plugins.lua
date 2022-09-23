@@ -38,6 +38,7 @@ local pkgs = {
   -- editor content hints
   C("ntpeters/vim-better-whitespace"),
   C("norcalli/nvim-colorizer.lua"),
+  C("lukas-reineke/virt-column.nvim"),
   C("lukas-reineke/indent-blankline.nvim"),
   C("RRethy/vim-illuminate"),
   C({
