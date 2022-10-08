@@ -356,6 +356,7 @@ readlines
 readwrite
 realpath
 recv
+redir
 regexp
 relativenumber
 repo
@@ -460,6 +461,8 @@ unparted
 unregister
 updatetime
 usb
+usbredir
+usbredirserver
 userinfo
 username
 usr

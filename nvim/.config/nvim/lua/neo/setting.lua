@@ -66,9 +66,9 @@ vim.opt.listchars = {
 
 vim.opt.fillchars = {
   eob = " ",
-  fold = " ",
+  fold = "·",
   foldopen = "",
-  foldsep = " ",
+  foldsep = "│",
   foldclose = "",
 }
 
