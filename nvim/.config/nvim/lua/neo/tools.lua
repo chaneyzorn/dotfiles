@@ -42,7 +42,7 @@ function U.xmap(key, action, opts)
   U.plugmap("x", key, action, opts)
 end
 
--- 复制当前行到 system clipboard
+-- copy current line to system clipboard
 -- action like ^"+yg_ but without moving cursor
 function U.YankOneLine()
   fn.setreg("+", fn.trim(fn.getline(".")))
@@ -58,12 +58,6 @@ function U.ToggleMouse()
     vim.o.mouse = ""
     print("[ToggleMouse] mouse disabled")
   end
-end
-
--- 获取换行符模式
-function U.GetLineEnd()
-  local label = { unix = "LF", mac = "CR", dos = "CRLF" }
-  return label[vim.bo.fileformat]
 end
 
 function U.EnableCodingVision()
