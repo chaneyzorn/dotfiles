@@ -9,6 +9,9 @@ local vbo = vim.bo
 vg.mapleader = " "
 vg.maplocalleader = " "
 
+-- disable mouse
+vo.mouse = ""
+
 -- 设置编码为 utf-8
 vo.encoding = "UTF-8"
 
