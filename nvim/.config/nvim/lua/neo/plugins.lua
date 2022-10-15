@@ -95,8 +95,9 @@ local pkgs = {
   C("numToStr/Comment.nvim"),
 
   C("neovim/nvim-lspconfig"),
-  C("williamboman/nvim-lsp-installer"),
   C("jose-elias-alvarez/null-ls.nvim"),
+  C("williamboman/mason.nvim"),
+  D("williamboman/mason-lspconfig.nvim"),
   C("folke/trouble.nvim"),
   C("j-hui/fidget.nvim"),
 

@@ -30,7 +30,7 @@ function M.post()
     vim.fn.sign_define(hl, { text = icon, texthl = hl, linehl = "", numhl = "" })
   end
 
-  -- lsp server setup: see nvim-lsp-install.lua
+  -- lsp server setup: see mason.lua
 end
 
 function M.keybind()
