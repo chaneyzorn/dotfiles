@@ -62,6 +62,7 @@ local pkgs = {
   -- status-line and buffer-line
   C("nvim-lualine/lualine.nvim"),
   C("akinsho/nvim-bufferline.lua"),
+  C("rcarriga/nvim-notify"),
 
   -- editor env function enhance
   D("folke/which-key.nvim"),
