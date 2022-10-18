@@ -12,18 +12,18 @@ function M.post()
 
   local virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
     local newVirtText = {}
-    local suffix = ("  [%d lines] "):format(endLnum - lnum)
+    local suffix = ("   [%d lines] "):format(endLnum - lnum)
     local sufWidth = vim.fn.strdisplaywidth(suffix)
     local targetWidth = width - sufWidth
     local curWidth = 0
     for _, chunk in ipairs(virtText) do
       local chunkText = chunk[1]
+      local hlGroup = chunk[2]
       local chunkWidth = vim.fn.strdisplaywidth(chunkText)
       if targetWidth > curWidth + chunkWidth then
-        table.insert(newVirtText, chunk)
+        table.insert(newVirtText, { chunkText, hlGroup })
       else
         chunkText = truncate(chunkText, targetWidth - curWidth)
-        local hlGroup = chunk[2]
         table.insert(newVirtText, { chunkText, hlGroup })
         chunkWidth = vim.fn.strdisplaywidth(chunkText)
         -- str width returned from truncate() may less than 2nd argument, need padding
@@ -34,7 +34,7 @@ function M.post()
       end
       curWidth = curWidth + chunkWidth
     end
-    table.insert(newVirtText, { suffix, "MoreMsg" })
+    table.insert(newVirtText, { suffix, "ModeMsg" })
     return newVirtText
   end
 
@@ -50,13 +50,13 @@ function M.post()
     end
 
     return require("ufo")
-        .getFolds(bufnr, "lsp")
-        :catch(function(err)
-          return handleFallbackException(err, "treesitter")
-        end)
-        :catch(function(err)
-          return handleFallbackException(err, "indent")
-        end)
+      .getFolds(bufnr, "lsp")
+      :catch(function(err)
+        return handleFallbackException(err, "treesitter")
+      end)
+      :catch(function(err)
+        return handleFallbackException(err, "indent")
+      end)
   end
 
   require("ufo").setup({
