@@ -49,7 +49,7 @@ function M.pre()
   }
 end
 
-local config_scheme = function()
+function M.post()
   require("kanagawa").setup({
     undercurl = true,
     commentStyle = { italic = true },
@@ -64,30 +64,19 @@ local config_scheme = function()
     dimInactive = true,
     globalStatus = true,
     colors = {},
-    overrides = {},
+    overrides = {
+      Floaterm = { bg = "NONE" },
+      FloatermBorder = { bg = "NONE", fg = "gray" },
+      GitSignsCurrentLineBlame = { link = "Comment" },
+      SpellBad = { link = "NONE" },
+      SpellCap = { link = "NONE" },
+      SpellRare = { link = "NONE" },
+      SpellLocal = { link = "NONE" },
+      TSError = { link = "NONE" },
+    },
   })
-end
-
-function M.post()
-  config_scheme()
-
-  vim.api.nvim_exec(
-    -- colorscheme sonokai
-    -- colorscheme kanagawa
-    [[
-    colorscheme kanagawa
-
-    hi Floaterm             guibg=NONE
-    hi FloatermBorder       guibg=NONE      guifg=gray
-
-    hi! link SpellBad   None
-    hi! link SpellCap   None
-    hi! link SpellRare  None
-    hi! link SpellLocal None
-    hi! link TSError    None
-    ]],
-    false
-  )
+  -- vim.cmd("colorscheme sonokai")
+  vim.cmd("colorscheme kanagawa")
 end
 
 function M.keybind() end
