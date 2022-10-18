@@ -89,7 +89,6 @@ local pkgs = {
   -- git integration
   C("tpope/vim-fugitive"),
   C("lewis6991/gitsigns.nvim"),
-  C("APZelos/blamer.nvim"),
   C("sindrets/diffview.nvim"),
 
   -- coding helper
