@@ -29,15 +29,14 @@ local enhance_server_opts = {
 }
 
 local lspconfig = function(server_name)
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  -- Add additional capabilities supported by nvim-cmp
+  local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
   -- kevinhwang91/nvim-ufo
   capabilities.textDocument.foldingRange = {
     dynamicRegistration = false,
     lineFoldingOnly = true,
   }
-  -- Add additional capabilities supported by nvim-cmp
-  capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
   local opts = {
     -- apply to all lsp servers
