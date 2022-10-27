@@ -1,0 +1,11 @@
+[Unit]
+Description=Notify My Soul Timer
+Documentation=man:notify-send(1) man:systemd.special(7)
+
+[Timer]
+OnCalendar=hourly
+RandomizedDelaySec=800
+Persistent=true
+
+[Install]
+WantedBy=timers.target
