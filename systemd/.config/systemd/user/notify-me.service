@@ -5,6 +5,6 @@ Documentation=man:notify-send(1)
 [Service]
 Type=oneshot
 Environment=T1=身体健康，精神充盈；
-Environment=T2=自我实现，向死而生；
+Environment=T2=自我实现，自我解放；
 Environment=T3=行我所向，寻我所爱；
 ExecStart=/usr/bin/notify-send "Notify My Soul !" "${T1}\n${T2}\n${T3}" --icon=accessories-text-editor
