@@ -34,7 +34,9 @@ function M.post()
       bt.diagnostics.yamllint,
 
       -- shell
-      bt.formatting.shfmt,
+      bt.formatting.shfmt.with({
+        extra_filetypes = { "zsh" },
+      }),
       bt.diagnostics.shellcheck,
 
       -- markdown
