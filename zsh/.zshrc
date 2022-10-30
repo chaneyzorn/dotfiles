@@ -189,3 +189,5 @@ alias systemctlu="systemctl --user"
 # we add env LANG=en_US.UTF-8 to xfce-terminal.desktop
 # set back LANG=zh_CN.UTF-8 here
 export LANG=zh_CN.UTF-8
+
+[[ ! -f ~/.myutil.zsh ]] || source ~/.myutil.zsh
