@@ -1,10 +1,18 @@
-#
 # ~/.xprofile
-#
-#
 
 # Environment variables
-#
+
+# .pam_environment file deprecated
+# https://github.com/archlinux/svntogit-packages/commit/b9d1d5e6e62834ca97afe2023468d19d9faccad7
+
+# https://wiki.archlinux.org/title/Fcitx5#Integration
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export INPUT_METHOD=fcitx
+export SDL_IM_MODULE=fcitx
+# for kitty https://github.com/kovidgoyal/kitty/issues/469#issuecomment-778814173
+export GLFW_IM_MODULE=ibus
 
 [[ -f ~/.extend.xprofile ]] && . ~/.extend.xprofile
 
