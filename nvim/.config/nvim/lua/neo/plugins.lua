@@ -41,10 +41,7 @@ local pkgs = {
   C("lukas-reineke/virt-column.nvim"),
   C("lukas-reineke/indent-blankline.nvim"),
   C("RRethy/vim-illuminate"),
-  C({
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-  }),
+  C({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }),
   D("p00f/nvim-ts-rainbow"),
   C("levouh/tint.nvim"),
   C({
@@ -71,13 +68,11 @@ local pkgs = {
   C("voldikss/vim-floaterm"),
   C("voldikss/vim-translator"),
   D("editorconfig/editorconfig-vim"),
-  D({
-    "lilydjwg/fcitx.vim",
-    branch = "fcitx5",
-  }),
+  D({ "lilydjwg/fcitx.vim", branch = "fcitx5" }),
   D("farmergreg/vim-lastplace"),
   C("ervandew/supertab"),
   C("lambdalisue/suda.vim"),
+  C({ "phaazon/mind.nvim", branch = "v2.2" }),
   D("nvim-lua/plenary.nvim"),
   C({
     "nvim-telescope/telescope.nvim",
