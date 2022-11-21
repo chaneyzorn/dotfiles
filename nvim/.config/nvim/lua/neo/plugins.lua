@@ -63,6 +63,7 @@ local pkgs = {
 
   -- editor env function enhance
   D("folke/which-key.nvim"),
+  C("folke/todo-comments.nvim"),
   C("kyazdani42/nvim-tree.lua"),
   C("liuchengxu/vista.vim"),
   C("voldikss/vim-floaterm"),
