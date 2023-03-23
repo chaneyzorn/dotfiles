@@ -51,29 +51,19 @@ end
 
 function M.post()
   require("kanagawa").setup({
-    undercurl = true,
-    commentStyle = { italic = true },
-    functionStyle = {},
-    keywordStyle = { bold = true },
-    statementStyle = { bold = true },
-    typeStyle = {},
-    variablebuiltinStyle = { italic = true },
-    specialReturn = true,
-    specialException = true,
-    transparent = false,
-    dimInactive = true,
-    globalStatus = true,
-    colors = {},
-    overrides = {
-      Floaterm = { bg = "NONE" },
-      FloatermBorder = { bg = "NONE", fg = "gray" },
-      GitSignsCurrentLineBlame = { link = "Comment" },
-      SpellBad = { link = "NONE" },
-      SpellCap = { link = "NONE" },
-      SpellRare = { link = "NONE" },
-      SpellLocal = { link = "NONE" },
-      TSError = { link = "NONE" },
-    },
+    dimInactive = false,
+    overrides = function()
+      return {
+        Floaterm = { bg = "NONE" },
+        FloatermBorder = { bg = "NONE", fg = "gray" },
+        GitSignsCurrentLineBlame = { link = "Comment" },
+        SpellBad = { link = "NONE" },
+        SpellCap = { link = "NONE" },
+        SpellRare = { link = "NONE" },
+        SpellLocal = { link = "NONE" },
+        TSError = { link = "NONE" },
+      }
+    end,
   })
   -- vim.cmd("colorscheme sonokai")
   vim.cmd("colorscheme kanagawa")

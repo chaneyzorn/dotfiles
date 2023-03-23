@@ -25,13 +25,16 @@ local D = function(plug)
 end
 
 local pkgs = {
-  -- Packer can manage itself
-  D("wbthomason/packer.nvim"),
-  D("lewis6991/impatient.nvim"),
+  -- lazy.nvim does same things
+  -- D("lewis6991/impatient.nvim"),
 
   -- theme and icons
   D("sainnhe/sonokai"),
-  C("rebelot/kanagawa.nvim", "colorscheme"),
+  C({
+    "rebelot/kanagawa.nvim",
+    lazy = false,
+    priority = 1000,
+  }, "colorscheme"),
   D("ryanoasis/vim-devicons"),
   D("kyazdani42/nvim-web-devicons"),
 
@@ -41,12 +44,12 @@ local pkgs = {
   C("lukas-reineke/virt-column.nvim"),
   C("lukas-reineke/indent-blankline.nvim"),
   C("RRethy/vim-illuminate"),
-  C({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }),
+  C({ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" }),
   D("p00f/nvim-ts-rainbow"),
   C("levouh/tint.nvim"),
   C({
     "kevinhwang91/nvim-ufo",
-    requires = "kevinhwang91/promise-async",
+    dependencies = "kevinhwang91/promise-async",
   }),
 
   -- cursor quickly move
@@ -74,11 +77,11 @@ local pkgs = {
   C("ervandew/supertab"),
   C("lambdalisue/suda.vim"),
   C({ "phaazon/mind.nvim", branch = "v2.2" }),
-  D("nvim-lua/plenary.nvim"),
   C({
     "nvim-telescope/telescope.nvim",
-    requires = {
+    dependencies = {
       "nvim-lua/popup.nvim",
+      "nvim-lua/plenary.nvim",
     },
   }),
 
@@ -109,74 +112,47 @@ local pkgs = {
   C("L3MON4D3/LuaSnip"),
 }
 
-M._fetch_packer = false
-
-function M.ensure_packer()
-  -- Automatically install packer.nvim at bootstrapping
-  local pack_path = "/site/pack/packer/start/packer.nvim"
-  local install_path = vim.fn.stdpath("data") .. pack_path
-  local packer_repo = "https://github.com/wbthomason/packer.nvim"
-
-  if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    M._fetch_packer = vim.fn.system({ "git", "clone", "--depth", "1", packer_repo, install_path })
-  else
-    M._fetch_packer = false
+local ensure_lazy_nvim = function()
+  local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+  if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+      "git",
+      "clone",
+      "--filter=blob:none",
+      "https://github.com/folke/lazy.nvim.git",
+      "--branch=stable",
+      lazypath,
+    })
   end
-
+  vim.opt.rtp:prepend(lazypath)
   return M
 end
 
-local record_pkgs = function()
-  require("packer").startup({
-    function(use)
-      use(pkgs)
-      if M._fetch_packer then
-        require("packer").sync()
-      end
-    end,
-    config = {
-      max_jobs = 10,
-      git = { clone_timeout = false },
-      display = {
-        prompt_border = "rounded",
-        open_fn = function()
-          return require("packer.util").float({ border = "rounded" })
+local gen_pkg_specs = function()
+  local plugs = {}
+  for _, pkg in ipairs(pkgs) do
+    if pkg._c then
+      local conf = require("neo.plugconf." .. pkg._c)
+      local pkg_spec = vim.tbl_extend("force", pkg, {
+        init = function()
+          conf.pre()
+          conf.keybind()
         end,
-      },
-    },
-  })
-end
-
-local pre_conf = function()
-  for _, v in ipairs(pkgs) do
-    if v._c then
-      require("neo.plugconf." .. v._c).pre()
+        config = function()
+          conf.post()
+        end,
+      })
+      table.insert(plugs, pkg_spec)
+    else
+      table.insert(plugs, pkg)
     end
   end
+  return plugs
 end
 
 function M.setup()
-  record_pkgs()
-  pre_conf()
-  return M
-end
-
-function M.post_conf()
-  for _, v in ipairs(pkgs) do
-    if v._c then
-      require("neo.plugconf." .. v._c).post()
-    end
-  end
-  return M
-end
-
-function M.keybind()
-  for _, v in ipairs(pkgs) do
-    if v._c then
-      require("neo.plugconf." .. v._c).keybind()
-    end
-  end
-  return M
+  ensure_lazy_nvim()
+  require("lazy").setup(gen_pkg_specs())
 end
 
 return M

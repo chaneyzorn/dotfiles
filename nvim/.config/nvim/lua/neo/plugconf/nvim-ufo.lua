@@ -71,8 +71,12 @@ function M.post()
 end
 
 function M.keybind()
-  vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-  vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+  vim.keymap.set("n", "zR", function()
+    require("ufo").openAllFolds()
+  end)
+  vim.keymap.set("n", "zM", function()
+    require("ufo").closeAllFolds()
+  end)
 end
 
 return M
