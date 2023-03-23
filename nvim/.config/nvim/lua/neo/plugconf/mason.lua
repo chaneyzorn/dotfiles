@@ -3,7 +3,7 @@ local M = {}
 function M.pre() end
 
 local enhance_server_opts = {
-  ["sumneko_lua"] = function(opts)
+  ["lua_ls"] = function(opts)
     local runtime_path = vim.split(package.path, ";")
     table.insert(runtime_path, "lua/?.lua")
     table.insert(runtime_path, "lua/?/init.lua")
@@ -68,7 +68,7 @@ function M.post()
 
   require("mason-lspconfig").setup({
     ensure_installed = {
-      "sumneko_lua",
+      "lua_ls",
       "rust_analyzer",
       "tsserver",
       "pylsp",
