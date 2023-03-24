@@ -44,7 +44,10 @@ local pkgs = {
   C("lukas-reineke/virt-column.nvim"),
   C("lukas-reineke/indent-blankline.nvim"),
   C("RRethy/vim-illuminate"),
-  C({ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" }),
+  C({
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+  }),
   D("p00f/nvim-ts-rainbow"),
   C("levouh/tint.nvim"),
   C({
@@ -56,7 +59,10 @@ local pkgs = {
   D("ggandor/lightspeed.nvim"),
   -- C("ggandor/leap.nvim"),
   D("tpope/vim-surround"),
-  C("windwp/nvim-autopairs"),
+  C({
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+  }),
   C("declancm/cinnamon.nvim"),
 
   -- status-line and buffer-line
@@ -67,12 +73,19 @@ local pkgs = {
   -- editor env function enhance
   D("folke/which-key.nvim"),
   C("folke/todo-comments.nvim"),
-  C("kyazdani42/nvim-tree.lua"),
+  C({
+    "kyazdani42/nvim-tree.lua",
+    cmd = "NvimTreeToggle",
+  }),
   C("liuchengxu/vista.vim"),
   C("voldikss/vim-floaterm"),
   C("voldikss/vim-translator"),
   D("editorconfig/editorconfig-vim"),
-  D({ "lilydjwg/fcitx.vim", branch = "fcitx5" }),
+  D({
+    "lilydjwg/fcitx.vim",
+    branch = "fcitx5",
+    event = "InsertEnter",
+  }),
   D("farmergreg/vim-lastplace"),
   C("ervandew/supertab"),
   C("lambdalisue/suda.vim"),
@@ -88,15 +101,27 @@ local pkgs = {
   -- git integration
   C("tpope/vim-fugitive"),
   C("lewis6991/gitsigns.nvim"),
-  C("sindrets/diffview.nvim"),
+  C({
+    "sindrets/diffview.nvim",
+    cmd = {
+      "DiffviewOpen",
+      "DiffviewFileHistory",
+    },
+  }),
 
   -- coding helper
   C("numToStr/Comment.nvim"),
 
   C("neovim/nvim-lspconfig"),
   C("jose-elias-alvarez/null-ls.nvim"),
-  C("williamboman/mason.nvim"),
-  D("williamboman/mason-lspconfig.nvim"),
+  C({
+    "williamboman/mason.nvim",
+    cmd = "Mason",
+  }),
+  D({
+    "williamboman/mason-lspconfig.nvim",
+    lazy = true,
+  }),
   C("folke/trouble.nvim"),
   C("j-hui/fidget.nvim"),
 
@@ -142,6 +167,7 @@ local gen_pkg_specs = function()
           conf.post()
         end,
       })
+      pkg_spec._c = nil
       table.insert(plugs, pkg_spec)
     else
       table.insert(plugs, pkg)
