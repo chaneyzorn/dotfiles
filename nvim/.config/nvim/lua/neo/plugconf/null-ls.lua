@@ -12,10 +12,8 @@ function M.post()
       bt.diagnostics.cppcheck,
 
       -- python
-      bt.formatting.black.with({
-        command = vim.fn.expand("~/.local/bin/black"),
-      }),
-      bt.diagnostics.pylint,
+      bt.formatting.ruff,
+      bt.diagnostics.ruff,
 
       -- golang
       bt.formatting.gofmt,
