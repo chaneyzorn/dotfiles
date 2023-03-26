@@ -51,7 +51,7 @@ end
 
 function M.post()
   require("kanagawa").setup({
-    dimInactive = false,
+    dimInactive = true,
     overrides = function()
       return {
         Floaterm = { bg = "NONE" },

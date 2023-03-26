@@ -35,49 +35,108 @@ local pkgs = {
     lazy = false,
     priority = 1000,
   }, "colorscheme"),
-  D("ryanoasis/vim-devicons"),
-  D("kyazdani42/nvim-web-devicons"),
+  D({
+    "ryanoasis/vim-devicons",
+    lazy = true,
+  }),
+  D({
+    "nvim-tree/nvim-web-devicons",
+    lazy = true,
+  }),
 
   -- editor content hints
-  C("ntpeters/vim-better-whitespace"),
-  C("norcalli/nvim-colorizer.lua"),
-  C("lukas-reineke/virt-column.nvim"),
-  C("lukas-reineke/indent-blankline.nvim"),
-  C("RRethy/vim-illuminate"),
+  C({
+    "ntpeters/vim-better-whitespace",
+    event = "BufReadPre",
+  }),
+  C({
+    "norcalli/nvim-colorizer.lua",
+    event = "BufReadPre",
+  }),
+  C({
+    "lukas-reineke/virt-column.nvim",
+    event = {
+      "BufReadPost",
+      "BufNewFile",
+    },
+  }),
+  C({
+    "lukas-reineke/indent-blankline.nvim",
+    event = {
+      "BufReadPre",
+      "BufNewFile",
+    },
+  }),
+  C({
+    "RRethy/vim-illuminate",
+    event = "BufReadPost",
+  }),
   C({
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    event = { "BufReadPost", "BufNewFile" },
   }),
-  D("p00f/nvim-ts-rainbow"),
-  C("levouh/tint.nvim"),
+  D({
+    "p00f/nvim-ts-rainbow",
+    event = "BufReadPre",
+  }),
+  -- C("levouh/tint.nvim"),
   C({
     "kevinhwang91/nvim-ufo",
     dependencies = "kevinhwang91/promise-async",
+    event = "BufReadPre",
   }),
 
   -- cursor quickly move
-  D("ggandor/lightspeed.nvim"),
+  D({
+    "ggandor/lightspeed.nvim",
+    event = "BufReadPre",
+  }),
   -- C("ggandor/leap.nvim"),
-  D("tpope/vim-surround"),
+  D({
+    "tpope/vim-surround",
+    event = "BufReadPre",
+  }),
   C({
     "windwp/nvim-autopairs",
     event = "InsertEnter",
   }),
-  C("declancm/cinnamon.nvim"),
+  C({
+    "declancm/cinnamon.nvim",
+    event = "BufReadPre",
+  }),
 
   -- status-line and buffer-line
-  C("nvim-lualine/lualine.nvim"),
-  C("akinsho/nvim-bufferline.lua"),
-  C("rcarriga/nvim-notify"),
+  C({
+    "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
+  }),
+  C({
+    "akinsho/nvim-bufferline.lua",
+    event = "BufReadPre",
+  }),
+  -- C("rcarriga/nvim-notify"),
 
   -- editor env function enhance
-  D("folke/which-key.nvim"),
-  C("folke/todo-comments.nvim"),
+  D({
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+  }),
+  C({
+    "folke/todo-comments.nvim",
+    event = "BufReadPost",
+  }),
   C({
     "kyazdani42/nvim-tree.lua",
-    cmd = "NvimTreeToggle",
+    cmd = {
+      "NvimTreeToggle",
+      "NvimTreeFindFile",
+    },
   }),
-  C("liuchengxu/vista.vim"),
+  C({
+    "liuchengxu/vista.vim",
+    cmd = "Vista",
+  }),
   C("voldikss/vim-floaterm"),
   C("voldikss/vim-translator"),
   D("editorconfig/editorconfig-vim"),
@@ -86,12 +145,22 @@ local pkgs = {
     branch = "fcitx5",
     event = "InsertEnter",
   }),
-  D("farmergreg/vim-lastplace"),
+  D({
+    "farmergreg/vim-lastplace",
+    event = "BufReadPre",
+  }),
   C("ervandew/supertab"),
-  C("lambdalisue/suda.vim"),
-  C({ "phaazon/mind.nvim", branch = "v2.2" }),
+  C({
+    "lambdalisue/suda.vim",
+    event = "CmdlineEnter",
+  }),
+  C({
+    "phaazon/mind.nvim",
+    branch = "v2.2",
+  }),
   C({
     "nvim-telescope/telescope.nvim",
+    cmd = "Telescope",
     dependencies = {
       "nvim-lua/popup.nvim",
       "nvim-lua/plenary.nvim",
@@ -99,8 +168,14 @@ local pkgs = {
   }),
 
   -- git integration
-  C("tpope/vim-fugitive"),
-  C("lewis6991/gitsigns.nvim"),
+  C({
+    "tpope/vim-fugitive",
+    event = "BufReadPre",
+  }),
+  C({
+    "lewis6991/gitsigns.nvim",
+    event = "BufReadPre",
+  }),
   C({
     "sindrets/diffview.nvim",
     cmd = {
@@ -110,7 +185,13 @@ local pkgs = {
   }),
 
   -- coding helper
-  C("numToStr/Comment.nvim"),
+  C({
+    "numToStr/Comment.nvim",
+    event = {
+      "BufReadPre",
+      "BufNewFile",
+    },
+  }),
 
   C("neovim/nvim-lspconfig"),
   C("jose-elias-alvarez/null-ls.nvim"),
@@ -122,19 +203,56 @@ local pkgs = {
     "williamboman/mason-lspconfig.nvim",
     lazy = true,
   }),
-  C("folke/trouble.nvim"),
-  C("j-hui/fidget.nvim"),
+  C({
+    "folke/trouble.nvim",
+    cmd = {
+      "Trouble",
+      "TroubleToggle",
+    },
+  }),
+  C({
+    "j-hui/fidget.nvim",
+    event = "VeryLazy",
+  }),
 
   -- nvim-cmp
-  D("hrsh7th/cmp-nvim-lsp"),
-  D("hrsh7th/cmp-buffer"),
-  D("hrsh7th/cmp-path"),
-  D("hrsh7th/cmp-cmdline"),
-  C("hrsh7th/nvim-cmp"),
+  D({
+    "hrsh7th/cmp-nvim-lsp",
+    event = "InsertEnter",
+  }),
+  D({
+    "hrsh7th/cmp-buffer",
+    event = "InsertEnter",
+  }),
+  D({
+    "hrsh7th/cmp-path",
+    event = "InsertEnter",
+  }),
+  D({
+    "hrsh7th/cmp-cmdline",
+    event = "CmdlineEnter",
+  }),
+  C({
+    "hrsh7th/nvim-cmp",
+    event = {
+      "InsertEnter",
+      "CmdlineEnter",
+    },
+  }),
 
-  D("saadparwaiz1/cmp_luasnip"),
-  D("rafamadriz/friendly-snippets"),
-  C("L3MON4D3/LuaSnip"),
+  D({
+    "saadparwaiz1/cmp_luasnip",
+    event = "InsertEnter",
+  }),
+  D({
+    "rafamadriz/friendly-snippets",
+    event = "InsertEnter",
+  }),
+  C({
+    "L3MON4D3/LuaSnip",
+    build = "make install_jsregexp",
+    event = "InsertEnter",
+  }),
 }
 
 local ensure_lazy_nvim = function()

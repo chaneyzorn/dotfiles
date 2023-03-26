@@ -4,7 +4,6 @@ function M.pre() end
 
 function M.post()
   local cmp = require("cmp")
-  local luasnip = require("luasnip")
 
   local kind_icons = {
     Text = "",
@@ -53,6 +52,7 @@ function M.post()
     }),
     snippet = {
       expand = function(args)
+        local luasnip = require("luasnip")
         luasnip.lsp_expand(args.body)
       end,
     },
@@ -72,6 +72,7 @@ function M.post()
       }),
       ["<CR>"] = cmp.mapping.confirm({ select = true }),
       ["<Tab>"] = cmp.mapping(function(fallback)
+        local luasnip = require("luasnip")
         if cmp.visible() then
           cmp.select_next_item()
         elseif luasnip.expand_or_jumpable() then
@@ -87,6 +88,7 @@ function M.post()
       }),
 
       ["<S-Tab>"] = cmp.mapping(function(fallback)
+        local luasnip = require("luasnip")
         if cmp.visible() then
           cmp.select_prev_item()
         elseif luasnip.jumpable(-1) then
