@@ -1,6 +1,7 @@
 local M = {}
 
-function M.pre() end
+function M.pre()
+end
 
 function M.post()
   local signs = { Error = "", Warn = "", Info = "", Hint = "" }
@@ -40,14 +41,26 @@ function M.keybind()
     vim.keymap.set("n", key, func)
   end
 
-  nkset("[e", vim.diagnostic.goto_prev)
-  nkset("]e", vim.diagnostic.goto_next)
+  nkset("[e", function()
+    vim.diagnostic.goto_prev()
+  end)
+  nkset("]e", function()
+    vim.diagnostic.goto_next()
+  end)
 
-  nkset("<C-k>", vim.lsp.buf.signature_help)
-  nkset("<C-K>", vim.lsp.buf.hover)
+  nkset("<C-k>", function()
+    vim.lsp.buf.signature_help()
+  end)
+  nkset("<C-K>", function()
+    vim.lsp.buf.hover()
+  end)
 
-  nkset("<Leader>gD", vim.lsp.buf.declaration)
-  nkset("<Leader>gi", vim.lsp.buf.implementation)
+  nkset("<Leader>gD", function()
+    vim.lsp.buf.declaration()
+  end)
+  nkset("<Leader>gi", function()
+    vim.lsp.buf.implementation()
+  end)
 
   -- use trouble.nvim as lsp list
   U.nmap("<C-j>", "<Cmd>TroubleToggle lsp_definitions<CR>")
@@ -55,9 +68,15 @@ function M.keybind()
   U.nmap("<Leader>gt", "<Cmd>TroubleToggle lsp_type_definitions<CR>")
   U.nmap("<Leader>gr", "<Cmd>TroubleToggle lsp_references<CR>")
 
-  nkset("<Leader>ca", vim.lsp.buf.code_action)
-  nkset("<Leader>cf", vim.lsp.buf.format or vim.lsp.buf.formatting)
-  nkset("<Leader>rn", vim.lsp.buf.rename)
+  nkset("<Leader>ca", function()
+    vim.lsp.buf.code_action()
+  end)
+  nkset("<Leader>cf", function()
+    vim.lsp.buf.format()
+  end)
+  nkset("<Leader>rn", function()
+    vim.lsp.buf.rename()
+  end)
   nkset("<Leader>cv", U.EnableCodingVision)
   nkset("<Leader>cx", U.DisableCodingVision)
   nkset("<Leader>zg", U.RefreshCSpell)
@@ -68,7 +87,6 @@ function M.keybind()
     gi = "跳转到实现",
     gt = "跳转到类型",
     gr = "跳转到引用",
-
     ca = "Code Action",
     cf = "格式化代码",
     rn = "重命名符号",
