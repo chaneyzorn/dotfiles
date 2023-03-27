@@ -137,8 +137,10 @@ local pkgs = {
     "liuchengxu/vista.vim",
     cmd = "Vista",
   }),
-  C("voldikss/vim-floaterm"),
-  C("voldikss/vim-translator"),
+  C({
+    "voldikss/vim-floaterm",
+    event = "VeryLazy",
+  }),
   D("editorconfig/editorconfig-vim"),
   D({
     "lilydjwg/fcitx.vim",
@@ -149,7 +151,13 @@ local pkgs = {
     "farmergreg/vim-lastplace",
     event = "BufReadPre",
   }),
-  C("ervandew/supertab"),
+  C({
+    "ervandew/supertab",
+    event = {
+      "InsertEnter",
+      "CmdlineEnter",
+    },
+  }),
   C({
     "lambdalisue/suda.vim",
     event = "CmdlineEnter",
