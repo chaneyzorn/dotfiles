@@ -155,10 +155,6 @@ local pkgs = {
     event = "CmdlineEnter",
   }),
   C({
-    "phaazon/mind.nvim",
-    branch = "v2.2",
-  }),
-  C({
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     dependencies = {
@@ -193,11 +189,31 @@ local pkgs = {
     },
   }),
 
-  C("neovim/nvim-lspconfig"),
-  C("jose-elias-alvarez/null-ls.nvim"),
+  C({
+    "neovim/nvim-lspconfig",
+    event = {
+      "BufReadPre",
+      "BufNewFile",
+    },
+  }),
+  C({
+    "jose-elias-alvarez/null-ls.nvim",
+    event = {
+      "BufReadPre",
+      "BufNewFile",
+    },
+    dependencies = {
+      "mason.nvim",
+    },
+  }),
   C({
     "williamboman/mason.nvim",
+    build = ":MasonUpdate",
     cmd = "Mason",
+    event = {
+      "BufReadPre",
+      "BufNewFile",
+    },
   }),
   D({
     "williamboman/mason-lspconfig.nvim",
