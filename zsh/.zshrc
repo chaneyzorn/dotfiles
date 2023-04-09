@@ -109,7 +109,6 @@ plugins=(
     git
     pip
     python
-    thefuck
     z
 )
 autoload -U compinit && compinit

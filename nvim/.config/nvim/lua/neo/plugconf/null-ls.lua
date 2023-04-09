@@ -12,7 +12,7 @@ function M.post()
       bt.diagnostics.cppcheck,
 
       -- python
-      bt.formatting.ruff,
+      bt.formatting.black,
       bt.diagnostics.ruff,
 
       -- golang
