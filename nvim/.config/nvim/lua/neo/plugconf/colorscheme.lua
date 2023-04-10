@@ -51,22 +51,39 @@ end
 
 function M.post()
   require("kanagawa").setup({
+    colors = {
+      theme = {
+        all = {
+          ui = {
+            bg_gutter = "none",
+          },
+        },
+      },
+    },
     dimInactive = true,
-    overrides = function()
+    overrides = function(colors)
+      local theme = colors.theme
       return {
-        Floaterm = { bg = "NONE" },
-        FloatermBorder = { bg = "NONE", fg = "gray" },
-        GitSignsCurrentLineBlame = { link = "Comment" },
         SpellBad = { link = "NONE" },
         SpellCap = { link = "NONE" },
         SpellRare = { link = "NONE" },
         SpellLocal = { link = "NONE" },
         TSError = { link = "NONE" },
+
+        NormalFloat = { bg = "none" },
+        FloatBorder = { bg = "none" },
+        FloatTitle = { bg = "none" },
+
+        Floaterm = { bg = "NONE" },
+        FloatermBorder = { bg = "NONE", fg = "gray" },
+        GitSignsCurrentLineBlame = { link = "Comment" },
+        LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+        MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
       }
     end,
   })
   -- vim.cmd("colorscheme sonokai")
-  vim.cmd("colorscheme kanagawa")
+  vim.cmd("colorscheme kanagawa-wave")
 end
 
 function M.keybind() end
