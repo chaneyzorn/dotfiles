@@ -160,6 +160,7 @@ alias lt='ls --tree'
 alias slk='ss-local -v -l 1080 `ss-quick -c ~/.vpn/shadowsocks/gui-config.json`'
 alias t='tmux'
 alias ta='tmux attach'
+alias tm='teamocil'
 alias pi='teamocil chaney-pi'
 
 # virtualenv --python=/usr/bin/python2 ~/Pyvenv/venv2.7/

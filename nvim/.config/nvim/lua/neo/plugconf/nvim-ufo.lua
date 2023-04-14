@@ -1,7 +1,7 @@
 local M = {}
 
 function M.pre()
-  vim.o.foldcolumn = "1"
+  -- vim.o.foldcolumn = "1"
   vim.o.foldlevel = 99
   vim.o.foldlevelstart = 99
   vim.o.foldenable = true
@@ -21,7 +21,7 @@ function M.post()
       local hlGroup = chunk[2]
       local chunkWidth = vim.fn.strdisplaywidth(chunkText)
       if targetWidth > curWidth + chunkWidth then
-        table.insert(newVirtText, { chunkText, hlGroup })
+        table.insert(newVirtText, chunk)
       else
         chunkText = truncate(chunkText, targetWidth - curWidth)
         table.insert(newVirtText, { chunkText, hlGroup })
