@@ -71,7 +71,7 @@ function M.post()
       "lua_ls",
       "rust_analyzer",
       "tsserver",
-      "pylsp",
+      "pyright",
       "gopls",
       "clangd",
     },

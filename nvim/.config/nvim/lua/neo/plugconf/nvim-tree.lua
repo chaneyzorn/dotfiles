@@ -6,7 +6,6 @@ function M.post()
   require("nvim-tree").setup({
     disable_netrw = true,
     hijack_netrw = true,
-    open_on_setup = false,
     view = {
       adaptive_size = true,
     },
