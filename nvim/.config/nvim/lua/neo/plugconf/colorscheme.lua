@@ -3,14 +3,6 @@ local M = {}
 function M.pre()
   local vg = vim.g
 
-  -- use sainnhe/sonokai colorscheme
-  vg.sonokai_style = "andromeda"
-  vg.sonokai_enable_italic = 1
-  vg.sonokai_disable_italic_comment = 0
-  vg.sonokai_transparent_background = 0
-  vg.sonokai_sign_column_background = "none"
-  vg.sonokai_menu_selection_background = "green"
-
   -- xfce4/terminal/colorschemes/chaney_dark.theme
   vg.terminal_color_0 = "#073642"
   vg.terminal_color_1 = "#dc322f"
@@ -82,7 +74,6 @@ function M.post()
       }
     end,
   })
-  -- vim.cmd("colorscheme sonokai")
   vim.cmd("colorscheme kanagawa-wave")
 end
 

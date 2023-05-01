@@ -25,11 +25,7 @@ local D = function(plug)
 end
 
 local pkgs = {
-  -- lazy.nvim does same things
-  -- D("lewis6991/impatient.nvim"),
-
   -- theme and icons
-  D("sainnhe/sonokai"),
   C({
     "rebelot/kanagawa.nvim",
     lazy = false,
@@ -105,6 +101,7 @@ local pkgs = {
     event = "InsertEnter",
   }),
   C({
+    -- Smooth scrolling for ANY movement command
     "declancm/cinnamon.nvim",
     event = "BufReadPre",
   }),
@@ -118,7 +115,6 @@ local pkgs = {
     "akinsho/nvim-bufferline.lua",
     event = "BufReadPre",
   }),
-  -- C("rcarriga/nvim-notify"),
 
   -- editor env function enhance
   D({

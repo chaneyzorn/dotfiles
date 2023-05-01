@@ -36,6 +36,9 @@ vwo.number = true
 -- 高亮光标所在的行
 vo.cursorline = true
 
+-- show ruler virt-line at textwidth +1
+vo.colorcolumn = "+1"
+
 -- 总是显示指示列
 vo.signcolumn = "yes"
 
