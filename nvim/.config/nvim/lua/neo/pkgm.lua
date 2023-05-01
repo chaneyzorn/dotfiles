@@ -88,11 +88,14 @@ local pkgs = {
   }),
 
   -- cursor quickly move
-  D({
-    "ggandor/lightspeed.nvim",
-    event = "BufReadPre",
+  C({
+    "ggandor/leap.nvim",
+    keys = {
+      { "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
+      { "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
+      { "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
+    },
   }),
-  -- C("ggandor/leap.nvim"),
   D({
     "tpope/vim-surround",
     event = "BufReadPre",
@@ -141,7 +144,6 @@ local pkgs = {
     "voldikss/vim-floaterm",
     event = "VeryLazy",
   }),
-  D("editorconfig/editorconfig-vim"),
   D({
     "lilydjwg/fcitx.vim",
     branch = "fcitx5",
