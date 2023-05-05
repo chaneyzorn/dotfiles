@@ -76,6 +76,13 @@ local M = {
 
 if wezterm.target_triple == "x86_64-apple-darwin" then
   M.font_size = 14.0
+  M.window_background_opacity = 0.9
+  M.macos_window_background_blur = 20
+end
+
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+  M.window_background_opacity = 0
+  M.win32_system_backdrop = "Tabbed"
 end
 
 wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
