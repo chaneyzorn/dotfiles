@@ -5,6 +5,7 @@ local hostname = wezterm.hostname()
 local M = {
   font = wezterm.font_with_fallback({ "JetBrains Mono", "Symbols Nerd Font" }),
   font_size = 10.0,
+  adjust_window_size_when_changing_font_size = false,
   color_scheme = "chaney_dark",
   color_schemes = {
     chaney_dark = {
