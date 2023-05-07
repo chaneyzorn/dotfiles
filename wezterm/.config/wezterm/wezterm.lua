@@ -76,7 +76,7 @@ local M = {
 
 if wezterm.target_triple == "x86_64-apple-darwin" then
   M.font_size = 14.0
-  M.window_background_opacity = 0.9
+  M.window_background_opacity = 0.8
   M.macos_window_background_blur = 20
 end
 
