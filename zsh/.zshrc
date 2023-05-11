@@ -181,6 +181,7 @@ alias vde=neovide
 alias ssh='TERM=xterm-256color \ssh'
 
 alias systemctlu="systemctl --user"
+alias dblackf="git diff --name-only | xargs -i black {}"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
