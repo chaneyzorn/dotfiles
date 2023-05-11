@@ -81,8 +81,8 @@ if wezterm.target_triple == "x86_64-apple-darwin" then
 end
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-  M.window_background_opacity = 0
-  M.win32_system_backdrop = "Tabbed"
+  M.window_background_opacity = 0.8
+  M.win32_system_backdrop = "Acrylic"
 end
 
 wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
