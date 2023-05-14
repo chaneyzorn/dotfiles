@@ -31,7 +31,7 @@ function M.pre()
     ["namespace"] = "",
     ["package"] = "⯄",
     ["packages"] = "⯄",
-    ["property"] = "襁",
+    ["property"] = "󰖷",
     ["struct"] = "❴❵",
     ["subroutine"] = "⥹",
     ["target"] = "🞉",

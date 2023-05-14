@@ -27,7 +27,7 @@ function M.post()
           "diagnostics",
           sources = { "nvim_diagnostic" },
           sections = { "error", "warn", "info", "hint" },
-          symbols = { error = " ", warn = " ", info = " ", hint = "ﯦ " },
+          symbols = { error = " ", warn = " ", info = " ", hint = "󰛨 " },
           diagnostics_color = {
             error = { fg = U.colors.red },
             warn = { fg = U.colors.yellow },
@@ -42,7 +42,7 @@ function M.post()
           "filename",
           path = 1,
           symbols = {
-            modified = "[]",
+            modified = "[󰃉]",
             readonly = "[]",
             unnamed = "[No Name]",
           },

@@ -4,8 +4,8 @@ function M.pre()
 end
 
 function M.post()
-  local signs = { Error = "", Warn = "", Info = "", Hint = "" }
-  local symbols = { Error = "", Warn = "", Info = "", Hint = "ﯦ" }
+  local signs = { Error = "󰅚", Warn = "", Info = "", Hint = "󰌶" }
+  local symbols = { Error = "", Warn = "", Info = "", Hint = "󰛨" }
 
   vim.diagnostic.config({
     virtual_text = {

@@ -25,11 +25,11 @@ function M.post()
       cspell_all_good = "sg",
     },
     signs = {
-      error = "",
+      error = "󰅚",
       warning = "",
-      hint = "",
+      hint = "󰌶",
       information = "",
-      other = "﫠",
+      other = "󰗡",
     },
     use_diagnostic_signs = false,
   })
