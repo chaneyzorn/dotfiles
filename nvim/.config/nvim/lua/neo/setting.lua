@@ -122,9 +122,10 @@ vo.path = table.concat({
   "/usr/lib/gcc/**/include",
 }, ",")
 
-vg.python_host_prog = vim.fn.glob("~/Pyvenv/venv2.7/bin/python2")
 vg.python3_host_prog = vim.fn.glob("~/Pyvenv/venv3/bin/python3")
+vg.loaded_ruby_provider = 0
+vg.loaded_perl_provider = 0
 
 -- disable netrw
-vg.loaded_netrw = 1
-vg.loaded_netrwPlugin = 1
+-- vg.loaded_netrw = 1
+-- vg.loaded_netrwPlugin = 1
