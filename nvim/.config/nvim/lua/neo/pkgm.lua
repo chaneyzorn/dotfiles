@@ -168,6 +168,10 @@ local pkgs = {
       "nvim-lua/plenary.nvim",
     },
   }),
+  C({
+    "ojroques/nvim-osc52",
+    event = "BufReadPre",
+  }),
 
   -- git integration
   C({

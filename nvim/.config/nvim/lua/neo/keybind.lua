@@ -97,6 +97,8 @@ end
 M.register_keymap = function()
   local U = require("neo.tools")
 
+  -- without leader key
+
   -- easy switch
   U.nmap("[b", "<Cmd>bprevious<CR>")
   U.nmap("]b", "<Cmd>bnext<CR>")
