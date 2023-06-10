@@ -30,6 +30,8 @@ RUBY_BIN=$(ruby -r rubygems -e 'puts Gem.user_dir')/bin
 MY_PATH=$MY_BIN:$GO_BIN:$RUST_BIN:$PNPM_HOME:$NODE_BIN:$RUBY_BIN:$LUA_BIN:$LOCAL_BIN:$LOCAL_SBIN
 
 export PATH=$MY_PATH:$BASE_PATH
+[[ ! -f ~/.rye/env ]] || source ~/.rye/env
+
 export SHELL=$(which zsh)
 eval `luarocks path --no-bin`
 
