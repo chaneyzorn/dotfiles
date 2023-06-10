@@ -238,6 +238,7 @@ local pkgs = {
   }),
   C({
     "j-hui/fidget.nvim",
+    tag = "legacy",
     event = "VeryLazy",
   }),
 
