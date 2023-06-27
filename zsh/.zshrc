@@ -23,11 +23,12 @@ LOCAL_BIN=/usr/local/bin
 LOCAL_SBIN=/usr/local/sbin
 GO_BIN=$GOPATH/bin
 MY_BIN=$HOME/myutils/bin
+MY_LOCAL_BIN=$HOME/.local/bin
 RUST_BIN=$HOME/.cargo/bin
 LUA_BIN=$HOME/.luarocks/bin
 NODE_BIN=$HOME/.node_modules_global/bin
 RUBY_BIN=$(ruby -r rubygems -e 'puts Gem.user_dir')/bin
-MY_PATH=$MY_BIN:$GO_BIN:$RUST_BIN:$PNPM_HOME:$NODE_BIN:$RUBY_BIN:$LUA_BIN:$LOCAL_BIN:$LOCAL_SBIN
+MY_PATH=$MY_BIN:$MY_LOCAL_BIN:$GO_BIN:$RUST_BIN:$PNPM_HOME:$NODE_BIN:$RUBY_BIN:$LUA_BIN:$LOCAL_BIN:$LOCAL_SBIN
 
 export PATH=$MY_PATH:$BASE_PATH
 [[ ! -f ~/.rye/env ]] || source ~/.rye/env
