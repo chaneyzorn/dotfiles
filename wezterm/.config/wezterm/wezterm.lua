@@ -74,7 +74,13 @@ local M = {
   custom_block_glyphs = false,
 }
 
-if wezterm.target_triple == "x86_64-apple-darwin" then
+local function ends_with(str, ending)
+  return ending == "" or str:sub(-#ending) == ending
+end
+
+-- x86_64-apple-darwin
+-- aarch64-apple-darwin
+if ends_with(wezterm.target_triple, "apple-darwin") then
   M.font_size = 14.0
   M.window_background_opacity = 0.8
   M.macos_window_background_blur = 20
