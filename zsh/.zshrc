@@ -163,6 +163,7 @@ alias lt='ls --tree'
 alias slk='ss-local -v -l 1080 `ss-quick -c ~/.vpn/shadowsocks/gui-config.json`'
 alias t='tmux'
 alias ta='tmux attach'
+alias tt='ta || t'
 alias tm='teamocil'
 alias pi='teamocil chaney-pi'
 
@@ -184,7 +185,7 @@ alias vde=neovide
 alias ssh='TERM=xterm-256color \ssh'
 
 alias systemctlu="systemctl --user"
-alias dblackf="git diff --name-only | xargs -i black {}"
+alias dblackf="git diff --name-only | xargs -L1 black"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
