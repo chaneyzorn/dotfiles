@@ -4,6 +4,6 @@ windows:
     root: ~
     layout: main-vertical
     panes:
-      - ssh chaney-pi1
-      - ssh chaney-pi2
-      - ssh chaney-pi3
+      - ssh chaney-pi1.local
+      - ssh chaney-pi2.local
+      - ssh chaney-pi3.local
