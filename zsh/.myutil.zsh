@@ -13,3 +13,7 @@ gitup() {
         echo ""
     done
 }
+
+envproxy() {
+    echo "export https_proxy=http://$1:7890;export http_proxy=http://$1:7890;export all_proxy=socks5://$1:7890"
+}
