@@ -16,14 +16,6 @@ function M.post()
       enable = true,
       disable = {},
     },
-    rainbow = {
-      enable = true,
-      disable = {},
-      extended_mode = true,
-      max_file_lines = nil,
-      -- colors = {}, -- table of hex strings
-      -- termcolors = {"Tan", "PaleGreen", "SkyBlue", "Gold", "Orchid", "Orange", "Fuchsia", "Ivory"},
-    },
   })
 end
 

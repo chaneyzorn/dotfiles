@@ -72,10 +72,6 @@ local pkgs = {
     build = ":TSUpdate",
     event = { "BufReadPost", "BufNewFile" },
   }),
-  D({
-    "p00f/nvim-ts-rainbow",
-    event = "BufReadPre",
-  }),
   -- C("levouh/tint.nvim"),
   C({
     "kevinhwang91/nvim-ufo",
