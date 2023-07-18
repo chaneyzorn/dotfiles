@@ -122,7 +122,7 @@ vo.path = table.concat({
   "/usr/lib/gcc/**/include",
 }, ",")
 
-vg.python3_host_prog = vim.fn.glob("~/Pyvenv/venv3/bin/python3")
+vg.python3_host_prog = vim.fn.glob("~/.local/pipx/venvs/neovim-sh/bin/python")
 vg.loaded_ruby_provider = 0
 vg.loaded_perl_provider = 0
 
