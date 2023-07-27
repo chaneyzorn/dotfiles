@@ -6,7 +6,7 @@ local M = {
   font = wezterm.font_with_fallback({ "JetBrains Mono", "Symbols Nerd Font" }),
   font_size = 10.0,
   adjust_window_size_when_changing_font_size = false,
-  color_scheme = "chaney_dark",
+  color_scheme = "chaney_sakura",
   color_schemes = {
     chaney_dark = {
       foreground = "#839496",
@@ -20,6 +20,19 @@ local M = {
       split = "black",
       ansi = { "#073642", "#dc322f", "#EBCB8B", "#AAB288", "#9DA786", "#d33682", "#16D5B6", "#eee8d5" },
       brights = { "#22444D", "#cb4b16", "#586e75", "#657b83", "#839496", "#6c71c4", "#93a1a1", "#fdf6e3" },
+    },
+    chaney_sakura = {
+      foreground = "#839496",
+      background = "#002b36",
+      cursor_bg = "#eee8d5",
+      cursor_fg = "black",
+      cursor_border = "#52ad70",
+      selection_fg = "black",
+      selection_bg = "#fffacd",
+      scrollbar_thumb = "#222222",
+      split = "black",
+      ansi = { "#073642", "#D27E99", "#EBCB8B", "#AAB288", "#9DA786", "#d33682", "#16D5B6", "#eee8d5" },
+      brights = { "#22444D", "#d33682", "#586e75", "#657b83", "#839496", "#6c71c4", "#93a1a1", "#fdf6e3" },
     },
   },
   use_fancy_tab_bar = false,
