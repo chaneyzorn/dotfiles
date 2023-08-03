@@ -26,7 +26,7 @@ MY_BIN=$HOME/myutils/bin
 MY_LOCAL_BIN=$HOME/.local/bin
 RUST_BIN=$HOME/.cargo/bin
 LUA_BIN=$HOME/.luarocks/bin
-NODE_BIN=$HOME/.node_modules_global/bin
+NODE_BIN=$HOME/.node_modules/bin
 RUBY_BIN=$(ruby -r rubygems -e 'puts Gem.user_dir')/bin
 MY_PATH=$MY_BIN:$MY_LOCAL_BIN:$GO_BIN:$RUST_BIN:$PNPM_HOME:$NODE_BIN:$RUBY_BIN:$LUA_BIN:$LOCAL_BIN:$LOCAL_SBIN
 
