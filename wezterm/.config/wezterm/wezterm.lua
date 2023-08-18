@@ -2,11 +2,24 @@ local wezterm = require("wezterm")
 
 local hostname = wezterm.hostname()
 
+local schemes = {}
+for name, scheme in pairs(wezterm.color.get_builtin_schemes()) do
+  table.insert(schemes, name)
+end
+table.sort(schemes)
+local color_name = schemes[111]
+-- Atom
+-- Atom (Gogh)
+-- Ayu Dark(
+-- Black Metal (Immortal)
+-- Black Metal (Nile)
+
 local M = {
   font = wezterm.font_with_fallback({ "JetBrains Mono", "Symbols Nerd Font" }),
   font_size = 10.0,
   adjust_window_size_when_changing_font_size = false,
-  color_scheme = "chaney_sakura",
+  -- color_scheme = "chaney_sakura",
+  color_scheme = color_name,
   color_schemes = {
     chaney_dark = {
       foreground = "#839496",
@@ -105,7 +118,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 end
 
 wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
-  return "$" .. tab.active_pane.foreground_process_name .. "@" .. hostname
+  return "$" .. tab.active_pane.foreground_process_name .. "@" .. color_name
 end)
 
 return M
