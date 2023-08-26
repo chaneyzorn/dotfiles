@@ -99,6 +99,11 @@ if ends_with(wezterm.target_triple, "apple-darwin") then
   M.macos_window_background_blur = 20
 end
 
+if wezterm.target_triple == "x86_64-unknown-linux-gnu" then
+  M.window_background_opacity = 0.98
+  M.color_scheme = "chaney_dark"
+end
+
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   M.window_background_opacity = 0.8
   M.win32_system_backdrop = "Acrylic"
