@@ -1,7 +1,30 @@
 -- keybind.lua
 -- Note: <Plug> can NOT be used in noremap
+-- TODO: split
 
 local which_key_map = {}
+
+which_key_map.b = {
+  ["name"] = "buffers",
+  ["l"] = { "<Cmd>blast<CR>", "last buffer" },
+  ["f"] = { "<Cmd>bfirst<CR>", "first buffer" },
+  ["d"] = { "<Cmd>bdelete<CR>", "delete buffer" },
+  ["]"] = { "<Cmd>bnext<CR>", "next buffer" },
+  ["["] = { "<Cmd>bprevious<CR>", "previous buffer" },
+}
+
+which_key_map.c = {
+  ["name"] = "coding",
+  ["k"] = { "<Cmd>set spell!<CR>", "Toggle spell check" },
+}
+
+which_key_map.f = {
+  ["name"] = "files/search",
+}
+
+which_key_map.g = {
+  ["name"] = "git/goto",
+}
 
 which_key_map.w = {
   ["name"] = "windows",
@@ -32,28 +55,6 @@ which_key_map.t = {
   ["["] = { "<Cmd>tabprevious<CR>", "上一个tab" },
   ["f"] = { "<Cmd>tabfirst<CR>", "第一个tab" },
   ["l"] = { "<Cmd>tablast<CR>", "最后一个tab" },
-}
-
-which_key_map.b = {
-  ["name"] = "buffers",
-  ["l"] = { "<Cmd>blast<CR>", "last buffer" },
-  ["f"] = { "<Cmd>bfirst<CR>", "first buffer" },
-  ["d"] = { "<Cmd>bdelete<CR>", "delete buffer" },
-  ["]"] = { "<Cmd>bnext<CR>", "next buffer" },
-  ["["] = { "<Cmd>bprevious<CR>", "previous buffer" },
-}
-
-which_key_map.f = {
-  ["name"] = "files/search",
-}
-
-which_key_map.g = {
-  ["name"] = "git/goto",
-}
-
-which_key_map.c = {
-  ["name"] = "coding",
-  ["k"] = { "<Cmd>set spell!<CR>", "拼写检查" },
 }
 
 which_key_map.y = {
@@ -120,9 +121,6 @@ M.register_keymap = function()
   U.vmap("<C-p>", [["+p]])
 
   local wk = require("which-key")
-  -- 元访问器只对 vim.g 有效，因此 vim.g.which_key_map.x
-  -- 不会触发元访问器来更新 vim.g.which_key_map 中的 x
-  -- vim.g.which_key_map = which_key_map
   wk.register(which_key_map, { prefix = "<Leader>" })
 end
 

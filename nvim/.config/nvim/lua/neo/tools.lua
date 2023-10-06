@@ -18,11 +18,15 @@ U.colors = {
 -- Key mapping
 function U.map(mode, key, action, opts)
   opts = vim.tbl_extend("keep", opts or {}, { noremap = true, silent = true, expr = false })
-  vim.api.nvim_set_keymap(mode, key, action, opts)
+  vim.keymap.set(mode, key, action, opts)
 end
 
 function U.plugmap(mode, key, action, opts)
-  opts = vim.tbl_extend("keep", opts or {}, { noremap = not vim.startswith(action, "<Plug>") })
+  noremap = true
+  if type(action) == "string" and vim.startswith(action, "<Plug>") then
+    noremap = false
+  end
+  opts = vim.tbl_extend("keep", opts or {}, { noremap = noremap })
   U.map(mode, key, action, opts)
 end
 
