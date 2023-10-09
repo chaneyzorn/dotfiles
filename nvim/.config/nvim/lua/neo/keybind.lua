@@ -1,6 +1,6 @@
 -- keybind.lua
 -- Note: <Plug> can NOT be used in noremap
--- TODO: split
+-- TODO split
 
 local which_key_map = {}
 
@@ -71,6 +71,37 @@ which_key_map.v = {
 }
 
 local M = {}
+
+-- Key mapping
+function M.map(mode, key, action, opts)
+  opts = vim.tbl_extend("keep", opts or {}, { noremap = true, silent = true, expr = false })
+  vim.keymap.set(mode, key, action, opts)
+end
+
+function M.plugmap(mode, key, action, opts)
+  noremap = true
+  if type(action) == "string" and vim.startswith(action, "<Plug>") then
+    noremap = false
+  end
+  opts = vim.tbl_extend("keep", opts or {}, { noremap = noremap })
+  M.map(mode, key, action, opts)
+end
+
+function M.nmap(key, action, opts)
+  M.plugmap("n", key, action, opts)
+end
+
+function M.vmap(key, action, opts)
+  M.plugmap("v", key, action, opts)
+end
+
+function M.imap(key, action, opts)
+  M.plugmap("i", key, action, opts)
+end
+
+function M.xmap(key, action, opts)
+  M.plugmap("x", key, action, opts)
+end
 
 local add_help = function(fk, help)
   local first_key = fk:sub(1, 1)

@@ -82,7 +82,12 @@ return {
   },
   {
     "folke/todo-comments.nvim",
-    event = "BufReadPost",
+    cmd = {
+      "TodoQuickFix",
+      "TodoLocList",
+      "TodoTrouble",
+      "TodoTelescope",
+    },
     opts = {},
   },
 }
