@@ -137,13 +137,13 @@ return {
           prefix = "",
           format = function(diagnostic)
             if diagnostic.severity == vim.diagnostic.severity.ERROR then
-              return string.format("%s: %s %s", diagnostic.source, diagnostic.message, symbols.Error)
+              return string.format("%s: %s %s", diagnostic.source or "", diagnostic.message, symbols.Error)
             elseif diagnostic.severity == vim.diagnostic.severity.WARN then
-              return string.format("%s: %s %s", diagnostic.source, diagnostic.message, symbols.Warn)
+              return string.format("%s: %s %s", diagnostic.source or "", diagnostic.message, symbols.Warn)
             elseif diagnostic.severity == vim.diagnostic.severity.INFO then
-              return string.format("%s: %s %s", diagnostic.source, diagnostic.message, symbols.Info)
+              return string.format("%s: %s %s", diagnostic.source or "", diagnostic.message, symbols.Info)
             elseif diagnostic.severity == vim.diagnostic.severity.HINT then
-              return string.format("%s: %s %s", diagnostic.source, diagnostic.message, symbols.Hint)
+              return string.format("%s: %s %s", diagnostic.source or "", diagnostic.message, symbols.Hint)
             end
 
             return diagnostic.message
