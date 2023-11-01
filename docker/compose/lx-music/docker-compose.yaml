@@ -1,14 +1,13 @@
----
 version: "3"
 services:
   lx-music:
-    container_name: lx-music
     image: lyswhut/lx-music-sync-server:v2.1.0
-    ports:
-      - "9527:9527"
+    container_name: lx-music
+    restart: always
     environment:
       - BIND_IP=0.0.0.0
       - LX_USER_chaney=lx-chaney
-    restart: always
+    ports:
+      - "9527:9527"
     volumes:
       - ./lx-data/:/server/data/data

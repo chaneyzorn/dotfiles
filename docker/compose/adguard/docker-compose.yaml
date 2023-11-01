@@ -1,11 +1,10 @@
----
 version: "3.3"
 services:
   adguardhome:
+    image: adguard/adguardhome
     container_name: adguardhome
-    restart: unless-stopped
+    restart: always
+    network_mode: host
     volumes:
       - ./adguardhome/work:/opt/adguardhome/work
       - ./adguardhome/conf:/opt/adguardhome/conf
-    network_mode: host
-    image: adguard/adguardhome

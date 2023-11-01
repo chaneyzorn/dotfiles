@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+  memos:
+    image: 'ghcr.io/usememos/memos:latest'
+    container_name: memos
+    restart: always
+    ports:
+      - '5230:5230'
+    volumes:
+      - ./memos:/var/opt/memos

@@ -1,0 +1,11 @@
+version: '3.3'
+services:
+  dufs:
+    image: sigoden/dufs
+    container_name: dufs
+    restart: always
+    volumes:
+      - '$HOME:/data'
+    ports:
+      - '5000:5000'
+    command: '/data -A'

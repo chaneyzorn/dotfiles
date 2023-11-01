@@ -1,0 +1,8 @@
+version: '3.3'
+services:
+  yacd:
+    image: 'ghcr.io/haishanh/yacd:master'
+    container_name: yacd
+    restart: always
+    ports:
+      - '5001:80'
