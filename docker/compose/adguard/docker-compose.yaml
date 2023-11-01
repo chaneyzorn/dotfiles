@@ -5,7 +5,7 @@ services:
     container_name: adguardhome
     restart: unless-stopped
     volumes:
-      - ./adguard/adguardhome/work:/opt/adguardhome/work
-      - ./adguard/adguardhome/conf:/opt/adguardhome/conf
+      - ./adguardhome/work:/opt/adguardhome/work
+      - ./adguardhome/conf:/opt/adguardhome/conf
     network_mode: host
     image: adguard/adguardhome
