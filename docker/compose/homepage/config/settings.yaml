@@ -1,0 +1,10 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/settings
+
+title: "Chaney's Homepage"
+language: zh-CN
+headerStyle: boxed
+providers:
+  openweathermap: openweathermapapikey
+  weatherapi: weatherapiapikey
