@@ -107,6 +107,9 @@ end
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   M.window_background_opacity = 0.8
   M.win32_system_backdrop = "Acrylic"
+  M.color_scheme = "chaney_dark"
+  M.default_prog = { "I:/msys64/msys2_shell.cmd", "-defterm", "-here", "-no-start", "-msys", "-shell", "zsh" }
+  M.default_cwd = "I:/msys64/home/Chaney/"
 end
 
 wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
