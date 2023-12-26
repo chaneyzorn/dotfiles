@@ -1,0 +1,13 @@
+# /etc/systemd/system/efi-boot-steamos.service
+
+[Unit]
+Description=Force SteamOS on next Boot
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecCondition=/bin/bash -c "efibootmgr | grep -Po 'BootCurrent: [0-9].*'"
+ExecStart=/bin/bash -c "efibootmgr -n $(efibootmgr | grep BootCurrent | awk '{ print $NF }')"
+
+[Install]
+WantedBy=multi-user.target
