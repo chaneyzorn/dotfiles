@@ -1,16 +1,12 @@
 -- keybind.lua
--- Note: <Plug> can NOT be used in noremap
+-- NOTE :h <Plug> can NOT be used in noremap
 -- TODO split
 
 local which_key_map = {}
 
 which_key_map.b = {
   ["name"] = "buffers",
-  ["l"] = { "<Cmd>blast<CR>", "last buffer" },
-  ["f"] = { "<Cmd>bfirst<CR>", "first buffer" },
   ["d"] = { "<Cmd>bdelete<CR>", "delete buffer" },
-  ["]"] = { "<Cmd>bnext<CR>", "next buffer" },
-  ["["] = { "<Cmd>bprevious<CR>", "previous buffer" },
 }
 
 which_key_map.c = {
@@ -28,46 +24,46 @@ which_key_map.g = {
 
 which_key_map.w = {
   ["name"] = "windows",
-  ["p"] = { "<C-W>p", "上一窗口" },
-  ["n"] = { "<Cmd>vnew<CR>", "新建窗口" },
-  ["c"] = { "<C-W>c", "关闭当前窗口" },
-  ["o"] = { "<C-W>o", "关闭其他窗口" },
-  ["s"] = { "<C-W>s", "水平分割窗口" },
-  ["v"] = { "<C-W>v", "垂直分割窗口" },
-  ["w"] = { "<C-W>w", "选择下一个窗口" },
-  ["h"] = { "<C-W>h", "选择左边的窗口" },
-  ["j"] = { "<C-W>j", "选择下边的窗口" },
-  ["l"] = { "<C-W>l", "选择右边的窗口" },
-  ["k"] = { "<C-W>k", "选择上边的窗口" },
-  ["["] = { "<C-W>5<", "向左扩大窗口" },
-  ["]"] = { "<C-W>5>", "向右扩大窗口" },
-  ["="] = { "<Cmd>resize +5<CR>", "向下扩大窗口" },
-  ["-"] = { "<Cmd>resize -5<CR>", "向上扩大窗口" },
-  ["/"] = { "<C-W>=", "令窗口平分长度" },
+  ["p"] = { "<C-W>p", "pre window" },
+  ["n"] = { "<Cmd>vnew<CR>", "new window" },
+  ["c"] = { "<C-W>c", "close current window" },
+  ["o"] = { "<C-W>o", "close other windows" },
+  ["s"] = { "<C-W>s", "h split window" },
+  ["v"] = { "<C-W>v", "v split window" },
+  ["w"] = { "<C-W>w", "next window" },
+  ["h"] = { "<C-W>h", "mv to left window" },
+  ["j"] = { "<C-W>j", "mv to down window" },
+  ["l"] = { "<C-W>l", "mv to right window" },
+  ["k"] = { "<C-W>k", "mv to up window" },
+  ["["] = { "<C-W>5<", "resize win<5" },
+  ["]"] = { "<C-W>5>", "resize win>5" },
+  ["="] = { "<Cmd>resize +5<CR>", "resize win+5" },
+  ["-"] = { "<Cmd>resize -5<CR>", "resize win-5" },
+  ["/"] = { "<C-W>=", "resize win==" },
 }
 
 which_key_map.t = {
   ["name"] = "tab/translate/tags",
-  ["n"] = { "<Cmd>tabnew<CR>", "打开新 tab" },
-  ["c"] = { "<Cmd>tabclose<CR>", "关闭当前tab" },
-  ["o"] = { "<Cmd>tabonly<CR>", "关闭其他tab" },
-  ["]"] = { "<Cmd>tabnext<CR>", "下一个tab" },
-  ["["] = { "<Cmd>tabprevious<CR>", "上一个tab" },
-  ["f"] = { "<Cmd>tabfirst<CR>", "第一个tab" },
-  ["l"] = { "<Cmd>tablast<CR>", "最后一个tab" },
+  ["n"] = { "<Cmd>tabnew<CR>", "new tab" },
+  ["c"] = { "<Cmd>tabclose<CR>", "close current tab" },
+  ["o"] = { "<Cmd>tabonly<CR>", "close other tabs" },
+  ["]"] = { "<Cmd>tabnext<CR>", "next tab" },
+  ["["] = { "<Cmd>tabprevious<CR>", "pre tab" },
+  ["f"] = { "<Cmd>tabfirst<CR>", "first tab" },
+  ["l"] = { "<Cmd>tablast<CR>", "last tab" },
 }
 
 which_key_map.y = {
   ["name"] = "yank",
-  ["y"] = { "<Cmd>%y+<CR>", "yank all buf content to system clipboard" },
-  ["o"] = { require("neo.tools").YankOneLine, "yank one line to system clipboard" },
+  ["y"] = { "<Cmd>%y+<CR>", "yank all to sys-clip" },
+  ["o"] = { require("neo.tools").YankOneLine, "yank one line to sys-clip" },
 }
 
 which_key_map.v = {
   ["name"] = "vim",
-  ["m"] = { require("neo.tools").ToggleMouse, "切换鼠标" },
-  ["q"] = { "<Cmd>wa<CR>:q<CR>", "保存全部文件并退出" },
-  ["Q"] = { "<Cmd>qa!<CR>", "不做任何保存直接退出" },
+  ["m"] = { require("neo.tools").ToggleMouse, "toggle mouse" },
+  ["q"] = { "<Cmd>wa<CR>:q<CR>", "save all and quit" },
+  ["x"] = { "<Cmd>qa!<CR>", "quit without save" },
 }
 
 local M = {}
