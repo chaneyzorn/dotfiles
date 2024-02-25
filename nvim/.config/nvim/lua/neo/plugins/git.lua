@@ -2,14 +2,13 @@ return {
   {
     "tpope/vim-fugitive",
     event = "BufReadPre",
-    init = function()
-      local U = require("neo.tools")
-      U.nmap("<Leader>gB", "<Cmd>Git blame<CR>")
-
-      require("neo.keybind").leader_help({
-        gB = "Git blame whole file",
-      })
-    end,
+    keys = {
+      {
+        "<Leader>gB",
+        "<Cmd>Git blame<CR>",
+        desc = "Git blame whole file",
+      },
+    },
   },
   {
     "sindrets/diffview.nvim",
