@@ -4,8 +4,8 @@ return {
     event = "BufReadPre",
     keys = {
       {
-        "<Leader>gB",
-        "<Cmd>Git blame<CR>",
+        "<leader>gB",
+        "<cmd>Git blame<cr>",
         desc = "Git blame whole file",
       },
     },
@@ -20,21 +20,6 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     event = "BufReadPre",
-
-    init = function()
-      require("neo.keybind").leader_help({
-        hs = "Git stage hunk",
-        hS = "Git stage buffer",
-        hu = "Git undo stage hunk",
-        hr = "Git reset hunk",
-        hR = "Git reset buffer",
-        hp = "Git preview hunk",
-        hb = "Git blame current line",
-        hd = "Git toggle delete/word changes",
-        hl = "Git toggle diff highlight",
-      })
-    end,
-
     opts = {
       current_line_blame = true,
       current_line_blame_formatter = "      <author_time:%Y-%m-%d>   <author>   <summary>",
@@ -46,7 +31,6 @@ return {
         changedelete = { text = "│" },
         untracked = { text = "┆" },
       },
-
       on_attach = function(bufnr)
         local gs = package.loaded.gitsigns
 
@@ -69,7 +53,7 @@ return {
             gs.next_hunk()
           end)
           return "<Ignore>"
-        end, { expr = true })
+        end, { expr = true, desc = "Git next hunk" })
 
         nmap("[c", function()
           if vim.wo.diff then
@@ -79,35 +63,40 @@ return {
             gs.prev_hunk()
           end)
           return "<Ignore>"
-        end, { expr = true })
+        end, { expr = true, desc = "Git prev hunk" })
 
         -- Actions
-        nmap("<leader>hs", gs.stage_hunk)
-        nmap("<leader>hr", gs.reset_hunk)
-        nmap("<leader>hS", gs.stage_buffer)
-        nmap("<leader>hu", gs.undo_stage_hunk)
-        nmap("<leader>hR", gs.reset_buffer)
-        nmap("<leader>hp", gs.preview_hunk)
+        nmap("<leader>hs", gs.stage_hunk, { desc = "Git stage hunk" })
+        nmap("<leader>hr", gs.reset_hunk, { desc = "Git reset hunk" })
+        nmap("<leader>hS", gs.stage_buffer, { desc = "Git stage buffer" })
+        nmap("<leader>hu", gs.undo_stage_hunk, { desc = "Git undo stage hunk" })
+        nmap("<leader>hR", gs.reset_buffer, { desc = "Git reset buffer" })
+        nmap("<leader>hp", gs.preview_hunk, { desc = "Git preview hunk" })
+
         nmap("<leader>hb", function()
           gs.blame_line({ full = true })
-        end)
+        end, { desc = "Git blame line" })
+
         nmap("<leader>hd", function()
           gs.toggle_deleted()
           gs.toggle_word_diff()
-        end)
+        end, { desc = "Git show diff" })
+
         nmap("<leader>hl", function()
           gs.toggle_numhl()
           gs.toggle_linehl()
-        end)
+        end, { desc = "Git highlight changes" })
 
         map("v", "<leader>hs", function()
           gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
-        end)
+        end, { desc = "Git stage selected" })
+
         map("v", "<leader>hr", function()
           gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
-        end)
+        end, { desc = "Git reset selected" })
+
         -- Text object
-        map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
+        map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Git select hunk" })
       end,
     },
   },
