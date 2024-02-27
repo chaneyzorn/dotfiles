@@ -53,7 +53,7 @@ vim.opt.listchars = {
   trail = "∙",
   precedes = "←",
   extends = "→",
-  eol = "¬",
+  -- eol = "¬",
   nbsp = "␣",
 }
 
