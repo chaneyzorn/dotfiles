@@ -1,15 +1,48 @@
 return {
   {
     "j-hui/fidget.nvim",
-    tag = "legacy",
     event = "LspAttach",
     opts = {
-      text = {
-        spinner = "dots",
+      progress = {
+        display = {
+          done_ttl = 1,
+        },
       },
-      timer = {
-        fidget_decay = 100,
-        task_decay = 100,
+      notification = {
+        window = {
+          winblend = 0,
+        },
+        override_vim_notify = true,
+      },
+    },
+  },
+  {
+    "stevearc/conform.nvim",
+    enabled = false,
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+    init = function()
+      vim.o.formatexpr = "v:lua.require('conform').formatexpr()"
+    end,
+    keys = {
+      {
+        "<leader>cf",
+        function()
+          require("conform").format({ async = true, lsp_fallback = true })
+        end,
+        desc = "Format buffer",
+      },
+    },
+    opts = {
+      formatters_by_ft = {
+        c = { "clang_format" },
+        cpp = { "clang_format" },
+        go = { "goimports", "gofmt" },
+        lua = { "stylua" },
+        python = { { "ruff_format", "black" } },
+        javascript = { { "prettierd", "prettier" } },
+        sh = { "shfmt" },
+        yaml = { "yamlfmt" },
       },
     },
   },

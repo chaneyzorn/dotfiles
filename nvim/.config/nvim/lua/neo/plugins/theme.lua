@@ -21,6 +21,7 @@ return {
         },
         term_colors = true,
         integrations = {
+          fidget = true,
           mason = true,
           neotree = true,
           lsp_trouble = true,
