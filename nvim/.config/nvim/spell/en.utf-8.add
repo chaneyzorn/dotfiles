@@ -1,3 +1,7 @@
+CN
+CRLF
+CSpell
+Pdeathsig
 aarch
 accesslog
 addr
@@ -43,6 +47,7 @@ chardev
 charset
 chunkd
 cjk
+clangd
 clangtidy
 cli
 cls
@@ -51,7 +56,6 @@ cmdheight
 cmdline
 cmds
 cmp
-CN
 coc
 colorscheme
 command
@@ -67,12 +71,10 @@ cppcheck
 cpu
 cpuinfo
 cpus
-CRLF
 cron
 cscope
 csmi
 cspell
-CSpell
 css
 ctags
 cterm
@@ -317,7 +319,6 @@ ovs
 ovsbr
 passphrase
 passthrough
-Pdeathsig
 pep8
 perccli
 pinfo
@@ -344,6 +345,7 @@ pyfakefs
 pygments
 pylint
 pyproject
+pyright
 python2
 python3
 pyuv

@@ -2,23 +2,10 @@ return {
   {
     "j-hui/fidget.nvim",
     event = "LspAttach",
-    opts = {
-      progress = {
-        display = {
-          done_ttl = 1,
-        },
-      },
-      notification = {
-        window = {
-          winblend = 0,
-        },
-        override_vim_notify = true,
-      },
-    },
+    opts = {},
   },
   {
     "stevearc/conform.nvim",
-    enabled = false,
     event = { "BufWritePre" },
     cmd = { "ConformInfo" },
     init = function()
@@ -26,7 +13,7 @@ return {
     end,
     keys = {
       {
-        "<leader>cf",
+        "<leader>ci",
         function()
           require("conform").format({ async = true, lsp_fallback = true })
         end,
@@ -48,6 +35,9 @@ return {
   },
   {
     "nvimtools/none-ls.nvim",
+    dependencies = {
+      "davidmh/cspell.nvim",
+    },
     event = {
       "BufReadPre",
       "BufNewFile",
@@ -55,15 +45,22 @@ return {
     config = function()
       local nls = require("null-ls")
       local bt = nls.builtins
+
+      local cspell = require("cspell")
+      local cspell_config = {
+        find_json = function()
+          return vim.fn.expand("~/.config/nvim/spell/cspell.json")
+        end,
+        on_add_to_dictionary = function(payload)
+          os.execute(string.format("sort -u %s -o %s", payload.dictionary_path, payload.dictionary_path))
+        end,
+      }
+
       nls.setup({
         sources = {
           -- c/c++
           bt.formatting.clang_format,
           bt.diagnostics.cppcheck,
-
-          -- python
-          bt.formatting.black,
-          bt.diagnostics.ruff,
 
           -- golang
           bt.formatting.gofmt,
@@ -72,31 +69,32 @@ return {
 
           -- lua
           bt.formatting.stylua,
-          bt.diagnostics.luacheck,
+          bt.diagnostics.selene,
 
           -- javascript / css / json / yaml
-          bt.formatting.prettier,
-          bt.diagnostics.eslint,
+          bt.formatting.prettier.with({
+            disabled_filetypes = { "yaml" },
+          }),
+          bt.formatting.yamlfmt,
           bt.diagnostics.stylelint,
-          bt.diagnostics.jsonlint,
           bt.diagnostics.yamllint,
 
           -- shell
           bt.formatting.shfmt.with({
             extra_filetypes = { "zsh" },
           }),
-          bt.diagnostics.shellcheck,
 
           -- markdown
           bt.diagnostics.markdownlint,
 
           -- other
-          bt.diagnostics.cspell.with({
-            extra_args = { "--config", vim.fn.expand("~/.config/nvim/neo-cspell.yaml") },
+          cspell.diagnostics.with({
+            config = cspell_config,
             diagnostics_postprocess = function(diagnostic)
               diagnostic.severity = vim.diagnostic.severity.HINT
             end,
           }),
+          cspell.code_actions.with({ config = cspell_config }),
         },
         should_attach = function(bufnr)
           local file_type = vim.api.nvim_buf_get_option(bufnr, "filetype")
@@ -302,8 +300,12 @@ return {
           "rust_analyzer",
           "tsserver",
           "pyright",
+          "ruff_lsp",
           "gopls",
           "clangd",
+          "eslint",
+          "jsonls",
+          "bashls",
         },
         handlers = {
           function(server_name)

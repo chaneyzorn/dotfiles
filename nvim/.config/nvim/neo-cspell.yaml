@@ -1,7 +1,0 @@
----
-dictionaries:
-  - custom-words
-dictionaryDefinitions:
-  - name: custom-words
-    path: ~/.config/nvim/spell/en.utf-8.add
-    addWords: true
