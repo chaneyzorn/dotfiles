@@ -27,7 +27,7 @@ return {
         go = { "goimports", "gofmt" },
         lua = { "stylua" },
         python = { { "ruff_format", "black" } },
-        javascript = { { "prettierd", "prettier" } },
+        javascript = { { "prettier" } },
         sh = { "shfmt" },
         yaml = { "yamlfmt" },
       },
@@ -296,16 +296,16 @@ return {
 
       require("mason-lspconfig").setup({
         ensure_installed = {
-          "lua_ls",
-          "rust_analyzer",
-          "tsserver",
-          "pyright",
-          "ruff_lsp",
-          "gopls",
+          "bashls",
           "clangd",
           "eslint",
+          "gopls",
           "jsonls",
-          "bashls",
+          "lua_ls",
+          "pyright",
+          "ruff_lsp",
+          "rust_analyzer",
+          "tsserver",
         },
         handlers = {
           function(server_name)
