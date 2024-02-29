@@ -65,25 +65,25 @@ function U.ToggleMouse()
 end
 
 function U.EnableCodingVision()
+  -- enable spell check
+  vim.o.spell = true
   -- enable diagnostics
   local nls = require("null-ls")
   nls.enable({ method = nls.methods.DIAGNOSTICS })
   -- enable LSP server, from lspconfig
   vim.cmd("LspStart")
-  -- enable spell check
-  vim.o.spell = true
 
   print("Coding Vision Enabled")
 end
 
 function U.DisableCodingVision()
+  -- disable spell check
+  vim.o.spell = false
   -- disable diagnostics
   local nls = require("null-ls")
   nls.disable({ method = nls.methods.DIAGNOSTICS })
   -- disable LSP server, from lspconfig
   vim.cmd("LspStop")
-  -- disable spell check
-  vim.o.spell = false
 
   print("Coding Vision Disabled")
 end

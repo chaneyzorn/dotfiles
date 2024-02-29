@@ -42,6 +42,34 @@ return {
       "BufReadPre",
       "BufNewFile",
     },
+    init = function()
+      local U = require("neo.tools")
+
+      U.nmap("[e", function()
+        vim.diagnostic.goto_prev()
+      end)
+      U.nmap("]e", function()
+        vim.diagnostic.goto_next()
+      end)
+      U.nmap("<Leader>ds", function()
+        vim.diagnostic.open_float()
+      end)
+      U.nmap("<Leader>dl", function()
+        vim.diagnostic.setloclist()
+      end)
+
+      U.nmap("<Leader>cv", U.EnableCodingVision)
+      U.nmap("<Leader>cx", U.DisableCodingVision)
+      U.nmap("<Leader>zg", U.RefreshCSpell)
+
+      require("neo.keybind").leader_help({
+        cv = "Coding Vision",
+        cx = "Coding XVision",
+        zg = "Refresh CSpell",
+        ds = "diagnostic.open_float",
+        dl = "diagnostic.setloclist",
+      })
+    end,
     config = function()
       local nls = require("null-ls")
       local bt = nls.builtins
@@ -121,44 +149,6 @@ return {
       "BufReadPre",
       "BufNewFile",
     },
-
-    init = function()
-      local U = require("neo.tools")
-
-      U.nmap("[e", function()
-        vim.diagnostic.goto_prev()
-      end)
-      U.nmap("]e", function()
-        vim.diagnostic.goto_next()
-      end)
-      U.nmap("<Leader>ds", function()
-        vim.diagnostic.open_float()
-      end)
-      U.nmap("<Leader>dl", function()
-        vim.diagnostic.setloclist()
-      end)
-
-      U.nmap("<Leader>cv", U.EnableCodingVision)
-      U.nmap("<Leader>cx", U.DisableCodingVision)
-      U.nmap("<Leader>zg", U.RefreshCSpell)
-
-      require("neo.keybind").leader_help({
-        gg = "Go to definitions",
-        gD = "Go to declaration",
-        gi = "Go to implementation",
-        gt = "Go to type definitions",
-        gr = "Go to references",
-        ca = "LSP Code Action",
-        cf = "LSP Code format",
-        rn = "LSP rename",
-        cv = "Coding Vision",
-        cx = "Coding XVision",
-        zg = "Refresh CSpell",
-        ds = "diagnostic.open_float",
-        dl = "diagnostic.setloclist",
-      })
-    end,
-
     config = function()
       local signs = { Error = "󰅚", Warn = "", Info = "", Hint = "󰌶" }
       local symbols = { Error = "", Warn = "", Info = "", Hint = "󰛨" }
@@ -206,50 +196,43 @@ return {
       )
 
       vim.api.nvim_create_autocmd("LspAttach", {
-        desc = "LSP actions",
+        desc = "LSP Attach Hook",
         group = vim.api.nvim_create_augroup("UserLspConfig", {}),
         callback = function(ev)
           -- Enable completion triggered by <c-x><c-o>
           vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
           -- Buffer local mappings.
+          local function map(mode, l, r, opts)
+            opts = opts or {}
+            opts.buffer = ev.buf
+            vim.keymap.set(mode, l, r, opts)
+          end
+
+          local function nmap(l, r, opts)
+            map("n", l, r, opts)
+          end
+
+          local function vmap(l, r, opts)
+            map("v", l, r, opts)
+          end
+
           -- See `:help vim.lsp.*` for documentation on any of the below functions
-          local opts = { buffer = ev.buf }
-
-          local U = require("neo.tools")
-
-          U.nmap("<C-k>", function()
-            vim.lsp.buf.signature_help()
-          end, opts)
-          U.nmap("<C-K>", function()
-            vim.lsp.buf.hover()
-          end, opts)
-
-          U.nmap("<Leader>gD", function()
-            vim.lsp.buf.declaration()
-          end, opts)
-          U.nmap("<Leader>gi", function()
-            vim.lsp.buf.implementation()
-          end, opts)
+          nmap("<C-k>", vim.lsp.buf.signature_help, { desc = "Lsp signature help" })
+          nmap("<C-K>", vim.lsp.buf.hover, { desc = "Lsp hover doc" })
+          nmap("<Leader>gd", vim.lsp.buf.declaration, { desc = "Lsp to declaration" })
 
           -- use trouble.nvim as lsp list
-          U.nmap("<C-j>", "<Cmd>TroubleToggle lsp_definitions<CR>", opts)
-          U.nmap("<Leader>gg", "<Cmd>TroubleToggle lsp_definitions<CR>", opts)
-          U.nmap("<Leader>gt", "<Cmd>TroubleToggle lsp_type_definitions<CR>", opts)
-          U.nmap("<Leader>gr", "<Cmd>TroubleToggle lsp_references<CR>", opts)
+          nmap("<C-j>", "<Cmd>TroubleToggle lsp_definitions<CR>", { desc = "Trouble lsp def" })
+          nmap("<Leader>gi", "<Cmd>TroubleToggle lsp_implementations<CR>", { desc = "Trouble lsp imp" })
+          nmap("<Leader>gg", "<Cmd>TroubleToggle lsp_definitions<CR>", { desc = "Trouble lsp def" })
+          nmap("<Leader>gt", "<Cmd>TroubleToggle lsp_type_definitions<CR>", { desc = "Trouble lsp type" })
+          nmap("<Leader>gr", "<Cmd>TroubleToggle lsp_references<CR>", { desc = "Trouble ls ref" })
 
-          U.nmap("<Leader>ca", function()
-            vim.lsp.buf.code_action()
-          end, opts)
-          U.vmap("<Leader>ca", function()
-            vim.lsp.buf.code_action()
-          end, opts)
-          U.nmap("<Leader>cf", function()
-            vim.lsp.buf.format()
-          end, opts)
-          U.nmap("<Leader>rn", function()
-            vim.lsp.buf.rename()
-          end, opts)
+          nmap("<Leader>ca", vim.lsp.buf.code_action, { desc = "Lsp code action" })
+          vmap("<Leader>ca", vim.lsp.buf.code_action, { desc = "Lsp code action" })
+          nmap("<Leader>cf", vim.lsp.buf.format, { desc = "Lsp code format" })
+          nmap("<Leader>rn", vim.lsp.buf.rename, { desc = "Lsp rename" })
         end,
       })
     end,
