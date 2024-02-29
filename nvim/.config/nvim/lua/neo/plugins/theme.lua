@@ -5,6 +5,7 @@ return {
   },
   {
     "folke/tokyonight.nvim",
+    enabled = false,
     priority = 1000,
     config = function()
       require("tokyonight").setup({
@@ -17,6 +18,7 @@ return {
   },
   {
     "rebelot/kanagawa.nvim",
+    enabled = false,
     priority = 1000,
     config = function()
       require("kanagawa").setup({
@@ -68,10 +70,16 @@ return {
           percentage = 0.15,
         },
         term_colors = true,
+        custom_highlights = function(colors)
+          return {
+            NvimTreeExecFile = { fg = colors.flamingo, bold = true },
+          }
+        end,
         integrations = {
           fidget = true,
           mason = true,
           neotree = true,
+          nvimtree = true,
           lsp_trouble = true,
           which_key = true,
         },
