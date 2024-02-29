@@ -4,6 +4,18 @@ return {
     lazy = true,
   },
   {
+    "folke/tokyonight.nvim",
+    priority = 1000,
+    config = function()
+      require("tokyonight").setup({
+        dim_inactive = true,
+        lualine_bold = true,
+      })
+      -- setup must be called before loading
+      -- vim.cmd.colorscheme("tokyonight")
+    end,
+  },
+  {
     "rebelot/kanagawa.nvim",
     priority = 1000,
     config = function()
@@ -40,7 +52,7 @@ return {
         end,
       })
       -- setup must be called before loading
-      -- vim.cmd.colorscheme("kanagawa-wave")
+      -- vim.cmd.colorscheme("kanagawa-dragon")
     end,
   },
   {
@@ -50,10 +62,6 @@ return {
     config = function()
       require("catppuccin").setup({
         flavour = "macchiato", -- latte, frappe, macchiato, mocha
-        background = {
-          light = "latte",
-          dark = "mocha",
-        },
         dim_inactive = {
           enabled = true,
           shade = "dark",
