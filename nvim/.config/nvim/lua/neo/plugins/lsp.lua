@@ -2,7 +2,9 @@ return {
   {
     "j-hui/fidget.nvim",
     event = "LspAttach",
-    opts = {},
+    config = function()
+      require("fidget").setup({})
+    end,
   },
   {
     "stevearc/conform.nvim",
@@ -42,34 +44,69 @@ return {
       "BufReadPre",
       "BufNewFile",
     },
-    init = function()
-      local U = require("neo.tools")
-
-      U.nmap("[e", function()
-        vim.diagnostic.goto_prev()
-      end)
-      U.nmap("]e", function()
-        vim.diagnostic.goto_next()
-      end)
-      U.nmap("<Leader>ds", function()
-        vim.diagnostic.open_float()
-      end)
-      U.nmap("<Leader>dl", function()
-        vim.diagnostic.setloclist()
-      end)
-
-      U.nmap("<Leader>cv", U.EnableCodingVision)
-      U.nmap("<Leader>cx", U.DisableCodingVision)
-      U.nmap("<Leader>zg", U.RefreshCSpell)
-
-      require("neo.keybind").leader_help({
-        cv = "Coding Vision",
-        cx = "Coding XVision",
-        zg = "Refresh CSpell",
-        ds = "diagnostic.open_float",
-        dl = "diagnostic.setloclist",
-      })
-    end,
+    keys = {
+      {
+        "[e",
+        function()
+          vim.diagnostic.goto_prev()
+        end,
+        desc = "prev diagnostic",
+      },
+      {
+        "]e",
+        function()
+          vim.diagnostic.goto_next()
+        end,
+        desc = "next diagnostic",
+      },
+      {
+        "<leader>dl",
+        function()
+          vim.diagnostic.setloclist()
+        end,
+        desc = "loclist diagnostic",
+      },
+      {
+        "<leader>ds",
+        function()
+          vim.diagnostic.open_float()
+        end,
+        desc = "diagnostic open_float",
+      },
+      {
+        "<leader>cv",
+        function()
+          vim.o.spell = true -- enable spell check
+          local nls = require("null-ls")
+          nls.enable({ method = nls.methods.FORMATTING }) --enable format
+          nls.enable({ method = nls.methods.DIAGNOSTICS }) -- enable diagnostics
+          vim.cmd("LspStart") -- enable LSP server, from lspconfig
+          require("fidget").notify("Coding Vision Enabled")
+        end,
+        desc = "Coding vision",
+      },
+      {
+        "<leader>cx",
+        function()
+          vim.o.spell = false -- disable spell check
+          local nls = require("null-ls")
+          nls.disable({ method = nls.methods.DIAGNOSTICS }) -- disable diagnostics
+          vim.cmd("LspStop") -- disable LSP server, from lspconfig
+          nls.enable({ method = nls.methods.FORMATTING }) --keep format enabled
+          require("fidget").notify("Coding Vision Disabled")
+        end,
+        desc = "Coding just",
+      },
+      {
+        "<leader>zg",
+        function()
+          local nls = require("null-ls")
+          nls.enable({ name = "cspell", method = nls.methods.DIAGNOSTICS })
+          require("fidget").notify("CSpell Refreshed")
+        end,
+        desc = "Refresh cspell",
+      },
+    },
     config = function()
       local nls = require("null-ls")
       local bt = nls.builtins
@@ -141,6 +178,8 @@ return {
 
       -- disable all diagnostics capacity at init
       nls.disable({ method = nls.methods.DIAGNOSTICS })
+      -- enable all format capacity
+      nls.enable({ method = nls.methods.FORMATTING })
     end,
   },
   {
@@ -240,8 +279,15 @@ return {
   {
     "williamboman/mason.nvim",
     build = ":MasonUpdate",
-    cmd = "Mason",
+    cmd = {
+      "Mason",
+      "MasonUpdate",
+      "MasonInstall",
+      "MasonToolsUpdate",
+      "MasonToolsClean",
+    },
     dependencies = {
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
       "williamboman/mason-lspconfig.nvim",
     },
     event = {
@@ -250,6 +296,48 @@ return {
     },
     config = function()
       require("mason").setup()
+
+      local lsp_s = {
+        "bashls",
+        "clangd",
+        "eslint",
+        "gopls",
+        "jsonls",
+        "lua_ls",
+        "pyright",
+        "ruff_lsp",
+        "rust_analyzer",
+        "tsserver",
+      }
+      local tools = {
+        "ast-grep",
+        "black",
+        "clang-format",
+        "cspell",
+        "goimports",
+        "golangci-lint",
+        "jq",
+        "jsonlint",
+        "markdownlint",
+        "misspell",
+        "mypy",
+        "prettier",
+        "ruff",
+        "selene",
+        "shellcheck",
+        "shfmt",
+        "stylelint",
+        "stylua",
+        "yamlfmt",
+        "yamllint",
+        "yq",
+      }
+
+      require("mason-tool-installer").setup({
+        ensure_installed = vim.list_extend(tools, lsp_s),
+        auto_update = false,
+        run_on_start = false,
+      })
 
       local enhance_server_opts = {
         ["lua_ls"] = function(opts)
@@ -278,18 +366,7 @@ return {
       }
 
       require("mason-lspconfig").setup({
-        ensure_installed = {
-          "bashls",
-          "clangd",
-          "eslint",
-          "gopls",
-          "jsonls",
-          "lua_ls",
-          "pyright",
-          "ruff_lsp",
-          "rust_analyzer",
-          "tsserver",
-        },
+        ensure_installed = lsp_s,
         handlers = {
           function(server_name)
             local opts = {
