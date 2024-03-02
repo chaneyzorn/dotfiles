@@ -232,6 +232,7 @@ jsonlint
 key
 keybind
 keymap
+keymaps
 kvm
 kwargs
 languageserver
@@ -282,6 +283,7 @@ mountpoint
 msg
 mtu
 multihandles
+mypy
 namespace
 namespaces
 nas
@@ -524,6 +526,7 @@ xenserver
 xenserver7
 xmap
 yaml
+yamlfmt
 yamllint
 youdao
 zbs

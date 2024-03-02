@@ -6,21 +6,11 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
     event = "BufReadPre",
-
-    init = function()
-      local U = require("neo.tools")
-
-      U.nmap("<Leader>bb", "<Cmd>BufferLineCycleNext<CR>")
-      U.nmap("<Leader>bh", "<Cmd>BufferLineCyclePrev<CR>")
-      U.nmap("<Leader>bp", "<Cmd>BufferLinePick<CR>")
-
-      require("neo.keybind").leader_help({
-        bb = "Next buffer",
-        bh = "Previous buffer",
-        bp = "Pick a buffer",
-      })
-    end,
-
+    keys = {
+      { "<leader>bb", "<cmd>BufferLineCycleNext<CR>", desc = "Next buffer" },
+      { "<leader>bh", "<cmd>BufferLineCyclePrev<CR>", desc = "Prev buffer" },
+      { "<leader>bp", "<cmd>BufferLinePick<CR>", desc = "Pick a buffer" },
+    },
     opts = {
       options = {
         always_show_bufferline = false,

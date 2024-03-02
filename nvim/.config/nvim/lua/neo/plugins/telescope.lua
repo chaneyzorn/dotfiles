@@ -6,22 +6,13 @@ return {
       "nvim-lua/popup.nvim",
       "nvim-lua/plenary.nvim",
     },
-    init = function()
-      local U = require("neo.tools")
-      U.nmap("<Leader>fb", "<Cmd>Telescope buffers<CR>")
-      U.nmap("<Leader>fc", "<Cmd>Telescope grep_string<CR>")
-      U.nmap("<Leader>ff", "<Cmd>Telescope find_files<CR>")
-      U.nmap("<Leader>fg", "<Cmd>Telescope git_status<CR>")
-      U.nmap("<Leader>fr", "<Cmd>Telescope live_grep<CR>")
-
-      require("neo.keybind").leader_help({
-        fb = "查找 buffer",
-        fc = "查找光标下的单词",
-        ff = "查找文件",
-        fg = "查找 git status 文件",
-        fr = "查找文件内容",
-      })
-    end,
+    keys = {
+      { "<leader>fb", "<cmd>Telescope buffers<CR>", desc = "Telescope buffers" },
+      { "<leader>fc", "<cmd>Telescope grep_string<CR>", desc = "Telescope search cursor" },
+      { "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Telescope find files" },
+      { "<leader>fg", "<cmd>Telescope git_status<CR>", desc = "Telescope git status" },
+      { "<leader>fr", "<cmd>Telescope live_grep<CR>", desc = "Telescope live search" },
+    },
     config = function()
       local actions = require("telescope.actions")
       local telescope = require("telescope")

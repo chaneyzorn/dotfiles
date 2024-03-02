@@ -5,29 +5,16 @@ return {
       "Trouble",
       "TroubleToggle",
     },
-    init = function()
-      local U = require("neo.tools")
-
-      U.nmap("<Leader>kk", "<Cmd>TroubleToggle<CR>")
-      U.nmap("<Leader>kw", "<Cmd>Trouble workspace_diagnostics<CR>")
-      U.nmap("<Leader>kd", "<Cmd>Trouble document_diagnostics<CR>")
-      U.nmap("<Leader>kl", "<Cmd>Trouble loclist<CR>")
-      U.nmap("<Leader>kq", "<Cmd>Trouble quickfix<CR>")
-      U.nmap("<Leader>kr", "<Cmd>Trouble lsp_references<CR>")
-      U.nmap("<Leader>kg", "<Cmd>Trouble lsp_definitions<CR>")
-      U.nmap("<Leader>kt", "<Cmd>Trouble lsp_type_definitions<CR>")
-
-      require("neo.keybind").leader_help({
-        kk = "TroubleToggle",
-        kw = "Trouble workspace_diagnostics",
-        kd = "Trouble document_diagnostics",
-        kl = "Trouble loclist",
-        kq = "Trouble quickfix",
-        kr = "Trouble lsp_references",
-        kg = "Trouble lsp_definitions",
-        kt = "Trouble lsp_type_definitions",
-      })
-    end,
+    keys = {
+      { "<leader>kk", "<cmd>TroubleToggle<CR>", desc = "TroubleToggle" },
+      { "<leader>kw", "<cmd>Trouble workspace_diagnostics<CR>", desc = "Trouble wksp diag" },
+      { "<leader>kd", "<cmd>Trouble document_diagnostics<CR>", desc = "Trouble doc diag" },
+      { "<leader>kl", "<cmd>Trouble loclist<CR>", desc = "Trouble loclist" },
+      { "<leader>kq", "<cmd>Trouble quickfix<CR>", desc = "Trouble quickfix" },
+      { "<leader>kr", "<cmd>Trouble lsp_references<CR>", desc = "Trouble lsp ref" },
+      { "<leader>kg", "<cmd>Trouble lsp_definitions<CR>", desc = "Trouble lsp def" },
+      { "<leader>kt", "<cmd>Trouble lsp_type_definitions<CR>", desc = "Trouble lsp type" },
+    },
     config = function()
       local trouble = require("trouble")
       trouble.setup({
@@ -65,6 +52,8 @@ return {
         local word = string.match(line, "Unknown word %((.+)%) cspell")
         if word ~= nil or word ~= "" then
           vim.cmd("spellgood " .. word:lower())
+          local spell_file = vim.opt.spellfile:get()[1]
+          os.execute(string.format("sort -u %s -o %s", spell_file, spell_file))
         end
       end
 
@@ -90,6 +79,7 @@ return {
         end
 
         local spell_file = vim.opt.spellfile:get()[1]
+        os.execute(string.format("sort -u %s -o %s", spell_file, spell_file))
         print(string.format("%s word(s) added to the %s.", count, spell_file))
       end
     end,
