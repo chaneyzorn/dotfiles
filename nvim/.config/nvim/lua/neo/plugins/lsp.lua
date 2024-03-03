@@ -271,7 +271,7 @@ return {
           nmap("<Leader>ca", vim.lsp.buf.code_action, { desc = "Lsp code action" })
           vmap("<Leader>ca", vim.lsp.buf.code_action, { desc = "Lsp code action" })
           nmap("<Leader>cf", vim.lsp.buf.format, { desc = "Lsp code format" })
-          nmap("<Leader>rn", vim.lsp.buf.rename, { desc = "Lsp rename" })
+          nmap("<Leader>cr", vim.lsp.buf.rename, { desc = "Lsp rename" })
         end,
       })
     end,

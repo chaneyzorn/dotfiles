@@ -1,6 +1,31 @@
 return {
   {
     "folke/which-key.nvim",
+    event = "VeryLazy",
+    keys = {
+      { "[b", "<cmd>bprevious<CR>", desc = "prev buffer" },
+      { "]b", "<cmd>bnext<CR>", desc = "next buffer" },
+      { "[t", "<cmd>tabprevious<CR>", desc = "prev tab" },
+      { "]t", "<cmd>tabnext<CR>", desc = "next tab" },
+      { "[w", "<C-W>p", desc = "prev win" },
+      { "]w", "<C-W>w", desc = "next win" },
+      { "<C-c>", "<Esc><Cmd>quit<CR>", desc = "quit" },
+      { "<C-s>", "<Esc><cmd>update<CR>", mode = { "n", "v", "i" }, desc = "save file" },
+
+      -- copy and paste
+      { "<C-y>", [["+y]], mode = { "v" }, desc = "yank selected to sys-clip" },
+      { "<C-p>", [["+p]], mode = { "n", "v" }, desc = "paste from sys-clip" },
+      { "<leader>yy", "<Cmd>%y+<CR>", "yank all to sys-clip" },
+      {
+        "<leader>yo",
+        function()
+          local fn = vim.fn
+          fn.setreg("+", fn.trim(fn.getline(".")))
+          vim.notify("[YankOneLine] one line yanked to system clipboard")
+        end,
+        "yank one line to sys-clip",
+      },
+    },
     config = function()
       local which_key_map = {}
 
@@ -10,8 +35,12 @@ return {
       }
 
       which_key_map.c = {
-        ["name"] = "coding",
+        ["name"] = "lsp/coding",
         ["k"] = { "<Cmd>set spell!<CR>", "Toggle spell check" },
+      }
+
+      which_key_map.f = {
+        ["name"] = "diagnostic",
       }
 
       which_key_map.f = {
@@ -19,7 +48,15 @@ return {
       }
 
       which_key_map.g = {
-        ["name"] = "git/goto",
+        ["name"] = "lsp/trouble",
+      }
+
+      which_key_map.h = {
+        ["name"] = "git",
+      }
+
+      which_key_map.k = {
+        ["name"] = "trouble",
       }
 
       which_key_map.w = {
@@ -55,38 +92,25 @@ return {
 
       which_key_map.y = {
         ["name"] = "yank",
-        ["y"] = { "<Cmd>%y+<CR>", "yank all to sys-clip" },
-        ["o"] = { require("neo.tools").YankOneLine, "yank one line to sys-clip" },
       }
 
       which_key_map.v = {
         ["name"] = "vim",
-        ["m"] = { require("neo.tools").ToggleMouse, "toggle mouse" },
+        ["m"] = {
+          function()
+            if vim.o.mouse == "" then
+              vim.o.mouse = "a"
+              vim.notify("[ToggleMouse] mouse enabled")
+            else
+              vim.o.mouse = ""
+              vim.notify("[ToggleMouse] mouse disabled")
+            end
+          end,
+          "toggle mouse",
+        },
         ["q"] = { "<Cmd>wa<CR>:q<CR>", "save all and quit" },
         ["x"] = { "<Cmd>qa!<CR>", "quit without save" },
       }
-
-      local U = require("neo.tools")
-
-      -- easy switch
-      U.nmap("[b", "<Cmd>bprevious<CR>")
-      U.nmap("]b", "<Cmd>bnext<CR>")
-      U.nmap("[t", "<Cmd>tabprevious<CR>")
-      U.nmap("]t", "<Cmd>tabnext<CR>")
-      U.nmap("[w", "<C-W>p")
-      U.nmap("]w", "<C-W>w")
-
-      U.nmap("<C-s>", "<Cmd>update<CR>")
-      U.vmap("<C-s>", "<Esc><Cmd>update<CR>")
-      U.imap("<C-s>", "<Esc><Cmd>update<CR>")
-
-      U.nmap("<C-c>", "<Esc><Cmd>quit<CR>")
-
-      -- 可视化复制选中内容到 clipboard
-      U.vmap("<C-y>", [["+y]])
-      -- Paste from clipboard
-      U.nmap("<C-p>", [["+p]])
-      U.vmap("<C-p>", [["+p]])
 
       local wk = require("which-key")
       wk.register(which_key_map, { prefix = "<Leader>" })

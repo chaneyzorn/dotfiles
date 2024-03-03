@@ -18,21 +18,7 @@ return {
     config = function()
       local trouble = require("trouble")
       trouble.setup({
-        position = "bottom",
-        height = 10,
-        width = 50,
-        icons = true,
         mode = "document_diagnostics",
-        fold_open = "",
-        fold_closed = "",
-        group = true,
-        padding = true,
-        indent_lines = true,
-        auto_open = false,
-        auto_close = false,
-        auto_preview = true,
-        auto_fold = false,
-        auto_jump = { "lsp_definitions" },
         action_keys = {
           cspell_good = "f",
           cspell_all_good = "sg",
@@ -44,7 +30,6 @@ return {
           information = "",
           other = "󰗡",
         },
-        use_diagnostic_signs = false,
       })
 
       trouble.cspell_good = function()
@@ -52,6 +37,7 @@ return {
         local word = string.match(line, "Unknown word %((.+)%) cspell")
         if word ~= nil or word ~= "" then
           vim.cmd("spellgood " .. word:lower())
+          -- only available after spellgood called
           local spell_file = vim.opt.spellfile:get()[1]
           os.execute(string.format("sort -u %s -o %s", spell_file, spell_file))
         end
@@ -78,9 +64,10 @@ return {
           count = count + 1
         end
 
+        -- only available after spellgood called
         local spell_file = vim.opt.spellfile:get()[1]
         os.execute(string.format("sort -u %s -o %s", spell_file, spell_file))
-        print(string.format("%s word(s) added to the %s.", count, spell_file))
+        vim.notify(string.format("%s word(s) added to the %s.", count, spell_file))
       end
     end,
   },

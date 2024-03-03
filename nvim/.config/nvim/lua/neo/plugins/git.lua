@@ -4,7 +4,7 @@ return {
     event = "BufReadPre",
     keys = {
       {
-        "<leader>gB",
+        "<leader>hB",
         "<cmd>Git blame<cr>",
         desc = "Git blame whole file",
       },

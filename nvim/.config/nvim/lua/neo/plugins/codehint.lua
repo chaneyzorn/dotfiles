@@ -114,9 +114,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     version = false,
     build = ":TSUpdate",
-    event = {
-      "VeryLazy",
-    },
+    event = "VeryLazy",
     config = function()
       require("nvim-treesitter.configs").setup({
         ensure_installed = "all",

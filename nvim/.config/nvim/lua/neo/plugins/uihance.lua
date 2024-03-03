@@ -1,20 +1,18 @@
 return {
   {
     "voldikss/vim-floaterm",
-    event = "VeryLazy",
+    keys = {
+      { "<leader>tr", desc = "Floaterm new" },
+      { "<leader>tt", desc = "Floaterm toggle" },
+      { "<leader>[", desc = "Floaterm prev" },
+      { "<leader>]", desc = "Floaterm next" },
+    },
     init = function()
       local vg = vim.g
-
-      -- floaterm 快捷键配置
       vg.floaterm_keymap_new = "<Leader>tr"
       vg.floaterm_keymap_prev = "<Leader>["
       vg.floaterm_keymap_next = "<Leader>]"
       vg.floaterm_keymap_toggle = "<Leader>tt"
-
-      require("neo.keybind").leader_help({
-        tt = "切入切出浮窗终端",
-        tr = "创建新浮窗终端",
-      })
     end,
   },
   {
@@ -24,16 +22,10 @@ return {
       "NvimTreeFindFile",
       "NvimTreeFocus",
     },
-    init = function()
-      local U = require("neo.tools")
-      U.nmap("<Leader>ft", "<Cmd>NvimTreeToggle<CR>")
-      U.nmap("<Leader>fl", "<Cmd>NvimTreeFindFile<CR>")
-
-      require("neo.keybind").leader_help({
-        ft = "打开文件树",
-        fl = "在文件树中定位此文件",
-      })
-    end,
+    keys = {
+      { "<leader>ft", "<cmd>NvimTreeToggle<CR>", desc = "NvimTreeToggle" },
+      { "<leader>fl", "<cmd>NvimTreeFindFile<CR>", desc = "NvimTreeFindFile" },
+    },
     config = function()
       require("nvim-tree").setup({
         disable_netrw = true,
