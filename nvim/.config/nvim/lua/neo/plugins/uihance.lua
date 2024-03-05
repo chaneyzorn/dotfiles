@@ -1,5 +1,47 @@
 return {
   {
+    "stevearc/stickybuf.nvim",
+    opts = {},
+  },
+  {
+    "stevearc/aerial.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
+    keys = {
+      { "<leader>ta", "<cmd>AerialNavToggle<CR>", desc = "Aerial nav toggle" },
+      { "<leader>tb", "<cmd>AerialToggle<CR>", desc = "Aerial outline toggle" },
+    },
+    opts = {
+      layout = {
+        width = 30,
+        min_width = 20,
+      },
+      -- filter_kind = false,
+      filter_kind = {
+        "Module",
+        "Namespace",
+        "Package",
+        "Class",
+        "Method",
+        "Property",
+        "Field",
+        "Constructor",
+        "Enum",
+        "Interface",
+        "Function",
+        "Constant",
+        "Array",
+        "Object",
+        "Key",
+        "EnumMember",
+        "Struct",
+      },
+      show_guides = true,
+    },
+  },
+  {
     "voldikss/vim-floaterm",
     keys = {
       { "<leader>tr", desc = "Floaterm new" },
