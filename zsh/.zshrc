@@ -18,6 +18,7 @@ export GOROOT=$(go env GOROOT)
 export GOPATH=$(go env GOPATH)
 
 export PNPM_HOME="$HOME/.local/share/pnpm"
+export PIPX_LOCAL_VENVS=$(pipx environment --value PIPX_LOCAL_VENVS)
 
 LOCAL_BIN=/usr/local/bin
 LOCAL_SBIN=/usr/local/sbin
