@@ -74,7 +74,6 @@ vo.background = "dark"
 vo.termguicolors = true
 
 vo.showmode = false
-vo.cmdheight = 2
 vo.wildmenu = true
 
 vo.autoread = true
