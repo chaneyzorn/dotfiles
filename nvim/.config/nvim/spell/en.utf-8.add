@@ -29,6 +29,7 @@ binascii
 blankline
 blk
 blkdiscard
+blockdev
 bool
 buf
 bufnr
@@ -128,6 +129,7 @@ exe
 expandtab
 exrc
 exsi
+failfast
 fcitx
 feedkeys
 fileformat
@@ -340,6 +342,7 @@ popen
 postprocess
 powerline
 poweroff
+pragma
 prog
 proto
 protobuf
