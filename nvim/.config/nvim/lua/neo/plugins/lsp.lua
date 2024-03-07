@@ -193,6 +193,10 @@ return {
       local symbols = { Error = "", Warn = "", Info = "", Hint = "󰛨" }
 
       vim.diagnostic.config({
+        float = {
+          border = "rounded",
+          source = true,
+        },
         virtual_text = {
           prefix = "",
           format = function(diagnostic)
