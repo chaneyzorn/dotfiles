@@ -10,3 +10,6 @@ function M.print_rtp()
 end
 
 return M
+
+-- plugins considered
+-- "JoosepAlviste/nvim-ts-context-commentstring",

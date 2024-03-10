@@ -48,4 +48,8 @@ vim.keymap.set("n", "<leader>ve", function()
   else
     vim.notify("User IME disabled")
   end
-end, { desc = "Toggle user IME" })
+end, { desc = "Toggle neovide user IME" })
+
+vim.keymap.set("n", "<leader>vf", function()
+  vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen
+end, { desc = "Toggle neovide fullscreen" })
