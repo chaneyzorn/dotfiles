@@ -1,5 +1,12 @@
 # /etc/systemd/system/efi-boot-steamos.service
 
+### Fixes dual-boot after SteamOS upgrade:
+# - VUP + Power to BIOS
+# - Boot From File: esp/efi/steamos/steamcl.efi
+# - Login to shell
+# - sudo efibootmgr -c -L "SteamOS" -l "\EFI\steamos\steamcl.efi" -d /dev/nvme0n1p1 -b0001
+# - sudo efibootmgr -n 0001
+
 [Unit]
 Description=Force SteamOS on next Boot
 
