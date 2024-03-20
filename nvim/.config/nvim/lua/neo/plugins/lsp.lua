@@ -28,7 +28,7 @@ return {
         cpp = { "clang_format" },
         go = { "goimports", "gofmt" },
         lua = { "stylua" },
-        python = { { "ruff_format", "black" } },
+        python = { { "black", "ruff_format" } },
         javascript = { { "prettier" } },
         sh = { "shfmt" },
         yaml = { "yamlfmt" },
