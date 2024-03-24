@@ -49,17 +49,17 @@ return {
   {
     "voldikss/vim-floaterm",
     keys = {
-      { "<leader>tr", desc = "Floaterm new" },
-      { "<leader>tt", desc = "Floaterm toggle" },
-      { "<leader>[", desc = "Floaterm prev" },
-      { "<leader>]", desc = "Floaterm next" },
+      { "<M-w>", desc = "Floaterm new" },
+      { "<M-t>", desc = "Floaterm toggle" },
+      { "<M-[>", desc = "Floaterm prev" },
+      { "<M-]>", desc = "Floaterm next" },
     },
     init = function()
       local vg = vim.g
-      vg.floaterm_keymap_new = "<Leader>tr"
-      vg.floaterm_keymap_prev = "<Leader>["
-      vg.floaterm_keymap_next = "<Leader>]"
-      vg.floaterm_keymap_toggle = "<Leader>tt"
+      vg.floaterm_keymap_new = "<M-w>"
+      vg.floaterm_keymap_prev = "<M-[>"
+      vg.floaterm_keymap_next = "<M-]>"
+      vg.floaterm_keymap_toggle = "<M-t>"
     end,
   },
   {
