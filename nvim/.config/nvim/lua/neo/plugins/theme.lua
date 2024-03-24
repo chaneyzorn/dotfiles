@@ -4,19 +4,6 @@ return {
     lazy = true,
   },
   {
-    "folke/tokyonight.nvim",
-    enabled = false,
-    priority = 1000,
-    config = function()
-      require("tokyonight").setup({
-        dim_inactive = true,
-        lualine_bold = true,
-      })
-      -- setup must be called before loading
-      -- vim.cmd.colorscheme("tokyonight")
-    end,
-  },
-  {
     "rebelot/kanagawa.nvim",
     enabled = false,
     priority = 1000,
@@ -85,7 +72,33 @@ return {
         },
       })
       -- setup must be called before loading
-      vim.cmd.colorscheme("catppuccin")
+      if not vim.g.neovide then
+        vim.cmd.colorscheme("catppuccin")
+      end
+    end,
+  },
+  {
+    "sainnhe/everforest",
+    priority = 1000,
+    config = function()
+      if vim.g.neovide then
+        vim.o.background = "light"
+        vim.api.nvim_create_autocmd("ColorScheme", {
+          group = vim.api.nvim_create_augroup("custom_highlights_everforest", {}),
+          pattern = "everforest",
+          callback = function()
+            local config = vim.fn["everforest#get_configuration"]()
+            local palette = vim.fn["everforest#get_palette"](config.background, config.colors_override)
+            local set_hl = vim.fn["everforest#highlight"]
+
+            set_hl("NvimTreeNormal", palette.fg, palette.bg0)
+            set_hl("NvimTreeEndOfBuffer", palette.bg0, palette.bg0)
+            set_hl("NvimTreeVertSplit", palette.bg0, palette.bg0)
+            set_hl("NvimTreeCursorLine", palette.none, palette.bg_dim)
+          end,
+        })
+        vim.cmd.colorscheme("everforest")
+      end
     end,
   },
 }

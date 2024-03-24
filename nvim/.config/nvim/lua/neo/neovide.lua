@@ -1,13 +1,19 @@
 -- https://github.com/neovide/neovide
 
+if not vim.g.neovide then
+  return nil
+end
+
 if vim.loop.os_uname().sysname == "Darwin" then
   vim.o.guifont = "JetBrains Mono:h14"
 else
   vim.o.guifont = "JetBrains Mono:h10"
 end
 
+vim.g.neovide_input_macos_alt_is_meta = true
 vim.g.neovide_fullscreen = false
 vim.g.neovide_transparency = 1.0
+vim.g.neovide_floating_shadow = false
 
 vim.g.neovide_cursor_animation_length = 0.01
 vim.g.neovide_cursor_trail_length = 0.1
