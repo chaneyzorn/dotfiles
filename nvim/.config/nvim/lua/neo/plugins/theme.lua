@@ -84,7 +84,7 @@ return {
       if vim.g.neovide then
         vim.o.background = "light"
         vim.api.nvim_create_autocmd("ColorScheme", {
-          group = vim.api.nvim_create_augroup("custom_highlights_everforest", {}),
+          group = vim.api.nvim_create_augroup("EverforestCustom", {}),
           pattern = "everforest",
           callback = function()
             local config = vim.fn["everforest#get_configuration"]()

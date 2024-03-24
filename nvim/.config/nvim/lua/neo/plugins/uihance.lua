@@ -53,6 +53,7 @@ return {
       { "<M-t>", desc = "Floaterm toggle" },
       { "<M-[>", desc = "Floaterm prev" },
       { "<M-]>", desc = "Floaterm next" },
+      { "<M-`>", [[<C-\><C-n>]], mode = { "t" }, desc = "Exit terminal-mode" },
     },
     init = function()
       local vg = vim.g
@@ -60,6 +61,15 @@ return {
       vg.floaterm_keymap_prev = "<M-[>"
       vg.floaterm_keymap_next = "<M-]>"
       vg.floaterm_keymap_toggle = "<M-t>"
+
+      vim.api.nvim_create_autocmd("TermOpen", {
+        group = vim.api.nvim_create_augroup("NvimTermCustom", {}),
+        pattern = "*",
+        callback = function()
+          vim.opt_local.number = false
+          vim.cmd("startinsert")
+        end,
+      })
     end,
   },
   {
@@ -142,17 +152,6 @@ return {
             "node_modules",
           },
         },
-      })
-
-      vim.api.nvim_create_autocmd({ "BufEnter" }, {
-        pattern = { "*" },
-        nested = true,
-        callback = function()
-          if vim.fn.winnr("$") == 1 and vim.fn.bufname() == "NvimTree_" .. vim.fn.tabpagenr() then
-            vim.api.nvim_command("silent qa!")
-          end
-        end,
-        desc = "automatically close the tab/vim when nvim-tree is the last window in the tab",
       })
     end,
   },
