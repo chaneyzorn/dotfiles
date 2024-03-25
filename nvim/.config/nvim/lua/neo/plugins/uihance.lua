@@ -57,6 +57,10 @@ return {
     },
     init = function()
       local vg = vim.g
+
+      vg.floaterm_width = 0.95
+      vg.floaterm_height = 0.95
+
       vg.floaterm_keymap_new = "<M-w>"
       vg.floaterm_keymap_prev = "<M-[>"
       vg.floaterm_keymap_next = "<M-]>"
