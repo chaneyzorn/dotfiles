@@ -13,3 +13,5 @@ return M
 
 -- plugins considered
 -- "JoosepAlviste/nvim-ts-context-commentstring",
+-- "cbochs/grapple.nvim"
+-- "flash.nvim"
