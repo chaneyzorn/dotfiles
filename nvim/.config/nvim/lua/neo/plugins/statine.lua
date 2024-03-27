@@ -31,6 +31,18 @@ return {
       sections = {
         lualine_a = {
           { "mode" },
+          {
+            function()
+              if require("leap").state.args.backward then
+                return "󰠽 "
+              else
+                return "󰵵 "
+              end
+            end,
+            cond = function()
+              return vim.g.u_leap_enter
+            end,
+          },
         },
         lualine_b = {
           {

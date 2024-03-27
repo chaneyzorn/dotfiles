@@ -13,6 +13,27 @@ return {
     },
     config = function()
       require("leap").set_default_keymaps(true)
+
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "LeapEnter",
+        callback = function()
+          vim.g.u_leap_enter = true
+          require("lualine").refresh({
+            scope = "tabpage",
+            place = { "statusline" },
+          })
+        end,
+      })
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "LeapLeave",
+        callback = function()
+          vim.g.u_leap_enter = false
+          require("lualine").refresh({
+            scope = "tabpage",
+            place = { "statusline" },
+          })
+        end,
+      })
     end,
   },
   {
