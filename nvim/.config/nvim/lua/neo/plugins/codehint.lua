@@ -7,13 +7,11 @@ return {
   {
     "ggandor/leap.nvim",
     keys = {
-      { "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
-      { "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
-      { "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
+      { "<M-j>", "<Plug>(leap-forward)", mode = { "n", "x", "o" }, desc = "Leap forward to" },
+      { "<M-k>", "<Plug>(leap-backward)", mode = { "n", "x", "o" }, desc = "Leap backward to" },
+      { "<M-f>", "<Plug>(leap-from-window)", mode = { "n", "x", "o" }, desc = "Leap from windows" },
     },
     config = function()
-      require("leap").set_default_keymaps(true)
-
       vim.api.nvim_create_autocmd("User", {
         pattern = "LeapEnter",
         callback = function()
