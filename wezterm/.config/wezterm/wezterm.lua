@@ -85,6 +85,9 @@ local M = {
   exit_behavior = "Close",
   -- https://github.com/wez/wezterm/issues/1928
   custom_block_glyphs = false,
+
+  send_composed_key_when_left_alt_is_pressed = false,
+  send_composed_key_when_right_alt_is_pressed = false,
 }
 
 local function ends_with(str, ending)
