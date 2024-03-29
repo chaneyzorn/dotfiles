@@ -2,8 +2,6 @@
 
 local vo = vim.o
 local vg = vim.g
-local vwo = vim.wo
-local vbo = vim.bo
 
 vg.mapleader = " "
 vg.maplocalleader = " "
@@ -23,10 +21,7 @@ vo.scrolloff = 5
 vo.cursorline = true
 
 vo.number = true
-vwo.number = true
-
--- vo.relativenumber = true
--- vwo.relativenumber = true
+vo.relativenumber = true
 
 -- show ruler virt-line at textwidth +1
 vo.colorcolumn = "+1"
@@ -77,11 +72,9 @@ vo.showmode = false
 vo.wildmenu = true
 
 vo.autoread = true
-vbo.autoread = true
 
 -- disable line wrap
 vo.wrap = false
-vwo.wrap = false
 
 vo.spell = false
 vo.spelllang = "en,cjk"
