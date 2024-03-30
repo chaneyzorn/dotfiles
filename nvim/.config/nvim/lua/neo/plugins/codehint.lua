@@ -12,7 +12,9 @@ return {
       { "<M-f>", "<Plug>(leap-from-window)", mode = { "n", "x", "o" }, desc = "Leap from windows" },
     },
     config = function()
+      local leap_lualine = vim.api.nvim_create_augroup("LeapLualine", { clear = true })
       vim.api.nvim_create_autocmd("User", {
+        group = leap_lualine,
         pattern = "LeapEnter",
         callback = function()
           vim.g.u_leap_enter = true
@@ -23,6 +25,7 @@ return {
         end,
       })
       vim.api.nvim_create_autocmd("User", {
+        group = leap_lualine,
         pattern = "LeapLeave",
         callback = function()
           vim.g.u_leap_enter = false
@@ -130,6 +133,10 @@ return {
     version = false,
     build = ":TSUpdate",
     event = "VeryLazy",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-context",
+      "nvim-treesitter/nvim-treesitter-textobjects",
+    },
     config = function()
       require("nvim-treesitter.configs").setup({
         ensure_installed = "all",

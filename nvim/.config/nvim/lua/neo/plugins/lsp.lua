@@ -266,7 +266,6 @@ return {
           nmap("<Leader>gd", vim.lsp.buf.declaration, { desc = "Lsp to declaration" })
 
           -- use trouble.nvim as lsp list
-          nmap("<C-j>", "<Cmd>TroubleToggle lsp_definitions<CR>", { desc = "Trouble lsp def" })
           nmap("<Leader>gi", "<Cmd>TroubleToggle lsp_implementations<CR>", { desc = "Trouble lsp imp" })
           nmap("<Leader>gg", "<Cmd>TroubleToggle lsp_definitions<CR>", { desc = "Trouble lsp def" })
           nmap("<Leader>gt", "<Cmd>TroubleToggle lsp_type_definitions<CR>", { desc = "Trouble lsp type" })
