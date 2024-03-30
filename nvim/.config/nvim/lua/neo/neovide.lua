@@ -33,7 +33,7 @@ local function set_ime(args)
   end
 end
 
-local ime_input = vim.api.nvim_create_augroup("ime_input", { clear = true })
+local ime_input = vim.api.nvim_create_augroup("NeovideImeInput", { clear = true })
 
 vim.api.nvim_create_autocmd({ "InsertEnter", "InsertLeave" }, {
   group = ime_input,

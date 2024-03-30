@@ -23,6 +23,27 @@ vo.cursorline = true
 vo.number = true
 vo.relativenumber = true
 
+-- see https://github.com/jeffkreeftmeijer/vim-numbertoggle
+local number_toggle = vim.api.nvim_create_augroup("NumberToggle", { clear = true })
+vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnter" }, {
+  group = number_toggle,
+  pattern = "*",
+  callback = function()
+    if vim.wo.number and vim.fn.mode() ~= "i" then
+      vim.wo.relativenumber = true
+    end
+  end,
+})
+vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave" }, {
+  group = number_toggle,
+  pattern = "*",
+  callback = function()
+    if vim.wo.number then
+      vim.wo.relativenumber = false
+    end
+  end,
+})
+
 -- show ruler virt-line at textwidth +1
 vo.colorcolumn = "+1"
 
