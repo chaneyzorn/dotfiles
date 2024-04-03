@@ -83,8 +83,10 @@ local M = {
   scrollback_lines = 100000,
   enable_scroll_bar = false,
   exit_behavior = "Close",
+
   -- https://github.com/wez/wezterm/issues/1928
   custom_block_glyphs = false,
+  selection_word_boundary = " \t\n{}[]()\"'`│",
 
   send_composed_key_when_left_alt_is_pressed = false,
   send_composed_key_when_right_alt_is_pressed = false,
