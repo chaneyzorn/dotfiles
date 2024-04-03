@@ -74,6 +74,26 @@ return {
           vim.cmd("startinsert")
         end,
       })
+
+      vim.api.nvim_create_user_command("Vtm", function(opts)
+        vim.cmd("belowright vsplit term://" .. (opts.fargs[1] or "zsh"))
+      end, {
+        nargs = "?",
+        desc = "open terminal in vsplit window",
+        complete = function(ArgLead, Cmdline, CursorPos)
+          return { "zsh", "python3" }
+        end,
+      })
+
+      vim.api.nvim_create_user_command("Tm", function(opts)
+        vim.cmd("botright split term://" .. (opts.fargs[1] or "zsh"))
+      end, {
+        nargs = "?",
+        desc = "open terminal in split window",
+        complete = function(ArgLead, Cmdline, CursorPos)
+          return { "zsh", "python3" }
+        end,
+      })
     end,
   },
   {

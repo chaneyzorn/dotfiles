@@ -12,5 +12,7 @@ end
 return M
 
 -- plugins considered
--- "JoosepAlviste/nvim-ts-context-commentstring",
--- "cbochs/grapple.nvim"
+-- JoosepAlviste/nvim-ts-context-commentstring
+-- cbochs/grapple.nvim
+-- kevinhwang91/nvim-hlslens
+-- cshuaimin/ssr.nvim
