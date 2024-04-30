@@ -308,7 +308,7 @@ return {
         "jsonls",
         "lua_ls",
         "pyright",
-        "ruff_lsp",
+        "ruff",
         "rust_analyzer",
         "tsserver",
         "typos_lsp",
