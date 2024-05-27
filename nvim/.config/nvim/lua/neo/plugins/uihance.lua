@@ -5,10 +5,6 @@ return {
     main = "bqf",
   },
   {
-    "stevearc/stickybuf.nvim",
-    opts = {},
-  },
-  {
     "stevearc/aerial.nvim",
     dependencies = {
       "nvim-treesitter/nvim-treesitter",

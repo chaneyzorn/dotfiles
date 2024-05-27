@@ -10,7 +10,7 @@ else
   vim.o.guifont = "JetBrains Mono:h10"
 end
 
-vim.g.neovide_input_macos_alt_is_meta = true
+vim.g.neovide_input_macos_option_key_is_meta = "both"
 vim.g.neovide_fullscreen = false
 vim.g.neovide_transparency = 1.0
 vim.g.neovide_floating_shadow = false
