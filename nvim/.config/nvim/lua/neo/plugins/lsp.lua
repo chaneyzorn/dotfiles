@@ -46,32 +46,11 @@ return {
     },
     keys = {
       {
-        "[e",
-        function()
-          vim.diagnostic.goto_prev()
-        end,
-        desc = "prev diagnostic",
-      },
-      {
-        "]e",
-        function()
-          vim.diagnostic.goto_next()
-        end,
-        desc = "next diagnostic",
-      },
-      {
         "<leader>dl",
         function()
           vim.diagnostic.setloclist()
         end,
         desc = "loclist diagnostic",
-      },
-      {
-        "<leader>ds",
-        function()
-          vim.diagnostic.open_float()
-        end,
-        desc = "diagnostic open_float",
       },
       {
         "<leader>cv",

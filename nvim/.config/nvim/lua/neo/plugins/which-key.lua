@@ -7,24 +7,12 @@ return {
       { "]b", "<cmd>bnext<CR>", desc = "next buffer" },
       { "[t", "<cmd>tabprevious<CR>", desc = "prev tab" },
       { "]t", "<cmd>tabnext<CR>", desc = "next tab" },
-      { "[w", "<C-W>p", desc = "prev win" },
-      { "]w", "<C-W>w", desc = "next win" },
       { "<C-c>", "<Esc><Cmd>quit<CR>", desc = "quit" },
       { "<C-s>", "<Esc><cmd>update<CR>", mode = { "n", "v", "i" }, desc = "save file" },
 
       -- copy and paste
       { "<C-y>", [["+y]], mode = { "v" }, desc = "yank selected to sys-clip" },
       { "<C-p>", [["+p]], mode = { "n", "v" }, desc = "paste from sys-clip" },
-      { "<leader>yy", "<Cmd>%y+<CR>", "yank all to sys-clip" },
-      {
-        "<leader>yo",
-        function()
-          local fn = vim.fn
-          fn.setreg("+", fn.trim(fn.getline(".")))
-          vim.notify("[YankOneLine] one line yanked to system clipboard")
-        end,
-        "yank one line to sys-clip",
-      },
     },
     config = function()
       local which_key_map = {}

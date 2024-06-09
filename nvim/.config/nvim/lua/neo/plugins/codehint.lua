@@ -1,10 +1,5 @@
 return {
   {
-    "numToStr/Comment.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    opts = {},
-  },
-  {
     "folke/flash.nvim",
     event = "VeryLazy",
     opts = {},
@@ -87,11 +82,12 @@ return {
   },
   {
     "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
     cmd = {
       "TodoQuickFix",
       "TodoLocList",
-      "TodoTrouble",
       "TodoTelescope",
+      "Trouble",
     },
     opts = {},
   },

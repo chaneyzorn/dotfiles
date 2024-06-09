@@ -1,38 +1,18 @@
 return {
   {
     "folke/trouble.nvim",
-    cmd = {
-      "Trouble",
-      "TroubleToggle",
-    },
+    cmd = { "Trouble" },
     keys = {
-      { "<leader>kk", "<cmd>TroubleToggle<CR>", desc = "TroubleToggle" },
-      { "<leader>kw", "<cmd>Trouble workspace_diagnostics<CR>", desc = "Trouble wksp diag" },
-      { "<leader>kd", "<cmd>Trouble document_diagnostics<CR>", desc = "Trouble doc diag" },
-      { "<leader>kl", "<cmd>Trouble loclist<CR>", desc = "Trouble loclist" },
-      { "<leader>kq", "<cmd>Trouble quickfix<CR>", desc = "Trouble quickfix" },
-      { "<leader>kr", "<cmd>Trouble lsp_references<CR>", desc = "Trouble lsp ref" },
-      { "<leader>kg", "<cmd>Trouble lsp_definitions<CR>", desc = "Trouble lsp def" },
-      { "<leader>kt", "<cmd>Trouble lsp_type_definitions<CR>", desc = "Trouble lsp type" },
+      { "<leader>kk", "<cmd>Trouble diagnostics toggle<CR>", desc = "Trouble diagnostics" },
+      { "<leader>kl", "<cmd>Trouble loclist toggle<CR>", desc = "Trouble loclist" },
+      { "<leader>kq", "<cmd>Trouble qflist toggle<CR>", desc = "Trouble quickfix" },
+      { "<leader>kc", "<cmd>Trouble lsp toggle<CR>", desc = "Trouble code lsp" },
+      { "<leader>ks", "<cmd>Trouble symbols toggle<CR>", desc = "Trouble symbols" },
     },
     config = function()
       local trouble = require("trouble")
-      trouble.setup({
-        mode = "document_diagnostics",
-        action_keys = {
-          cspell_good = "f",
-          cspell_all_good = "sg",
-        },
-        signs = {
-          error = "󰅚",
-          warning = "",
-          hint = "󰌶",
-          information = "",
-          other = "󰗡",
-        },
-      })
 
-      trouble.cspell_good = function()
+      local cspell_good = function()
         local line = vim.fn.getline(".")
         local word = string.match(line, "Unknown word %((.+)%) cspell")
         if word ~= nil or word ~= "" then
@@ -43,7 +23,7 @@ return {
         end
       end
 
-      trouble.cspell_all_good = function()
+      local cspell_all_good = function()
         local words = {}
         for _, item in pairs(trouble.get_items()) do
           if item.source == "cspell" then
@@ -69,6 +49,20 @@ return {
         os.execute(string.format("sort -u %s -o %s", spell_file, spell_file))
         vim.notify(string.format("%s word(s) added to the %s.", count, spell_file))
       end
+
+      trouble.setup({
+        focus = true,
+        keys = {
+          f = {
+            action = cspell_good,
+            desc = "cspell good",
+          },
+          sg = {
+            action = cspell_all_good,
+            desc = "cspell all good",
+          },
+        },
+      })
     end,
   },
 }
