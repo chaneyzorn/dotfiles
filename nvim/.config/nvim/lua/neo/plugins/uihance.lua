@@ -6,6 +6,12 @@ return {
   },
   {
     "stevearc/aerial.nvim",
+    cmd = {
+      "AerialToggle",
+      "AerialOpen",
+      "AerialNavToggle",
+      "AerialNavOpen",
+    },
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
@@ -44,6 +50,7 @@ return {
   },
   {
     "voldikss/vim-floaterm",
+    cmd = { "Floaterm" },
     keys = {
       { "<M-w>", desc = "Floaterm new" },
       { "<M-t>", desc = "Floaterm toggle" },
