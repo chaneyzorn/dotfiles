@@ -10,6 +10,12 @@ return {
       { "<C-c>", "<Esc><Cmd>quit<CR>", desc = "quit" },
       { "<C-s>", "<Esc><cmd>update<CR>", mode = { "n", "v", "i" }, desc = "save file" },
 
+      -- move faster
+      { "<C-j>", "3j", desc = "Move j faster" },
+      { "<C-k>", "3k", desc = "Move k faster" },
+      { "<M-j>", "5j", desc = "Move j more faster" },
+      { "<M-k>", "5k", desc = "Move k more faster" },
+
       -- copy and paste
       { "<C-y>", [["+y]], mode = { "v" }, desc = "yank selected to sys-clip" },
       { "<C-p>", [["+p]], mode = { "n", "v" }, desc = "paste from sys-clip" },

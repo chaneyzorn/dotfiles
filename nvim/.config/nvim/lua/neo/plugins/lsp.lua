@@ -240,8 +240,8 @@ return {
           end
 
           -- See `:help vim.lsp.*` for documentation on any of the below functions
-          nmap("<C-k>", vim.lsp.buf.signature_help, { desc = "Lsp signature help" })
-          nmap("<C-K>", vim.lsp.buf.hover, { desc = "Lsp hover doc" })
+          nmap("<Leader>gs", vim.lsp.buf.signature_help, { desc = "Lsp signature help" })
+          nmap("<Leader>gk", vim.lsp.buf.hover, { desc = "Lsp hover doc" })
           nmap("<Leader>gd", vim.lsp.buf.declaration, { desc = "Lsp to declaration" })
 
           -- use trouble.nvim as lsp list
