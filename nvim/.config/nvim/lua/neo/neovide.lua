@@ -13,12 +13,15 @@ end
 vim.g.neovide_input_macos_option_key_is_meta = "both"
 vim.g.neovide_fullscreen = false
 vim.g.neovide_transparency = 1.0
+vim.g.neovide_window_blurred = true
+vim.g.neovide_show_border = true
 vim.g.neovide_floating_shadow = false
 
 vim.g.neovide_cursor_animation_length = 0.01
 vim.g.neovide_cursor_trail_length = 0.1
 vim.g.neovide_cursor_vfx_mode = "railgun"
 vim.g.neovide_cursor_animate_command_line = false
+vim.g.neovide_position_animation_length = 0
 
 vim.g.neovide_hide_mouse_when_typing = true
 
