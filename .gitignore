@@ -12,6 +12,7 @@ linux-home/.local/share/nvim/
 linux-home/.local/share/virtualenv/
 linux-home/.local/state/nvim/
 linux-home/.local/share/pnpm/
+linux-home/.local/share/CMakeTools/
 
 .netrwhist
 nvim/.config/nvim/cache
@@ -20,3 +21,4 @@ nvim/.config/nvim/sessions/default.vim
 nvim/.config/nvim/spell/en.utf-8.add.spl
 nvim/.config/nvim/plugin/packer_compiled.vim
 nvim/.config/nvim/plugin/packer_compiled.lua
+nvim/.config/go/telemetry
