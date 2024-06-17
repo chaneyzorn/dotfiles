@@ -2,6 +2,7 @@ return {
   {
     "tpope/vim-fugitive",
     event = "BufReadPre",
+    cmd = "Git",
     keys = {
       {
         "<leader>hB",
