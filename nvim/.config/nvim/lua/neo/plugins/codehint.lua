@@ -60,15 +60,14 @@ return {
     config = function()
       require("illuminate").configure({
         filetypes_denylist = {
-          "dirvish",
           "fugitive",
           "NvimTree",
           "DiffviewFiles",
           "qf",
           "help",
           "list",
-          "vista",
           "man",
+          "aerial",
         },
       })
     end,

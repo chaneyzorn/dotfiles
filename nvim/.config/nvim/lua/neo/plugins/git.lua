@@ -3,13 +3,6 @@ return {
     "tpope/vim-fugitive",
     event = "BufReadPre",
     cmd = "Git",
-    keys = {
-      {
-        "<leader>hB",
-        "<cmd>Git blame<cr>",
-        desc = "Git blame whole file",
-      },
-    },
   },
   {
     "sindrets/diffview.nvim",
@@ -21,6 +14,7 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     event = "BufReadPre",
+    cmd = "Gitsigns",
     opts = {
       current_line_blame = true,
       current_line_blame_formatter = "      <author_time:%Y-%m-%d>   <author>   <summary>",
@@ -77,6 +71,9 @@ return {
         nmap("<leader>hb", function()
           gs.blame_line({ full = true })
         end, { desc = "Git blame line" })
+        nmap("<leader>hB", function()
+          gs.blame()
+        end, { desc = "Git blame file" })
 
         nmap("<leader>hd", function()
           gs.toggle_deleted()
