@@ -30,6 +30,21 @@ return {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
     },
-    opts = {},
+    config = function()
+      local disabled_filetypes = require("hardtime.config").config.disabled_filetypes
+      require("hardtime").setup({
+        disabled_filetypes = vim.list_extend(vim.deepcopy(disabled_filetypes), {
+          "git",
+          "gitsigns.blame",
+        }),
+        -- restriction_mode = "hint",
+        disabled_keys = {
+          ["<Up>"] = {},
+          ["<Down>"] = {},
+          ["<Left>"] = {},
+          ["<Right>"] = {},
+        },
+      })
+    end,
   },
 }
