@@ -1,5 +1,13 @@
 return {
   {
+    "MagicDuck/grug-far.nvim",
+    config = function()
+      require("grug-far").setup({
+        extraRgArgs = "--hidden",
+      })
+    end,
+  },
+  {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     dependencies = {

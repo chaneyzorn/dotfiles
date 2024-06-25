@@ -36,6 +36,7 @@ return {
         disabled_filetypes = vim.list_extend(vim.deepcopy(disabled_filetypes), {
           "git",
           "gitsigns.blame",
+          "grug-far",
         }),
         -- restriction_mode = "hint",
         disabled_keys = {

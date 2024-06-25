@@ -4,7 +4,7 @@ local vo = vim.o
 local vg = vim.g
 
 vg.mapleader = " "
-vg.maplocalleader = " "
+vg.maplocalleader = ";"
 
 vo.mouse = ""
 
