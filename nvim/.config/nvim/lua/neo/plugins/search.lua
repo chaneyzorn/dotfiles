@@ -1,9 +1,20 @@
 return {
   {
     "MagicDuck/grug-far.nvim",
+    cmd = "GrugFar",
+    keys = {
+      { "<leader>rg", "<cmd>GrugFar<CR>", desc = "Grug find and replace" },
+    },
     config = function()
       require("grug-far").setup({
         extraRgArgs = "--hidden",
+        headerMaxWidth = 80,
+        disableBufferLineNumbers = false,
+        startInInsertMode = false,
+        resultsSeparatorLineChar = "─",
+        icons = {
+          actionEntryBullet = "  ",
+        },
       })
     end,
   },
