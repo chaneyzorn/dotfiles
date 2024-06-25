@@ -8,6 +8,7 @@ fontconfig/.config/fontconfig/conf.d/78-Reject.conf
 
 linux-home/.local/share/containers/
 linux-home/.local/share/delta/
+linux-home/.local/share/man/
 linux-home/.local/share/nvim/
 linux-home/.local/share/virtualenv/
 linux-home/.local/state/nvim/
