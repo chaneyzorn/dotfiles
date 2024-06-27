@@ -103,6 +103,7 @@ return {
           "toggle mouse",
         },
         ["q"] = { "<Cmd>wa<CR>:q<CR>", "save all and quit" },
+        ["s"] = { "<Cmd>Lazy sync<CR>", "Lazy sync" },
         ["x"] = { "<Cmd>qa!<CR>", "quit without save" },
       }
 
