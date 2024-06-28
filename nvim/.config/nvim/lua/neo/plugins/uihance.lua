@@ -101,6 +101,9 @@ return {
   },
   {
     "kyazdani42/nvim-tree.lua",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
     cmd = {
       "NvimTreeToggle",
       "NvimTreeFindFile",
@@ -112,6 +115,16 @@ return {
     },
     config = function()
       require("nvim-tree").setup({
+        on_attach = function(bufnr)
+          require("nvim-tree.api").config.mappings.default_on_attach(bufnr)
+          vim.keymap.set("n", "<C-k>", "3k", {
+            desc = "nvim-tree: revert default to move faster",
+            buffer = bufnr,
+            noremap = true,
+            silent = true,
+            nowait = true,
+          })
+        end,
         disable_netrw = true,
         sync_root_with_cwd = true,
         view = {
@@ -145,25 +158,25 @@ return {
               default = "󰈙",
               symlink = "",
               bookmark = "󰆤",
-              modified = "●",
+              modified = "󰃉",
               folder = {
                 arrow_closed = "",
                 arrow_open = "",
                 default = "",
                 open = "",
-                empty = "",
-                empty_open = "",
+                empty = "",
+                empty_open = "",
                 symlink = "",
-                symlink_open = "",
+                symlink_open = "",
               },
               git = {
                 unstaged = "󰃉",
                 staged = "󰄭",
                 unmerged = "",
-                renamed = "➜",
+                renamed = "",
                 untracked = "󰓒",
                 deleted = "",
-                ignored = "◌",
+                ignored = "",
               },
             },
           },
