@@ -168,32 +168,26 @@ return {
       "BufNewFile",
     },
     config = function()
-      local signs = { Error = "󰅚", Warn = "", Info = "", Hint = "󰌶" }
-      local symbols = { Error = "", Warn = "", Info = "", Hint = "󰛨" }
-
       vim.diagnostic.config({
-        float = {
-          border = "rounded",
-          source = true,
-        },
+        float = { border = "rounded", source = true },
         virtual_text = {
-          prefix = "",
-          format = function(diagnostic)
-            if diagnostic.severity == vim.diagnostic.severity.ERROR then
-              return string.format("%s: %s %s", diagnostic.source or "", diagnostic.message, symbols.Error)
-            elseif diagnostic.severity == vim.diagnostic.severity.WARN then
-              return string.format("%s: %s %s", diagnostic.source or "", diagnostic.message, symbols.Warn)
-            elseif diagnostic.severity == vim.diagnostic.severity.INFO then
-              return string.format("%s: %s %s", diagnostic.source or "", diagnostic.message, symbols.Info)
-            elseif diagnostic.severity == vim.diagnostic.severity.HINT then
-              return string.format("%s: %s %s", diagnostic.source or "", diagnostic.message, symbols.Hint)
+          source = true,
+          prefix = function(diagnostic, i, total)
+            if i ~= total then
+              return ""
             end
-
-            return diagnostic.message
+            local ss = { "", "", "", "󰛨", "?" }
+            local s = ss[diagnostic.severity]
+            if total == 1 then
+              return s .. " "
+            else
+              return string.format("%s %s", s, string.rep(".", total))
+            end
           end,
         },
       })
 
+      local signs = { Error = "󰅚", Warn = "", Info = "", Hint = "󰌶" }
       for type, icon in pairs(signs) do
         local hl = "DiagnosticSign" .. type
         vim.fn.sign_define(hl, { text = icon, texthl = hl, linehl = "", numhl = "" })
