@@ -12,7 +12,6 @@ return {
   },
   {
     "echasnovski/mini.nvim",
-    version = "*",
     config = function()
       require("mini.indentscope").setup({
         symbol = "┊",
@@ -22,6 +21,7 @@ return {
       })
 
       require("mini.ai").setup()
+      require("mini.icons").setup()
     end,
   },
   {

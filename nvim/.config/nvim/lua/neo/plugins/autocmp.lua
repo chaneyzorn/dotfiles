@@ -38,7 +38,14 @@ return {
           { name = "nvim_lsp" },
           { name = "luasnip" },
         }, {
-          { name = "buffer" },
+          {
+            name = "buffer",
+            option = {
+              get_bufnrs = function()
+                return vim.api.nvim_list_bufs()
+              end,
+            },
+          },
           { name = "path" },
         }),
         snippet = {
@@ -49,9 +56,17 @@ return {
         },
         formatting = {
           format = function(entry, item)
-            item.kind = entry.source.name .. " " .. string.lower(item.kind)
+            local mini_icons = require("mini.icons")
+            local icon = mini_icons.get("lsp", item.kind)
+            item.kind = string.format("%s %s.%s", icon, entry.source.name, string.lower(item.kind))
             return item
           end,
+        },
+        window = {
+          -- completion = cmp.config.window.bordered({ border = "single" }),
+          -- documentation = cmp.config.window.bordered({ border = "single" }),
+          completion = cmp.config.window.bordered(),
+          documentation = cmp.config.window.bordered(),
         },
         mapping = {
           ["<C-k>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
