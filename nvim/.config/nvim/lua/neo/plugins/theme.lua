@@ -57,6 +57,13 @@ return {
           percentage = 0.15,
         },
         term_colors = true,
+        styles = {
+          comments = { "italic" },
+          conditionals = {},
+          keywords = { "bold" },
+          functions = { "bold" },
+          types = { "bold" },
+        },
         custom_highlights = function(colors)
           return {
             NvimTreeExecFile = { fg = colors.flamingo, bold = true },
