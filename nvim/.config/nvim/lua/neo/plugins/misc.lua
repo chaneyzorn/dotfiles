@@ -33,6 +33,7 @@ return {
     config = function()
       local disabled_filetypes = require("hardtime.config").config.disabled_filetypes
       require("hardtime").setup({
+        restriction_mode = "hint",
         disabled_filetypes = vim.list_extend(vim.deepcopy(disabled_filetypes), {
           "git",
           "gitsigns.blame",
