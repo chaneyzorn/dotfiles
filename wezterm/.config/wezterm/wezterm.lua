@@ -90,6 +90,8 @@ local M = {
 
   send_composed_key_when_left_alt_is_pressed = false,
   send_composed_key_when_right_alt_is_pressed = false,
+
+  use_ime = false,
 }
 
 local function ends_with(str, ending)
