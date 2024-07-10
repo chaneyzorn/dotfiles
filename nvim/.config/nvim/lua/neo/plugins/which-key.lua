@@ -78,8 +78,7 @@ return {
         ["n"] = { "<Cmd>tabnew<CR>", "new tab" },
         ["c"] = { "<Cmd>tabclose<CR>", "close current tab" },
         ["o"] = { "<Cmd>tabonly<CR>", "close other tabs" },
-        ["]"] = { "<Cmd>tabnext<CR>", "next tab" },
-        ["["] = { "<Cmd>tabprevious<CR>", "pre tab" },
+        ["t"] = { "<Cmd>tabnext<CR>", "next tab" },
         ["f"] = { "<Cmd>tabfirst<CR>", "first tab" },
         ["l"] = { "<Cmd>tablast<CR>", "last tab" },
       }
