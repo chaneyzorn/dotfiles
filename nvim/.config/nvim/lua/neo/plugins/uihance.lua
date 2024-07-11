@@ -52,11 +52,12 @@ return {
     "voldikss/vim-floaterm",
     cmd = { "Floaterm" },
     keys = {
-      { "<M-w>", desc = "Floaterm new" },
-      { "<M-t>", desc = "Floaterm toggle" },
+      { "<M-n>", desc = "Floaterm new" },
+      { "<M-\\><M-\\>", desc = "Floaterm toggle" },
       { "<M-[>", desc = "Floaterm prev" },
       { "<M-]>", desc = "Floaterm next" },
       { "<M-`>", [[<C-\><C-n>]], mode = { "t" }, desc = "Exit terminal-mode" },
+      { "<C-\\><CR>", [[<C-\><C-n>]], mode = { "t" }, desc = "Exit terminal-mode" },
     },
     init = function()
       local vg = vim.g
@@ -64,35 +65,77 @@ return {
       vg.floaterm_width = 0.95
       vg.floaterm_height = 0.95
 
-      vg.floaterm_keymap_new = "<M-w>"
+      vg.floaterm_keymap_new = "<M-n>"
       vg.floaterm_keymap_prev = "<M-[>"
       vg.floaterm_keymap_next = "<M-]>"
-      vg.floaterm_keymap_toggle = "<M-t>"
-
-      vim.api.nvim_create_autocmd("TermOpen", {
-        group = vim.api.nvim_create_augroup("NvimTermCustom", {}),
-        pattern = "*",
-        callback = function()
-          vim.opt_local.number = false
-          vim.cmd("startinsert")
+      vg.floaterm_keymap_toggle = "<M-\\><M-\\>"
+    end,
+  },
+  {
+    "akinsho/toggleterm.nvim",
+    cmd = {
+      "Tm",
+      "Vtm",
+      "ToggleTerm",
+      "ToggleTermToggleAll",
+      "TermExec",
+      "TermSelect",
+    },
+    keys = {
+      { "<C-\\><C-\\>", "<Cmd>ToggleTerm<CR>", mode = { "n" }, desc = "Open horizontal terminal" },
+      { "<C-\\><CR>", "<Cmd>Vtm<CR>", mode = { "n" }, desc = "Open vertical terminal" },
+    },
+    config = function()
+      require("toggleterm").setup({
+        open_mapping = [[<C-\><C-\>]],
+        size = function(term)
+          if term.direction == "horizontal" then
+            return 15
+          elseif term.direction == "vertical" then
+            return vim.o.columns * 0.4
+          end
         end,
       })
 
-      vim.api.nvim_create_user_command("Vtm", function(opts)
-        vim.cmd("belowright vsplit term://" .. (opts.fargs[1] or "zsh"))
+      vim.api.nvim_create_user_command("Tm", function(opts)
+        local Terminal = require("toggleterm.terminal").Terminal
+        local tm = Terminal:new({
+          cmd = opts.fargs[1] or "zsh",
+          display_name = opts.fargs[1] or "zsh",
+          direction = "horizontal",
+          on_open = function(term)
+            vim.opt_local.number = false
+            vim.cmd("startinsert")
+          end,
+          close_on_exit = true,
+          auto_scroll = true,
+        })
+        tm:toggle()
       end, {
         nargs = "?",
-        desc = "open terminal in vsplit window",
+        desc = "open terminal in split window",
         complete = function(ArgLead, Cmdline, CursorPos)
           return { "zsh", "python3" }
         end,
       })
 
-      vim.api.nvim_create_user_command("Tm", function(opts)
-        vim.cmd("botright split term://" .. (opts.fargs[1] or "zsh"))
+      vim.api.nvim_create_user_command("Vtm", function(opts)
+        local Terminal = require("toggleterm.terminal").Terminal
+        local tm = Terminal:new({
+          cmd = opts.fargs[1] or "zsh",
+          display_name = opts.fargs[1] or "zsh",
+          direction = "vertical",
+          on_open = function(term)
+            vim.opt_local.number = false
+            vim.cmd("startinsert")
+          end,
+          close_on_exit = true,
+          auto_scroll = true,
+        })
+        tm:toggle()
       end, {
         nargs = "?",
-        desc = "open terminal in split window",
+        desc = "open terminal in vsplit window",
         complete = function(ArgLead, Cmdline, CursorPos)
           return { "zsh", "python3" }
         end,
