@@ -1,8 +1,33 @@
 return {
   {
+    "petertriho/nvim-scrollbar",
+    config = function()
+      require("scrollbar").setup()
+    end,
+  },
+  {
     "kevinhwang91/nvim-bqf",
     ft = "qf",
     main = "bqf",
+  },
+  {
+    "kevinhwang91/nvim-hlslens",
+    config = function()
+      -- require("hlslens").setup() is not required
+      require("scrollbar.handlers.search").setup({
+        -- hlslens config overrides
+      })
+
+      local kopts = { noremap = true, silent = true }
+      local keyset = vim.api.nvim_set_keymap
+
+      keyset("n", "n", [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]], kopts)
+      keyset("n", "N", [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]], kopts)
+      keyset("n", "*", [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+      keyset("n", "#", [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+      keyset("n", "g*", [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+      keyset("n", "g#", [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+    end,
   },
   {
     "stevearc/aerial.nvim",
