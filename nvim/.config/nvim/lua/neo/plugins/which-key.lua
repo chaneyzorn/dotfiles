@@ -11,19 +11,6 @@ return {
       { "<C-s>", "<Esc><cmd>update<CR>", mode = { "n", "v", "i" }, desc = "save file" },
 
       -- move faster
-      {
-        "<C-n>",
-        function()
-          local s1 = "("
-          local s2 = "\\["
-          local s3 = "{"
-          local s4 = "<"
-          local s5 = [["]]
-          local ss = { s1, s2, s3, s4, s5 }
-          return vim.fn.search(vim.fn.join(ss, "\\|"))
-        end,
-        desc = "Move into bracket",
-      },
       { "<C-j>", "3j", desc = "Move j faster" },
       { "<C-k>", "3k", desc = "Move k faster" },
       { "<M-j>", "<C-e><C-e><C-e>", desc = "Scroll down faster" },
