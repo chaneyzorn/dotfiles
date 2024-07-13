@@ -12,9 +12,11 @@ return {
       },
     },
     config = function()
-      require("which-key").setup({
+      local wk = require("which-key")
+      wk.setup({
         preset = "helix",
         icons = { rules = false },
+        sort = { "desc", "local", "order", "group", "alphanum", "mod", "lower", "icase" },
         spec = {
           -- quick action
           { "[b", "<cmd>bprevious<CR>", desc = "prev buffer" },
@@ -89,6 +91,32 @@ return {
           { "<leader>vs", "<Cmd>Lazy sync<CR>", desc = "Lazy sync" },
           { "<leader>vx", "<Cmd>qa!<CR>", desc = "quit without save" },
         },
+      })
+
+      wk.add({
+        { ")(", "<Esc>/(<CR><cmd>nohls<CR>", desc = "jump to (" },
+        { "))", "<Esc>/)<CR><cmd>nohls<CR>", desc = "jump to )" },
+        { "][", "<Esc>/[<CR><cmd>nohls<CR>", desc = "jump to [" },
+        { "]]", "<Esc>/]<CR><cmd>nohls<CR>", desc = "jump to ]" },
+        { "]a", "<Esc>/[<CR><cmd>nohls<CR>", desc = "jump to [" },
+        { "]e", "<Esc>/]<CR><cmd>nohls<CR>", desc = "jump to ]" },
+        { "]{", "<Esc>/{<CR><cmd>nohls<CR>", desc = "jump to {" },
+        { "]}", "<Esc>/}<CR><cmd>nohls<CR>", desc = "jump to }" },
+        { "]<", "<Esc>/<<CR><cmd>nohls<CR>", desc = "jump to <" },
+        { "]>", "<Esc>/><CR><cmd>nohls<CR>", desc = "jump to >" },
+        { "]q", '<Esc>/"<CR><cmd>nohls<CR>', desc = 'jump to "' },
+
+        { "((", "<Esc>?(<CR><cmd>nohls<CR>", desc = "back to (" },
+        { "()", "<Esc>?)<CR><cmd>nohls<CR>", desc = "back to )" },
+        { "[[", "<Esc>?[<CR><cmd>nohls<CR>", desc = "back to [" },
+        { "[]", "<Esc>?]<CR><cmd>nohls<CR>", desc = "back to ]" },
+        { "[a", "<Esc>?[<CR><cmd>nohls<CR>", desc = "back to [" },
+        { "[e", "<Esc>?]<CR><cmd>nohls<CR>", desc = "back to ]" },
+        { "[{", "<Esc>?{<CR><cmd>nohls<CR>", desc = "back to {" },
+        { "[}", "<Esc>?}<CR><cmd>nohls<CR>", desc = "back to }" },
+        { "[<", "<Esc>?<<CR><cmd>nohls<CR>", desc = "back to <" },
+        { "[>", "<Esc>?><CR><cmd>nohls<CR>", desc = "back to >" },
+        { "[q", '<Esc>?"<CR><cmd>nohls<CR>', desc = 'back to "' },
       })
     end,
   },

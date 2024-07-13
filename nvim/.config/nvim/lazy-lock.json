@@ -36,7 +36,7 @@
   "nvim-lspconfig": { "branch": "master", "commit": "216deb2d1b5fbf24398919228208649bbf5cbadf" },
   "nvim-scrollbar": { "branch": "main", "commit": "d09f14aa16c9f2748e77008f9da7b1f76e4e7b85" },
   "nvim-tree.lua": { "branch": "master", "commit": "f9ff00bc06d7cb70548a3847d7a2a05e928bc988" },
-  "nvim-treesitter": { "branch": "master", "commit": "972aa544efb56e2f2f53c5f3c2537e43467dd5cb" },
+  "nvim-treesitter": { "branch": "master", "commit": "7f4ac678770175cdf0d42c015f4a5b6e18b6cb33" },
   "nvim-treesitter-context": { "branch": "master", "commit": "f56a1430f21334868a86eb980b12e0af55690e98" },
   "nvim-treesitter-textobjects": { "branch": "master", "commit": "34867c69838078df7d6919b130c0541c0b400c47" },
   "nvim-ts-autotag": { "branch": "main", "commit": "323a3e16ed603e2e17b26b1c836d1e86c279f726" },
@@ -55,5 +55,5 @@
   "vim-illuminate": { "branch": "master", "commit": "5eeb7951fc630682c322e88a9bbdae5c224ff0aa" },
   "vim-lastplace": { "branch": "master", "commit": "e58cb0df716d3c88605ae49db5c4741db8b48aa9" },
   "virt-column.nvim": { "branch": "master", "commit": "b62b4ef0774d19452d4ed18e473e824c7a756f2f" },
-  "which-key.nvim": { "branch": "main", "commit": "1b68a3ac067fb9bc099c151524009d0e4fc87c8d" }
+  "which-key.nvim": { "branch": "main", "commit": "0427e91dbbd9c37eb20e6fbc2386f890dc0d7e2a" }
 }
