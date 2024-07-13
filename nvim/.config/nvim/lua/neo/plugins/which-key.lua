@@ -43,6 +43,7 @@ return {
           { "<leader>g", group = "lsp" },
           { "<leader>h", group = "git" },
           { "<leader>k", group = "trouble" },
+          { "<leader>l", group = "list" },
           { "<leader>t", group = "tag" },
           { "<leader>v", group = "vim" },
           { "<leader>w", group = "window" },
