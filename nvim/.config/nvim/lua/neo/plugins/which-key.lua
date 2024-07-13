@@ -14,9 +14,6 @@ return {
     config = function()
       require("which-key").setup({
         preset = "helix",
-        delay = function(ctx)
-          return ctx.plugin and 0 or 500
-        end,
         icons = { rules = false },
         spec = {
           -- quick action
