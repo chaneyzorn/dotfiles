@@ -60,75 +60,39 @@ return {
     end,
   },
   {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
+    "cbochs/grapple.nvim",
     dependencies = {
-      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
       "nvim-telescope/telescope.nvim",
     },
+    cmd = "Grapple",
     keys = {
       {
         "<leader>la",
         function()
-          require("harpoon"):list():add()
-          vim.notify("added to harpoon list")
+          require("grapple").tag()
+          vim.notify("tagged to grapple list")
         end,
-        desc = "Harpoon add to list",
+        desc = "Grapple tag",
       },
       {
         "<leader>lr",
         function()
-          require("harpoon"):list():remove()
-          vim.notify("removed from harpoon list")
+          require("grapple").untag()
+          vim.notify("untagged from grapple list")
         end,
-        desc = "Harpoon remove from list",
+        desc = "Grapple untag",
       },
-      {
-        "<leader>ls",
-        function()
-          local h = require("harpoon")
-          h.ui:toggle_quick_menu(h:list())
-        end,
-        desc = "Harpoon list file",
-      },
-      {
-        "<leader>ll",
-        function()
-          local file_paths = {}
-          local harpoon_files = require("harpoon"):list()
-          for _, item in ipairs(harpoon_files.items) do
-            table.insert(file_paths, item.value)
-          end
-
-          local tc = require("telescope.config").values
-          local tp = require("telescope.pickers")
-          local tf = require("telescope.finders")
-          tp.new({}, {
-            prompt_title = "Harpoon",
-            finder = tf.new_table({ results = file_paths }),
-            previewer = tc.file_previewer({}),
-            sorter = tc.generic_sorter({}),
-          }):find()
-        end,
-        desc = "Harpoon telescope list",
-      },
-      {
-        "]f",
-        function()
-          require("harpoon"):list():next({ ui_nav_wrap = true })
-        end,
-        desc = "Harpoon next",
-      },
-      {
-        "[f",
-        function()
-          require("harpoon"):list():prev({ ui_nav_wrap = true })
-        end,
-        desc = "Harpoon next",
-      },
+      { "<leader>ls", "<cmd>Grapple toggle_tags<CR>", desc = "Grapple list" },
+      { "<leader>ll", "<cmd>Telescope grapple tags<CR>", desc = "Grapple telescope list" },
+      { "]f", "<cmd>Grapple cycle_tags next<CR>", desc = "Grapple next" },
+      { "[f", "<cmd>Grapple cycle_tags prev<CR>", desc = "Grapple next" },
     },
     config = function()
-      require("harpoon"):setup()
+      require("telescope").load_extension("grapple")
+      require("grapple").setup({
+        scope = "git_branch",
+      })
     end,
   },
 }
