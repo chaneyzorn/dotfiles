@@ -1,12 +1,5 @@
 return {
   {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    config = function()
-      require("nvim-autopairs").setup({})
-    end,
-  },
-  {
     "L3MON4D3/LuaSnip",
     build = "make install_jsregexp",
     dependencies = {
@@ -110,9 +103,6 @@ return {
           { name = "path" },
         },
       })
-
-      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
     end,
   },
 }
