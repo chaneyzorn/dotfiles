@@ -60,10 +60,10 @@ return {
           { "<leader>wj", "<C-W>j", desc = "mv to down window" },
           { "<leader>wl", "<C-W>l", desc = "mv to right window" },
           { "<leader>wk", "<C-W>k", desc = "mv to up window" },
-          { "<leader>w[", "<C-W>5<", desc = "resize win<5" },
-          { "<leader>w]", "<C-W>5>", desc = "resize win>5" },
-          { "<leader>w=", "<Cmd>resize +5<CR>", desc = "resize win+5" },
-          { "<leader>w-", "<Cmd>resize -5<CR>", desc = "resize win-5" },
+          { "<leader>w[", "<C-W>5<", desc = "win width -5" },
+          { "<leader>w]", "<C-W>5>", desc = "win width +5" },
+          { "<leader>w=", "<Cmd>resize +5<CR>", desc = "win height +5" },
+          { "<leader>w-", "<Cmd>resize -5<CR>", desc = "win height -5" },
           { "<leader>w/", "<C-W>=", desc = "resize win==" },
 
           -- tab
