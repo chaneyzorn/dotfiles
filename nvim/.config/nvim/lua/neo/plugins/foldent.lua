@@ -14,6 +14,17 @@ return {
     end,
   },
   {
+    "gh-liu/fold_line.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.g.fold_line_char_open_start = "╭"
+      vim.g.fold_line_char_open_end = "╰"
+    end,
+    config = function()
+      vim.api.nvim_set_hl(0, "FoldLine", { link = "IblIdent" })
+    end,
+  },
+  {
     "kevinhwang91/nvim-ufo",
     dependencies = {
       "kevinhwang91/promise-async",
