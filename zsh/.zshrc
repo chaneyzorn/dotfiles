@@ -167,7 +167,7 @@ alias ta='tmux attach'
 alias tt='ta || t'
 alias tm='teamocil'
 alias pi='teamocil chaney-pi'
-alias zi='zellij attach --create'
+alias zj='zellij attach --create'
 
 # virtualenv --python=/usr/bin/python2 ~/Pyvenv/venv2.7/
 alias py2='source ~/Pyvenv/venv2.7/bin/activate'
