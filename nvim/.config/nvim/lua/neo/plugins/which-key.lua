@@ -15,7 +15,7 @@ return {
       local wk = require("which-key")
       wk.setup({
         preset = "helix",
-        icons = { rules = false },
+        icons = { mappings = false },
         sort = { "desc", "local", "order", "group", "alphanum", "mod", "lower", "icase" },
         spec = {
           -- quick action
