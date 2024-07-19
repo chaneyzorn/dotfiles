@@ -6,7 +6,7 @@ indent_style = space
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-[*.{js,css,json,yml,yaml,lua}]
+[*.{js,css,json,yml,yaml,lua,toml}]
 indent_size = 2
 max_line_length = 120
 

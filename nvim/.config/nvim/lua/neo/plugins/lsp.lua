@@ -32,6 +32,7 @@ return {
         javascript = { { "prettier" } },
         sh = { "shfmt" },
         yaml = { "yamlfmt" },
+        toml = { "taplo" },
       },
     },
   },
