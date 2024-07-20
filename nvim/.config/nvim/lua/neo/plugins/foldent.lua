@@ -46,18 +46,67 @@ return {
         end,
         desc = "Close all folds",
       },
+      {
+        "az",
+        "<cmd>lua require('ufo').foldScope('outer')<CR>",
+        mode = { "o", "x" },
+        desc = "text-obj: a-fold",
+      },
+      {
+        "iz",
+        "<cmd>lua require('ufo').foldScope('inner')<CR>",
+        mode = { "o", "x" },
+        desc = "text-obj: i-fold",
+      },
     },
     init = function()
       vim.o.foldlevel = 99
       vim.o.foldlevelstart = 99
-
-      -- vim.o.foldenable = true
-      -- vim.o.foldmethod = "indent"
-      -- vim.o.foldmethod = "expr"
-      -- vim.o.foldexpr = "nvim_treesitter#foldexpr()"
     end,
     config = function()
-      require("ufo").setup({
+      local getFoldScope = function()
+        local bufnr = vim.api.nvim_get_current_buf()
+        local foldRanges = require("ufo.fold").get(bufnr).foldRanges
+
+        local lnum = vim.fn.line(".")
+        local curStartLine, curEndLine = 0, 0
+        for _, range in ipairs(foldRanges) do
+          local sl, el = range.startLine, range.endLine
+          if curStartLine < sl and sl < lnum and lnum <= el + 1 then
+            curStartLine, curEndLine = sl, el
+          end
+        end
+        return curStartLine + 1, curEndLine + 1
+      end
+
+      local lineWiseSelect = function(startLine, endLine)
+        -- save last position in jumplist like vim native textobj
+        vim.cmd.normal({ "m`", bang = true })
+        vim.api.nvim_win_set_cursor(0, { startLine, 0 })
+        if not vim.fn.mode():find("V") then
+          vim.cmd.normal({ "V", bang = true })
+        end
+        -- move cursor to end of visual
+        vim.cmd.normal({ "o", bang = true })
+        vim.api.nvim_win_set_cursor(0, { endLine, 0 })
+      end
+
+      local ufo = require("ufo")
+
+      ufo.foldScope = function(scope)
+        local sl, el = getFoldScope()
+        if scope == "inner" then
+          local tailFt = { "python" }
+          sl = vim.fn.min({ sl + 1, el })
+          if not vim.tbl_contains(tailFt, vim.bo.ft) then
+            el = vim.fn.max({ el - 1, sl })
+          end
+        end
+        vim.cmd(("silent! %d,%d foldopen"):format(sl, el))
+        lineWiseSelect(sl, el)
+      end
+
+      ufo.setup({
         provider_selector = function(bufnr, filetype, buftype)
           return { "treesitter", "indent" }
         end,

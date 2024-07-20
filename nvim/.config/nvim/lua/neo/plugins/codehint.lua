@@ -135,8 +135,8 @@ return {
             enable = true,
             lookahead = true,
             keymaps = {
-              ["az"] = { query = "@fold", query_group = "folds", desc = "text-obj: a-fold" },
-              ["iz"] = { query = "@fold", query_group = "folds", desc = "text-obj: i-fold" },
+              -- ["az"] = { query = "@fold", query_group = "folds", desc = "text-obj: a-fold" },
+              -- ["iz"] = { query = "@fold", query_group = "folds", desc = "text-obj: i-fold" },
             },
             selection_modes = {
               ["@fold"] = "V",
