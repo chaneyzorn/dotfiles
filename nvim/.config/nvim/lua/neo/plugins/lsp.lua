@@ -15,7 +15,7 @@ return {
     end,
     keys = {
       {
-        "<leader>ci",
+        "<leader>ck",
         function()
           require("conform").format({ async = true, lsp_fallback = true })
         end,
@@ -28,8 +28,8 @@ return {
         cpp = { "clang_format" },
         go = { "goimports", "gofmt" },
         lua = { "stylua" },
-        python = { { "black", "ruff_format" } },
-        javascript = { { "prettier" } },
+        python = { "black", "ruff_format", stop_after_first = true },
+        javascript = { "prettier" },
         sh = { "shfmt" },
         yaml = { "yamlfmt" },
         toml = { "taplo" },
@@ -284,6 +284,7 @@ return {
         "pyright",
         "ruff",
         "rust_analyzer",
+        "taplo",
         "tsserver",
         "typos_lsp",
       }
