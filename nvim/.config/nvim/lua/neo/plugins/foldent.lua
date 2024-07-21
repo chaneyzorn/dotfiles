@@ -65,34 +65,19 @@ return {
     end,
     config = function()
       local getFoldScope = function()
-        local bufnr = vim.api.nvim_get_current_buf()
-        local foldRanges = require("ufo.fold").get(bufnr).foldRanges
-
         local lnum = vim.fn.line(".")
-        local curStartLine, curEndLine = 0, 0
-        for _, range in ipairs(foldRanges) do
-          local sl, el = range.startLine, range.endLine
-          if curStartLine < sl and sl < lnum and lnum <= el + 1 then
-            curStartLine, curEndLine = sl, el
-          end
+        local startLine = vim.fn.foldclosed(lnum)
+        local endLine = vim.fn.foldclosedend(lnum)
+        if startLine < 0 then
+          vim.cmd.foldclose({ mods = { silent = true, emsg_silent = true } })
+          startLine = vim.fn.foldclosed(lnum)
+          endLine = vim.fn.foldclosedend(lnum)
+          vim.cmd.foldopen({ mods = { silent = true, emsg_silent = true } })
         end
-
-        if curStartLine == 0 and curEndLine == 0 then
+        if startLine < 0 then
           return lnum, lnum
         end
-        return curStartLine + 1, curEndLine + 1
-      end
-
-      local getFoldScope = function()
-        local lnum = vim.fn.line(".")
-        vim.cmd.foldclose({ mods = { silent = true, emsg_silent = true } })
-        local startline = vim.fn.foldclosed(lnum)
-        local endline = vim.fn.foldclosedend(lnum)
-        vim.cmd.foldopen({ mods = { silent = true, emsg_silent = true } })
-        if startline == -1 then
-          return lnum, lnum
-        end
-        return startline, endline
+        return startLine, endLine
       end
 
       local lineWiseSelect = function(startLine, endLine)
