@@ -76,7 +76,23 @@ return {
             curStartLine, curEndLine = sl, el
           end
         end
+
+        if curStartLine == 0 and curEndLine == 0 then
+          return lnum, lnum
+        end
         return curStartLine + 1, curEndLine + 1
+      end
+
+      local getFoldScope = function()
+        local lnum = vim.fn.line(".")
+        vim.cmd.foldclose({ mods = { silent = true, emsg_silent = true } })
+        local startline = vim.fn.foldclosed(lnum)
+        local endline = vim.fn.foldclosedend(lnum)
+        vim.cmd.foldopen({ mods = { silent = true, emsg_silent = true } })
+        if startline == -1 then
+          return lnum, lnum
+        end
+        return startline, endline
       end
 
       local lineWiseSelect = function(startLine, endLine)
@@ -95,6 +111,10 @@ return {
 
       ufo.foldScope = function(scope)
         local sl, el = getFoldScope()
+        vim.cmd.foldopen({
+          mods = { emsg_silent = true, silent = true },
+          range = { sl, el },
+        })
         if scope == "inner" then
           local tailFt = { "python" }
           sl = vim.fn.min({ sl + 1, el })
@@ -102,7 +122,6 @@ return {
             el = vim.fn.max({ el - 1, sl })
           end
         end
-        vim.cmd(("silent! %d,%d foldopen"):format(sl, el))
         lineWiseSelect(sl, el)
       end
 
