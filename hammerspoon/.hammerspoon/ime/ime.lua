@@ -1,13 +1,12 @@
 local function setupAppWatch()
   local appIme = {
-    ["/Applications/WezTerm.app"] = "com.apple.keylayout.ABC",
-    ["/Applications/Neovide.app"] = "com.apple.keylayout.ABC",
+    ["WezTerm"] = "com.apple.keylayout.ABC",
+    ["Neovide"] = "com.apple.keylayout.ABC",
   }
   hs.application.watcher
     .new(function(appName, eventType, appObject)
       if eventType == hs.application.watcher.activated then
-        local focusAppPath = appObject:path()
-        local expectedImeId = appIme[focusAppPath]
+        local expectedImeId = appIme[appName]
         if expectedImeId and hs.keycodes.currentSourceID() ~= expectedImeId then
           hs.keycodes.currentSourceID(expectedImeId)
         end
@@ -18,12 +17,12 @@ end
 
 local function setupImeWatch()
   local appIme = {
-    ["/Applications/WezTerm.app"] = "com.apple.keylayout.ABC",
-    ["/Applications/Neovide.app"] = "com.apple.keylayout.ABC",
+    ["WezTerm"] = "com.apple.keylayout.ABC",
+    ["Neovide"] = "com.apple.keylayout.ABC",
   }
   hs.keycodes.inputSourceChanged(function()
-    local focusAppPath = hs.window.focusedWindow():application():path()
-    local expectedImeId = appIme[focusAppPath]
+    local appName = hs.window.focusedWindow():application():name()
+    local expectedImeId = appIme[appName]
     if expectedImeId and hs.keycodes.currentSourceID() ~= expectedImeId then
       hs.keycodes.currentSourceID(expectedImeId)
     end
