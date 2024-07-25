@@ -17,7 +17,15 @@ return {
       {
         "<leader>ck",
         function()
-          require("conform").format({ async = true, lsp_fallback = true })
+          require("conform").format({}, function(err, did_edit)
+            if err then
+              require("fidget").notify("conform: " .. err, vim.log.levels.ERROR)
+            elseif did_edit then
+              require("fidget").notify("conform success: content changed")
+            else
+              require("fidget").notify("conform success: no changes")
+            end
+          end)
         end,
         desc = "Format buffer",
       },
