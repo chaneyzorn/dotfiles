@@ -1,0 +1,1 @@
+require("ime.ime").setup()
