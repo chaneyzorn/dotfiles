@@ -249,6 +249,9 @@ return {
           vmap("<Leader>ca", vim.lsp.buf.code_action, { desc = "Lsp code action" })
           nmap("<Leader>cf", vim.lsp.buf.format, { desc = "Lsp code format" })
           nmap("<Leader>cr", vim.lsp.buf.rename, { desc = "Lsp rename" })
+
+          nmap("<leader>df", vim.diagnostic.open_float, { desc = "diagnostic float hover" })
+          nmap("<leader>dl", vim.diagnostic.setloclist, { desc = "diagnostic loclist" })
         end,
       })
     end,
