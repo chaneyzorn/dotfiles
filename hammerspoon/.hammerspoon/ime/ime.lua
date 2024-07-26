@@ -21,10 +21,14 @@ local function setupImeWatch()
     ["Neovide"] = "com.apple.keylayout.ABC",
   }
   hs.keycodes.inputSourceChanged(function()
-    local appName = hs.window.focusedWindow():application():name()
-    local expectedImeId = appIme[appName]
-    if expectedImeId and hs.keycodes.currentSourceID() ~= expectedImeId then
-      hs.keycodes.currentSourceID(expectedImeId)
+    local ok, appName = pcall(function()
+      return hs.window.focusedWindow():application():name()
+    end)
+    if ok and appName then
+      local expectedImeId = appIme[appName]
+      if expectedImeId and hs.keycodes.currentSourceID() ~= expectedImeId then
+        hs.keycodes.currentSourceID(expectedImeId)
+      end
     end
   end)
 end
