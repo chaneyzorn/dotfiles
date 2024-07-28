@@ -4,6 +4,16 @@ if not vim.g.neovide then
   return nil
 end
 
+vim.opt.guicursor = {
+  "n-v-c-sm:block",
+  "i-ci-ve:ver25",
+  "r-cr-o:hor20",
+  "n:blinkwait1000-blinkoff500-blinkon800-Cursor/lCursor",
+  "i:blinkwait300-blinkoff500-blinkon500-Cursor/lCursor",
+  "c:blinkwait250-blinkoff350-blinkon350-Cursor/lCursor",
+  "sm:block-blinkwait175-blinkoff150-blinkon175",
+}
+
 if vim.loop.os_uname().sysname == "Darwin" then
   vim.o.guifont = "JetBrains Mono:h14"
 else
