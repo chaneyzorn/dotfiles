@@ -33,8 +33,9 @@ return {
           { "<M-k>", "<C-y><C-y><C-y>", desc = "scroll up faster" },
 
           -- copy and paste
-          { "<C-y>", [["+y]], mode = { "v" }, desc = "yank selected to sys-clip" },
+          { "<C-y>", [["+y]], mode = { "x" }, desc = "yank selected to sys-clip" },
           { "<C-p>", [["+p]], mode = { "n", "v" }, desc = "paste from sys-clip" },
+          { "<C-p>", [[<C-r>+]], mode = { "i", "c" }, desc = "paste from sys-clip" },
 
           -- leader group
           { "<leader>b", group = "buffer" },
