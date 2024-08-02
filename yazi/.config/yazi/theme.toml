@@ -1,0 +1,7 @@
+[flavor]
+# https://github.com/yazi-rs/flavors.git
+use = "catppuccin-mocha"
+
+[status]
+separator_open  = ""
+separator_close = ""
