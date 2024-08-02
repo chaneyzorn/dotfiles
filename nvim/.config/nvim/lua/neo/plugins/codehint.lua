@@ -155,4 +155,11 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
   },
+  {
+    "OXY2DEV/helpview.nvim",
+    ft = "help",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+  },
 }

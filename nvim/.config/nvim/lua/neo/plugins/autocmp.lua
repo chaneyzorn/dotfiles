@@ -50,7 +50,7 @@ return {
         formatting = {
           format = function(entry, item)
             local mini_icons = require("mini.icons")
-            local icon = mini_icons.get("lsp", item.kind)
+            local icon = mini_icons.get("lsp", item.kind or "Text")
             item.kind = string.format("%s %s.%s", icon, entry.source.name, string.lower(item.kind))
             return item
           end,

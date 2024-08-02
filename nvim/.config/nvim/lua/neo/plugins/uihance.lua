@@ -263,4 +263,28 @@ return {
       })
     end,
   },
+  {
+    "mikavilpas/yazi.nvim",
+    event = "VeryLazy",
+    keys = {
+      {
+        "<leader>fm",
+        function()
+          require("yazi").yazi()
+        end,
+        desc = "Open yazi file manager",
+      },
+      {
+        "<leader>fk",
+        function()
+          require("yazi").yazi(nil, vim.fn.getcwd())
+        end,
+        desc = "Reveal file in yazi",
+      },
+    },
+    opts = {
+      use_ya_for_events_reading = true,
+      floating_window_scaling_factor = 0.85,
+    },
+  },
 }

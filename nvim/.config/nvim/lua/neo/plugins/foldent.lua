@@ -105,6 +105,8 @@ return {
           sl = vim.fn.min({ sl + 1, el })
           if not vim.tbl_contains(tailFt, vim.bo.ft) then
             el = vim.fn.max({ el - 1, sl })
+          elseif string.match(vim.fn.getline(el), "^%s*[}%])]+") then
+            el = vim.fn.max({ el - 1, sl })
           end
         end
         lineWiseSelect(sl, el)
