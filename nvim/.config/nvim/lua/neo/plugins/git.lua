@@ -10,6 +10,10 @@ return {
       "DiffviewOpen",
       "DiffviewFileHistory",
     },
+    keys = {
+      { "<leader>hv", "<cmd>DiffviewOpen<CR>", desc = "DiffviewOpen" },
+      { "<leader>hx", "<cmd>DiffviewClose<CR>", desc = "DiffviewClose" },
+    },
   },
   {
     "lewis6991/gitsigns.nvim",
