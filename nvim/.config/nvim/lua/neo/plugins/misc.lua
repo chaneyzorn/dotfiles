@@ -12,6 +12,7 @@ return {
   },
   {
     "echasnovski/mini.nvim",
+    event = "VeryLazy",
     config = function()
       require("mini.indentscope").setup({
         symbol = "┊",
@@ -28,6 +29,7 @@ return {
   },
   {
     "m4xshen/hardtime.nvim",
+    event = "VeryLazy",
     dependencies = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
