@@ -7,13 +7,18 @@ return {
     },
     config = function()
       require("grug-far").setup({
-        extraRgArgs = "--hidden",
         headerMaxWidth = 80,
         disableBufferLineNumbers = false,
         startInInsertMode = false,
         resultsSeparatorLineChar = "─",
         icons = {
           actionEntryBullet = "  ",
+        },
+        engines = {
+          ripgrep = {
+            path = "rg",
+            extraArgs = "--hidden",
+          },
         },
       })
     end,
