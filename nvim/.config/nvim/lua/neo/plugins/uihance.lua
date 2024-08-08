@@ -292,7 +292,13 @@ return {
     },
     opts = {
       use_ya_for_events_reading = true,
-      floating_window_scaling_factor = 0.85,
+      hooks = {
+        yazi_opened = function()
+          local c = vim.api.nvim_win_get_config(0)
+          c.row = c.row - 2
+          vim.api.nvim_win_set_config(0, c)
+        end,
+      },
     },
   },
 }
