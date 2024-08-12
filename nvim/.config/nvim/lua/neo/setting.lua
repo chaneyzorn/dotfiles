@@ -8,6 +8,7 @@ vg.mapleader = " "
 vo.mouse = ""
 
 vo.encoding = "UTF-8"
+vim.cmd.language("en_US.UTF-8")
 
 vo.timeoutlen = 500
 
