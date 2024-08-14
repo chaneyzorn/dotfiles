@@ -58,6 +58,7 @@ return {
       layout = {
         width = 30,
         min_width = 20,
+        default_direction = "prefer_left",
       },
       -- filter_kind = false,
       filter_kind = {
