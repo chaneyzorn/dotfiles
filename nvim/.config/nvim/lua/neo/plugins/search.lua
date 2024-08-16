@@ -7,9 +7,10 @@ return {
     },
     config = function()
       require("grug-far").setup({
-        headerMaxWidth = 80,
         disableBufferLineNumbers = false,
         startInInsertMode = false,
+        searchOnInsertLeave = true,
+        wrap = false,
         resultsSeparatorLineChar = "─",
         icons = {
           actionEntryBullet = "  ",
@@ -19,6 +20,9 @@ return {
             path = "rg",
             extraArgs = "--hidden",
           },
+        },
+        folding = {
+          foldcolumn = "0",
         },
       })
     end,
