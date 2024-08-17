@@ -25,6 +25,25 @@ return {
       require("mini.icons").setup()
       require("mini.pairs").setup()
       require("mini.surround").setup()
+
+      -- see :h mini.nvim-disabling-recipes
+      local mini_disable = vim.api.nvim_create_augroup("MiniDisable", { clear = true })
+      vim.api.nvim_create_autocmd({ "TermOpen" }, {
+        group = mini_disable,
+        pattern = "*",
+        callback = function()
+          vim.b.miniindentscope_disable = true
+        end,
+      })
+      vim.api.nvim_create_autocmd({ "FileType" }, {
+        group = mini_disable,
+        pattern = { "help", "NvimTree" },
+        callback = function()
+          vim.b.miniindentscope_disable = true
+        end,
+      })
+
+      vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = "#8b848b" })
     end,
   },
   {
