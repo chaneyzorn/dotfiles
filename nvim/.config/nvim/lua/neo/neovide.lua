@@ -14,10 +14,11 @@ vim.opt.guicursor = {
   "sm:block-blinkwait175-blinkoff150-blinkon175",
 }
 
+-- see https://github.com/neovide/neovide/issues/1196
 if vim.loop.os_uname().sysname == "Darwin" then
-  vim.o.guifont = "JetBrains Mono:h14"
+  vim.o.guifont = "JetBrainsMono Nerd Font:h14"
 else
-  vim.o.guifont = "JetBrains Mono:h10"
+  vim.o.guifont = "JetBrainsMono Nerd Font:h10"
 end
 
 vim.g.neovide_input_macos_option_key_is_meta = "both"
