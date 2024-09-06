@@ -369,6 +369,10 @@ return {
         ensure_installed = lsp_s,
         handlers = {
           function(server_name)
+            if server_name == "tsserver" then
+              server_name = "ts_ls"
+            end
+
             local opts = {
               autostart = false,
               on_attach = function(client)
