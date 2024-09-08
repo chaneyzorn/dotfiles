@@ -16,4 +16,4 @@ services:
     volumes:
       - ./data:/root
     network_mode: "host"
-    restart: unless-stoppe
+    restart: unless-stopped
