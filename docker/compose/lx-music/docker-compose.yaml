@@ -1,4 +1,3 @@
-version: "3"
 services:
   lx-music:
     image: lyswhut/lx-music-sync-server:v2.1.0

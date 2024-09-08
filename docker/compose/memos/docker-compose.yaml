@@ -1,4 +1,3 @@
-version: '3.3'
 services:
   memos:
     image: 'ghcr.io/usememos/memos:latest'

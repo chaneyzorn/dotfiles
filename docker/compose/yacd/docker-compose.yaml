@@ -1,4 +1,3 @@
-version: '3.3'
 services:
   yacd:
     image: 'ghcr.io/haishanh/yacd:master'
