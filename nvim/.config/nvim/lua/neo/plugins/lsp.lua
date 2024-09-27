@@ -73,7 +73,6 @@ return {
       {
         "<leader>cv",
         function()
-          vim.o.spell = true -- enable spell check
           local nls = require("null-ls")
           nls.enable({ method = nls.methods.FORMATTING }) --enable format
           nls.enable({ method = nls.methods.DIAGNOSTICS }) -- enable diagnostics
@@ -85,7 +84,6 @@ return {
       {
         "<leader>cx",
         function()
-          vim.o.spell = false -- disable spell check
           local nls = require("null-ls")
           nls.disable({ method = nls.methods.DIAGNOSTICS }) -- disable diagnostics
           vim.cmd("LspStop") -- disable LSP server, from lspconfig

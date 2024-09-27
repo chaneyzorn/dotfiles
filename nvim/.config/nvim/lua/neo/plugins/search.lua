@@ -9,7 +9,7 @@ return {
       require("grug-far").setup({
         disableBufferLineNumbers = false,
         startInInsertMode = false,
-        searchOnInsertLeave = true,
+        normalModeSearch = true,
         wrap = false,
         resultsSeparatorLineChar = "─",
         icons = {
