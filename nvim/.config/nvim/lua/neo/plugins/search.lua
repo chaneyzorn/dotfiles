@@ -24,6 +24,9 @@ return {
         folding = {
           foldcolumn = "0",
         },
+        helpLine = {
+          enabled = false,
+        },
       })
     end,
   },
