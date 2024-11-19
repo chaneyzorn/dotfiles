@@ -40,8 +40,6 @@ eval `luarocks path --no-bin`
 # Path to your oh-my-zsh installation.
 if [[ -d $HOME/.oh-my-zsh ]]; then
     export ZSH=$HOME/.oh-my-zsh
-elif [[ -d /usr/share/oh-my-zsh ]]; then
-    export ZSH=/usr/share/oh-my-zsh
 fi
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -53,11 +51,6 @@ if [[ -d $HOME/.oh-my-zsh ]]; then
     # then https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts
     # git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
     ZSH_THEME="powerlevel10k/powerlevel10k"
-elif [[ -f /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme ]]; then
-    # install nerd-fonts-fira-code
-    # edit .config/fontconfig/conf.d/10-symbols.conf
-    # yay -S zsh-theme-powerlevel10k-git
-    source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 fi
 
 # Set list of themes to load
@@ -75,7 +68,7 @@ fi
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-DISABLE_AUTO_UPDATE="true"
+# DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -161,7 +154,6 @@ compctl -g '~/.teamocil/*(:t:r)' teamocil
 alias la='ls -la'
 alias lt='ls --tree'
 
-alias slk='ss-local -v -l 1080 `ss-quick -c ~/.vpn/shadowsocks/gui-config.json`'
 alias t='tmux'
 alias ta='tmux attach'
 alias tt='ta || t'
@@ -173,8 +165,6 @@ alias zj='zellij attach --create'
 alias py2='source ~/Pyvenv/venv2.7/bin/activate'
 # python3 -m venv ~/Pyvenv/venv3/
 alias py3='source ~/Pyvenv/venv3/bin/activate'
-
-alias smvn='cd ~/.vpn/smartx/ && sudo openvpn --config zouquan.smartx.ovpn'
 
 NVIM_NIGHTLY="~/myutils/bin/nvim.appimage"
 alias nvimup="curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -o $NVIM_NIGHTLY"
