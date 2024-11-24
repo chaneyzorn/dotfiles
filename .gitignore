@@ -6,6 +6,7 @@ ansible/.ansible/tmp
 
 fontconfig/.config/fontconfig/conf.d/78-Reject.conf
 
+linux-home/.local/bin/
 linux-home/.local/share/containers/
 linux-home/.local/share/delta/
 linux-home/.local/share/man/
