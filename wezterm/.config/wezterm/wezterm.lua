@@ -104,6 +104,7 @@ if ends_with(wezterm.target_triple, "apple-darwin") then
   M.font_size = 14.0
   M.window_background_opacity = 0.8
   M.macos_window_background_blur = 20
+  M.window_decorations = "TITLE | RESIZE | MACOS_FORCE_ENABLE_SHADOW"
 end
 
 if wezterm.target_triple == "x86_64-unknown-linux-gnu" then
