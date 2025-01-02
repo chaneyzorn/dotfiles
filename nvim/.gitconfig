@@ -5,12 +5,6 @@
 	editor = nvim
 	quotepath = false
 	pager = less -x1,5
-[url "git@192.168.50.150:"]
-	insteadOf = http://192.168.50.150/
-[url "git@github.smartx.com:"]
-	insteadOf = https://github.smartx.com/
-[url "git@newgh.smartx.com:"]
-	insteadOf = http://newgh.smartx.com/
 [pull]
 	ff = only
 [alias]
@@ -20,3 +14,5 @@
 	diffc = diff --cached
 [log]
 	date = iso
+[url "ssh://git@ssh.github.com:443/"]
+	insteadOf = git@github.com:
