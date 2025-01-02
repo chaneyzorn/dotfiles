@@ -12,13 +12,13 @@ fi
 
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
 export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
 export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
 
 export GOROOT=$(go env GOROOT)
 export GOPATH=$(go env GOPATH)
 
 export PNPM_HOME="$HOME/.local/share/pnpm"
-export PIPX_LOCAL_VENVS=$(pipx environment --value PIPX_LOCAL_VENVS)
 
 LOCAL_BIN=/usr/local/bin
 LOCAL_SBIN=/usr/local/sbin
@@ -32,7 +32,9 @@ RUBY_BIN=$(ruby -r rubygems -e 'puts Gem.user_dir')/bin
 MY_PATH=$MY_BIN:$MY_LOCAL_BIN:$GO_BIN:$RUST_BIN:$PNPM_HOME:$NODE_BIN:$RUBY_BIN:$LUA_BIN:$LOCAL_BIN:$LOCAL_SBIN
 
 export PATH=$MY_PATH:$BASE_PATH
-[[ ! -f ~/.rye/env ]] || source ~/.rye/env
+
+export PIPX_LOCAL_VENVS=$(pipx environment --value PIPX_LOCAL_VENVS)
+export UV_TOOL_DIR=$(uv tool dir)
 
 export SHELL=$(which zsh)
 eval `luarocks path --no-bin`
