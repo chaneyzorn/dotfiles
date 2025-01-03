@@ -75,40 +75,4 @@ return {
       })
     end,
   },
-  {
-    "cbochs/grapple.nvim",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-      "nvim-telescope/telescope.nvim",
-    },
-    cmd = "Grapple",
-    keys = {
-      {
-        "<leader>la",
-        function()
-          require("grapple").tag()
-          vim.notify("tagged to grapple list")
-        end,
-        desc = "Grapple tag",
-      },
-      {
-        "<leader>lr",
-        function()
-          require("grapple").untag()
-          vim.notify("untagged from grapple list")
-        end,
-        desc = "Grapple untag",
-      },
-      { "<leader>ls", "<cmd>Grapple toggle_tags<CR>", desc = "Grapple list" },
-      { "<leader>ll", "<cmd>Telescope grapple tags<CR>", desc = "Grapple telescope list" },
-      { "]f", "<cmd>Grapple cycle_tags next<CR>", desc = "Grapple next" },
-      { "[f", "<cmd>Grapple cycle_tags prev<CR>", desc = "Grapple next" },
-    },
-    config = function()
-      require("telescope").load_extension("grapple")
-      require("grapple").setup({
-        scope = "git_branch",
-      })
-    end,
-  },
 }

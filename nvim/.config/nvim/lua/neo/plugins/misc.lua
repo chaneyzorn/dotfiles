@@ -18,6 +18,7 @@ return {
       require("mini.icons").setup()
       require("mini.pairs").setup()
       require("mini.surround").setup()
+      require("mini.trailspace").setup()
 
       -- see :h mini.nvim-disabling-recipes
       local mini_disable = vim.api.nvim_create_augroup("MiniDisable", { clear = true })
@@ -47,31 +48,5 @@ return {
         scope = { char = "┊" },
       },
     },
-  },
-  {
-    "m4xshen/hardtime.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-    },
-    config = function()
-      local disabled_filetypes = require("hardtime.config").config.disabled_filetypes
-      require("hardtime").setup({
-        restriction_mode = "hint",
-        disabled_filetypes = vim.list_extend(vim.deepcopy(disabled_filetypes), {
-          "git",
-          "gitsigns.blame",
-          "grug-far",
-        }),
-        -- restriction_mode = "hint",
-        disabled_keys = {
-          ["<Up>"] = {},
-          ["<Down>"] = {},
-          ["<Left>"] = {},
-          ["<Right>"] = {},
-        },
-      })
-    end,
   },
 }
