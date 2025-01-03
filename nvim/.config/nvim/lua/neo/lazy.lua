@@ -25,6 +25,9 @@ function M.setup()
     ui = {
       border = "rounded",
     },
+    rocks = {
+      hererocks = true,
+    },
   })
 end
 
