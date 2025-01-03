@@ -1,42 +1,8 @@
 return {
   {
-    "petertriho/nvim-scrollbar",
-    event = "VeryLazy",
-    config = function()
-      require("scrollbar").setup()
-    end,
-  },
-  {
     "kevinhwang91/nvim-bqf",
     ft = "qf",
     main = "bqf",
-  },
-  {
-    "kevinhwang91/nvim-hlslens",
-    keys = {
-      {
-        "n",
-        [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
-        noremap = true,
-        silent = true,
-      },
-      {
-        "N",
-        [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
-        noremap = true,
-        silent = true,
-      },
-      { "*", [[*<Cmd>lua require('hlslens').start()<CR>]], noremap = true, silent = true },
-      { "#", [[#<Cmd>lua require('hlslens').start()<CR>]], noremap = true, silent = true },
-      { "g*", [[g*<Cmd>lua require('hlslens').start()<CR>]], noremap = true, silent = true },
-      { "g#", [[g#<Cmd>lua require('hlslens').start()<CR>]], noremap = true, silent = true },
-    },
-    config = function()
-      -- require("hlslens").setup() is not required
-      require("scrollbar.handlers.search").setup({
-        -- hlslens config overrides
-      })
-    end,
   },
   {
     "stevearc/aerial.nvim",
@@ -84,100 +50,6 @@ return {
     },
   },
   {
-    "voldikss/vim-floaterm",
-    cmd = { "Floaterm" },
-    keys = {
-      { "<M-n>", desc = "Floaterm new" },
-      { "<M-\\><M-\\>", desc = "Floaterm toggle" },
-      { "<M-[>", desc = "Floaterm prev" },
-      { "<M-]>", desc = "Floaterm next" },
-      { "<M-`>", [[<C-\><C-n>]], mode = { "t" }, desc = "Exit terminal-mode" },
-      { "<C-\\><CR>", [[<C-\><C-n>]], mode = { "t" }, desc = "Exit terminal-mode" },
-    },
-    init = function()
-      local vg = vim.g
-
-      vg.floaterm_width = 0.95
-      vg.floaterm_height = 0.95
-
-      vg.floaterm_keymap_new = "<M-n>"
-      vg.floaterm_keymap_prev = "<M-[>"
-      vg.floaterm_keymap_next = "<M-]>"
-      vg.floaterm_keymap_toggle = "<M-\\><M-\\>"
-    end,
-  },
-  {
-    "akinsho/toggleterm.nvim",
-    cmd = {
-      "Tm",
-      "Vtm",
-      "ToggleTerm",
-      "ToggleTermToggleAll",
-      "TermExec",
-      "TermSelect",
-    },
-    keys = {
-      { "<C-\\><C-\\>", "<Cmd>ToggleTerm<CR>", mode = { "n" }, desc = "Open horizontal terminal" },
-      { "<C-\\><CR>", "<Cmd>Vtm<CR>", mode = { "n" }, desc = "Open vertical terminal" },
-    },
-    config = function()
-      require("toggleterm").setup({
-        open_mapping = [[<C-\><C-\>]],
-        size = function(term)
-          if term.direction == "horizontal" then
-            return 15
-          elseif term.direction == "vertical" then
-            return vim.o.columns * 0.4
-          end
-        end,
-      })
-
-      vim.api.nvim_create_user_command("Tm", function(opts)
-        local Terminal = require("toggleterm.terminal").Terminal
-        local tm = Terminal:new({
-          cmd = opts.fargs[1] or "zsh",
-          display_name = opts.fargs[1] or "zsh",
-          direction = "horizontal",
-          on_open = function(term)
-            vim.opt_local.number = false
-            vim.cmd("startinsert")
-          end,
-          close_on_exit = true,
-          auto_scroll = true,
-        })
-        tm:toggle()
-      end, {
-        nargs = "?",
-        desc = "open terminal in split window",
-        complete = function(ArgLead, Cmdline, CursorPos)
-          return { "zsh", "python3" }
-        end,
-      })
-
-      vim.api.nvim_create_user_command("Vtm", function(opts)
-        local Terminal = require("toggleterm.terminal").Terminal
-        local tm = Terminal:new({
-          cmd = opts.fargs[1] or "zsh",
-          display_name = opts.fargs[1] or "zsh",
-          direction = "vertical",
-          on_open = function(term)
-            vim.opt_local.number = false
-            vim.cmd("startinsert")
-          end,
-          close_on_exit = true,
-          auto_scroll = true,
-        })
-        tm:toggle()
-      end, {
-        nargs = "?",
-        desc = "open terminal in vsplit window",
-        complete = function(ArgLead, Cmdline, CursorPos)
-          return { "zsh", "python3" }
-        end,
-      })
-    end,
-  },
-  {
     "kyazdani42/nvim-tree.lua",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
@@ -194,14 +66,15 @@ return {
     config = function()
       require("nvim-tree").setup({
         on_attach = function(bufnr)
-          require("nvim-tree.api").config.mappings.default_on_attach(bufnr)
-          vim.keymap.set("n", "<C-k>", "3k", {
-            desc = "nvim-tree: revert default to move faster",
-            buffer = bufnr,
-            noremap = true,
-            silent = true,
-            nowait = true,
-          })
+          local api = require("nvim-tree.api")
+          api.config.mappings.default_on_attach(bufnr)
+
+          local function opts(desc)
+            return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+          end
+
+          vim.keymap.set("n", "]b", api.node.navigate.opened.next, opts("navigate to next opened file"))
+          vim.keymap.set("n", "[b", api.node.navigate.opened.prev, opts("navigate to prev opened file"))
         end,
         disable_netrw = true,
         sync_root_with_cwd = true,

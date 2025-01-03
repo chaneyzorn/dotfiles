@@ -1,24 +1,5 @@
 return {
   {
-    "akinsho/nvim-bufferline.lua",
-    version = "*",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
-    event = "BufReadPre",
-    keys = {
-      { "<leader>bb", "<cmd>BufferLineCycleNext<CR>", desc = "Next buffer" },
-      { "<leader>bh", "<cmd>BufferLineCyclePrev<CR>", desc = "Prev buffer" },
-      { "<leader>bp", "<cmd>BufferLinePick<CR>", desc = "Pick a buffer" },
-    },
-    opts = {
-      options = {
-        always_show_bufferline = false,
-        show_buffer_close_icons = false,
-      },
-    },
-  },
-  {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     dependencies = {

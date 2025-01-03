@@ -102,8 +102,6 @@ return {
           map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Git select hunk" })
         end,
       })
-
-      require("scrollbar.handlers.gitsigns").setup()
     end,
   },
 }
