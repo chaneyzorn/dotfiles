@@ -147,33 +147,4 @@ return {
       })
     end,
   },
-  {
-    "mikavilpas/yazi.nvim",
-    keys = {
-      {
-        "<leader>fm",
-        function()
-          require("yazi").yazi()
-        end,
-        desc = "Open yazi file manager",
-      },
-      {
-        "<leader>fk",
-        function()
-          require("yazi").yazi(nil, vim.fn.getcwd())
-        end,
-        desc = "Reveal file in yazi",
-      },
-    },
-    opts = {
-      use_ya_for_events_reading = true,
-      hooks = {
-        yazi_opened = function()
-          local c = vim.api.nvim_win_get_config(0)
-          c.row = c.row - 2
-          vim.api.nvim_win_set_config(0, c)
-        end,
-      },
-    },
-  },
 }
