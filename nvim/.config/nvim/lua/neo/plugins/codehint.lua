@@ -51,7 +51,9 @@ return {
       "BufReadPost",
       "BufNewFile",
     },
-    opts = {},
+    opts = {
+      char = "▕",
+    },
   },
   {
     "RRethy/vim-illuminate",
