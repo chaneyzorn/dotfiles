@@ -29,6 +29,7 @@ return {
           }
         end,
         integrations = {
+          blink_cmp = true,
           fidget = true,
           mason = true,
           neotree = true,

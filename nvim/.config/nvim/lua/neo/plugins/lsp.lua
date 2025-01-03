@@ -223,7 +223,7 @@ return {
       lsp_defaults.capabilities = vim.tbl_deep_extend(
         "force",
         lsp_defaults.capabilities,
-        require("cmp_nvim_lsp").default_capabilities(),
+        require("blink.cmp").get_lsp_capabilities(),
         folding_caps
       )
 
