@@ -14,13 +14,6 @@ return {
     "echasnovski/mini.nvim",
     event = "VeryLazy",
     config = function()
-      require("mini.indentscope").setup({
-        symbol = "┊",
-        options = {
-          try_as_border = true,
-        },
-      })
-
       require("mini.ai").setup()
       require("mini.icons").setup()
       require("mini.pairs").setup()
@@ -42,9 +35,18 @@ return {
           vim.b.miniindentscope_disable = true
         end,
       })
-
-      vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = "#8b848b" })
     end,
+  },
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = {
+      indent = {
+        indent = { char = "┊" },
+        scope = { char = "┊" },
+      },
+    },
   },
   {
     "m4xshen/hardtime.nvim",
