@@ -10,14 +10,8 @@ if [ ! $BASE_PATH ]; then
     export BASE_PATH=$PATH
 fi
 
-export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
-export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
-export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
-export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
-
 export GOROOT=$(go env GOROOT)
 export GOPATH=$(go env GOPATH)
-
 export PNPM_HOME="$HOME/.local/share/pnpm"
 
 LOCAL_BIN=/usr/local/bin
@@ -33,11 +27,17 @@ MY_PATH=$MY_BIN:$MY_LOCAL_BIN:$GO_BIN:$RUST_BIN:$PNPM_HOME:$NODE_BIN:$RUBY_BIN:$
 
 export PATH=$MY_PATH:$BASE_PATH
 
+export XDG_CONFIG_HOME="$HOME/.config"
+export SHELL=$(which zsh)
+
 export PIPX_LOCAL_VENVS=$(pipx environment --value PIPX_LOCAL_VENVS)
 export UV_TOOL_DIR=$(uv tool dir)
-
-export SHELL=$(which zsh)
 eval `luarocks path --no-bin`
+
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
 
 # Path to your oh-my-zsh installation.
 if [[ -d $HOME/.oh-my-zsh ]]; then
