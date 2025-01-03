@@ -65,7 +65,11 @@ return {
             "--smart-case",
             "--hidden",
           },
-          file_ignore_patterns = { "node_modules/", ".git/" },
+          file_ignore_patterns = {
+            -- lua patterns: https://www.lua.org/pil/20.2.html
+            "node_modules/",
+            "%.git/",
+          },
         },
         pickers = { find_files = { hidden = true } },
       })

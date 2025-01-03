@@ -262,12 +262,13 @@ return {
         filters = {
           git_ignored = false,
           custom = {
-            "*.swp",
-            "*.pyc",
-            ".git$",
-            ".idea$",
-            ".ropeproject",
-            "node_modules",
+            -- `\\` escape as lua `\`, then
+            -- https://neovim.io/doc/user/pattern.html#pattern
+            "*.swp$",
+            "*.pyc$",
+            "^\\.git$",
+            "^\\.idea$",
+            "^node_modules$",
           },
         },
       })
