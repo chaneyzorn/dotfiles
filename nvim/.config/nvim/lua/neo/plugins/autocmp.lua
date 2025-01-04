@@ -11,7 +11,7 @@ return {
     version = "*",
     opts = {
       keymap = {
-        preset = none,
+        preset = "none",
         ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
         ["<C-e>"] = { "cancel" },
         ["<Tab>"] = { "select_next", "fallback" },
