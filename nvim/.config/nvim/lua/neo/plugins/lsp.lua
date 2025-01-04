@@ -48,6 +48,7 @@ return {
         css = { "prettier" },
         json = { "prettier" },
         sh = { "shfmt" },
+        zsh = { "shfmt" },
         yaml = { "yamlfmt" },
         toml = { "taplo" },
       },
@@ -77,6 +78,7 @@ return {
           nls.enable({ method = nls.methods.FORMATTING }) --enable format
           nls.enable({ method = nls.methods.DIAGNOSTICS }) -- enable diagnostics
           vim.cmd("LspStart") -- enable LSP server, from lspconfig
+          vim.o.spell = true -- enable spellcheck
           require("fidget").notify("Coding Vision Enabled")
         end,
         desc = "Coding vision",
@@ -88,6 +90,7 @@ return {
           nls.disable({ method = nls.methods.DIAGNOSTICS }) -- disable diagnostics
           vim.cmd("LspStop") -- disable LSP server, from lspconfig
           nls.enable({ method = nls.methods.FORMATTING }) --keep format enabled
+          vim.o.spell = false -- disable spellcheck
           require("fidget").notify("Coding Vision Disabled")
         end,
         desc = "Coding just",
@@ -119,34 +122,16 @@ return {
       nls.setup({
         sources = {
           -- c/c++
-          bt.formatting.clang_format,
           bt.diagnostics.cppcheck,
-
           -- golang
-          bt.formatting.gofmt,
-          bt.formatting.goimports,
           bt.diagnostics.golangci_lint,
-
           -- lua
-          bt.formatting.stylua,
           bt.diagnostics.selene,
-
           -- javascript / css / json / yaml
-          bt.formatting.prettier.with({
-            disabled_filetypes = { "yaml" },
-          }),
-          bt.formatting.yamlfmt,
           bt.diagnostics.stylelint,
           bt.diagnostics.yamllint,
-
-          -- shell
-          bt.formatting.shfmt.with({
-            extra_filetypes = { "zsh" },
-          }),
-
           -- markdown
           bt.diagnostics.markdownlint,
-
           -- other
           cspell.diagnostics.with({
             config = cspell_config,
@@ -157,12 +142,12 @@ return {
           cspell.code_actions.with({ config = cspell_config }),
         },
         should_attach = function(bufnr)
-          local file_type = vim.api.nvim_buf_get_option(bufnr, "filetype")
+          local file_type = vim.api.nvim_get_option_value("filetype", { buf = bufnr })
           if vim.tbl_contains({ "NvimTree" }, file_type) then
             return false
           end
 
-          local buftype = vim.api.nvim_buf_get_option(bufnr, "buftype")
+          local buftype = vim.api.nvim_get_option_value("buftype", { buf = bufnr })
           if buftype ~= "" then
             return false
           end
@@ -188,17 +173,11 @@ return {
         float = { border = "rounded", source = true },
         virtual_text = {
           source = true,
-          prefix = function(diagnostic, i, total)
-            if i ~= total then
-              return ""
-            end
-            local ss = { "", "", "", "󰛨", "?" }
-            local s = ss[diagnostic.severity]
-            if total == 1 then
-              return s .. " "
-            else
-              return string.format("%s %s", s, string.rep(".", total))
-            end
+          prefix = "",
+          format = function(diagnostic)
+            local symbols = { "", "", "", "󰛨 " }
+            local symbol = symbols[diagnostic.severity] or "?"
+            return string.format("%s %s", diagnostic.message, symbol)
           end,
         },
       })
@@ -255,10 +234,10 @@ return {
           nmap("<Leader>gd", vim.lsp.buf.declaration, { desc = "Lsp to declaration" })
 
           -- use trouble.nvim as lsp list
-          nmap("<Leader>gi", "<Cmd>TroubleToggle lsp_implementations<CR>", { desc = "Trouble lsp imp" })
-          nmap("<Leader>gg", "<Cmd>TroubleToggle lsp_definitions<CR>", { desc = "Trouble lsp def" })
-          nmap("<Leader>gt", "<Cmd>TroubleToggle lsp_type_definitions<CR>", { desc = "Trouble lsp type" })
-          nmap("<Leader>gr", "<Cmd>TroubleToggle lsp_references<CR>", { desc = "Trouble ls ref" })
+          nmap("<Leader>gi", "<Cmd>Trouble lsp_implementations toggle<CR>", { desc = "Trouble lsp imp" })
+          nmap("<Leader>gg", "<Cmd>Trouble lsp_definitions toggle<CR>", { desc = "Trouble lsp def" })
+          nmap("<Leader>gt", "<Cmd>Trouble lsp_type_definitions toggle<CR>", { desc = "Trouble lsp type" })
+          nmap("<Leader>gr", "<Cmd>Trouble lsp_references toggle<CR>", { desc = "Trouble lsp ref" })
 
           nmap("<Leader>ca", vim.lsp.buf.code_action, { desc = "Lsp code action" })
           vmap("<Leader>ca", vim.lsp.buf.code_action, { desc = "Lsp code action" })
@@ -338,33 +317,12 @@ return {
       })
 
       local enhance_server_opts = {
-        ["lua_ls"] = function(opts)
-          local runtime_path = vim.split(package.path, ";")
-          table.insert(runtime_path, "lua/?.lua")
-          table.insert(runtime_path, "lua/?/init.lua")
-
-          opts.settings = {
-            Lua = {
-              runtime = {
-                version = "LuaJIT",
-                path = runtime_path,
-              },
-              diagnostics = {
-                globals = { "vim" },
-              },
-              workspace = {
-                library = vim.api.nvim_get_runtime_file("", true),
-              },
-              telemetry = {
-                enable = false,
-              },
-            },
-          }
-        end,
+        ["lua_ls"] = function(_) end,
       }
 
       require("mason-lspconfig").setup({
         ensure_installed = lsp_s,
+        automatic_installation = false,
         handlers = {
           function(server_name)
             local opts = {

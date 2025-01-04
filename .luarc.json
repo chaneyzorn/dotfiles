@@ -1,0 +1,19 @@
+{
+  "runtime": {
+    "version": "LuaJIT"
+  },
+  "diagnostics": {
+    "globals": ["vim", "hs"]
+  },
+  "workspace": {
+    "checkThirdParty": false,
+    "library": [
+      "${env:VIMRUNTIME}",
+      "${3rd}/luv/library",
+      "${3rd}/busted/library"
+    ]
+  },
+  "telemetry": {
+    "enable": false
+  }
+}

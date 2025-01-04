@@ -173,7 +173,9 @@ grpc
 gtags
 gui
 guibg
+guicursor
 guifg
+guifont
 gunicorn
 hasattr
 hashicorp
@@ -259,6 +261,7 @@ lsp
 lspconfig
 lua
 luacheck
+luarc
 luasnip
 lvl
 macaddr
@@ -292,6 +295,7 @@ nargs
 nas
 ndctl
 neo
+neovide
 neovim
 netmask
 netrw
@@ -319,6 +323,7 @@ objcpp
 objs
 oem
 offline
+omnifunc
 openibd
 openvswitch
 os
@@ -446,6 +451,7 @@ sysconfig
 sysctl
 sysfs
 syslog
+sysname
 systemctl
 systemd
 tabstop
@@ -500,6 +506,7 @@ vert
 vhost
 vim
 vimrc
+vimruntime
 vip
 vips
 virt
