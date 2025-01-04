@@ -15,7 +15,7 @@ vim.opt.guicursor = {
 }
 
 -- see https://github.com/neovide/neovide/issues/1196
-if vim.loop.os_uname().sysname == "Darwin" then
+if vim.uv.os_uname().sysname == "Darwin" then
   vim.o.guifont = "JetBrainsMono Nerd Font:h14"
 else
   vim.o.guifont = "JetBrainsMono Nerd Font:h10"
@@ -26,7 +26,8 @@ vim.g.neovide_fullscreen = false
 vim.g.neovide_transparency = 1.0
 vim.g.neovide_window_blurred = true
 vim.g.neovide_show_border = true
-vim.g.neovide_floating_shadow = false
+vim.g.neovide_floating_shadow = true
+vim.g.neovide_floating_corner_radius = 0.3
 
 vim.g.neovide_cursor_animation_length = 0.01
 vim.g.neovide_cursor_trail_length = 0.1
