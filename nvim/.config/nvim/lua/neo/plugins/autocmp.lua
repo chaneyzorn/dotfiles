@@ -31,11 +31,17 @@ return {
               { "label", "label_description", gap = 1 },
               { "source_name" },
             },
+            treesitter = { "lsp" },
           },
         },
-        documentation = { window = { border = "rounded" } },
+        documentation = {
+          window = { border = "rounded" },
+        },
       },
-      signature = { window = { border = "rounded" } },
+      signature = {
+        enabled = true,
+        window = { border = "rounded" },
+      },
     },
   },
 }
