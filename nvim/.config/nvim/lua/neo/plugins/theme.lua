@@ -13,7 +13,7 @@ return {
         dim_inactive = {
           enabled = true,
           shade = "dark",
-          percentage = 0.15,
+          percentage = 0.2,
         },
         term_colors = true,
         styles = {
@@ -23,19 +23,21 @@ return {
           functions = { "bold" },
           types = { "bold" },
         },
-        custom_highlights = function(colors)
-          return {
-            NvimTreeExecFile = { fg = colors.flamingo, bold = true },
-          }
-        end,
         integrations = {
+          aerial = true,
           blink_cmp = true,
+          diffview = true,
           fidget = true,
-          mason = true,
-          neotree = true,
-          nvimtree = true,
+          flash = true,
+          gitsigns = true,
+          grug_far = true,
           lsp_trouble = true,
+          mason = true,
+          nvimtree = true,
+          snacks = true,
+          treesitter = true,
           which_key = true,
+          ufo = true,
         },
       })
       -- setup must be called before loading
