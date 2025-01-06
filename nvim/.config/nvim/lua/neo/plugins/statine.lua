@@ -8,7 +8,11 @@ return {
     opts = {
       options = {
         globalstatus = true,
+        disabled_filetypes = {
+          winbar = { "NvimTree", "aerial", "qf", "trouble" },
+        },
       },
+      extensions = { "aerial" },
       sections = {
         lualine_a = {
           { "mode" },
@@ -54,6 +58,67 @@ return {
         },
         lualine_y = { "progress" },
         lualine_z = { "location" },
+      },
+      winbar = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {
+          {
+            "filetype",
+            separator = "",
+            padding = { left = 1, right = 0 },
+            colored = true,
+            icon_only = true,
+          },
+          {
+            "filename",
+            padding = { left = 0, right = 1 },
+            separator = ">",
+            symbols = {
+              modified = "󰃉 ",
+              readonly = " ",
+              unnamed = "[No Name]",
+              newfile = "[New]",
+            },
+          },
+          {
+            "aerial",
+            sep = " > ",
+            depth = 3,
+            dense = false,
+            dense_sep = ".",
+            colored = true,
+          },
+        },
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {},
+      },
+      inactive_winbar = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {
+          {
+            "filetype",
+            separator = "",
+            padding = { left = 1, right = 0 },
+            colored = true,
+            icon_only = true,
+          },
+          {
+            "filename",
+            padding = { left = 0, right = 1 },
+            symbols = {
+              modified = "󰃉 ",
+              readonly = " ",
+              unnamed = "[No Name]",
+              newfile = "[New]",
+            },
+          },
+        },
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {},
       },
     },
   },
