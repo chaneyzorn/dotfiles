@@ -29,8 +29,8 @@ return {
           -- move faster
           { "<C-j>", "3j", desc = "move j faster" },
           { "<C-k>", "3k", desc = "move k faster" },
-          { "<M-j>", "<C-e><C-e><C-e>", desc = "scroll down faster" },
-          { "<M-k>", "<C-y><C-y><C-y>", desc = "scroll up faster" },
+          { "<M-e>", "<C-e><C-e><C-e>", desc = "scroll down faster" },
+          { "<M-y>", "<C-y><C-y><C-y>", desc = "scroll up faster" },
 
           -- copy and paste
           { "<C-y>", [["+y]], mode = { "x" }, desc = "yank selected to sys-clip" },

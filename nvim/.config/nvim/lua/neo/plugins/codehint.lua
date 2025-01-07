@@ -97,9 +97,25 @@ return {
     build = ":TSUpdate",
     event = "VeryLazy",
     dependencies = {
-      "nvim-treesitter/nvim-treesitter-context",
       "nvim-treesitter/nvim-treesitter-textobjects",
-      "windwp/nvim-ts-autotag",
+    },
+    keys = {
+      {
+        "<M-i>",
+        function()
+          local t = require("nvim-treesitter.ts_utils")
+          t.goto_node(t.get_next_node(t.get_node_at_cursor(), true, true), false, true)
+        end,
+        desc = "tswalker prev",
+      },
+      {
+        "<M-u>",
+        function()
+          local t = require("nvim-treesitter.ts_utils")
+          t.goto_node(t.get_previous_node(t.get_node_at_cursor(), true, true), false, true)
+        end,
+        desc = "tswalker next",
+      },
     },
     config = function()
       require("nvim-treesitter.configs").setup({
@@ -132,22 +148,34 @@ return {
           },
         },
       })
-
-      require("treesitter-context").setup({
-        enable = false,
-        max_lines = 0,
-        min_window_height = 0,
-        line_numbers = true,
-        multiline_threshold = 20,
-        trim_scope = "outer",
-        mode = "cursor",
-        separator = nil,
-        zindex = 20,
-        on_attach = nil,
-      })
-
-      require("nvim-ts-autotag").setup()
     end,
+  },
+  {
+    "windwp/nvim-ts-autotag",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {},
+  },
+  {
+    "folke/ts-comments.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {},
+  },
+  {
+    "aaronik/treewalker.nvim",
+    cmd = { "Treewalker" },
+    keys = {
+      -- movement
+      { "<M-k>", "<cmd>Treewalker Up<CR>", mode = { "n", "v" }, desc = "Treewalker Up" },
+      { "<M-j>", "<cmd>Treewalker Down<CR>", mode = { "n", "v" }, desc = "Treewalker Down" },
+      { "<M-l>", "<cmd>Treewalker Right<CR>", mode = { "n", "v" }, desc = "Treewalker Right" },
+      { "<M-h>", "<cmd>Treewalker Left<CR>", mode = { "n", "v" }, desc = "Treewalker Left" },
+      -- swapping
+      { "<M-p>", "<cmd>Treewalker SwapDown<CR>", mode = { "n" }, desc = "Treewalker SwapDown" },
+      { "<M-o>", "<cmd>Treewalker SwapUp<CR>", mode = { "n" }, desc = "Treewalker SwapUp" },
+      { "<M-.>", "<cmd>Treewalker SwapRight<CR>", mode = { "n" }, desc = "Treewalker SwapRight" },
+      { "<M-,>", "<cmd>Treewalker SwapLeft<CR>", mode = { "n" }, desc = "Treewalker SwapLeft" },
+    },
+    opts = {},
   },
   {
     "OXY2DEV/helpview.nvim",
