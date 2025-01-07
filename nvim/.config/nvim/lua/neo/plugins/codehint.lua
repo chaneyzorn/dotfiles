@@ -74,7 +74,7 @@ return {
     end,
   },
   {
-    "NvChad/nvim-colorizer.lua",
+    "catgoose/nvim-colorizer.lua",
     event = "BufReadPre",
     config = function()
       require("colorizer").setup()
