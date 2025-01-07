@@ -47,6 +47,7 @@ changelog
 changelogs
 chardev
 charset
+checkhealth
 chunkd
 cjk
 clangd
@@ -66,6 +67,7 @@ concat
 cond
 conf
 config
+configpath
 coredump
 coveragerc
 cpp
@@ -151,6 +153,7 @@ func
 function
 gcc
 getattr
+getenv
 getitem
 getline
 getlist
@@ -181,6 +184,7 @@ hasattr
 hashicorp
 hddtemp
 healthd
+helptags
 hlsearch
 homedir
 hostname
@@ -230,6 +234,7 @@ islink
 issuecomment
 iteritems
 jenkinsfile
+joinpath
 js
 json
 jsonlint
@@ -247,6 +252,7 @@ lightspeed
 linters
 linting
 listchars
+llscheck
 lnum
 loadavg
 localleader
@@ -261,8 +267,13 @@ lsp
 lspconfig
 lua
 luacheck
+luajit
 luarc
+luarocks
 luasnip
+luassert
+luavit
+luvit
 lvl
 macaddr
 manylinux
@@ -505,8 +516,10 @@ ver
 vert
 vhost
 vim
+vimdoc
 vimrc
 vimruntime
+vimtags
 vip
 vips
 virt
