@@ -27,8 +27,8 @@ return {
           border = "rounded",
           draw = {
             columns = {
-              { "kind_icon" },
               { "label", "label_description", gap = 1 },
+              { "kind_icon", "kind", gap = 1 },
               { "source_name" },
             },
             treesitter = { "lsp" },
@@ -41,6 +41,21 @@ return {
       signature = {
         enabled = true,
         window = { border = "rounded" },
+      },
+      sources = {
+        default = { "lsp", "path", "snippets", "buffer" },
+        providers = {
+          buffer = {
+            name = "Buffer",
+            module = "blink.cmp.sources.buffer",
+            score_offset = -3,
+            opts = {
+              get_bufnrs = function()
+                return vim.iter(vim.api.nvim_list_bufs()):totable()
+              end,
+            },
+          },
+        },
       },
     },
   },
