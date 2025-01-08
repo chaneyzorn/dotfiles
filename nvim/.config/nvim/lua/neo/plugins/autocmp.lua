@@ -22,7 +22,6 @@ return {
         ["<C-p>"] = { "snippet_backward", "fallback" },
       },
       completion = {
-        list = { selection = "auto_insert" },
         menu = {
           border = "rounded",
           draw = {
