@@ -49,4 +49,9 @@ return {
       },
     },
   },
+  {
+    dir = vim.fn.expand("~/Projects/iself/xdo.nvim"),
+    dev = true,
+    cmd = { "Xdo" },
+  },
 }
