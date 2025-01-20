@@ -58,6 +58,7 @@ cmd
 cmdheight
 cmdline
 cmds
+cmdstr
 cmp
 coc
 colorscheme
@@ -85,6 +86,7 @@ cterm
 ctermbg
 ctermfg
 ctypes
+curpos
 cursorline
 datacenter
 datacenters
@@ -128,10 +130,12 @@ esxi
 eth
 excepthook
 exe
+exepath
 expandtab
 exrc
 exsi
 failfast
+fargs
 fcitx
 feedkeys
 fileformat
@@ -238,6 +242,8 @@ joinpath
 js
 json
 jsonlint
+keepjumps
+keepmarks
 key
 keybind
 keymap
@@ -249,6 +255,8 @@ ledctl
 levelname
 libuv
 lightspeed
+linenr
+linewise
 linters
 linting
 listchars
@@ -367,8 +375,10 @@ psutil
 py
 pyc
 pycache
+pycmd
 pyerror
 pyfakefs
+pygen
 pygments
 pylint
 pyproject
@@ -402,6 +412,7 @@ rpms
 rst
 rstrip
 rtcode
+rtype
 san
 scrolloff
 scsi
@@ -453,6 +464,7 @@ strdisplaywidth
 strftime
 struct
 stylua
+subcmd
 sublicense
 subnetmask
 swapfile
@@ -467,6 +479,7 @@ systemctl
 systemd
 tabstop
 taskd
+tempname
 termguicolors
 threadpool
 timedelta
