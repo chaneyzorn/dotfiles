@@ -2,6 +2,7 @@ local function setupAppWatch()
   local appIme = {
     ["WezTerm"] = "com.apple.keylayout.ABC",
     ["Neovide"] = "com.apple.keylayout.ABC",
+    ["neovide"] = "com.apple.keylayout.ABC",
   }
   hs.application.watcher
     .new(function(appName, eventType, appObject)
@@ -19,6 +20,7 @@ local function setupImeWatch()
   local appIme = {
     ["WezTerm"] = "com.apple.keylayout.ABC",
     ["Neovide"] = "com.apple.keylayout.ABC",
+    ["neovide"] = "com.apple.keylayout.ABC",
   }
   hs.keycodes.inputSourceChanged(function()
     local ok, appName = pcall(function()
