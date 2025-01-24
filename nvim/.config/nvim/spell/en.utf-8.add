@@ -157,6 +157,7 @@ func
 function
 gcc
 getattr
+getcharpos
 getenv
 getitem
 getline
