@@ -169,7 +169,7 @@ alias py2='source ~/Pyvenv/venv2.7/bin/activate'
 alias py3='source ~/Pyvenv/venv3/bin/activate'
 
 NVIM_NIGHTLY="~/myutils/bin/nvim.appimage"
-alias nvimup="curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -o $NVIM_NIGHTLY"
+alias nvimup="curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-$(uname -m).appimage -o $NVIM_NIGHTLY"
 
 alias v=nvim
 alias nv=$NVIM_NIGHTLY
