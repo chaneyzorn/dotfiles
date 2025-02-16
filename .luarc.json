@@ -3,7 +3,7 @@
     "version": "LuaJIT"
   },
   "diagnostics": {
-    "globals": ["vim", "hs"]
+    "globals": ["vim", "hs", "Snacks"]
   },
   "workspace": {
     "checkThirdParty": false,

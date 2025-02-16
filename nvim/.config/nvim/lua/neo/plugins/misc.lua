@@ -42,10 +42,66 @@ return {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
+    keys = {
+      {
+        "<leader>fb",
+        function()
+          Snacks.picker.buffers()
+        end,
+        desc = "Pick buffers",
+      },
+      {
+        "<leader>fg",
+        function()
+          Snacks.picker.git_status()
+        end,
+        desc = "Pick git status",
+      },
+      {
+        "<leader>ff",
+        function()
+          Snacks.picker.files({ hidden = true })
+        end,
+        desc = "Pick files",
+      },
+      {
+        "<leader>fr",
+        function()
+          Snacks.picker.grep({ hidden = true })
+        end,
+        desc = "Pick live search",
+      },
+      {
+        "<leader>fc",
+        function()
+          Snacks.picker.grep_word({ hidden = true })
+        end,
+        desc = "Pick search cursor",
+      },
+    },
     opts = {
       indent = {
         indent = { char = "┊" },
         scope = { char = "┊" },
+        filter = function(buf)
+          if vim.b[buf].snacks_indent == false then
+            return false
+          end
+          if vim.bo[buf].filetype == "snacks_picker_preview" then
+            return false
+          end
+          if vim.bo[buf].buftype == "nofile" then
+            return false
+          end
+          return true
+        end,
+      },
+      picker = {
+        layout = {
+          preset = function()
+            return vim.o.columns >= 120 and "telescope" or "vertical"
+          end,
+        },
       },
     },
   },
