@@ -23,7 +23,7 @@ return {
           { "]b", "<cmd>bnext<CR>", desc = "next buffer" },
           { "[t", "<cmd>tabprevious<CR>", desc = "prev tab" },
           { "]t", "<cmd>tabnext<CR>", desc = "next tab" },
-          { "<C-c>", "<Esc><Cmd>quit<CR>", desc = "quit" },
+          { "<C-c>", "<Esc><Cmd>close<CR>", desc = "quit" },
           { "<C-s>", "<Esc><cmd>update<CR>", mode = { "n", "v", "i" }, desc = "save file" },
 
           -- move faster

@@ -45,7 +45,6 @@ return {
         window = { border = "rounded" },
       },
       sources = {
-        default = { "lsp", "path", "snippets", "buffer" },
         providers = {
           buffer = {
             name = "Buffer",

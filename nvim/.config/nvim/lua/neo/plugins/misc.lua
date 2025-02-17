@@ -80,6 +80,7 @@ return {
       },
     },
     opts = {
+      image = {},
       indent = {
         indent = { char = "┊" },
         scope = { char = "┊" },
@@ -90,9 +91,12 @@ return {
           if vim.bo[buf].filetype == "snacks_picker_preview" then
             return false
           end
-          if vim.bo[buf].buftype == "nofile" then
+
+          local bt = vim.bo[buf].buftype
+          if bt == "nofile" or bt == "help" then
             return false
           end
+
           return true
         end,
       },
