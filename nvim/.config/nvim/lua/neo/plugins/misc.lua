@@ -81,6 +81,7 @@ return {
     },
     opts = {
       image = {},
+      picker = {},
       indent = {
         indent = { char = "┊" },
         scope = { char = "┊" },
@@ -99,13 +100,6 @@ return {
 
           return true
         end,
-      },
-      picker = {
-        layout = {
-          preset = function()
-            return vim.o.columns >= 120 and "telescope" or "vertical"
-          end,
-        },
       },
     },
   },
