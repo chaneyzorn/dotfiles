@@ -80,8 +80,8 @@ return {
       },
     },
     opts = {
-      image = {},
       picker = {},
+
       indent = {
         indent = { char = "┊" },
         scope = { char = "┊" },
@@ -89,6 +89,7 @@ return {
           if vim.b[buf].snacks_indent == false then
             return false
           end
+
           if vim.bo[buf].filetype == "snacks_picker_preview" then
             return false
           end
