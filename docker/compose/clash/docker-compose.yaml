@@ -1,0 +1,19 @@
+services:
+  metacubexd:
+    container_name: metacubexd
+    image: ghcr.io/metacubex/metacubexd
+    restart: always
+    ports:
+      - '17895:80'
+  clash:
+    container_name: clash-meta
+    image: docker.io/metacubex/mihomo:Alpha
+    restart: always
+    pid: host
+    ipc: host
+    network_mode: host
+    cap_add:
+      - ALL
+    volumes:
+      - ./config.yaml:/root/.config/mihomo/config.yaml
+      - /dev/net/tun:/dev/net/tun
