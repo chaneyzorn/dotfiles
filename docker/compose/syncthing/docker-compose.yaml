@@ -1,0 +1,16 @@
+# see https://github.com/syncthing/syncthing/blob/main/README-Docker.md
+
+services:
+  syncthing:
+    image: syncthing/syncthing:latest
+    container_name: syncthing
+    uts: host  # hostname: syncthing-wk
+    volumes:
+      - ./SyncMeta:/var/syncthing
+    network_mode: host
+    restart: unless-stopped
+    healthcheck:
+      test: curl -fkLsS -m 2 127.0.0.1:8384/rest/noauth/health | grep -o --color=never OK || exit 1
+      interval: 1m
+      timeout: 10s
+      retries: 3
