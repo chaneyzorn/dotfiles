@@ -45,12 +45,12 @@ local function setupKeymap()
   end)
 end
 
-local M = {
-  setup = function()
-    setupAppWatch()
-    setupImeWatch()
-    setupKeymap()
-  end,
-}
+local M = {}
+
+function M.setup()
+  setupAppWatch()
+  setupImeWatch()
+  setupKeymap()
+end
 
 return M

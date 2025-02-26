@@ -1,1 +1,2 @@
-require("ime.ime").setup()
+require("ime").setup()
+require("wscrmv").setup()
