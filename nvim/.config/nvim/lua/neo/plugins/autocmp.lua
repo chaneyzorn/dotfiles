@@ -47,15 +47,18 @@ return {
       sources = {
         providers = {
           buffer = {
-            name = "Buffer",
-            module = "blink.cmp.sources.buffer",
-            score_offset = -3,
             opts = {
-              get_bufnrs = function()
-                return vim.iter(vim.api.nvim_list_bufs()):totable()
-              end,
+              get_bufnrs = vim.api.nvim_list_bufs,
             },
           },
+        },
+      },
+      cmdline = {
+        completion = {
+          list = {
+            selection = { preselect = false, auto_insert = true },
+          },
+          menu = { auto_show = true },
         },
       },
     },
