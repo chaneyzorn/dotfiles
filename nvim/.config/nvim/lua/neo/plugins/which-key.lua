@@ -18,6 +18,9 @@ return {
         icons = { mappings = false },
         sort = { "desc", "local", "order", "group", "alphanum", "mod", "lower", "icase" },
         spec = {
+          -- one-key quick action, improve my daily usage
+          { "<M-w>", "<C-W>w", desc = "next window" },
+
           -- quick action
           { "[b", "<cmd>bprevious<CR>", desc = "prev buffer" },
           { "]b", "<cmd>bnext<CR>", desc = "next buffer" },
