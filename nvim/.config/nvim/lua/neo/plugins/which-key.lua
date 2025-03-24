@@ -35,11 +35,6 @@ return {
           { "<M-e>", "<C-e><C-e><C-e>", desc = "scroll down faster" },
           { "<M-y>", "<C-y><C-y><C-y>", desc = "scroll up faster" },
 
-          -- copy and paste
-          { "<C-y>", [["+y]], mode = { "x" }, desc = "yank selected to sys-clip" },
-          { "<C-p>", [["+p]], mode = { "n", "v" }, desc = "paste from sys-clip" },
-          { "<C-p>", [[<C-r>+]], mode = { "i", "c" }, desc = "paste from sys-clip" },
-
           -- leader group
           { "<leader>b", group = "buffer" },
           { "<leader>c", group = "coding" },
@@ -95,6 +90,11 @@ return {
           { "<leader>vq", "<Cmd>wa<CR>:q<CR>", desc = "save all and quit" },
           { "<leader>vs", "<Cmd>Lazy sync<CR>", desc = "Lazy sync" },
           { "<leader>vx", "<Cmd>qa!<CR>", desc = "quit without save" },
+
+          -- vim copy and paste
+          { "<leader>vy", [["+y]], mode = { "x" }, desc = "yank selected to sys-clip" },
+          { "<leader>vp", [["+p]], mode = { "n", "v" }, desc = "paste from sys-clip" },
+          -- { "<C-p>", [[<C-r>+]], mode = { "i", "c" }, desc = "paste from sys-clip" },
         },
       })
 
