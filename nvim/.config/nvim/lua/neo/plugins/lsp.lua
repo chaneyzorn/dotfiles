@@ -66,11 +66,25 @@ return {
     },
     keys = {
       {
+        "<leader>dd",
+        function()
+          vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+        end,
+        desc = "loclist diagnostic",
+      },
+      {
         "<leader>dl",
         function()
           vim.diagnostic.setloclist()
         end,
         desc = "loclist diagnostic",
+      },
+      {
+        "<leader>df",
+        function()
+          vim.diagnostic.open_float()
+        end,
+        desc = "diagnostic float hover",
       },
       {
         "<leader>cv",
@@ -244,9 +258,6 @@ return {
           vmap("<Leader>ca", vim.lsp.buf.code_action, { desc = "Lsp code action" })
           nmap("<Leader>cf", vim.lsp.buf.format, { desc = "Lsp code format" })
           nmap("<Leader>cr", vim.lsp.buf.rename, { desc = "Lsp rename" })
-
-          nmap("<leader>df", vim.diagnostic.open_float, { desc = "diagnostic float hover" })
-          nmap("<leader>dl", vim.diagnostic.setloclist, { desc = "diagnostic loclist" })
         end,
       })
     end,
