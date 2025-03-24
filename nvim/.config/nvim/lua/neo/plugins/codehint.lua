@@ -86,7 +86,6 @@ return {
     cmd = {
       "TodoQuickFix",
       "TodoLocList",
-      "Trouble",
     },
     opts = {},
   },
