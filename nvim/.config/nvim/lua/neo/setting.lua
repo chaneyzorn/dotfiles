@@ -50,6 +50,9 @@ vo.colorcolumn = "+1"
 -- always show signcolumn
 vo.signcolumn = "yes"
 
+-- set the default border for all floating windows
+vo.winborder = "rounded"
+
 -- Smaller updatetime for CursorHold & CursorHoldI & swapfile
 vo.updatetime = 300
 

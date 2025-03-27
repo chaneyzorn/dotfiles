@@ -22,10 +22,6 @@ return {
           { "<M-w>", "<C-W>w", desc = "next window" },
 
           -- quick action
-          { "[b", "<cmd>bprevious<CR>", desc = "prev buffer" },
-          { "]b", "<cmd>bnext<CR>", desc = "next buffer" },
-          { "[t", "<cmd>tabprevious<CR>", desc = "prev tab" },
-          { "]t", "<cmd>tabnext<CR>", desc = "next tab" },
           { "<C-c>", "<Esc><Cmd>close<CR>", desc = "quit" },
           { "<C-s>", "<Esc><cmd>update<CR>", mode = { "n", "v", "i" }, desc = "save file" },
 
@@ -96,32 +92,6 @@ return {
           { "<leader>vp", [["+p]], mode = { "n", "v" }, desc = "paste from sys-clip" },
           -- { "<C-p>", [[<C-r>+]], mode = { "i", "c" }, desc = "paste from sys-clip" },
         },
-      })
-
-      wk.add({
-        { ")(", "<Esc>/(<CR><cmd>nohls<CR>", desc = "jump to (" },
-        { "))", "<Esc>/)<CR><cmd>nohls<CR>", desc = "jump to )" },
-        { "][", "<Esc>/[<CR><cmd>nohls<CR>", desc = "jump to [" },
-        { "]]", "<Esc>/]<CR><cmd>nohls<CR>", desc = "jump to ]" },
-        { "]a", "<Esc>/[<CR><cmd>nohls<CR>", desc = "jump to [" },
-        { "]e", "<Esc>/]<CR><cmd>nohls<CR>", desc = "jump to ]" },
-        { "]{", "<Esc>/{<CR><cmd>nohls<CR>", desc = "jump to {" },
-        { "]}", "<Esc>/}<CR><cmd>nohls<CR>", desc = "jump to }" },
-        { "]<", "<Esc>/<<CR><cmd>nohls<CR>", desc = "jump to <" },
-        { "]>", "<Esc>/><CR><cmd>nohls<CR>", desc = "jump to >" },
-        { "]q", '<Esc>/"<CR><cmd>nohls<CR>', desc = 'jump to "' },
-
-        { "((", "<Esc>?(<CR><cmd>nohls<CR>", desc = "back to (" },
-        { "()", "<Esc>?)<CR><cmd>nohls<CR>", desc = "back to )" },
-        { "[[", "<Esc>?[<CR><cmd>nohls<CR>", desc = "back to [" },
-        { "[]", "<Esc>?]<CR><cmd>nohls<CR>", desc = "back to ]" },
-        { "[a", "<Esc>?[<CR><cmd>nohls<CR>", desc = "back to [" },
-        { "[e", "<Esc>?]<CR><cmd>nohls<CR>", desc = "back to ]" },
-        { "[{", "<Esc>?{<CR><cmd>nohls<CR>", desc = "back to {" },
-        { "[}", "<Esc>?}<CR><cmd>nohls<CR>", desc = "back to }" },
-        { "[<", "<Esc>?<<CR><cmd>nohls<CR>", desc = "back to <" },
-        { "[>", "<Esc>?><CR><cmd>nohls<CR>", desc = "back to >" },
-        { "[q", '<Esc>?"<CR><cmd>nohls<CR>', desc = 'back to "' },
       })
     end,
   },
