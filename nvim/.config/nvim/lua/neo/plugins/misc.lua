@@ -78,6 +78,20 @@ return {
         end,
         desc = "Pick search cursor",
       },
+      {
+        "<leader>zz",
+        function()
+          Snacks.zen.zen()
+        end,
+        desc = "Toggle zen mode",
+      },
+      {
+        "<leader>za",
+        function()
+          Snacks.zen.zoom()
+        end,
+        desc = "Toggle zen zoom",
+      },
     },
     opts = {
       picker = {},
@@ -102,6 +116,8 @@ return {
           return true
         end,
       },
+
+      zen = {},
     },
   },
   {
