@@ -123,6 +123,6 @@ return {
   {
     dir = vim.fn.expand("~/Projects/iself/xdo.nvim"),
     dev = true,
-    cmd = { "Xdo", "Xdov", "Vdo", "Vdov" },
+    cmd = { "Xdo", "Xdov", "Vdo", "Vdov", "XdoLog" },
   },
 }
