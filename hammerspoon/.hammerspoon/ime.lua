@@ -1,6 +1,7 @@
 local function setupAppWatch()
   local appIme = {
     ["WezTerm"] = "com.apple.keylayout.ABC",
+    ["Ghostty"] = "com.apple.keylayout.ABC",
     ["Neovide"] = "com.apple.keylayout.ABC",
     ["neovide"] = "com.apple.keylayout.ABC",
   }
@@ -19,6 +20,7 @@ end
 local function setupImeWatch()
   local appIme = {
     ["WezTerm"] = "com.apple.keylayout.ABC",
+    ["Ghostty"] = "com.apple.keylayout.ABC",
     ["Neovide"] = "com.apple.keylayout.ABC",
     ["neovide"] = "com.apple.keylayout.ABC",
   }
