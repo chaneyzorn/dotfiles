@@ -23,6 +23,8 @@ vo.cursorline = true
 vo.number = true
 vo.relativenumber = true
 
+vo.splitright = true
+
 -- see https://github.com/jeffkreeftmeijer/vim-numbertoggle
 local number_toggle = vim.api.nvim_create_augroup("NumberToggle", { clear = true })
 vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnter" }, {
