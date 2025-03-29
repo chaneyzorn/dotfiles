@@ -54,6 +54,16 @@ return {
         },
       },
       cmdline = {
+        keymap = {
+          preset = "none",
+          ["<Tab>"] = { "show_and_insert", "select_next" },
+          ["<S-Tab>"] = { "show_and_insert", "select_prev" },
+          ["<C-space>"] = { "show", "fallback" },
+          ["<C-n>"] = { "select_next", "fallback" },
+          ["<C-p>"] = { "select_prev", "fallback" },
+          ["<C-y>"] = { "select_and_accept" },
+          ["<C-e>"] = { "cancel" },
+        },
         completion = {
           list = {
             selection = { preselect = false, auto_insert = true },
