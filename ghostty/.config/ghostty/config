@@ -1,5 +1,5 @@
 background-opacity = 0.85
 background-blur = true
-theme = DoomOne
+theme = Atom
 cursor-style=block
 shell-integration-features = no-cursor
