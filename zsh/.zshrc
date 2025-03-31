@@ -173,7 +173,7 @@ alias nvimup="curl -L https://github.com/neovim/neovim/releases/download/nightly
 
 alias v=nvim
 alias nv=$NVIM_NIGHTLY
-alias vde="neovide --fork --frame transparent"
+alias vx="neovide --fork --frame transparent"
 
 # 保证终端兼容性
 alias ssh='TERM=xterm-256color \ssh'
