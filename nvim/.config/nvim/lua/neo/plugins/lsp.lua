@@ -141,7 +141,7 @@ return {
           -- golang
           bt.diagnostics.golangci_lint,
           -- lua
-          bt.diagnostics.selene,
+          -- bt.diagnostics.selene,
           -- javascript / css / json / yaml
           bt.diagnostics.stylelint,
           bt.diagnostics.yamllint,
@@ -186,6 +186,14 @@ return {
     config = function()
       vim.diagnostic.config({
         float = { border = "rounded", source = true },
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = "󰅚",
+            [vim.diagnostic.severity.WARN] = "",
+            [vim.diagnostic.severity.INFO] = "",
+            [vim.diagnostic.severity.HINT] = "󰌶",
+          },
+        },
         virtual_text = {
           source = true,
           prefix = "",
@@ -196,12 +204,6 @@ return {
           end,
         },
       })
-
-      local signs = { Error = "󰅚", Warn = "", Info = "", Hint = "󰌶" }
-      for type, icon in pairs(signs) do
-        local hl = "DiagnosticSign" .. type
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, linehl = "", numhl = "" })
-      end
 
       -- lsp server setup: see https://github.com/VonHeikemen/lsp-zero.nvim
       local lspconfig = require("lspconfig")
@@ -286,6 +288,7 @@ return {
 
       local lsp_s = {
         "bashls",
+        "biome",
         "clangd",
         "eslint",
         "gopls",
@@ -329,7 +332,10 @@ return {
       })
 
       local enhance_server_opts = {
-        ["lua_ls"] = function(_) end,
+        lua_ls = function(_) end,
+        biome = function(opts)
+          opts.single_file_support = true
+        end,
       }
 
       require("mason-lspconfig").setup({
