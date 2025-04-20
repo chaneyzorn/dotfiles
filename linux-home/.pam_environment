@@ -1,7 +1,7 @@
 # https://github.com/archlinux/svntogit-packages/commit/b9d1d5e6e62834ca97afe2023468d19d9faccad7
-GTK_IM_MODULE  DEFAULT=fcitx
-QT_IM_MODULE   DEFAULT=fcitx
-XMODIFIERS     DEFAULT=\@im=fcitx
-INPUT_METHOD   DEFAULT=fcitx
-SDL_IM_MODULE  DEFAULT=fcitx
+GTK_IM_MODULE  DEFAULT=ibus
+QT_IM_MODULE   DEFAULT=ibus
+XMODIFIERS     DEFAULT=\@im=ibus
+INPUT_METHOD   DEFAULT=ibus
+SDL_IM_MODULE  DEFAULT=ibus
 GLFW_IM_MODULE DEFAULT=ibus
