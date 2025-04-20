@@ -30,7 +30,6 @@ export PATH=$MY_PATH:$BASE_PATH
 export XDG_CONFIG_HOME="$HOME/.config"
 export SHELL=$(which zsh)
 
-export PIPX_LOCAL_VENVS=$(pipx environment --value PIPX_LOCAL_VENVS)
 export UV_TOOL_DIR=$(uv tool dir)
 eval `luarocks path --no-bin`
 
