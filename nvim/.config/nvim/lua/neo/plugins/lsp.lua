@@ -165,6 +165,10 @@ return {
             "ruff",
             "gopls",
             "golangci_lint_ls",
+            "ts_ls",
+            "ccls",
+            "clangd",
+            "typos-lsp",
           })
           require("fidget").notify("IntelliSense Enabled")
         end,
