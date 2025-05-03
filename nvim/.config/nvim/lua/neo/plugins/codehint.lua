@@ -188,13 +188,7 @@ return {
   },
   {
     "mcauley-penney/visual-whitespace.nvim",
-    keys = { "v", "V", "<C-v>" },
-    opts = {
-      space_char = "·",
-      tab_char = "»",
-      nl_char = "¬",
-      cr_char = "←",
-      nbsp_char = "␣",
-    },
+    event = "ModeChanged *:[vV\22]",
+    opts = {},
   },
 }
