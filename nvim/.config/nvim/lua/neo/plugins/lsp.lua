@@ -56,14 +56,8 @@ return {
     },
   },
   {
-    "nvimtools/none-ls.nvim",
-    dependencies = {
-      "davidmh/cspell.nvim",
-    },
-    event = {
-      "BufReadPre",
-      "BufNewFile",
-    },
+    "mfussenegger/nvim-lint",
+    event = { "BufReadPre", "BufNewFile" },
     keys = {
       {
         "<leader>dd",
@@ -87,105 +81,25 @@ return {
         desc = "diagnostic float hover",
       },
       {
-        "<leader>cv",
-        function()
-          local nls = require("null-ls")
-          nls.enable({ method = nls.methods.FORMATTING }) --enable format
-          nls.enable({ method = nls.methods.DIAGNOSTICS }) -- enable diagnostics
-          vim.cmd("LspStart") -- enable LSP server, from lspconfig
-          vim.o.spell = true -- enable spellcheck
-          require("fidget").notify("Coding Vision Enabled")
-        end,
-        desc = "Coding vision",
-      },
-      {
-        "<leader>cx",
-        function()
-          local nls = require("null-ls")
-          nls.disable({ method = nls.methods.DIAGNOSTICS }) -- disable diagnostics
-          vim.cmd("LspStop") -- disable LSP server, from lspconfig
-          nls.enable({ method = nls.methods.FORMATTING }) --keep format enabled
-          vim.o.spell = false -- disable spellcheck
-          require("fidget").notify("Coding Vision Disabled")
-        end,
-        desc = "Coding just",
-      },
-      {
         "<leader>zg",
         function()
-          local nls = require("null-ls")
-          nls.enable({ name = "cspell", method = nls.methods.DIAGNOSTICS })
+          require("lint").try_lint("cspell")
           require("fidget").notify("CSpell Refreshed")
         end,
-        desc = "Refresh cspell",
+        desc = "refresh cspell",
       },
-    },
-    config = function()
-      local nls = require("null-ls")
-      local bt = nls.builtins
-
-      local cspell = require("cspell")
-      local cspell_config = {
-        find_json = function()
-          return vim.fn.expand("~/.config/nvim/spell/cspell.json")
-        end,
-        on_add_to_dictionary = function(payload)
-          os.execute(string.format("sort -u %s -o %s", payload.dictionary_path, payload.dictionary_path))
-        end,
-      }
-
-      nls.setup({
-        sources = {
-          -- c/c++
-          bt.diagnostics.cppcheck,
-          -- golang
-          bt.diagnostics.golangci_lint,
-          -- lua
-          -- bt.diagnostics.selene,
-          -- javascript / css / json / yaml
-          bt.diagnostics.stylelint,
-          bt.diagnostics.yamllint,
-          -- markdown
-          bt.diagnostics.markdownlint,
-          -- other
-          cspell.diagnostics.with({
-            config = cspell_config,
-            diagnostics_postprocess = function(diagnostic)
-              diagnostic.severity = vim.diagnostic.severity.HINT
-            end,
-          }),
-          cspell.code_actions.with({ config = cspell_config }),
-        },
-        should_attach = function(bufnr)
-          local file_type = vim.api.nvim_get_option_value("filetype", { buf = bufnr })
-          if vim.tbl_contains({ "NvimTree" }, file_type) then
-            return false
-          end
-
-          local buftype = vim.api.nvim_get_option_value("buftype", { buf = bufnr })
-          if buftype ~= "" then
-            return false
-          end
-
-          return true
-        end,
-      })
-
-      -- disable all diagnostics capacity at init
-      nls.disable({ method = nls.methods.DIAGNOSTICS })
-      -- enable all format capacity
-      nls.enable({ method = nls.methods.FORMATTING })
-    end,
-  },
-  {
-    "neovim/nvim-lspconfig",
-    event = {
-      "BufReadPre",
-      "BufNewFile",
     },
     config = function()
       vim.diagnostic.config({
-        float = { border = "rounded", source = true },
+        float = {
+          border = "rounded",
+          source = true,
+          prefix = function(diagnostic, _, _)
+            local symbols = { "", "", "", "󰛨 " }
+            local symbol = symbols[diagnostic.severity] or "?"
+            return symbol
+          end,
+        },
         signs = {
           text = {
             [vim.diagnostic.severity.ERROR] = "󰅚",
@@ -205,24 +119,73 @@ return {
         },
       })
 
-      -- lsp server setup: see https://github.com/VonHeikemen/lsp-zero.nvim
-      local lspconfig = require("lspconfig")
-      local lsp_defaults = lspconfig.util.default_config
-      local folding_caps = {
-        textDocument = {
-          foldingRange = {
-            dynamicRegistration = false,
-            lineFoldingOnly = true,
-          },
-        },
+      local lint = require("lint")
+      lint.linters_by_ft = {
+        markdown = { "markdownlint-cli2", "vale" },
+        c = { "cppcheck" },
+        cpp = { "cppcheck" },
+        css = { "stylelint" },
+        yaml = { "yamllint" },
       }
-      lsp_defaults.capabilities = vim.tbl_deep_extend(
-        "force",
-        lsp_defaults.capabilities,
-        require("blink.cmp").get_lsp_capabilities(),
-        folding_caps
-      )
 
+      lint.linters.cspell = require("lint.util").wrap(lint.linters.cspell, function(diagnostic)
+        diagnostic.severity = vim.diagnostic.severity.HINT
+        return diagnostic
+      end)
+
+      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+        group = vim.api.nvim_create_augroup("BufWriteLint", { clear = true }),
+        callback = function()
+          if vim.g.nvim_lint_enabled then
+            require("lint").try_lint()
+            require("lint").try_lint("cspell")
+          end
+        end,
+      })
+    end,
+  },
+  {
+    "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
+    keys = {
+      {
+        "<leader>cv",
+        function()
+          vim.o.spell = true
+          vim.g.nvim_lint_enabled = true
+          require("lint").try_lint()
+          require("lint").try_lint("cspell")
+
+          -- TODO: LSP start
+          -- vim.cmd("LspStart")
+          vim.lsp.enable({
+            "biome",
+            "lua_ls",
+            "pyright",
+            "ruff",
+            "gopls",
+            "golangci_lint_ls",
+          })
+          require("fidget").notify("IntelliSense Enabled")
+        end,
+        desc = "Enable IntelliSense",
+      },
+      {
+        "<leader>cx",
+        function()
+          -- TODO: LSP stop
+          -- vim.cmd("LspStop")
+
+          vim.o.spell = false
+          vim.diagnostic.reset()
+          vim.g.nvim_lint_enabled = false
+
+          require("fidget").notify("IntelliSense Disabled")
+        end,
+        desc = "Disabled IntelliSense",
+      },
+    },
+    config = function()
       vim.api.nvim_create_autocmd("LspAttach", {
         desc = "LSP Attach Hook",
         group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -261,103 +224,6 @@ return {
           nmap("<Leader>cf", vim.lsp.buf.format, { desc = "Lsp code format" })
           nmap("<Leader>cr", vim.lsp.buf.rename, { desc = "Lsp rename" })
         end,
-      })
-    end,
-  },
-  {
-    "williamboman/mason.nvim",
-    build = ":MasonUpdate",
-    cmd = {
-      "Mason",
-      "MasonUpdate",
-      "MasonInstall",
-      "MasonToolsInstall",
-      "MasonToolsUpdate",
-      "MasonToolsClean",
-    },
-    dependencies = {
-      "WhoIsSethDaniel/mason-tool-installer.nvim",
-      "williamboman/mason-lspconfig.nvim",
-    },
-    event = {
-      "BufReadPre",
-      "BufNewFile",
-    },
-    config = function()
-      require("mason").setup()
-
-      local lsp_s = {
-        "bashls",
-        "biome",
-        "clangd",
-        "eslint",
-        "gopls",
-        "jsonls",
-        "lua_ls",
-        "pyright",
-        "ruff",
-        "rust_analyzer",
-        "taplo",
-        "ts_ls",
-        "typos_lsp",
-      }
-      local tools = {
-        "ast-grep",
-        "black",
-        "clang-format",
-        "cspell",
-        "goimports",
-        "golangci-lint",
-        "jq",
-        "jsonlint",
-        "markdownlint",
-        "misspell",
-        "mypy",
-        "prettier",
-        { "ruff", version = "0.6.0" },
-        "selene",
-        "shellcheck",
-        "shfmt",
-        "stylelint",
-        "stylua",
-        "yamlfmt",
-        "yamllint",
-        "yq",
-      }
-
-      require("mason-tool-installer").setup({
-        ensure_installed = vim.list_extend(tools, lsp_s),
-        auto_update = false,
-        run_on_start = false,
-      })
-
-      local enhance_server_opts = {
-        lua_ls = function(_) end,
-        biome = function(opts)
-          opts.single_file_support = true
-        end,
-      }
-
-      require("mason-lspconfig").setup({
-        ensure_installed = lsp_s,
-        automatic_installation = false,
-        handlers = {
-          function(server_name)
-            local opts = {
-              autostart = false,
-              on_attach = function(client)
-                client.server_capabilities.document_formatting = false
-                client.server_capabilities.document_range_formatting = false
-              end,
-            }
-
-            if enhance_server_opts[server_name] then
-              enhance_server_opts[server_name](opts)
-            end
-
-            require("lspconfig")[server_name].setup(opts)
-          end,
-        },
       })
     end,
   },
