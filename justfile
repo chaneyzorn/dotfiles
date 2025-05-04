@@ -1,6 +1,5 @@
 default:
   @just --list
-  @just --choose
 
 config-archlinuxcn:
     #!/usr/bin/env sh
@@ -34,7 +33,7 @@ yay-pkgs:
         ruby
         rust
         uv
-        yay-bin
+        yay-bin  # AUR
     )
     cli_tools=(
         ast-grep
@@ -49,7 +48,7 @@ yay-pkgs:
         fd
         fzf
         go-tools
-        golangci-lint-langserver
+        golangci-lint-langserver-bin  # AUR
         gopls
         hugo
         iputils
@@ -59,9 +58,9 @@ yay-pkgs:
         markdownlint-cli2
         meson
         mypy
-        pandoc
+        nodejs-cspell  # AUR
+        pandoc-cli
         prettier
-        pstree
         pyright
         ripgrep
         ruff
@@ -86,12 +85,13 @@ yay-pkgs:
         yq
     )
     fonts=(
-        nerd-fonts-cascadia-code
-        nerd-fonts-fira-code
-        nerd-fonts-jetbrains-mono
+        ttf-cascadia-code
+        ttf-cascadia-code-nerd
         ttf-fira-code
+        ttf-firacode-nerd
         ttf-fira-mono
         ttf-jetbrains-mono
+        ttf-jetbrains-mono-nerd
         ttf-nerd-fonts-symbols-mono
     )
     gui_tools=(
@@ -100,16 +100,15 @@ yay-pkgs:
         google-chrome
         gparted
         menulibre
-        pamac-gtk
+        pamac-aur
         papirus-icon-theme
         telegram-desktop
         transmission-gtk
         visual-studio-code-bin
-        xcursor-breeze
     )
     yay -S --needed ${env_pkgs[@]} ${cli_tools[@]} ${fonts[@]} ${gui_tools[@]}
 
-homebrew-pkgs:
+brew-pkgs:
     #!/usr/bin/env sh
     env_pkgs=(
         go
@@ -137,7 +136,6 @@ homebrew-pkgs:
         mypy
         neovim
         prettier
-        pstree
         pyright
         ripgrep
         ruff
