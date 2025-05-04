@@ -26,6 +26,7 @@ function M.setup()
       border = "rounded",
     },
     rocks = {
+      enabled = false,
       hererocks = true,
     },
   })

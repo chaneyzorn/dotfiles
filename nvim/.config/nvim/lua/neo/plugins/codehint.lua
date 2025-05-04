@@ -46,16 +46,6 @@ return {
     },
   },
   {
-    "lukas-reineke/virt-column.nvim",
-    event = {
-      "BufReadPost",
-      "BufNewFile",
-    },
-    opts = {
-      char = "▕",
-    },
-  },
-  {
     "RRethy/vim-illuminate",
     event = "BufReadPost",
     config = function()

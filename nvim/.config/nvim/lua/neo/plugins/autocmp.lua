@@ -46,6 +46,11 @@ return {
       },
       sources = {
         providers = {
+          lsp = {
+            fallbacks = {
+              -- no use buffer as fallback
+            },
+          },
           buffer = {
             opts = {
               get_bufnrs = vim.api.nvim_list_bufs,
