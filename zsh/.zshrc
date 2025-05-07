@@ -172,9 +172,12 @@ alias nvimup="curl -L https://github.com/neovim/neovim/releases/download/nightly
 
 alias v=nvim
 alias nv=$NVIM_NIGHTLY
-alias vx="neovide --fork --frame transparent"
+if [ "$(uname)" == "Darwin" ]; then
+  alias vx="neovide --fork --frame transparent"
+else
+  alias vx="neovide --fork"
+fi
 
-# 保证终端兼容性
 alias ssh='TERM=xterm-256color \ssh'
 
 alias systemctlu="systemctl --user"
