@@ -172,7 +172,7 @@ alias nvimup="curl -L https://github.com/neovim/neovim/releases/download/nightly
 
 alias v=nvim
 alias nv=$NVIM_NIGHTLY
-if [ "$(uname)" == "Darwin" ]; then
+if [[ "$(uname)" == "Darwin" ]]; then
   alias vx="neovide --fork --frame transparent"
 else
   alias vx="neovide --fork"
