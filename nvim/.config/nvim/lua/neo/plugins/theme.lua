@@ -9,7 +9,7 @@ return {
     priority = 1000,
     config = function()
       require("catppuccin").setup({
-        flavour = "macchiato", -- latte, frappe, macchiato, mocha
+        flavour = "mocha", -- latte, frappe, macchiato, mocha
         dim_inactive = {
           enabled = true,
           shade = "dark",
@@ -32,7 +32,16 @@ return {
           gitsigns = true,
           grug_far = true,
           lsp_trouble = true,
-          mason = true,
+          native_lsp = {
+            enabled = true,
+            underlines = {
+              errors = { "undercurl" },
+              hints = { "undercurl" },
+              warnings = { "undercurl" },
+              information = { "undercurl" },
+              ok = { "undercurl" },
+            },
+          },
           nvimtree = true,
           snacks = true,
           treesitter = true,

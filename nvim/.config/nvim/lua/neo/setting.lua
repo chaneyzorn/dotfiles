@@ -91,7 +91,6 @@ vo.incsearch = true
 vo.ignorecase = true
 vo.smartcase = true
 
-vo.background = "dark"
 vo.termguicolors = true
 
 vo.showmode = false
