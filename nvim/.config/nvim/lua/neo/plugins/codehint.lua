@@ -178,6 +178,12 @@ return {
   {
     "mcauley-penney/visual-whitespace.nvim",
     event = "ModeChanged *:[vV\22]",
-    opts = {},
+    opts = {
+      fileformat_chars = {
+        unix = "¬",
+        mac = "←",
+        dos = "↙",
+      },
+    },
   },
 }
