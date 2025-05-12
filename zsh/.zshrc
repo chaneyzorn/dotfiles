@@ -175,7 +175,7 @@ alias nv=$NVIM_NIGHTLY
 if [[ "$(uname)" == "Darwin" ]]; then
   alias vx="neovide --fork --frame transparent"
 else
-  alias vx="neovide --fork"
+  alias vx="neovide --fork --frame none"
 fi
 
 alias ssh='TERM=xterm-256color \ssh'
