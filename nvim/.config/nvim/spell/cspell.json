@@ -1,7 +1,5 @@
 {
-  "dictionaries": [
-    "custom-words"
-  ],
+  "dictionaries": ["custom-words"],
   "dictionaryDefinitions": [
     {
       "name": "custom-words",

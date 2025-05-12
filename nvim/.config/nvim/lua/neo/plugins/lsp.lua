@@ -128,6 +128,39 @@ return {
         yaml = { "yamllint" },
       }
 
+      -- config cspell
+      local function get_cspell_conf()
+        local cspell_conf = vim.fs.find(function(name)
+          return vim.list_contains({
+            ".cspell.json",
+            "cspell.json",
+            ".cSpell.json",
+            "cSpell.json",
+            "cspell.config.js",
+            "cspell.config.cjs",
+            "cspell.config.json",
+            "cspell.config.yaml",
+            "cspell.config.yml",
+            "cspell.yaml",
+            "cspell.yml",
+          }, name)
+        end, { limit = math.huge, type = "file", path = "./" })
+        if #cspell_conf > 0 then
+          return cspell_conf[1]
+        end
+        return vim.fs.abspath("~/.config/nvim/spell/cspell.json")
+      end
+      lint.linters.cspell.args = {
+        "lint",
+        "--no-color",
+        "--no-progress",
+        "--no-summary",
+        "--config",
+        get_cspell_conf(),
+        function()
+          return "stdin://" .. vim.api.nvim_buf_get_name(0)
+        end,
+      }
       lint.linters.cspell = require("lint.util").wrap(lint.linters.cspell, function(diagnostic)
         diagnostic.severity = vim.diagnostic.severity.HINT
         return diagnostic

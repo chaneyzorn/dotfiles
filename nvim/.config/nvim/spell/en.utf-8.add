@@ -1,8 +1,5 @@
-CN
-CRLF
-CSpell
-Pdeathsig
 aarch
+abspath
 accesslog
 addr
 ahci
@@ -16,6 +13,7 @@ args
 argv
 arp
 asctime
+augroup
 auth
 authpriv
 autocmd
@@ -60,6 +58,7 @@ cmdline
 cmds
 cmdstr
 cmp
+CN
 coc
 colorscheme
 command
@@ -76,10 +75,12 @@ cppcheck
 cpu
 cpuinfo
 cpus
+CRLF
 cron
 cscope
 csmi
 cspell
+CSpell
 css
 ctags
 cterm
@@ -151,6 +152,7 @@ foldcolumn
 foldenable
 foldlevel
 foldlevelstart
+formatexpr
 formating
 fping
 func
@@ -353,6 +355,7 @@ ovsbr
 partprobe
 passphrase
 passthrough
+Pdeathsig
 pep8
 perccli
 pidof
@@ -423,6 +426,7 @@ sdr
 sed
 segs
 selftest
+setloclist
 setreg
 sgdisk
 shellcheck
@@ -479,6 +483,7 @@ sysname
 systemctl
 systemd
 tabstop
+taplo
 taskd
 tempname
 termguicolors
