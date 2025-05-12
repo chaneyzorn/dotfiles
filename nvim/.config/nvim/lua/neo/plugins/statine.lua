@@ -8,6 +8,8 @@ return {
     opts = {
       options = {
         globalstatus = true,
+        component_separators = "",
+        section_separators = "",
         disabled_filetypes = {
           winbar = { "NvimTree", "aerial", "qf", "trouble" },
         },
@@ -34,8 +36,15 @@ return {
         },
         lualine_c = {
           {
+            "filetype",
+            padding = { left = 1, right = 0 },
+            colored = true,
+            icon_only = true,
+          },
+          {
             "filename",
             path = 1,
+            padding = { left = 0, right = 1 },
             symbols = {
               modified = "󰃉 ",
               readonly = " ",
@@ -45,7 +54,7 @@ return {
           },
         },
         lualine_x = {
-          { "encoding" },
+          { "encoding", icon = " " },
           {
             "fileformat",
             symbols = {
@@ -56,8 +65,18 @@ return {
           },
           { "filetype" },
         },
-        lualine_y = { "progress" },
-        lualine_z = { "location" },
+        lualine_y = {
+          {
+            function()
+              local cur = vim.fn.line(".")
+              local total = vim.fn.line("$")
+              local col = vim.fn.charcol(".")
+              return string.format("r%d,c%d,%d%s", cur, col, math.floor(cur / total * 100), "%%")
+            end,
+            icon = " ",
+          },
+        },
+        lualine_z = {},
       },
       winbar = {
         lualine_a = {},
