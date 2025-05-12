@@ -1,5 +1,5 @@
 background-opacity = 0.95
 background-blur = true
-theme = Atom
+theme = "Ayu Mirage"
 cursor-style=block
 shell-integration-features = no-cursor
