@@ -4,6 +4,7 @@ if not vim.g.neovide then
   return nil
 end
 
+vim.o.linespace = 4
 vim.opt.guicursor = {
   "n-v-c-sm:block",
   "i-ci-ve:ver25",
@@ -16,9 +17,9 @@ vim.opt.guicursor = {
 
 -- see https://github.com/neovide/neovide/issues/1196
 if vim.uv.os_uname().sysname == "Darwin" then
-  vim.o.guifont = "JetBrainsMono Nerd Font:h14"
+  vim.o.guifont = "JetBrainsMono Nerd Font:h13"
 else
-  vim.o.guifont = "JetBrainsMono Nerd Font:h10"
+  vim.o.guifont = "JetBrainsMono Nerd Font:h12"
 end
 
 vim.g.neovide_input_macos_option_key_is_meta = "both"
