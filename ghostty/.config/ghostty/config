@@ -1,5 +1,6 @@
 background-opacity = 0.95
 background-blur = true
 theme = "Ayu Mirage"
-cursor-style=block
+cursor-style = block
 shell-integration-features = no-cursor
+macos-option-as-alt = true
