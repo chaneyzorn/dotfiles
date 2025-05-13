@@ -7,11 +7,9 @@ return {
     },
     config = function()
       require("grug-far").setup({
-        disableBufferLineNumbers = false,
         startInInsertMode = false,
         normalModeSearch = true,
         wrap = false,
-        resultsSeparatorLineChar = "─",
         icons = {
           actionEntryBullet = "  ",
         },
@@ -22,10 +20,15 @@ return {
           },
         },
         folding = {
+          enabled = false,
           foldcolumn = "0",
         },
         helpLine = {
           enabled = false,
+        },
+        windowCreationCommand = "tab split",
+        openTargetWindow = {
+          preferredLocation = "right",
         },
       })
     end,
