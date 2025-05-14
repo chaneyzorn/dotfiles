@@ -74,6 +74,7 @@ yay-pkgs:
         superfile
         taplo-cli
         tmux
+        tokei
         tree
         typescript-language-server
         typos-lsp
@@ -148,6 +149,7 @@ brew-pkgs:
         superfile
         taplo
         tmux
+        tokei
         tree
         typescript-language-server
         typos-lsp
