@@ -101,6 +101,7 @@ yay-pkgs:
         google-chrome
         gparted
         menulibre
+        obsidian
         pamac-aur
         papirus-icon-theme
         telegram-desktop
@@ -167,6 +168,7 @@ brew-pkgs:
         lapce
         monitorcontrol
         neovide
+        obsidian
         pearcleaner
     )
     brew install -q ${env_pkgs[@]} ${cli_tools[@]}
