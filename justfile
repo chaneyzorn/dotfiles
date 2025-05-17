@@ -47,6 +47,7 @@ yay-pkgs:
         fastfetch
         fd
         fzf
+        git-crypt
         go-tools
         golangci-lint-langserver-bin  # AUR
         gopls
@@ -127,6 +128,7 @@ brew-pkgs:
         ccls
         cspell
         fd
+        git-crypt
         goimports
         golangci-lint-langserver
         gopls
