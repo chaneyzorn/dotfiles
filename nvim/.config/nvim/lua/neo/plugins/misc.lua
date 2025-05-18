@@ -120,6 +120,37 @@ return {
     },
   },
   {
+    "fnune/recall.nvim",
+    keys = {
+      { "<leader>mm", "<Cmd>RecallToggle<CR>", desc = "" },
+      { "<leader>mn", "<Cmd>RecallNext<CR>", desc = "" },
+      { "<leader>mp", "<Cmd>RecallPrevious<CR>", desc = "" },
+      { "<leader>mc", "<Cmd>RecallClear<CR>", desc = "" },
+      {
+        "<leader>ml",
+        function()
+          require("recall.snacks").pick()
+        end,
+        desc = "",
+      },
+      {
+        "<leader>fm",
+        function()
+          require("recall.snacks").pick()
+        end,
+        desc = "",
+      },
+    },
+    opts = {
+      sign_highlight = "DiagnosticSignHint",
+    },
+  },
+  {
+    "chentoast/marks.nvim",
+    event = "BufReadPost",
+    opts = {},
+  },
+  {
     dir = vim.fn.expand("~/Projects/iself/xdo.nvim"),
     dev = true,
     cmd = { "Xdo", "Xdov", "Vdo", "Vdov", "XdoLog" },
