@@ -32,6 +32,7 @@ return {
           gitsigns = true,
           grug_far = true,
           lsp_trouble = true,
+          markview = true,
           native_lsp = {
             enabled = true,
             underlines = {
