@@ -86,6 +86,10 @@ yay-pkgs:
         yamllint
         yq
     )
+    yay -S --needed ${env_pkgs[@]} ${cli_tools[@]}
+
+yay-gui-pkgs:
+    #!/usr/bin/env sh
     fonts=(
         ttf-cascadia-code
         ttf-cascadia-code-nerd
@@ -109,7 +113,7 @@ yay-pkgs:
         transmission-gtk
         visual-studio-code-bin
     )
-    yay -S --needed ${env_pkgs[@]} ${cli_tools[@]} ${fonts[@]} ${gui_tools[@]}
+    yay -S --needed ${fonts[@]} ${gui_tools[@]}
 
 brew-pkgs:
     #!/usr/bin/env sh
