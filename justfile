@@ -33,7 +33,7 @@ yay-pkgs:
         ruby
         rust
         uv
-        yay-bin  # AUR
+        archlinuxcn/yay
     )
     cli_tools=(
         ast-grep
