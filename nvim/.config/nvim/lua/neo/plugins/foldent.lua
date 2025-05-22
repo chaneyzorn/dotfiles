@@ -6,9 +6,7 @@ return {
       vim.g.fold_line_current_fold_only = true
       vim.g.fold_line_char_open_start = "╭"
       vim.g.fold_line_char_open_end = "╰"
-    end,
-    config = function()
-      vim.api.nvim_set_hl(0, "FoldLine", { link = "IblIdent" })
+      vim.g.fold_line_char_priority = 2
     end,
   },
   {

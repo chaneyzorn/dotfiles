@@ -19,6 +19,12 @@ return {
       require("mini.surround").setup()
       require("mini.trailspace").setup()
 
+      require("mini.indentscope").setup({
+        symbol = "┊",
+        options = {
+          try_as_border = true,
+        },
+      })
       -- see :h mini.nvim-disabling-recipes
       local mini_disable = vim.api.nvim_create_augroup("MiniDisable", { clear = true })
       vim.api.nvim_create_autocmd({ "TermOpen" }, {
@@ -30,7 +36,7 @@ return {
       })
       vim.api.nvim_create_autocmd({ "FileType" }, {
         group = mini_disable,
-        pattern = { "help", "NvimTree" },
+        pattern = { "help", "NvimTree", "snacks_picker_preview" },
         callback = function()
           vim.b.miniindentscope_disable = true
         end,
@@ -97,7 +103,11 @@ return {
 
       indent = {
         indent = { char = "┊" },
-        scope = { char = "┊" },
+        scope = {
+          char = "┊",
+          -- use mini.indentscope
+          enabled = false,
+        },
         filter = function(buf)
           if vim.b[buf].snacks_indent == false then
             return false
@@ -113,6 +123,15 @@ return {
           end
 
           return true
+        end,
+      },
+
+      scroll = {
+        filter = function(buf)
+          return vim.g.neovide == nil
+            and vim.g.snacks_scroll ~= false
+            and vim.b[buf].snacks_scroll ~= false
+            and vim.bo[buf].buftype ~= "terminal"
         end,
       },
 
