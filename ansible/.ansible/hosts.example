@@ -1,6 +1,0 @@
-[elf_cluster]
-192.168.30.[211:214] ansible_user=root
-[elf_host_cluster]
-192.168.67.[35:37] ansible_user=root
-[event_cluster]
-192.168.78.[3:5] ansible_user=root
