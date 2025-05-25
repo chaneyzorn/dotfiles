@@ -4,3 +4,4 @@ theme = "Ayu Mirage"
 cursor-style = block
 shell-integration-features = no-cursor
 macos-option-as-alt = true
+config-file = ?linux.config
