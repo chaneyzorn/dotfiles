@@ -54,7 +54,10 @@ return {
           },
         },
         lualine_x = {
-          { "encoding", icon = " " },
+          {
+            "encoding",
+            icon = "",
+          },
           {
             "fileformat",
             symbols = {
@@ -64,6 +67,11 @@ return {
             },
           },
           { "filetype" },
+          {
+            "lsp_status",
+            icon = "",
+            ignore_lsp = { "typos_lsp" },
+          },
         },
         lualine_y = {
           {
