@@ -77,6 +77,7 @@ yay-pkgs:
         tmux
         tokei
         tree
+        tree-sitter-cli
         typescript-language-server
         typos-lsp
         unarchiver
@@ -158,6 +159,7 @@ brew-pkgs:
         tmux
         tokei
         tree
+        tree-sitter
         typescript-language-server
         typos-lsp
         vale
