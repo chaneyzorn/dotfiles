@@ -78,71 +78,56 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    version = false,
+    branch = "main",
     build = ":TSUpdate",
-    event = "VeryLazy",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-    },
-    keys = {
-      {
-        "<M-i>",
-        function()
-          local t = require("nvim-treesitter.ts_utils")
-          t.goto_node(t.get_next_node(t.get_node_at_cursor(), true, true), false, true)
-        end,
-        desc = "tswalker prev",
-      },
-      {
-        "<M-u>",
-        function()
-          local t = require("nvim-treesitter.ts_utils")
-          t.goto_node(t.get_previous_node(t.get_node_at_cursor(), true, true), false, true)
-        end,
-        desc = "tswalker next",
-      },
-    },
     config = function()
-      require("nvim-treesitter.configs").setup({
-        ensure_installed = "all",
-        highlight = {
-          enable = true,
-          additional_vim_regex_highlighting = false,
-        },
-        incremental_selection = {
-          enable = true,
-          keymaps = {
-            init_selection = "gnn",
-            node_incremental = "grn",
-            node_decremental = "grm",
-            scope_incremental = "grc",
-          },
-        },
-        textobjects = {
-          select = {
-            enable = true,
-            lookahead = true,
-            keymaps = {
-              -- ["az"] = { query = "@fold", query_group = "folds", desc = "text-obj: a-fold" },
-              -- ["iz"] = { query = "@fold", query_group = "folds", desc = "text-obj: i-fold" },
-            },
-            selection_modes = {
-              ["@fold"] = "V",
-            },
-          },
-        },
+      local fts = {
+        "bash",
+        "c",
+        "cpp",
+        "css",
+        "dockerfile",
+        "go",
+        "gomod",
+        "gosum",
+        "html",
+        "ini",
+        "java",
+        "javascript",
+        "json",
+        "json5",
+        "jsonc",
+        "just",
+        "lua",
+        "make",
+        "markdown",
+        "nginx",
+        "proto",
+        "python",
+        "ruby",
+        "rust",
+        "ssh_config",
+        "swift",
+        "tmux",
+        "toml",
+        "tsx",
+        "typescript",
+        "vim",
+        "vimdoc",
+        "vue",
+        "xml",
+        "xresources",
+        "yaml",
+        "zig",
+      }
+      require("nvim-treesitter").install(fts)
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = fts,
+        callback = function()
+          vim.treesitter.start()
+        end,
       })
     end,
-  },
-  {
-    "windwp/nvim-ts-autotag",
-    event = { "BufReadPre", "BufNewFile" },
-    opts = {},
-  },
-  {
-    "folke/ts-comments.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    opts = {},
   },
   {
     "aaronik/treewalker.nvim",
