@@ -1,7 +1,25 @@
+local lsp_servers = {
+  -- js
+  "biome",
+  "ts_ls",
+  -- lus
+  "lua_ls",
+  -- python
+  "basedpyright",
+  "ruff",
+  -- golang
+  "gopls",
+  "golangci_lint_ls",
+  -- cpp
+  "ccls",
+  "clangd",
+  -- any
+  "typos_lsp",
+}
+
 return {
   {
     "j-hui/fidget.nvim",
-    event = "LspAttach",
     config = function()
       require("fidget").setup({
         notification = {
@@ -14,7 +32,6 @@ return {
   },
   {
     "stevearc/conform.nvim",
-    event = { "BufWritePre" },
     cmd = { "ConformInfo" },
     init = function()
       vim.o.formatexpr = "v:lua.require('conform').formatexpr()"
@@ -189,20 +206,30 @@ return {
           require("lint").try_lint()
           require("lint").try_lint("cspell")
 
-          -- TODO: LSP start
-          -- vim.cmd("LspStart")
-          vim.lsp.enable({
-            "biome",
-            "lua_ls",
-            "pyright",
-            "ruff",
-            "gopls",
-            "golangci_lint_ls",
-            "ts_ls",
-            "ccls",
-            "clangd",
-            "typos-lsp",
-          })
+          -- enable lsp servers
+          local lsp_for_ft = {}
+          local lsp_for_any = {}
+          for _, name in ipairs(lsp_servers) do
+            local lsp_config = vim.lsp.config[name]
+            if lsp_config ~= nil then
+              if lsp_config.filetypes == nil then
+                table.insert(lsp_for_any, name)
+              else
+                for _, ft in ipairs(lsp_config.filetypes) do
+                  if ft == vim.bo.filetype then
+                    table.insert(lsp_for_ft, name)
+                  end
+                end
+              end
+            end
+          end
+          if #lsp_for_ft > 0 then
+            vim.lsp.enable(lsp_for_ft)
+          end
+          if #lsp_for_any > 0 then
+            vim.lsp.enable(lsp_for_any)
+          end
+
           require("fidget").notify("IntelliSense Enabled")
         end,
         desc = "Enable IntelliSense",
@@ -210,12 +237,12 @@ return {
       {
         "<leader>cx",
         function()
-          -- TODO: LSP stop
-          -- vim.cmd("LspStop")
-
           vim.o.spell = false
           vim.diagnostic.reset()
           vim.g.nvim_lint_enabled = false
+
+          -- disable all lsp server
+          vim.lsp.enable(lsp_servers, false)
 
           require("fidget").notify("IntelliSense Disabled")
         end,

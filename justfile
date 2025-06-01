@@ -179,3 +179,15 @@ brew-pkgs:
     )
     brew install -q ${env_pkgs[@]} ${cli_tools[@]}
     brew install -q --cask ${casks[@]}
+
+user-pkgs:
+    #!/usr/bin/env sh
+    uv_pkgs=(
+        neovim-sh
+        ruff
+        basedpyright
+        pyrefly
+    )
+    for p in "${uv_pkgs[@]}"; do
+       uv tool install "$p"
+    done
