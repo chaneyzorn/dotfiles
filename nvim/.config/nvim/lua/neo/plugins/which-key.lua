@@ -86,6 +86,7 @@ return {
           { "<leader>vq", "<Cmd>wa<CR>:q<CR>", desc = "save all and quit" },
           { "<leader>vs", "<Cmd>Lazy sync<CR>", desc = "Lazy sync" },
           { "<leader>vx", "<Cmd>qa!<CR>", desc = "quit without save" },
+          { "<leader>vr", "<Cmd>restart<CR>", desc = "restart nvim instance" },
 
           -- vim copy and paste
           { "<leader>vy", [["+y]], mode = { "x" }, desc = "yank selected to sys-clip" },
