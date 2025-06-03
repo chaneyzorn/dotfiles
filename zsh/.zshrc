@@ -17,13 +17,12 @@ export PNPM_HOME="$HOME/.local/share/pnpm"
 LOCAL_BIN=/usr/local/bin
 LOCAL_SBIN=/usr/local/sbin
 GO_BIN=$GOPATH/bin
-MY_BIN=$HOME/myutils/bin
 MY_LOCAL_BIN=$HOME/.local/bin
 RUST_BIN=$HOME/.cargo/bin
 LUA_BIN=$HOME/.luarocks/bin
 NODE_BIN=$HOME/.node_modules/bin
 RUBY_BIN=$(ruby -r rubygems -e 'puts Gem.user_dir')/bin
-MY_PATH=$MY_BIN:$MY_LOCAL_BIN:$GO_BIN:$RUST_BIN:$PNPM_HOME:$NODE_BIN:$RUBY_BIN:$LUA_BIN:$LOCAL_BIN:$LOCAL_SBIN
+MY_PATH=$MY_LOCAL_BIN:$GO_BIN:$RUST_BIN:$PNPM_HOME:$NODE_BIN:$RUBY_BIN:$LUA_BIN:$LOCAL_BIN:$LOCAL_SBIN
 
 export PATH=$MY_PATH:$BASE_PATH
 
@@ -167,7 +166,7 @@ alias py2='source ~/Pyvenv/venv2.7/bin/activate'
 # python3 -m venv ~/Pyvenv/venv3/
 alias py3='source ~/Pyvenv/venv3/bin/activate'
 
-NVIM_NIGHTLY="~/myutils/bin/nvim.appimage"
+NVIM_NIGHTLY="~/.local/bin/nvim.appimage"
 alias nvimup="curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-$(uname -m).appimage -o $NVIM_NIGHTLY"
 
 alias v=nvim
