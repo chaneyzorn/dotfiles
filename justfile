@@ -56,6 +56,7 @@ yay-pkgs:
         jq
         just
         lua-language-server
+        man-db
         markdownlint-cli2
         meson
         mypy
@@ -221,7 +222,7 @@ nvim-nightly:
             exit 1
     esac
 
-    TMP_DIR=$(mktemp -d -t neovim_download)
+    TMP_DIR=$(mktemp -d)
     DOWNLOAD_URL="https://github.com/neovim/neovim/releases/download/nightly/nvim-${PLATFORM}-${ARCH}.${SUFFIX}"
     echo "download $DOWNLOAD_URL to ${TMP_DIR}"
     curl -L "${DOWNLOAD_URL}" -o "${TMP_DIR}/neovim_download"
