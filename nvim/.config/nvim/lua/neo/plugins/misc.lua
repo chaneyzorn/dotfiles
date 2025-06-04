@@ -112,6 +112,20 @@ return {
     },
   },
   {
+    "olimorris/persisted.nvim",
+    opts = {
+      autoload = true,
+      should_save = function()
+        local cwd = vim.fn.getcwd()
+        local git_dir = vim.fs.joinpath(cwd, ".git")
+        if vim.uv.fs_stat(git_dir) then
+          return true
+        end
+        return false
+      end,
+    },
+  },
+  {
     "fnune/recall.nvim",
     keys = {
       { "<leader>mm", "<Cmd>RecallToggle<CR>", desc = "" },
