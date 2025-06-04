@@ -25,6 +25,7 @@ return {
         notification = {
           window = {
             normal_hl = "DiagnosticHint",
+            winblend = 0,
           },
         },
       })
