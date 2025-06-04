@@ -166,11 +166,7 @@ alias py2='source ~/Pyvenv/venv2.7/bin/activate'
 # python3 -m venv ~/Pyvenv/venv3/
 alias py3='source ~/Pyvenv/venv3/bin/activate'
 
-NVIM_NIGHTLY="~/.local/bin/nvim.appimage"
-alias nvimup="curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-$(uname -m).appimage -o $NVIM_NIGHTLY"
-
 alias v=nvim
-alias nv=$NVIM_NIGHTLY
 if [[ "$(uname)" == "Darwin" ]]; then
   alias vx="neovide --fork --frame transparent"
 else

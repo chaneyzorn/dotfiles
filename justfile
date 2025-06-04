@@ -193,3 +193,55 @@ user-pkgs:
     for p in "${uv_pkgs[@]}"; do
        uv tool install "$p"
     done
+
+nvim-nightly:
+    #!/usr/bin/env sh
+    case "$(uname -s)" in
+        Linux*)
+            PLATFORM="linux"
+            SUFFIX="appimage"
+            ;;
+        Darwin*)
+            PLATFORM="macos"
+            SUFFIX="tar.gz"
+            ;;
+        *)
+            echo "unsupported platform: $(uname -s)"
+            exit 1
+    esac
+    case "$(uname -m)" in
+        x86_64*)
+            ARCH="x86_64"
+            ;;
+        arm64*|aarch64*)
+            ARCH="arm64"
+            ;;
+        *)
+            echo "unsupported arch: $(uname -m)"
+            exit 1
+    esac
+
+    TMP_DIR=$(mktemp -d -t neovim_download)
+    DOWNLOAD_URL="https://github.com/neovim/neovim/releases/download/nightly/nvim-${PLATFORM}-${ARCH}.${SUFFIX}"
+    echo "download $DOWNLOAD_URL to ${TMP_DIR}"
+    curl -L "${DOWNLOAD_URL}" -o "${TMP_DIR}/neovim_download"
+
+    NEOVIM_BIN="${HOME}/.local/bin/nv"
+    INSTALL_DIR="${HOME}/.local/share/neovim-nightly"
+    echo "extract to ${INSTALL_DIR}"
+    rm -rf ${INSTALL_DIR}
+    if [ "$PLATFORM" = "linux" ]; then
+        mkdir -p "${INSTALL_DIR}"
+        mv -vf "${TMP_DIR}/neovim_download" "${INSTALL_DIR}/nvim.appimage"
+        chmod +x "${INSTALL_DIR}/nvim.appimage"
+        ln -sf "${INSTALL_DIR}/nvim.appimage" "${NEOVIM_BIN}"
+    else
+        xattr -c "${TMP_DIR}/neovim_download"
+        tar -xzf "${TMP_DIR}/neovim_download" -C "${TMP_DIR}"
+        mv -vf "${TMP_DIR}"/nvim-macos-${ARCH} "${INSTALL_DIR}"
+        ln -sf "${INSTALL_DIR}/bin/nvim" "${NEOVIM_BIN}"
+    fi
+    echo "clean ${TMP_DIR}"
+    rm -rf "${TMP_DIR}"
+    ls -lah "${NEOVIM_BIN}"
+
