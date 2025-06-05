@@ -113,17 +113,32 @@ return {
   },
   {
     "olimorris/persisted.nvim",
-    opts = {
-      autoload = true,
-      should_save = function()
-        local cwd = vim.fn.getcwd()
-        local git_dir = vim.fs.joinpath(cwd, ".git")
-        if vim.uv.fs_stat(git_dir) then
-          return true
-        end
-        return false
-      end,
-    },
+    config = function()
+      require("persisted").setup({
+        autoload = true,
+        should_save = function()
+          local cwd = vim.fn.getcwd()
+          local git_dir = vim.fs.joinpath(cwd, ".git")
+          if vim.uv.fs_stat(git_dir) then
+            return true
+          end
+          return false
+        end,
+      })
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "PersistedLoadPost",
+        callback = function()
+          for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+            local buf_name = vim.api.nvim_buf_get_name(buf)
+            if string.find(buf_name, "NvimTree") then
+              -- recover nvim-tree buf content after session loaded
+              require("nvim-tree.api").tree.find_file({ open = true, focus = false })
+              return
+            end
+          end
+        end,
+      })
+    end,
   },
   {
     dir = vim.fn.expand("~/Projects/iself/xdo.nvim"),
