@@ -246,3 +246,7 @@ nvim-nightly:
     rm -rf "${TMP_DIR}"
     ls -lah "${NEOVIM_BIN}"
 
+tmux-tpm:
+    #!/usr/bin/env sh
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    ~/.tmux/plugins/tpm/bin/install_plugins
