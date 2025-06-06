@@ -252,3 +252,5 @@ tmux-tpm:
         git clone https://github.com/tmux-plugins/tpm ${HOME}/.tmux/plugins/tpm
     fi
     env TMUX_PLUGIN_MANAGER_PATH="${HOME}/.tmux/plugins" ${HOME}/.tmux/plugins/tpm/bin/install_plugins
+    env TMUX_PLUGIN_MANAGER_PATH="${HOME}/.tmux/plugins" ${HOME}/.tmux/plugins/tpm/bin/update_plugins all
+    env TMUX_PLUGIN_MANAGER_PATH="${HOME}/.tmux/plugins" ${HOME}/.tmux/plugins/tpm/bin/clean_plugins
