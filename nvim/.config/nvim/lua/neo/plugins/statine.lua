@@ -45,7 +45,7 @@ return {
               end
               return mt[mode_code]
             end,
-            separator = { right = "" },
+            separator = { right = "" },
           },
         },
         lualine_b = {
