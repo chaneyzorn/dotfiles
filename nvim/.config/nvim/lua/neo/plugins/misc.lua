@@ -126,6 +126,19 @@ return {
         end,
       })
       vim.api.nvim_create_autocmd("User", {
+        pattern = "PersistedSavePre",
+        callback = function()
+          for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+            -- not save nofile buffer
+            if vim.bo[buf].buftype == "nofile" then
+              if not vim.list_contains({ "NvimTree" }, vim.bo[buf].filetype) then
+                vim.api.nvim_buf_delete(buf, { force = true })
+              end
+            end
+          end
+        end,
+      })
+      vim.api.nvim_create_autocmd("User", {
         pattern = "PersistedLoadPost",
         callback = function()
           for _, buf in ipairs(vim.api.nvim_list_bufs()) do
