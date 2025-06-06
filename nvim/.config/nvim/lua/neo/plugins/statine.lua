@@ -17,7 +17,36 @@ return {
       extensions = { "aerial" },
       sections = {
         lualine_a = {
-          { "mode" },
+          {
+            function()
+              local get_mode = require("lualine.components.mode")
+              local mode_code = get_mode()
+              local mt = {
+                ["COMMAND"] = "",
+                ["CONFIRM"] = "",
+                ["EX"] = "󱤵",
+                ["INSERT"] = "",
+                ["MORE"] = "󰍻",
+                ["NORMAL"] = "",
+                ["O-PENDING"] = "󰸻",
+                ["REPLACE"] = "",
+                ["S-BLOCK"] = "󰩬",
+                ["S-LINE"] = "",
+                ["SELECT"] = "󰫙",
+                ["SHELL"] = "",
+                ["TERMINAL"] = "",
+                ["V-BLOCK"] = "󰮔",
+                ["V-LINE"] = "󰡫",
+                ["V-REPLACE"] = "󱥼",
+                ["VISUAL"] = "󰈈",
+              }
+              if mt[mode_code] == nil then
+                return mode_code
+              end
+              return mt[mode_code]
+            end,
+            separator = { right = "" },
+          },
         },
         lualine_b = {
           {
