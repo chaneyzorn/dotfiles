@@ -7,6 +7,12 @@ return {
     },
     config = function()
       require("grug-far").setup({
+        showCompactInputs = true,
+        showInputsTopPadding = false,
+        showInputsBottomPadding = false,
+        helpLine = {
+          enabled = false,
+        },
         startInInsertMode = false,
         normalModeSearch = true,
         wrap = false,
@@ -22,9 +28,6 @@ return {
         folding = {
           enabled = false,
           foldcolumn = "0",
-        },
-        helpLine = {
-          enabled = false,
         },
         windowCreationCommand = "tab split",
         openTargetWindow = {
