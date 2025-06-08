@@ -57,11 +57,6 @@ return {
             "diff",
             symbols = { added = " ", modified = " ", removed = " " },
           },
-          {
-            "diagnostics",
-            sources = { "nvim_diagnostic" },
-            symbols = { error = " ", warn = " ", info = " ", hint = "󰛨 " },
-          },
         },
         lualine_c = {
           {
@@ -102,23 +97,12 @@ return {
             ignore_lsp = { "typos_lsp" },
           },
         },
-        lualine_y = {
-          {
-            function()
-              local cur = vim.fn.line(".")
-              local total = vim.fn.line("$")
-              local col = vim.fn.charcol(".")
-              return string.format("r%d,c%d,%d%s", cur, col, math.floor(cur / total * 100), "%%")
-            end,
-            icon = " ",
-          },
-        },
+        lualine_y = {},
         lualine_z = {},
       },
       winbar = {
         lualine_a = {},
-        lualine_b = {},
-        lualine_c = {
+        lualine_b = {
           {
             "filetype",
             separator = "",
@@ -146,8 +130,23 @@ return {
             colored = true,
           },
         },
+        lualine_c = {},
         lualine_x = {},
-        lualine_y = {},
+        lualine_y = {
+          {
+            "diagnostics",
+            sources = { "nvim_diagnostic" },
+            symbols = { error = " ", warn = " ", info = " ", hint = "󰛨 " },
+          },
+          {
+            function()
+              local cur = vim.fn.line(".")
+              local total = vim.fn.line("$")
+              local percentage = math.floor(cur / total * 100)
+              return string.format(" %d/%d %d%s", cur, total, percentage, "%%")
+            end,
+          },
+        },
         lualine_z = {},
       },
       inactive_winbar = {
@@ -163,6 +162,7 @@ return {
           },
           {
             "filename",
+            path = 1,
             padding = { left = 0, right = 1 },
             symbols = {
               modified = "󰃉 ",
