@@ -83,9 +83,15 @@ return {
             icon = "",
           },
           {
+            function()
+              return vim.bo.shiftwidth
+            end,
+            icon = "",
+          },
+          {
             "fileformat",
             symbols = {
-              unix = " LF",
+              unix = "󰌽 LF",
               dos = " CRLF",
               mac = " CR",
             },
