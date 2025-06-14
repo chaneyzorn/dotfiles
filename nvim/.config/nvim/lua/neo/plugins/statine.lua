@@ -46,6 +46,7 @@ return {
               return mt[mode_code]
             end,
             separator = { right = vim.g.neovide and "" or "" },
+            -- separator = { left = vim.g.neovide and "" or "" },
           },
         },
         lualine_b = {
@@ -108,8 +109,7 @@ return {
             function()
               return vim.fs.basename(vim.fn.getcwd())
             end,
-            icon = "",
-            separator = { left = vim.g.neovide and "" or "" },
+            icon = "󱃷",
           },
         },
         lualine_z = {},
