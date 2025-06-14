@@ -83,18 +83,18 @@ return {
             icon = "",
           },
           {
-            function()
-              return vim.bo.shiftwidth
-            end,
-            icon = "",
-          },
-          {
             "fileformat",
             symbols = {
               unix = "󰌽 LF",
               dos = " CRLF",
               mac = " CR",
             },
+          },
+          {
+            function()
+              return vim.bo.shiftwidth
+            end,
+            icon = "",
           },
           { "filetype" },
           {
@@ -103,7 +103,15 @@ return {
             ignore_lsp = { "typos_lsp" },
           },
         },
-        lualine_y = {},
+        lualine_y = {
+          {
+            function()
+              return vim.fs.basename(vim.fn.getcwd())
+            end,
+            icon = "",
+            separator = { left = vim.g.neovide and "" or "" },
+          },
+        },
         lualine_z = {},
       },
       winbar = {
