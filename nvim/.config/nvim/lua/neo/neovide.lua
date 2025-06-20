@@ -5,7 +5,7 @@ if not vim.g.neovide then
 end
 
 vim.o.mouse = "a"
-vim.o.linespace = 4
+vim.o.linespace = 6
 vim.opt.guicursor = {
   "n-v-c-sm:block",
   "i-ci-ve:ver25",

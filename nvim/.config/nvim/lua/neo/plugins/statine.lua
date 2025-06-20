@@ -109,7 +109,7 @@ return {
             function()
               return vim.fs.basename(vim.fn.getcwd())
             end,
-            icon = "󱃷",
+            icon = { "󱃷", color = { fg = "#f9e2af" } },
           },
         },
         lualine_z = {},
