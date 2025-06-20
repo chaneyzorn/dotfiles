@@ -4,6 +4,7 @@ if not vim.g.neovide then
   return nil
 end
 
+vim.o.mouse = "a"
 vim.o.linespace = 4
 vim.opt.guicursor = {
   "n-v-c-sm:block",
