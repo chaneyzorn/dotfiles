@@ -33,7 +33,7 @@ vim.g.neovide_floating_corner_radius = 0.3
 
 vim.g.neovide_cursor_animation_length = 0.01
 vim.g.neovide_cursor_trail_length = 0.1
-vim.g.neovide_cursor_vfx_mode = "railgun"
+vim.g.neovide_cursor_vfx_mode = { "railgun", "wireframe" }
 vim.g.neovide_cursor_animate_command_line = false
 vim.g.neovide_position_animation_length = 0
 
