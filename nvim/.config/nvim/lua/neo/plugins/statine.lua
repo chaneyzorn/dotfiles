@@ -161,6 +161,10 @@ return {
             symbols = { error = " ", warn = " ", info = " ", hint = "󰛨 " },
           },
           {
+            "searchcount",
+            icon = "",
+          },
+          {
             function()
               local cur = vim.fn.line(".")
               local total = vim.fn.line("$")
