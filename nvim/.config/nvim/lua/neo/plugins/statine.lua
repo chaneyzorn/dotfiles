@@ -103,6 +103,14 @@ return {
             icon = "",
             ignore_lsp = { "typos_lsp" },
           },
+          {
+            "tabs",
+            mode = 1,
+            show_modified_status = false,
+            fmt = function(name, ctx)
+              return string.format("%s %s", "", ctx.tabnr)
+            end,
+          },
         },
         lualine_y = {
           {

@@ -68,6 +68,7 @@ return {
           { "<leader>tt", "<Cmd>tabnext<CR>", desc = "next tab" },
           { "<leader>tf", "<Cmd>tabfirst<CR>", desc = "first tab" },
           { "<leader>tl", "<Cmd>tablast<CR>", desc = "last tab" },
+          { "<leader>ts", "<Cmd>tab sp<CR>", desc = "tab split" },
 
           -- vim
           {
@@ -91,7 +92,6 @@ return {
           -- vim copy and paste
           { "<leader>vy", [["+y]], mode = { "x" }, desc = "yank selected to sys-clip" },
           { "<leader>vp", [["+p]], mode = { "n", "v" }, desc = "paste from sys-clip" },
-          -- { "<C-p>", [[<C-r>+]], mode = { "i", "c" }, desc = "paste from sys-clip" },
         },
       })
     end,
