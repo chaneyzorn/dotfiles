@@ -102,6 +102,7 @@ return {
         "make",
         "markdown",
         "nginx",
+        "printf",
         "proto",
         "python",
         "regex",
@@ -181,6 +182,11 @@ return {
   {
     "OXY2DEV/markview.nvim",
     lazy = false,
+    opts = {
+      experimental = {
+        check_rtp_message = false,
+      },
+    },
   },
   {
     "OXY2DEV/helpview.nvim",
