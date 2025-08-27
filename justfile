@@ -65,6 +65,7 @@ yay-pkgs:
         prettier
         pyright
         ripgrep
+        rsync
         ruff
         rust-analyzer
         scrcpy
@@ -149,6 +150,7 @@ brew-pkgs:
         prettier
         pyright
         ripgrep
+        rsync
         ruff
         rust-analyzer
         scrcpy
