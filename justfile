@@ -164,6 +164,7 @@ brew-pkgs:
         tokei
         tree
         tree-sitter
+        tree-sitter-cli
         typescript-language-server
         typos-lsp
         vale
@@ -176,12 +177,14 @@ brew-pkgs:
         alt-tab
         font-jetbrains-mono-nerd-font
         ghostty
+        iina
         jordanbaird-ice
         lapce
         monitorcontrol
         neovide
         obsidian
         pearcleaner
+        transmission
     )
     brew install -q ${env_pkgs[@]} ${cli_tools[@]}
     brew install -q --cask ${casks[@]}
