@@ -94,6 +94,7 @@ return {
         "ini",
         "java",
         "javascript",
+        "jsdoc",
         "json",
         "json5",
         "jsonc",
