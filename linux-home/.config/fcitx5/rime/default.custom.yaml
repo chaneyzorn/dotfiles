@@ -1,0 +1,6 @@
+patch:
+  __include: rime_ice_suggestion:/
+  __patch:
+    schema_list:
+      - schema: rime_ice
+      - schema: luna_pinyin
