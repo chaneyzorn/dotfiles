@@ -1,7 +1,34 @@
+# Font Configuration
+# font-family = Fira Code
+font-size = 12
+
+# Window Configuration
+# window-decoration = false
+gtk-titlebar = false
 background-opacity = 0.95
 background-blur = true
+background-blur-radius = 32
 theme = "Ayu Mirage"
+
+# Cursor Configuration
 cursor-style = block
-shell-integration-features = no-cursor
-macos-option-as-alt = true
-config-file = ?linux.config
+cursor-style-blink = true
+cursor-color = #d8bafa
+
+# Terminal features
+mouse-hide-while-typing = true
+
+# Shell integration
+shell-integration = detect
+shell-integration-features = cursor,sudo,title,no-cursor
+
+# Disable annoying copied to clipboard
+app-notifications = no-clipboard-copy,no-config-reload
+
+# Key bindings for common actions
+keybind = ctrl+n=new_window
+keybind = ctrl+t=new_tab
+keybind = ctrl+plus=increase_font_size:1
+keybind = ctrl+minus=decrease_font_size:1
+keybind = ctrl+zero=reset_font_size
+
