@@ -279,6 +279,9 @@ binds {
     Mod+Shift+N hotkey-overlay-title="Notepad" {
         spawn "dms" "ipc" "call" "notepad" "toggle"
     }
+    Mod+Delete {
+        spawn "dms" "ipc" "call" "powermenu" "toggle"
+    }
     // === Security ===
     Mod+Alt+L hotkey-overlay-title="Lock Screen" {
         spawn "dms" "ipc" "call" "lock" "lock"
