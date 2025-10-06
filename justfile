@@ -55,6 +55,7 @@ yay-pkgs:
         iputils
         jq
         just
+        kdlfmt
         lua-language-server
         man-db
         markdownlint-cli2
@@ -144,6 +145,7 @@ brew-pkgs:
         hugo
         jq
         just
+        kdlfmt
         lua-language-server
         markdownlint-cli2
         mypy
