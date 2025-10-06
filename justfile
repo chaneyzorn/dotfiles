@@ -73,6 +73,7 @@ yay-pkgs:
         shfmt
         sshfs
         stow
+        strace
         stylua
         superfile
         taplo-cli
