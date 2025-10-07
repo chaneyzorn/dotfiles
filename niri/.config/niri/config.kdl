@@ -195,11 +195,10 @@ window-rule {
     // since this is the default config, and we want no false positives.
     // You can get away with just app-id="wezterm" if you want.
     match app-id="^code$"
+    match app-id="^neovide$"
     match app-id="^google-chrome$"
     match app-id="^com\\.mitchellh\\.ghostty$"
-    default-column-width {
-        proportion 1.0
-    }
+    open-maximized true
 }
 window-rule {
     match app-id="^org\\.gnome\\."
