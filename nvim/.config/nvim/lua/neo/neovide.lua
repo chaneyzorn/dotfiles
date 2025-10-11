@@ -5,7 +5,7 @@ if not vim.g.neovide then
 end
 
 vim.o.mouse = "a"
-vim.o.linespace = 6
+vim.o.linespace = 2
 vim.opt.guicursor = {
   "n-v-c-sm:block",
   "i-ci-ve:ver25",
@@ -20,7 +20,7 @@ vim.opt.guicursor = {
 if vim.uv.os_uname().sysname == "Darwin" then
   vim.o.guifont = "JetBrainsMono Nerd Font:h13"
 else
-  vim.o.guifont = "JetBrainsMono Nerd Font:h12"
+  vim.o.guifont = "JetBrainsMono Nerd Font:h11"
 end
 
 vim.g.neovide_input_macos_option_key_is_meta = "both"
