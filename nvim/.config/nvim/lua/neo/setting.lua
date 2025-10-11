@@ -53,7 +53,7 @@ vo.colorcolumn = "+1"
 vo.signcolumn = "yes"
 
 -- set the default border for all floating windows
-vo.winborder = "rounded"
+-- vo.winborder = "rounded"
 
 vo.showtabline = 0
 
