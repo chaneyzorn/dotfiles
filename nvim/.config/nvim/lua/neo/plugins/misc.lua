@@ -156,6 +156,5 @@ return {
   {
     dir = vim.fn.expand("~/Projects/iself/filter-do.nvim"),
     dev = true,
-    cmd = { "Xdo", "Xdov", "Vdo", "Vdov", "XdoLog" },
   },
 }
