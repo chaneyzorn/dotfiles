@@ -247,9 +247,6 @@ window-rule {
 }
 binds {
     // === System & Overview ===
-    Mod+D {
-        spawn "niri" "msg" "action" "toggle-overview"
-    }
     Mod+O repeat=false {
         toggle-overview
     }
