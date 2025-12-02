@@ -52,6 +52,7 @@ yay-pkgs:
         golangci-lint-langserver-bin  # AUR
         gopls
         hugo
+        hurl
         iputils
         jq
         just
@@ -143,6 +144,7 @@ brew-pkgs:
         golangci-lint-langserver
         gopls
         hugo
+        hurl
         jq
         just
         kdlfmt
