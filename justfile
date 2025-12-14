@@ -115,6 +115,7 @@ yay-gui-pkgs:
         obsidian
         # pamac-aur
         papirus-icon-theme
+        readest
         shattered-pixel-dungeon
         telegram-desktop
         transmission-gtk
