@@ -113,7 +113,7 @@ yay-gui-pkgs:
         gparted
         menulibre
         obsidian
-        pamac-aur
+        # pamac-aur
         papirus-icon-theme
         shattered-pixel-dungeon
         telegram-desktop
