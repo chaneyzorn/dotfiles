@@ -5,11 +5,11 @@ config-archlinuxcn:
     #!/usr/bin/env sh
     if ! grep archlinuxcn /etc/pacman.conf; then
         sudo echo "[archlinuxcn]" >> /etc/pacman.conf
-        sudo echo "Server = https://mirrors.hust.edu.cn/archlinuxcn/$arch" >> /etc/pacman.conf
+        sudo echo "Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch" >> /etc/pacman.conf
         sudo pacman -Sy && sudo pacman -S archlinuxcn-keyring
     fi
 
-ensure-yay:
+ensure-yay-bin:
     #!/usr/bin/env sh
     if ! which yay; then
         sudo pacman -S --needed git base-devel
@@ -20,10 +20,18 @@ ensure-yay:
         rm -rf yay-bin
     fi
 
+ensure-yay:
+    #!/usr/bin/env sh
+    if ! which yay; then
+        sudo pacman -S archlinuxcn/yay
+    fi
+
 yay-pkgs:
     #!/usr/bin/env sh
     env_pkgs=(
+        base-devel
         docker
+        git
         go
         lua
         luarocks
