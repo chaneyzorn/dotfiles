@@ -198,7 +198,7 @@ window-rule {
     match app-id="^neovide$"
     match app-id="^google-chrome$"
     match app-id="^com\\.mitchellh\\.ghostty$"
-    open-maximized true
+    open-maximized-to-edges true
 }
 window-rule {
     match app-id="^org\\.gnome\\."
