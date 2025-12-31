@@ -120,7 +120,18 @@ return {
             icon = "󱃷",
           },
         },
-        lualine_z = {},
+        lualine_z = {
+          {
+            function()
+              return vim.uv.os_gethostname()
+            end,
+            cond = function()
+              return os.getenv("SSH_CONNECTION") ~= nil
+            end,
+            icon = "󰒍",
+            separator = { left = "" },
+          },
+        },
       },
       winbar = {
         lualine_a = {},

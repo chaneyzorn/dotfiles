@@ -125,6 +125,10 @@ return {
       require("color-chameleon").setup({
         rules = {
           {
+            colorscheme = "tokyonight-night",
+            env = { SSH_CONNECTION = true },
+          },
+          {
             colorscheme = "rose-pine",
             condition = function()
               return vim.bo.readonly or not vim.bo.modifiable
