@@ -82,19 +82,19 @@ return {
     end,
   },
   {
-    "ellisonleao/gruvbox.nvim",
+    "sainnhe/sonokai",
     lazy = false,
     priority = 1000,
     config = function()
-      require("gruvbox").setup({
-        italic = {
-          strings = false,
-          emphasis = true,
-          comments = true,
-          operators = false,
-          folds = true,
-        },
-      })
+      vim.g.sonokai_enable_italic = 1
+    end,
+  },
+  {
+    "sainnhe/gruvbox-material",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.gruvbox_material_enable_italic = 1
     end,
   },
   {
