@@ -6,6 +6,7 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
+    lazy = false,
     priority = 1000,
     config = function()
       require("catppuccin").setup({
@@ -51,7 +52,92 @@ return {
         },
       })
       -- setup must be called before loading
+      -- vim.cmd.colorscheme("catppuccin")
+    end,
+  },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function()
+      require("tokyonight").setup({})
+    end,
+  },
+  {
+    "rebelot/kanagawa.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function()
+      require("kanagawa").setup({})
+    end,
+  },
+  {
+    "sainnhe/everforest",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.everforest_enable_italic = 1
+    end,
+  },
+  {
+    "ellisonleao/gruvbox.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("gruvbox").setup({
+        italic = {
+          strings = false,
+          emphasis = true,
+          comments = true,
+          operators = false,
+          folds = true,
+        },
+      })
+    end,
+  },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function()
+      require("rose-pine").setup({})
+    end,
+  },
+  {
+    "uhs-robert/oasis.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("oasis").setup({})
+    end,
+  },
+  {
+    "uhs-robert/color-chameleon.nvim",
+    lazy = false,
+    priority = 900,
+    config = function()
+      -- set a init colorscheme before color-chameleon.nvim starting
       vim.cmd.colorscheme("catppuccin")
+      require("color-chameleon").setup({
+        rules = {
+          {
+            colorscheme = "rose-pine",
+            condition = function()
+              return vim.bo.readonly or not vim.bo.modifiable
+            end,
+          },
+          {
+            colorscheme = "everforest",
+            condition = function()
+              return vim.g.neovide ~= nil
+            end,
+          },
+        },
+      })
     end,
   },
 }
