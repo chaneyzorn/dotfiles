@@ -118,10 +118,8 @@ return {
   {
     "uhs-robert/color-chameleon.nvim",
     lazy = false,
-    priority = 900,
+    priority = 999,
     config = function()
-      -- set a init colorscheme before color-chameleon.nvim starting
-      vim.cmd.colorscheme("catppuccin")
       require("color-chameleon").setup({
         rules = {
           {
@@ -136,10 +134,15 @@ return {
           },
           {
             colorscheme = "everforest",
+            background = "light",
             condition = function()
               return vim.g.neovide ~= nil
             end,
           },
+        },
+        default = {
+          colorscheme = "catppuccin",
+          background = "dark",
         },
       })
     end,

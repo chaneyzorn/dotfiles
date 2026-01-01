@@ -23,7 +23,7 @@ return {
   },
   {
     "folke/snacks.nvim",
-    priority = 1000,
+    priority = 800,
     lazy = false,
     keys = {
       {
@@ -77,9 +77,10 @@ return {
       },
     },
     opts = {
-      picker = {},
+      picker = { enabled = true },
 
       indent = {
+        enabled = true,
         indent = { char = "┊" },
         scope = { char = "┊" },
         filter = function(buf)
@@ -99,8 +100,9 @@ return {
           return true
         end,
       },
-      scope = {},
+      scope = { enabled = true },
       scroll = {
+        enabled = true,
         filter = function(buf)
           return vim.g.neovide == nil
             and vim.g.snacks_scroll ~= false
@@ -109,7 +111,7 @@ return {
         end,
       },
 
-      zen = {},
+      zen = { enabled = true },
     },
   },
   {
