@@ -16,6 +16,11 @@ return {
     },
   },
   {
+    "esmuellert/vscode-diff.nvim",
+    dependencies = { "MunifTanjim/nui.nvim" },
+    cmd = "CodeDiff",
+  },
+  {
     "lewis6991/gitsigns.nvim",
     event = "BufReadPre",
     cmd = "Gitsigns",
