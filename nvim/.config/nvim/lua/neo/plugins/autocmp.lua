@@ -46,7 +46,7 @@ return {
       },
       sources = {
         providers = {
-          lsp = { fallbacks = {} },
+          lsp = { fallbacks = {}, async = true },
           path = { fallbacks = {} },
           buffer = {
             opts = {
