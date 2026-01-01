@@ -142,6 +142,26 @@ return {
         end,
       })
       vim.api.nvim_create_autocmd("User", {
+        pattern = "PersistedLoadPre",
+        callback = function()
+          local current_win = vim.api.nvim_get_current_win()
+          local current_win_config = vim.api.nvim_win_get_config(current_win)
+          if not current_win_config.relative or current_win_config.relative == "" then
+            return
+          end
+          -- focus on first non-floating window
+          for _, win_id in ipairs(vim.api.nvim_list_wins()) do
+            if vim.api.nvim_win_is_valid(win_id) then
+              local win_config = vim.api.nvim_win_get_config(win_id)
+              if not win_config.relative or win_config.relative == "" then
+                vim.api.nvim_set_current_win(win_id)
+                break
+              end
+            end
+          end
+        end,
+      })
+      vim.api.nvim_create_autocmd("User", {
         pattern = "PersistedLoadPost",
         callback = function()
           for _, buf in ipairs(vim.api.nvim_list_bufs()) do
