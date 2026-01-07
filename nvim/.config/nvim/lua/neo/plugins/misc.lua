@@ -117,6 +117,20 @@ return {
   },
   {
     "olimorris/persisted.nvim",
+    init = function()
+      vim.opt.sessionoptions = {
+        "blank",
+        "buffers",
+        "curdir",
+        "folds",
+        "globals",
+        "help",
+        "tabpages",
+        "winpos",
+        "winsize",
+        "terminal",
+      }
+    end,
     config = function()
       require("persisted").setup({
         autoload = true,
