@@ -156,10 +156,24 @@ return {
           mode = "floating",
           floating = {
             position = "middle-right",
-            minimal_menu = "full",
+            minimal_menu = "dashed",
           },
         },
       })
+
+      -- TODO: wait for upstream apis
+      local collapse_timer = nil
+      vim.keymap.set("n", "<M-b>", function()
+        if collapse_timer then
+          vim.fn.timer_stop(collapse_timer)
+        end
+
+        require("bento.ui").expand_menu()
+        vim.cmd.bnext()
+        collapse_timer = vim.fn.timer_start(3000, function()
+          require("bento.ui").collapse_menu()
+        end)
+      end)
     end,
   },
 }
