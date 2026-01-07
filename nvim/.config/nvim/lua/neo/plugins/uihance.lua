@@ -147,4 +147,19 @@ return {
       })
     end,
   },
+  {
+    "serhez/bento.nvim",
+    config = function()
+      require("bento").setup({
+        ordering_metric = "edit",
+        ui = {
+          mode = "floating",
+          floating = {
+            position = "middle-right",
+            minimal_menu = "full",
+          },
+        },
+      })
+    end,
+  },
 }
