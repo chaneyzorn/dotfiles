@@ -83,6 +83,7 @@ return {
         enabled = true,
         indent = { char = "┊" },
         scope = { char = "┊" },
+        chunk = { enabled = true },
         filter = function(buf)
           if vim.b[buf].snacks_indent == false then
             return false
