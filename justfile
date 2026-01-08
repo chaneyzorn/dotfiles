@@ -44,6 +44,7 @@ yay-pkgs:
         archlinuxcn/yay
     )
     cli_tools=(
+        archlinuxcn/lux-dl
         ast-grep
         bash-language-server
         biome
@@ -158,6 +159,7 @@ brew-pkgs:
         just
         kdlfmt
         lua-language-server
+        lux
         markdownlint-cli2
         mypy
         neovim
