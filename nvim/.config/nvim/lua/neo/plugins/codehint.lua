@@ -67,7 +67,12 @@ return {
     "catgoose/nvim-colorizer.lua",
     event = "BufReadPre",
     config = function()
-      require("colorizer").setup()
+      require("colorizer").setup({
+        user_default_options = {
+          mode = "virtualtext",
+          virtualtext = "●",
+        },
+      })
     end,
   },
   {
