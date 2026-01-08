@@ -5,19 +5,11 @@ return {
     cmd = "Git",
   },
   {
-    "sindrets/diffview.nvim",
-    cmd = {
-      "DiffviewOpen",
-      "DiffviewFileHistory",
-    },
-    keys = {
-      { "<leader>hv", "<cmd>DiffviewOpen<CR>", desc = "DiffviewOpen" },
-      { "<leader>hx", "<cmd>DiffviewClose<CR>", desc = "DiffviewClose" },
-    },
-  },
-  {
-    "esmuellert/vscode-diff.nvim",
+    "esmuellert/codediff.nvim",
     dependencies = { "MunifTanjim/nui.nvim" },
+    keys = {
+      { "<leader>hv", "<cmd>CodeDiff<CR>", desc = "Git CodeDiff" },
+    },
     cmd = "CodeDiff",
   },
   {
