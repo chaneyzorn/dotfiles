@@ -17,6 +17,7 @@ cursor-color = #d8bafa
 
 # Terminal features
 mouse-hide-while-typing = true
+macos-option-as-alt = true
 
 # Shell integration
 shell-integration = detect
