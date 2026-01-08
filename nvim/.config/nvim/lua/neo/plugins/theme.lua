@@ -116,6 +116,18 @@ return {
     end,
   },
   {
+    "oskarnurm/koda.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("koda").setup({
+        bold = true,
+        italic = true,
+        transparent = false,
+      })
+    end,
+  },
+  {
     "uhs-robert/color-chameleon.nvim",
     lazy = false,
     priority = 999,
