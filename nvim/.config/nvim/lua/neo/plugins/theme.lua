@@ -135,6 +135,12 @@ return {
       require("color-chameleon").setup({
         rules = {
           {
+            colorscheme = "koda",
+            condition = function()
+              return #vim.fn.argv() > 0
+            end,
+          },
+          {
             colorscheme = "tokyonight-night",
             env = { SSH_CONNECTION = true },
           },
