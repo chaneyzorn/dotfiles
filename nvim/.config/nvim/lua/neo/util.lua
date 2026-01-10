@@ -9,4 +9,8 @@ function M.print_rtp()
   print("total: ", count)
 end
 
+function M.via_ssh()
+  return vim.env.SSH_CONNECTION and vim.env.SSH_CONNECTION ~= ""
+end
+
 return M
