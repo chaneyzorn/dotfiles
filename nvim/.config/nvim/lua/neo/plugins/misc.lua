@@ -130,6 +130,22 @@ return {
         "winsize",
         "terminal",
       }
+
+      vim.api.nvim_create_user_command("CleanBuffer", function()
+        local number = 0
+        for _, buf in ipairs(vim.fn.getbufinfo()) do
+          if vim.tbl_isempty(buf.windows) and buf.listed == 1 and buf.changed == 0 then
+            number = number + 1
+            vim.api.nvim_buf_delete(buf.bufnr, { force = true })
+          end
+        end
+        if number > 0 then
+          local msg = string.format("Deleted %s inactive buffer(s).", number)
+          vim.notify(msg, vim.log.levels.INFO)
+        else
+          vim.notify("No inactive buffers were deleted.", vim.log.levels.INFO)
+        end
+      end, { desc = "Delete listed unmodified buffers that are not in a window" })
     end,
     config = function()
       require("persisted").setup({

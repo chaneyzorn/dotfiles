@@ -131,6 +131,28 @@ return {
     "uhs-robert/color-chameleon.nvim",
     lazy = false,
     priority = 999,
+    init = function()
+      -- see https://github.com/jeffkreeftmeijer/vim-numbertoggle
+      local number_toggle = vim.api.nvim_create_augroup("NumberToggle", { clear = true })
+      vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnter" }, {
+        group = number_toggle,
+        pattern = "*",
+        callback = function()
+          if vim.wo.number and vim.fn.mode() ~= "i" then
+            vim.wo.relativenumber = true
+          end
+        end,
+      })
+      vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave" }, {
+        group = number_toggle,
+        pattern = "*",
+        callback = function()
+          if vim.wo.number then
+            vim.wo.relativenumber = false
+          end
+        end,
+      })
+    end,
     config = function()
       require("color-chameleon").setup({
         rules = {
