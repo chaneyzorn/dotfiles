@@ -65,6 +65,7 @@ vim.opt.fillchars = {
   foldopen = "",
   foldsep = "│",
   foldclose = "",
+  diff = "╱",
 }
 
 vo.hlsearch = true
