@@ -18,7 +18,15 @@ end
 
 function M.setup()
   ensure_lazy_nvim()
-  require("lazy").setup("neo.plugins", {
+  require("lazy").setup({
+    spec = {
+      { import = "neo.plugins" },
+    },
+    defaults = {
+      cond = function(spec)
+        return spec.vscode or not vim.g.vscode
+      end,
+    },
     change_detection = {
       notify = false,
     },
