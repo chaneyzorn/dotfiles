@@ -97,7 +97,11 @@ vo.path = table.concat({
   "/usr/lib/gcc/**/include",
 }, ",")
 
-vg.python3_host_prog = vim.env.UV_TOOL_DIR .. "/neovim-sh/bin/python"
+if vim.env.UV_TOOL_DIR then
+  vg.python3_host_prog = vim.env.UV_TOOL_DIR .. "/neovim-sh/bin/python"
+else
+  vg.python3_host_prog = vim.fn.exepath("python3")
+end
 vg.loaded_ruby_provider = 0
 vg.loaded_perl_provider = 0
 
