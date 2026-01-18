@@ -36,7 +36,6 @@ input {
 
     }
 }
-
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
@@ -177,6 +176,12 @@ window-rule {
     match app-id="^org\\.wezfurlong\\.wezterm$"
     default-column-width {
 
+    }
+}
+window-rule {
+    match app-id="cataclysm-tiles"
+    default-column-width {
+        proportion 1.0
     }
 }
 window-rule {
@@ -640,6 +645,5 @@ binds {
         power-off-monitors
     }
 }
-
-
 include "dms/outputs.kdl"
+
