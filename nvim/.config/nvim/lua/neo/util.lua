@@ -13,4 +13,9 @@ function M.via_ssh()
   return vim.env.SSH_CONNECTION and vim.env.SSH_CONNECTION ~= ""
 end
 
+function M.esc()
+  local keys = vim.api.nvim_replace_termcodes("<ESC>", true, false, true)
+  vim.api.nvim_feedkeys(keys, "m", false)
+end
+
 return M

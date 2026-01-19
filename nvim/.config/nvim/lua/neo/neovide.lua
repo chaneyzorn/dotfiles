@@ -43,26 +43,28 @@ vim.g.neovide_hide_mouse_when_typing = true
 -- IME input config
 vim.g.neovide_user_ime_enabled = false
 
-local function set_ime(args)
+local function toggle_config(args)
   if args.event:match("Enter$") then
     vim.g.neovide_input_ime = vim.g.neovide_user_ime_enabled
+    vim.g.neovide_cursor_vfx_mode = { "railgun" }
   else
     vim.g.neovide_input_ime = false
+    vim.g.neovide_cursor_vfx_mode = { "railgun", "wireframe" }
   end
 end
 
-local ime_input = vim.api.nvim_create_augroup("NeovideImeInput", { clear = true })
+local neovide_config_grp = vim.api.nvim_create_augroup("NeovideConfig", { clear = true })
 
 vim.api.nvim_create_autocmd({ "InsertEnter", "InsertLeave" }, {
-  group = ime_input,
+  group = neovide_config_grp,
   pattern = "*",
-  callback = set_ime,
+  callback = toggle_config,
 })
 
 vim.api.nvim_create_autocmd({ "CmdlineEnter", "CmdlineLeave" }, {
-  group = ime_input,
+  group = neovide_config_grp,
   pattern = "[/\\?]",
-  callback = set_ime,
+  callback = toggle_config,
 })
 
 vim.keymap.set("n", "<leader>ve", function()
@@ -77,3 +79,15 @@ end, { desc = "Toggle neovide user IME" })
 vim.keymap.set("n", "<leader>vf", function()
   vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen
 end, { desc = "Toggle neovide fullscreen" })
+
+vim.opt.cmdheight = 0
+vim.api.nvim_create_autocmd({ "CmdlineEnter", "CmdlineLeave" }, {
+  group = vim.api.nvim_create_augroup("cmdline-auto-hide", { clear = true }),
+  callback = function(args)
+    local target_height = args.event == "CmdlineEnter" and 1 or 0
+    if vim.opt_local.cmdheight:get() ~= target_height then
+      vim.opt_local.cmdheight = target_height
+      vim.cmd.redraw()
+    end
+  end,
+})

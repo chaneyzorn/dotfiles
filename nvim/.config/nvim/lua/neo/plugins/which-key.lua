@@ -22,8 +22,23 @@ return {
           { "<M-w>", "<C-W>w", desc = "next window" },
 
           -- quick action
-          { "<C-c>", "<Esc><Cmd>close<CR>", desc = "quit" },
-          { "<C-s>", "<Esc><cmd>update<CR>", mode = { "n", "v", "i" }, desc = "save file" },
+          {
+            "<C-c>",
+            function()
+              require("neo.util").esc()
+              vim.cmd.close()
+            end,
+            desc = "quit",
+          },
+          {
+            "<C-s>",
+            function()
+              require("neo.util").esc()
+              vim.cmd.update()
+            end,
+            mode = { "n", "v", "i" },
+            desc = "save file",
+          },
 
           -- move faster
           { "<C-j>", "3j", desc = "move j faster" },
