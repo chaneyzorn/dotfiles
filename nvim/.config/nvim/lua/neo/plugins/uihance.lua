@@ -161,6 +161,10 @@ return {
         },
       })
 
+      vim.api.nvim_create_user_command("BentoCloseBuf", function()
+        require("bento").close_all_buffers({ visible = false, locked = false, current = false })
+      end, { desc = "Delete listed unmodified buffers that are not in a window" })
+
       -- TODO: wait for upstream apis
       local collapse_timer = nil
       vim.keymap.set("n", "<M-b>", function()
