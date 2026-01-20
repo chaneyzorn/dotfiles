@@ -21,7 +21,7 @@ cursor {
 input {
     keyboard {
         xkb {
-
+            options "ctrl:nocaps,shift:both_capslock_cancel"
         }
         numlock
     }
