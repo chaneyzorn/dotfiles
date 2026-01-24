@@ -12,7 +12,7 @@ return {
           component_separators = "",
           section_separators = "",
           disabled_filetypes = {
-            winbar = { "NvimTree", "aerial", "qf", "trouble" },
+            winbar = { "NvimTree", "aerial", "qf", "trouble", "terminal" },
           },
         },
         extensions = { "aerial" },
