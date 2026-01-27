@@ -187,33 +187,55 @@ return {
       { "<M-t>", "<cmd>Winterm<CR>", mode = { "n", "t" }, desc = "Winterm toggle" },
     },
     config = function()
+      local term_tweak = vim.api.nvim_create_augroup("term-tweak", { clear = true })
       vim.api.nvim_create_autocmd("TermOpen", {
-        pattern = "*",
-        callback = function()
+        group = term_tweak,
+        callback = function(event)
           if vim.bo.filetype == "" then
             vim.bo.filetype = "terminal"
           end
           vim.keymap.set("t", [[<M-\><M-\>]], [[<C-\><C-n>]], {
-            buffer = 0,
+            buffer = event.buf,
             desc = "Enter Normal mode in terminal",
           })
+
+          -- check buf belong to winterm
+          if not vim.api.nvim_buf_get_var(event.buf, "winterm") then
+            return
+          end
+
           vim.keymap.set({ "t", "n" }, "<M-[>", "<cmd>Winterm -1<CR>", {
-            buffer = 0,
+            buffer = event.buf,
             desc = "Winterm cycle prev terminal buffer",
           })
           vim.keymap.set({ "t", "n" }, "<M-]>", "<cmd>Winterm +1<CR>", {
-            buffer = 0,
+            buffer = event.buf,
             desc = "Winterm cycle next terminal buffer",
           })
           vim.keymap.set({ "t", "n" }, "<M-n>", "<cmd>Winterm zsh<CR>", {
-            buffer = 0,
+            buffer = event.buf,
             desc = "Winterm create new terminal zsh job",
+          })
+        end,
+      })
+      vim.api.nvim_create_autocmd("TermClose", {
+        group = term_tweak,
+        callback = function(event)
+          vim.api.nvim_buf_call(event.buf, function()
+            vim.cmd.stopinsert()
+          end)
+          -- check buf belong to winterm
+          if not vim.api.nvim_buf_get_var(event.buf, "winterm") then
+            return
+          end
+          vim.keymap.set("n", "<Enter>", "<cmd>Winterm -1<CR><cmd>Winterm! +1<CR>", {
+            buffer = event.buf,
           })
         end,
       })
       require("winterm").setup({
         autofocus = true,
-        autoinsert = true,
+        autoinsert = false,
       })
     end,
   },

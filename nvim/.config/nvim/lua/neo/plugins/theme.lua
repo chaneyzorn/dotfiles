@@ -138,7 +138,7 @@ return {
         group = number_toggle,
         pattern = "*",
         callback = function()
-          if vim.wo.number and vim.fn.mode() ~= "i" then
+          if vim.wo.number and not vim.fn.mode():match("^[it]") then
             vim.wo.relativenumber = true
           end
         end,
