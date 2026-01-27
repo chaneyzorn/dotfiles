@@ -184,7 +184,12 @@ return {
     "gh-liu/nvim-winterm",
     cmd = "Winterm",
     keys = {
-      { "<M-t>", "<cmd>Winterm<CR>", mode = { "n", "t" }, desc = "Winterm toggle" },
+      {
+        "<M-t>",
+        "<cmd>Winterm<CR>",
+        mode = { "n", "t" },
+        desc = "Winterm toggle",
+      },
     },
     config = function()
       local term_tweak = vim.api.nvim_create_augroup("term-tweak", { clear = true })
@@ -200,7 +205,7 @@ return {
           })
 
           -- check buf belong to winterm
-          if not vim.api.nvim_buf_get_var(event.buf, "winterm") then
+          if not vim.b[event.buf].winterm then
             return
           end
 
@@ -221,21 +226,37 @@ return {
       vim.api.nvim_create_autocmd("TermClose", {
         group = term_tweak,
         callback = function(event)
+          -- check buf belong to winterm
+          if not vim.b[event.buf].winterm then
+            return
+          end
+
+          -- stopinsert if term closed
           vim.api.nvim_buf_call(event.buf, function()
             vim.cmd.stopinsert()
           end)
-          -- check buf belong to winterm
-          if not vim.api.nvim_buf_get_var(event.buf, "winterm") then
-            return
-          end
+
+          -- TODO: feature request, a group of user cmd pattern hook points, to allow user custom
+          vim.b[event.buf].term_close = true
+          vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+            group = term_tweak,
+            buffer = event.buf,
+            callback = function(ent)
+              if vim.b[ent.buf].term_close then
+                vim.cmd.stopinsert()
+              end
+            end,
+          })
+
           vim.keymap.set("n", "<Enter>", "<cmd>Winterm -1<CR><cmd>Winterm! +1<CR>", {
             buffer = event.buf,
           })
         end,
       })
+
       require("winterm").setup({
         autofocus = true,
-        autoinsert = false,
+        autoinsert = true,
       })
     end,
   },
