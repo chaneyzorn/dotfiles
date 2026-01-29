@@ -58,3 +58,7 @@ alias systemctlu="systemctl --user"
 alias dblackf="git diff --name-only | xargs -L1 black"
 
 [[ ! -f ~/.myutil.zsh ]] || source ~/.myutil.zsh
+
+if [[ -n "$SSH_CONNECTION" ]]; then
+    PROMPT="[%F{green}%n@%m%f] ${PROMPT}"
+fi
