@@ -194,5 +194,8 @@ return {
   {
     dir = vim.fn.expand("~/Projects/iself/filter-do.nvim"),
     dev = true,
+    enabled = function()
+      return vim.uv.fs_stat(vim.fs.abspath("~/Projects/iself/filter-do.nvim"))
+    end,
   },
 }
