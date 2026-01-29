@@ -5,7 +5,7 @@ config-archlinuxcn:
     #!/usr/bin/env sh
     if ! grep archlinuxcn /etc/pacman.conf; then
         sudo echo "[archlinuxcn]" >> /etc/pacman.conf
-        sudo echo "Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch" >> /etc/pacman.conf
+        sudo echo "Server = https://mirrors.ustc.edu.cn/archlinuxcn/\$arch" >> /etc/pacman.conf
         sudo pacman -Sy && sudo pacman -S archlinuxcn-keyring
     fi
 
@@ -71,6 +71,7 @@ yay-pkgs:
         markdownlint-cli2
         meson
         mypy
+        neovim
         nodejs-cspell  # AUR
         pandoc-cli
         prettier
@@ -106,6 +107,9 @@ yay-pkgs:
 yay-gui-pkgs:
     #!/usr/bin/env sh
     fonts=(
+        noto-fonts
+        noto-fonts-cjk
+        noto-fonts-emoji
         ttf-cascadia-code
         ttf-cascadia-code-nerd
         ttf-fira-code
