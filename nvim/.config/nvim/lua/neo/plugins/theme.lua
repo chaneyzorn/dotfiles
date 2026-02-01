@@ -163,7 +163,7 @@ return {
             end,
           },
           {
-            colorscheme = "kanagawa",
+            colorscheme = "tokyonight",
             env = { SSH_CONNECTION = true },
           },
           {
