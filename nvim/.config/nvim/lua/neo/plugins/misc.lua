@@ -197,5 +197,19 @@ return {
     enabled = function()
       return vim.uv.fs_stat(vim.fs.abspath("~/Projects/iself/filter-do.nvim"))
     end,
+    cmd = "Fx",
+    keys = {
+      {
+        "<leader>fx",
+        function()
+          require("filter_do.api").select_tpl_and_filter_do()
+        end,
+        mode = { "n", "v" },
+        desc = "filter-do",
+      },
+    },
+    config = function()
+      require("filter_do").setup({})
+    end,
   },
 }
