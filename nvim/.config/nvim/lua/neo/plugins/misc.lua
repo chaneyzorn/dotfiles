@@ -77,8 +77,10 @@ return {
       },
     },
     opts = {
-      picker = { enabled = true },
-
+      picker = {
+        enabled = true,
+        ui_select = false,
+      },
       indent = {
         enabled = true,
         indent = { char = "┊" },
@@ -202,14 +204,27 @@ return {
       {
         "<leader>fx",
         function()
-          require("filter_do.api").select_tpl_and_filter_do()
+          require("filter_do.api").select_filter_do()
         end,
         mode = { "n", "v" },
         desc = "filter-do",
       },
     },
     config = function()
-      require("filter_do").setup({})
+      require("filter_do").setup({
+        ui = {
+          -- ui_select = "default",
+          -- ui_select = "snacks.picker",
+          -- ui_select = "telescope",
+          -- ui_select = "auto",
+        },
+      })
+      vim.api.nvim_create_autocmd("User", {
+        pattern = { "FxOpenPost", "FxPreviousPost", "FxNextPost" },
+        callback = function(e)
+          vim.api.nvim_set_option_value("winbar", "", { scope = "local", win = e.data.target_win_id })
+        end,
+      })
     end,
   },
 }
