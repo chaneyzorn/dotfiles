@@ -19,6 +19,11 @@ return {
       require("mini.pairs").setup()
       require("mini.surround").setup()
       require("mini.trailspace").setup()
+
+      -- keep default ui.select
+      local default_ui_select = vim.ui.select
+      require("mini.pick").setup()
+      vim.ui.select = default_ui_select
     end,
   },
   {
@@ -216,6 +221,7 @@ return {
           -- ui_select = "default",
           -- ui_select = "snacks.picker",
           -- ui_select = "telescope",
+          -- ui_select = "mini.pick",
           -- ui_select = "auto",
         },
       })
