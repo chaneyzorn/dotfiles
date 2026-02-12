@@ -191,6 +191,7 @@ window-rule {
     match app-id="^code$"
     match app-id="^neovide$"
     match app-id="^google-chrome$"
+    match app-id="^dev\\.zed\\.Zed$"
     match app-id="^com\\.mitchellh\\.ghostty$"
     open-maximized-to-edges true
 }
