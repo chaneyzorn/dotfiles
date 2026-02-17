@@ -28,6 +28,7 @@ function M.setup()
       end,
     },
     change_detection = {
+      enabled = false,
       notify = false,
     },
     ui = {

@@ -226,7 +226,7 @@ return {
         },
       })
       vim.api.nvim_create_autocmd("User", {
-        pattern = { "FxOpenPost", "FxPreviousPost", "FxNextPost" },
+        pattern = { "FxUIOpenPost", "FxUIPreviousPost", "FxUINextPost" },
         callback = function(e)
           vim.api.nvim_set_option_value("winbar", "", { scope = "local", win = e.data.target_win_id })
         end,
