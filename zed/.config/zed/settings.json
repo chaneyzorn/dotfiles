@@ -14,6 +14,7 @@
   "lsp": {
     "lua-language-server": {
       "binary": {
+        "path": "/usr/bin/lua-language-server",
         "ignore_system_version": false,
       },
     },
