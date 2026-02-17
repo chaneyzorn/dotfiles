@@ -120,12 +120,14 @@ yay-gui-pkgs:
         ttf-nerd-fonts-symbols-mono
     )
     gui_tools=(
+        celluloid
         font-manager
         ghostty
         google-chrome
         gparted
         menulibre
         obsidian
+        obs-studio
         # pamac-aur
         papirus-icon-theme
         readest
