@@ -646,5 +646,4 @@ binds {
         power-off-monitors
     }
 }
-include "dms/outputs.kdl"
 
