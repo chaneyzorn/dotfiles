@@ -29,3 +29,5 @@ nvim/.config/nvim/plugin/packer_compiled.lua
 nvim/.config/go/telemetry
 
 wezterm/.config/wezterm/colors/
+
+niri/.config/niri/dms/
