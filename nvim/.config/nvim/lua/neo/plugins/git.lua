@@ -1,10 +1,5 @@
 return {
   {
-    "tpope/vim-fugitive",
-    event = "BufReadPre",
-    cmd = "Git",
-  },
-  {
     "esmuellert/codediff.nvim",
     dependencies = { "MunifTanjim/nui.nvim" },
     keys = {
