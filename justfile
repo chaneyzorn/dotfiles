@@ -72,7 +72,6 @@ yay-pkgs:
         meson
         mypy
         neovim
-        nodejs-cspell  # AUR
         pandoc-cli
         prettier
         pyright
@@ -153,7 +152,6 @@ brew-pkgs:
         biome
         btop
         ccls
-        cspell
         fd
         git-crypt
         goimports
