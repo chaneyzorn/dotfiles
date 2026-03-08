@@ -102,7 +102,7 @@ return {
             {
               "lsp_status",
               icon = "",
-              ignore_lsp = { "typos_lsp" },
+              -- ignore_lsp = { "typos_lsp" },
             },
             {
               function()

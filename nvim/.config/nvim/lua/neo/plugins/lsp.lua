@@ -2,7 +2,7 @@ local lsp_servers = {
   -- js
   "biome",
   "ts_ls",
-  -- lus
+  -- lua
   "lua_ls",
   -- python
   "basedpyright",
@@ -15,6 +15,8 @@ local lsp_servers = {
   "clangd",
   -- any
   "typos_lsp",
+  "codebook",
+  "harper-ls",
 }
 
 return {
@@ -112,8 +114,15 @@ return {
           source = true,
           prefix = function(diagnostic, _, _)
             local symbols = { "", "", "", "󰛨 " }
+            local highlights = {
+              [vim.diagnostic.severity.ERROR] = "DiagnosticFloatingError",
+              [vim.diagnostic.severity.WARN] = "DiagnosticFloatingWarn",
+              [vim.diagnostic.severity.INFO] = "DiagnosticFloatingInfo",
+              [vim.diagnostic.severity.HINT] = "DiagnosticFloatingHint",
+            }
             local symbol = symbols[diagnostic.severity] or "?"
-            return symbol
+            local hi = highlights[diagnostic.severity] or "DiagnosticFloatingOk"
+            return symbol .. " ", hi
           end,
         },
         signs = {
@@ -189,9 +198,9 @@ return {
             vim.lsp.enable(lsp_for_any)
           end
 
-          require("fidget").notify("IntelliSense Enabled")
+          require("fidget").notify("CodeSense Enabled")
         end,
-        desc = "Enable IntelliSense",
+        desc = "Enable CodeSense",
       },
       {
         "<leader>cx",
@@ -203,9 +212,9 @@ return {
           -- disable all lsp server
           vim.lsp.enable(lsp_servers, false)
 
-          require("fidget").notify("IntelliSense Disabled")
+          require("fidget").notify("CodeSense Disabled")
         end,
-        desc = "Disabled IntelliSense",
+        desc = "Disabled CodeSense",
       },
     },
     config = function()

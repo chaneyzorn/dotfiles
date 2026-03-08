@@ -51,6 +51,7 @@ yay-pkgs:
         btop
         ccls
         cloc
+        codebook-lsp
         cppcheck
         curl
         fastfetch
@@ -60,6 +61,7 @@ yay-pkgs:
         go-tools
         golangci-lint-langserver-bin  # AUR
         gopls
+        harper
         hugo
         hurl
         iputils
@@ -152,16 +154,17 @@ brew-pkgs:
         biome
         btop
         ccls
+        codebook-lsp
         fd
         git-crypt
         goimports
         golangci-lint-langserver
         gopls
+        harper
         hugo
         hurl
         jq
         just
-        kdlfmt
         lua-language-server
         lux
         markdownlint-cli2
