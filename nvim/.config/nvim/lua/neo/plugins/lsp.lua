@@ -161,7 +161,7 @@ return {
       {
         "<leader>cv",
         function()
-          vim.o.spell = true
+          -- vim.o.spell = true
           vim.g.nvim_lint_enabled = true
           require("lint").try_lint()
 
@@ -196,7 +196,7 @@ return {
       {
         "<leader>cx",
         function()
-          vim.o.spell = false
+          -- vim.o.spell = false
           vim.diagnostic.reset()
           vim.g.nvim_lint_enabled = false
 
