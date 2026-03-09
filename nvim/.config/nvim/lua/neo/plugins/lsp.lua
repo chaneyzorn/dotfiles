@@ -15,7 +15,7 @@ local lsp_servers = {
   "clangd",
   -- any
   "typos_lsp",
-  "harper_ls",
+  -- "harper_ls",
 }
 
 return {
@@ -93,6 +93,12 @@ return {
       require("spellwarn").setup({
         enable = false,
         prefix = "possible bad spells: ",
+        severity = {
+          spellbad = "INFO",
+          spellcap = "HINT",
+          spelllocal = "HINT",
+          spellrare = "INFO",
+        },
       })
     end,
   },

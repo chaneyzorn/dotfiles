@@ -12,7 +12,10 @@ return {
     },
     config = function()
       require("trouble").setup({
+        auto_preview = false,
         focus = true,
+        warn_no_results = false,
+        open_no_results = true,
         win = {
           type = "split",
           relative = "win",
