@@ -15,8 +15,7 @@ local lsp_servers = {
   "clangd",
   -- any
   "typos_lsp",
-  "codebook",
-  "harper-ls",
+  "harper_ls",
 }
 
 return {
@@ -82,6 +81,22 @@ return {
     },
   },
   {
+    "ravibrock/spellwarn.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    init = function()
+      vim.o.spell = false
+      vim.o.spelllang = "en,cjk"
+      vim.o.spelloptions = "camel"
+      vim.o.spellfile = vim.fs.abspath("~/.config/nvim/spell/en.utf-8.add")
+    end,
+    config = function()
+      require("spellwarn").setup({
+        enable = false,
+        prefix = "possible bad spells: ",
+      })
+    end,
+  },
+  {
     "mfussenegger/nvim-lint",
     event = { "BufReadPre", "BufNewFile" },
     keys = {
@@ -90,7 +105,7 @@ return {
         function()
           vim.diagnostic.enable(not vim.diagnostic.is_enabled())
         end,
-        desc = "loclist diagnostic",
+        desc = "enable diagnostic",
       },
       {
         "<leader>dl",
@@ -170,7 +185,9 @@ return {
       {
         "<leader>cv",
         function()
-          -- vim.o.spell = true
+          vim.o.spell = true
+          require("spellwarn").enable()
+
           vim.g.nvim_lint_enabled = true
           require("lint").try_lint()
 
@@ -205,7 +222,9 @@ return {
       {
         "<leader>cx",
         function()
-          -- vim.o.spell = false
+          vim.o.spell = false
+          require("spellwarn").disable()
+
           vim.diagnostic.reset()
           vim.g.nvim_lint_enabled = false
 
@@ -218,6 +237,17 @@ return {
       },
     },
     config = function()
+      vim.lsp.config("harper_ls", {
+        settings = {
+          ["harper-ls"] = {
+            userDictPath = "~/.config/nvim/spell/en.utf-8.add",
+            linters = {
+              OrthographicConsistency = false,
+              SentenceCapitalization = false,
+            },
+          },
+        },
+      })
       vim.api.nvim_create_autocmd("LspAttach", {
         desc = "LSP Attach Hook",
         group = vim.api.nvim_create_augroup("UserLspConfig", {}),

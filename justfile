@@ -51,7 +51,6 @@ yay-pkgs:
         btop
         ccls
         cloc
-        codebook-lsp
         cppcheck
         curl
         fastfetch
@@ -154,7 +153,6 @@ brew-pkgs:
         biome
         btop
         ccls
-        codebook-lsp
         fd
         git-crypt
         goimports

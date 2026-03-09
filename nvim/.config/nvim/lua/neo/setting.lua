@@ -83,11 +83,6 @@ vo.autoread = true
 -- disable line wrap
 vo.wrap = false
 
-vo.spell = false
-vo.spelllang = "en,cjk"
-vo.spellcapcheck = ""
-vo.spelloptions = "camel"
-
 vo.tags = "./.tags;,.tags,~/.cache/tags/sys-.tags"
 vo.path = table.concat({
   ".",

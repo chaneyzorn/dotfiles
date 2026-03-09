@@ -1,3 +1,7 @@
+CN
+CRLF
+CSpell
+Pdeathsig
 aarch
 abspath
 accesslog
@@ -58,7 +62,6 @@ cmdline
 cmds
 cmdstr
 cmp
-CN
 coc
 colorscheme
 command
@@ -75,12 +78,10 @@ cppcheck
 cpu
 cpuinfo
 cpus
-CRLF
 cron
 cscope
 csmi
 cspell
-CSpell
 css
 ctags
 cterm
@@ -153,7 +154,7 @@ foldenable
 foldlevel
 foldlevelstart
 formatexpr
-formating
+formatting
 fping
 func
 function
@@ -355,7 +356,6 @@ ovsbr
 partprobe
 passphrase
 passthrough
-Pdeathsig
 pep8
 perccli
 pidof
@@ -506,6 +506,7 @@ tunasdk
 txt
 udev
 udevadm
+ui
 uid
 umount
 umounted

@@ -155,7 +155,7 @@ return {
         callback = function()
           for _, buf in ipairs(vim.api.nvim_list_bufs()) do
             -- not save nofile buffer
-            if vim.list_contains({ "nofile", "terminal" }, vim.bo[buf].buftype) then
+            if vim.list_contains({ "nofile", "terminal", "quickfix" }, vim.bo[buf].buftype) then
               if not vim.list_contains({ "NvimTree" }, vim.bo[buf].filetype) then
                 vim.api.nvim_buf_delete(buf, { force = true })
               end
