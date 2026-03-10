@@ -12,6 +12,10 @@ local filter_do_spec = {
   },
   config = function()
     require("filter_do").setup({
+      tpl_exec = {
+        ["line.lua"] = "nvim_lua",
+        ["text.lua"] = "nvim_lua",
+      },
       ui = {
         -- ui_select = "default",
         -- ui_select = "snacks.picker",
