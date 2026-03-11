@@ -103,6 +103,13 @@ return {
           { "<leader>vs", "<Cmd>Lazy sync<CR>", desc = "Lazy sync" },
           { "<leader>vx", "<Cmd>qa!<CR>", desc = "quit without save" },
           { "<leader>vr", "<Cmd>restart<CR>", desc = "restart nvim instance" },
+          {
+            "<leader>vt",
+            function()
+              require("neo.util").tmux_new_window_with_cwd()
+            end,
+            desc = "",
+          },
 
           -- vim copy and paste
           { "<leader>vy", [["+y]], mode = { "x" }, desc = "yank selected to sys-clip" },
