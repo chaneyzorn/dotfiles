@@ -215,15 +215,17 @@ return {
           })
         end,
       })
+      --- nvim-shit: still need to reopen window after a terminal job exited, which jitter layout
       require("betterTerm").setup({
-        prefix = "shell",
+        index_base = 1,
+        prefix = vim.fs.basename(os.getenv("SHELL")),
+        bufname_format = function(prefix, index)
+          return string.format("%s:%s", index, prefix)
+        end,
         size = math.floor(vim.o.lines / 3),
         new_tab_mapping = "<M-n>",
         jump_tab_mapping = "<M-$tab>",
         new_tab_hl = "Visual",
-        predefined = {
-          { index = 1, name = "zsh" },
-        },
       })
     end,
   },
