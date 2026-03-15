@@ -24,35 +24,29 @@ return {
           functions = { "bold" },
           types = { "bold" },
         },
-        integrations = {
-          aerial = true,
-          blink_cmp = true,
-          diffview = true,
-          fidget = true,
-          flash = true,
-          gitsigns = true,
-          grug_far = true,
-          lsp_trouble = true,
-          markview = true,
-          native_lsp = {
-            enabled = true,
-            underlines = {
-              errors = { "undercurl" },
-              hints = { "undercurl" },
-              warnings = { "undercurl" },
-              information = { "undercurl" },
-              ok = { "undercurl" },
-            },
+        lsp_styles = {
+          virtual_text = {
+            errors = { "italic" },
+            hints = { "italic" },
+            warnings = { "italic" },
+            information = { "italic" },
+            ok = { "italic" },
           },
-          nvimtree = true,
-          snacks = true,
-          treesitter = true,
-          which_key = true,
-          ufo = true,
+          underlines = {
+            errors = { "undercurl" },
+            hints = { "undercurl" },
+            warnings = { "undercurl" },
+            information = { "undercurl" },
+            ok = { "undercurl" },
+          },
+          inlay_hints = {
+            background = true,
+          },
         },
+        auto_integrations = true,
       })
       -- setup must be called before loading
-      -- vim.cmd.colorscheme("catppuccin")
+      -- vim.cmd.colorscheme("catppuccin-nvim")
     end,
   },
   {
@@ -181,7 +175,7 @@ return {
           },
         },
         default = {
-          colorscheme = "catppuccin",
+          colorscheme = "catppuccin-nvim",
           background = "dark",
         },
       })

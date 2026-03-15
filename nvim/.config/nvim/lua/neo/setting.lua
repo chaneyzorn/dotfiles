@@ -24,6 +24,7 @@ vo.number = true
 vo.relativenumber = true
 
 vo.splitright = true
+vo.splitkeep = "screen"
 
 -- show ruler virt-line at textwidth +1
 vo.colorcolumn = "+1"
