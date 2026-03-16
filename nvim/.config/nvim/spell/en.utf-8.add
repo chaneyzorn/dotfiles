@@ -1,7 +1,3 @@
-CN
-CRLF
-CSpell
-Pdeathsig
 aarch
 abspath
 accesslog
@@ -49,6 +45,7 @@ changelog
 changelogs
 chardev
 charset
+charwise
 checkhealth
 chunkd
 cjk
@@ -62,6 +59,7 @@ cmdline
 cmds
 cmdstr
 cmp
+CN
 coc
 colorscheme
 command
@@ -78,15 +76,18 @@ cppcheck
 cpu
 cpuinfo
 cpus
+CRLF
 cron
 cscope
 csmi
-cspell
+CSpell
 css
 ctags
 cterm
 ctermbg
 ctermfg
+ctx
+ctxs
 ctypes
 curpos
 cursorline
@@ -122,6 +123,8 @@ elif
 emoji
 endswith
 env
+envs
+EOL
 errflag
 errflags
 errorf
@@ -158,6 +161,7 @@ formatting
 fping
 func
 function
+Fx
 gcc
 getattr
 getcharpos
@@ -252,6 +256,7 @@ key
 keybind
 keymap
 keymaps
+Kv
 kvm
 kwargs
 languageserver
@@ -292,6 +297,7 @@ manylinux
 mapleader
 maplocalleader
 markdownlint
+maxcol
 mdadm
 mdstat
 mellanox
@@ -337,6 +343,7 @@ ntp
 ntpd
 ntpdate
 ntptime
+num
 numa
 nums
 nvim
@@ -353,9 +360,11 @@ os
 outdate
 ovs
 ovsbr
+param
 partprobe
 passphrase
 passthrough
+Pdeathsig
 pep8
 perccli
 pidof
@@ -399,6 +408,7 @@ quickfix
 rdma
 readline
 readlines
+readonly
 readwrite
 realpath
 recv
@@ -429,6 +439,7 @@ selftest
 setloclist
 setreg
 sgdisk
+sha256sum
 shellcheck
 shfmt
 shiftround
@@ -459,6 +470,7 @@ sriov
 ssd
 ssl
 startswith
+statusline
 stderr
 stdin
 stdout
@@ -482,6 +494,7 @@ syslog
 sysname
 systemctl
 systemd
+tabpage
 tabstop
 taplo
 taskd
@@ -498,6 +511,7 @@ toolbar
 toplevel
 topo
 tox
+tpl
 traceback
 treesitter
 truecolor
@@ -511,6 +525,7 @@ uid
 umount
 umounted
 unconfigured
+undotree
 unix
 unparted
 unregister
@@ -561,6 +576,7 @@ wearout
 wezterm
 wiki
 wildmenu
+winborder
 wms
 workflow
 writestr
