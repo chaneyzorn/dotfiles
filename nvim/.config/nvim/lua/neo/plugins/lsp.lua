@@ -48,12 +48,16 @@ return {
         "<leader>ck",
         function()
           require("conform").format({}, function(err, did_edit)
+            local fidget = require("fidget")
+            local err_key = "conform.nvim.error"
             if err then
-              require("fidget").notify("conform: " .. err, vim.log.levels.ERROR)
+              fidget.notify("conform: " .. err, vim.log.levels.ERROR, { group = err_key })
             elseif did_edit then
-              require("fidget").notify("conform success: content changed")
+              fidget.notification.clear(err_key)
+              fidget.notify("conform success: content changed", vim.log.levels.INFO)
             else
-              require("fidget").notify("conform success: no changes")
+              fidget.notification.clear(err_key)
+              fidget.notify("conform success: no changes", vim.log.levels.INFO)
             end
           end)
         end,
@@ -291,6 +295,24 @@ return {
           vmap("<Leader>ca", vim.lsp.buf.code_action, { desc = "Lsp code action" })
           nmap("<Leader>cf", vim.lsp.buf.format, { desc = "Lsp code format" })
           nmap("<Leader>cr", vim.lsp.buf.rename, { desc = "Lsp rename" })
+        end,
+      })
+    end,
+  },
+  {
+    "smjonas/inc-rename.nvim",
+    lazy = false,
+    config = function()
+      --required to init
+      require("inc_rename").setup({})
+      vim.api.nvim_create_autocmd("LspAttach", {
+        desc = "LSP Attach inc-rrename Hook",
+        group = vim.api.nvim_create_augroup("UserLspConfig.inc-rename", {}),
+        callback = function(ev)
+          vim.keymap.set("n", "<leader>cs", ":IncRename ", {
+            desc = "Live rename",
+            buffer = ev.buf,
+          })
         end,
       })
     end,
