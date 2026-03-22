@@ -21,7 +21,7 @@ macos-option-as-alt = true
 
 # Shell integration
 shell-integration = detect
-shell-integration-features = cursor,sudo,title,no-cursor
+shell-integration-features = cursor,sudo,title,no-cursor,ssh-terminfo,ssh-env
 
 # Disable annoying copied to clipboard
 app-notifications = no-clipboard-copy,no-config-reload
