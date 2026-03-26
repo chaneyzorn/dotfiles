@@ -47,6 +47,7 @@ yay-pkgs:
         archlinuxcn/lux-dl
         ast-grep
         bash-language-server
+        bat
         biome
         btop
         ccls
@@ -93,6 +94,7 @@ yay-pkgs:
         tokei
         tree
         tree-sitter-cli
+        television
         typescript-language-server
         typos-lsp
         unarchiver
@@ -150,6 +152,7 @@ brew-pkgs:
     cli_tools=(
         ast-grep
         bash-language-server
+        bat
         biome
         btop
         ccls
@@ -186,6 +189,7 @@ brew-pkgs:
         tree
         tree-sitter
         tree-sitter-cli
+        television
         typescript-language-server
         typos-lsp
         vale
