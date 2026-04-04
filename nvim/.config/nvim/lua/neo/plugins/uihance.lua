@@ -147,37 +147,4 @@ return {
       })
     end,
   },
-  {
-    "serhez/bento.nvim",
-    config = function()
-      require("bento").setup({
-        ordering_metric = "edit",
-        ui = {
-          mode = "floating",
-          floating = {
-            position = "middle-right",
-            minimal_menu = "dashed",
-          },
-        },
-      })
-
-      vim.api.nvim_create_user_command("BentoCloseBuf", function()
-        require("bento").close_all_buffers({ visible = false, locked = false, current = false })
-      end, { desc = "Delete listed unmodified buffers that are not in a window" })
-
-      -- TODO: wait for upstream apis
-      local collapse_timer = nil
-      vim.keymap.set("n", "<M-b>", function()
-        if collapse_timer then
-          vim.fn.timer_stop(collapse_timer)
-        end
-
-        require("bento.ui").expand_menu()
-        vim.cmd.bnext()
-        collapse_timer = vim.fn.timer_start(3000, function()
-          require("bento.ui").collapse_menu()
-        end)
-      end)
-    end,
-  },
 }
