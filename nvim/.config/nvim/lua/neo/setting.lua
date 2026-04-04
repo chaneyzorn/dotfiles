@@ -79,6 +79,8 @@ vo.termguicolors = true
 vo.showmode = false
 vo.wildmenu = true
 
+require("vim._core.ui2").enable({ enable = true })
+
 vo.autoread = true
 
 -- disable line wrap

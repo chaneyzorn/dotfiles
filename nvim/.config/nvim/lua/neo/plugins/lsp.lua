@@ -30,11 +30,6 @@ return {
           },
         },
       })
-
-      if vim.g.neovide then
-        -- use fidget to show msg to avoid Enter continue
-        vim.notify = require("fidget.notification").notify
-      end
     end,
   },
   {
