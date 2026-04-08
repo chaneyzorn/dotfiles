@@ -108,7 +108,7 @@ return {
             function()
               require("neo.util").tmux_new_window_with_cwd()
             end,
-            desc = "",
+            desc = "new tmux window with cwd",
           },
 
           -- vim copy and paste
