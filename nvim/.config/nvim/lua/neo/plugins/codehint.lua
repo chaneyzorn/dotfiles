@@ -135,9 +135,11 @@ return {
       }
       require("nvim-treesitter").install(fts)
       vim.api.nvim_create_autocmd("FileType", {
-        pattern = fts,
-        callback = function()
-          vim.treesitter.start()
+        callback = function(ev)
+          local lang = vim.treesitter.language.get_lang(ev.match)
+          if lang and vim.treesitter.language.add(lang) then
+            vim.treesitter.start()
+          end
         end,
       })
     end,
