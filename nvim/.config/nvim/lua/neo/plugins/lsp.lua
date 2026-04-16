@@ -14,7 +14,8 @@ local lsp_servers = {
   "ccls",
   "clangd",
   -- any
-  "typos_lsp",
+  "spellwand",
+  -- "typos_lsp",
   -- "harper_ls",
 }
 
@@ -80,8 +81,9 @@ return {
     },
   },
   {
-    "ravibrock/spellwarn.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+    "chaneyzorn/spellwand.nvim",
+    dev = true,
+    dir = vim.fs.abspath("~/Projects/iself/spellwand.nvim"),
     init = function()
       vim.o.spell = false
       vim.o.spelllang = "en,cjk"
@@ -89,16 +91,8 @@ return {
       vim.o.spellfile = vim.fs.abspath("~/.config/nvim/spell/en.utf-8.add")
     end,
     config = function()
-      require("spellwarn").setup({
-        enable = false,
-        prefix = "possible bad spells: ",
-        severity = {
-          spellbad = "INFO",
-          spellcap = "HINT",
-          spelllocal = "HINT",
-          spellrare = "INFO",
-        },
-      })
+      vim.keymap.set("n", "zg", "zg<cmd>SpellwandRefresh!<cr>", { remap = false, desc = "Add word to spellfile" })
+      vim.keymap.set("n", "zw", "zw<cmd>SpellwandRefresh!<cr>", { remap = false, desc = "Mark word as bad" })
     end,
   },
   {
@@ -191,7 +185,6 @@ return {
         "<leader>cv",
         function()
           vim.o.spell = true
-          require("spellwarn").enable()
 
           vim.g.nvim_lint_enabled = true
           require("lint").try_lint()
@@ -228,7 +221,6 @@ return {
         "<leader>cx",
         function()
           vim.o.spell = false
-          require("spellwarn").disable()
 
           vim.diagnostic.reset()
           vim.g.nvim_lint_enabled = false
@@ -242,6 +234,34 @@ return {
       },
     },
     config = function()
+      vim.lsp.config("spellwand", {
+        settings = {
+          spellwand = {
+            cond = function(bufnr)
+              -- Skip help files and readonly buffers
+              local bo = vim.bo[bufnr]
+              if bo.filetype == "help" or bo.readonly then
+                return false
+              end
+              -- Skip large files (>10K lines)
+              if vim.api.nvim_buf_line_count(bufnr) > 10000 then
+                return false
+              end
+              return true
+            end,
+            preprocess = function(_bufnr, spell_errors)
+              local seen = {}
+              return vim.tbl_filter(function(err)
+                if seen[err.word] then
+                  return false
+                end
+                seen[err.word] = true
+                return #err.word > 2
+              end, spell_errors)
+            end,
+          },
+        },
+      })
       vim.lsp.config("harper_ls", {
         settings = {
           ["harper-ls"] = {
