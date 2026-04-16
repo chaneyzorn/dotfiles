@@ -57,4 +57,20 @@ function M.tmux_new_window_with_cwd()
   end)
 end
 
+function M.use_dev_plugin(plugin_name, devpath, spec)
+  local abs_devpath = vim.fs.abspath(devpath)
+  local final_spec = vim.deepcopy(spec)
+
+  if vim.uv.fs_stat(abs_devpath) then
+    final_spec = vim.tbl_deep_extend("force", final_spec, {
+      dir = abs_devpath,
+      dev = true,
+    })
+  else
+    final_spec = vim.tbl_deep_extend("force", { plugin_name }, final_spec)
+  end
+
+  return final_spec
+end
+
 return M

@@ -81,21 +81,6 @@ return {
     },
   },
   {
-    "chaneyzorn/spellwand.nvim",
-    dev = true,
-    dir = vim.fs.abspath("~/Projects/iself/spellwand.nvim"),
-    init = function()
-      vim.o.spell = false
-      vim.o.spelllang = "en,cjk"
-      vim.o.spelloptions = "camel"
-      vim.o.spellfile = vim.fs.abspath("~/.config/nvim/spell/en.utf-8.add")
-    end,
-    config = function()
-      vim.keymap.set("n", "zg", "zg<cmd>SpellwandRefresh!<cr>", { remap = false, desc = "Add word to spellfile" })
-      vim.keymap.set("n", "zw", "zw<cmd>SpellwandRefresh!<cr>", { remap = false, desc = "Mark word as bad" })
-    end,
-  },
-  {
     "mfussenegger/nvim-lint",
     event = { "BufReadPre", "BufNewFile" },
     keys = {
