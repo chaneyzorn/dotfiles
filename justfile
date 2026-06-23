@@ -148,6 +148,7 @@ brew-pkgs:
         luarocks
         node
         pnpm
+        uv
     )
     cli_tools=(
         ast-grep
@@ -201,7 +202,6 @@ brew-pkgs:
     casks=(
         alt-tab
         font-jetbrains-mono-nerd-font
-        ghostty
         iina
         jordanbaird-ice
         lapce
@@ -209,6 +209,7 @@ brew-pkgs:
         neovide
         obsidian
         pearcleaner
+        stats
         transmission
     )
     brew install -q ${env_pkgs[@]} ${cli_tools[@]}
