@@ -67,6 +67,7 @@ yay-pkgs:
         iputils
         jq
         just
+        k9s
         kdlfmt
         lua-language-server
         man-db
@@ -167,6 +168,7 @@ brew-pkgs:
         hurl
         jq
         just
+        derailed/k9s/k9s
         lua-language-server
         lux
         markdownlint-cli2
