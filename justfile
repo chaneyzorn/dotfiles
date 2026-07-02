@@ -81,6 +81,7 @@ yay-pkgs:
         ripgrep
         rsync
         ruff
+        rumdl
         rust-analyzer
         scrcpy
         shellcheck
@@ -179,6 +180,7 @@ brew-pkgs:
         ripgrep
         rsync
         ruff
+        rumdl
         rust-analyzer
         scrcpy
         shellcheck
