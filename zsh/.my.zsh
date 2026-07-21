@@ -14,8 +14,9 @@ RUST_BIN=$HOME/.cargo/bin
 LUA_BIN=$HOME/.luarocks/bin
 NODE_BIN=$HOME/.node_modules/bin
 RUBY_BIN=$(ruby -r rubygems -e 'puts Gem.user_dir')/bin
-MY_PATH=$MY_LOCAL_BIN:$GO_BIN:$RUST_BIN:$PNPM_HOME:$NODE_BIN:$RUBY_BIN:$LUA_BIN:$LOCAL_BIN:$LOCAL_SBIN
+KIMI_BIN="$HOME/.kimi-code/bin"
 
+MY_PATH=$MY_LOCAL_BIN:$KIMI_BIN:$GO_BIN:$RUST_BIN:$PNPM_HOME:$NODE_BIN:$RUBY_BIN:$LUA_BIN:$LOCAL_BIN:$LOCAL_SBIN
 export PATH=$MY_PATH:$BASE_PATH
 
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -52,7 +53,7 @@ else
     alias vx="neovide --fork --frame none"
 fi
 
-alias ssh='TERM=xterm-256color \ssh'
+# alias ssh='TERM=xterm-256color \ssh'
 
 alias systemctlu="systemctl --user"
 alias dblackf="git diff --name-only | xargs -L1 black"
