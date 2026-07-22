@@ -175,6 +175,7 @@ brew-pkgs:
         markdownlint-cli2
         mypy
         neovim
+        orbstack
         prettier
         pyright
         ripgrep
