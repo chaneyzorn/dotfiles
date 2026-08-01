@@ -7,75 +7,75 @@
 # ---------------------------------------------------------------------------
 
 adguard.{$DOMAIN} {
-    reverse_proxy {$ADGUARD_UPSTREAM}
+	reverse_proxy {$ADGUARD_UPSTREAM}
 }
 
 beszel.{$DOMAIN} {
-    reverse_proxy {$BESZEL_UPSTREAM}
+	reverse_proxy {$BESZEL_UPSTREAM}
 }
 
 dufs.{$DOMAIN}, dufs.wk1.{$DOMAIN} {
-    reverse_proxy {$DUFS_UPSTREAM}
+	reverse_proxy {$DUFS_UPSTREAM}
 }
 
 gitea.{$DOMAIN} {
-    reverse_proxy {$GITEA_UPSTREAM}
+	reverse_proxy {$GITEA_UPSTREAM}
 }
 
 homarr.{$DOMAIN} {
-    reverse_proxy {$HOMARR_UPSTREAM}
+	reverse_proxy {$HOMARR_UPSTREAM}
 }
 
 kong.{$DOMAIN} {
-    # Kong Manager itself uses HTTPS with a self-signed certificate.
-    reverse_proxy {$KONG_MANAGER_UPSTREAM} {
-        transport http {
-            tls_insecure_skip_verify
-        }
-    }
+	# Kong Manager itself uses HTTPS with a self-signed certificate.
+	reverse_proxy {$KONG_MANAGER_UPSTREAM} {
+		transport http {
+			tls_insecure_skip_verify
+		}
+	}
 }
 
 kuma.{$DOMAIN} {
-    reverse_proxy {$KUMA_UPSTREAM}
+	reverse_proxy {$KUMA_UPSTREAM}
 }
 
 metacube.{$DOMAIN} {
-    reverse_proxy {$METACUBE_UPSTREAM}
+	reverse_proxy {$METACUBE_UPSTREAM}
 }
 
 portainer.{$DOMAIN} {
-    # Portainer uses HTTPS with a self-signed certificate.
-    reverse_proxy {$PORTAINER_UPSTREAM} {
-        transport http {
-            tls_insecure_skip_verify
-        }
-    }
+	# Portainer uses HTTPS with a self-signed certificate.
+	reverse_proxy {$PORTAINER_UPSTREAM} {
+		transport http {
+			tls_insecure_skip_verify
+		}
+	}
 }
 
 pve.{$DOMAIN} {
-    # Proxmox VE uses HTTPS with its own self-signed certificate.
-    reverse_proxy {$PVE_UPSTREAM} {
-        transport http {
-            tls_insecure_skip_verify
-        }
-    }
+	# Proxmox VE uses HTTPS with its own self-signed certificate.
+	reverse_proxy {$PVE_UPSTREAM} {
+		transport http {
+			tls_insecure_skip_verify
+		}
+	}
 }
 
 syncthing.{$DOMAIN}, syncthing.wk1.{$DOMAIN} {
-    # Syncthing uses HTTPS with a self-signed certificate.
-    reverse_proxy {$SYNCTHING_UPSTREAM} {
-        transport http {
-            tls_insecure_skip_verify
-        }
-    }
+	# Syncthing uses HTTPS with a self-signed certificate.
+	reverse_proxy {$SYNCTHING_UPSTREAM} {
+		transport http {
+			tls_insecure_skip_verify
+		}
+	}
 }
 
 timecrack.{$DOMAIN} {
-    reverse_proxy {$TIMECRACK_UPSTREAM}
+	reverse_proxy {$TIMECRACK_UPSTREAM}
 }
 
 wifi.{$DOMAIN} {
-    reverse_proxy {$WIFI_ROUTER_UPSTREAM}
+	reverse_proxy {$WIFI_ROUTER_UPSTREAM}
 }
 
 # ---------------------------------------------------------------------------
@@ -84,8 +84,8 @@ wifi.{$DOMAIN} {
 # If you want per-domain certificates instead, add per-site tls directives.
 # ---------------------------------------------------------------------------
 *.{$DOMAIN} {
-    tls /etc/caddy/certs/wildcard.{$DOMAIN}.crt /etc/caddy/certs/wildcard.{$DOMAIN}.key
-    handle {
-        respond "Caddy gateway is running."
-    }
+	tls /etc/caddy/certs/wildcard.{$DOMAIN}.crt /etc/caddy/certs/wildcard.{$DOMAIN}.key
+	handle {
+		respond "Caddy gateway is running."
+	}
 }
