@@ -34,7 +34,7 @@ Top-level Stow packages and what they contain:
 | `linux-home/` | X11 / Linux desktop files: `.Xresources`, `.xprofile`, `.xsession`, `.profile`, `.dmrc`, `.pam_environment`, fcitx5/rime config, and xfce4 terminal colour themes. |
 | `ssh/` | SSH client configuration. |
 | `systemd/` | User systemd unit files. |
-| `docker/` | Docker Compose stacks for self-hosted services (AdGuard, Beszel, Clash, DuFS, Gitea, Homarr, Homepage, LX-Music, Memos, nginx-proxy-manager, Portainer, RustDesk, Syncthing, Uptime-Kuma, yacd, etc.). |
+| `docker/` | Docker Compose stacks for self-hosted services (AdGuard, Beszel, Caddy, Clash, DuFS, Gitea, Homarr, Homepage, Kong, LX-Music, Memos, nginx-proxy-manager, Portainer, RustDesk, Syncthing, Uptime-Kuma, yacd, etc.). |
 | `agents/` | AI agent user-scope skills (`.agents/skills/`): `smart-commit`, `tech-doc-polish`. |
 
 Root-level tooling files:
@@ -148,6 +148,8 @@ Additional editor tooling under `nvim/.config/`:
 - `niri/.config/niri/config.kdl` — Full Niri desktop rules and keybindings; spawns a custom `dms` helper for widgets.
 - `hammerspoon/.hammerspoon/` — `init.lua` loads `ime` and `wscrmv` modules for IME switching and window-to-next-screen.
 - `docker/compose/` — Self-hosted service stacks, each with its own `docker-compose.yaml`.
+  - `docker-kong/` — Kong API gateway with PostgreSQL (legacy/heavier stack).
+  - `caddy/` — Lightweight Caddy reverse-proxy alternative to the Kong stack.
 
 ## Development conventions and style
 

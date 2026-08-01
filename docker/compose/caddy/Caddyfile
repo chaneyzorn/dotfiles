@@ -1,0 +1,99 @@
+# Caddy reverse-proxy equivalent for the Kong deployment.
+# Domain and upstream addresses are injected via environment variables
+# (see .env.example).
+#
+# TLS strategy:
+# - `local_certs` below uses Caddy's internal CA. Browsers will warn until the
+#   Caddy root CA is trusted. This matches the previous self-signed wildcard cert.
+# - To use the existing Kong wildcard certificate instead, remove `local_certs`
+#   and add per-site `tls` directives (mount the cert dir in compose).
+# - For plain HTTP only, change `local_certs` to `auto_https off`.
+
+{
+    local_certs
+}
+
+# ---------------------------------------------------------------------------
+# Applications served by Kong (host -> upstream)
+# ---------------------------------------------------------------------------
+
+adguard.{$DOMAIN} {
+    reverse_proxy {$ADGUARD_UPSTREAM}
+}
+
+beszel.{$DOMAIN} {
+    reverse_proxy {$BESZEL_UPSTREAM}
+}
+
+dufs.{$DOMAIN}, dufs.wk1.{$DOMAIN} {
+    reverse_proxy {$DUFS_UPSTREAM}
+}
+
+gitea.{$DOMAIN} {
+    reverse_proxy {$GITEA_UPSTREAM}
+}
+
+homarr.{$DOMAIN} {
+    reverse_proxy {$HOMARR_UPSTREAM}
+}
+
+kong.{$DOMAIN} {
+    # Kong Manager itself uses HTTPS with a self-signed certificate.
+    reverse_proxy {$KONG_MANAGER_UPSTREAM} {
+        transport http {
+            tls_insecure_skip_verify
+        }
+    }
+}
+
+kuma.{$DOMAIN} {
+    reverse_proxy {$KUMA_UPSTREAM}
+}
+
+metacube.{$DOMAIN} {
+    reverse_proxy {$METACUBE_UPSTREAM}
+}
+
+portainer.{$DOMAIN} {
+    # Portainer uses HTTPS with a self-signed certificate.
+    reverse_proxy {$PORTAINER_UPSTREAM} {
+        transport http {
+            tls_insecure_skip_verify
+        }
+    }
+}
+
+pve.{$DOMAIN} {
+    # Proxmox VE uses HTTPS with its own self-signed certificate.
+    reverse_proxy {$PVE_UPSTREAM} {
+        transport http {
+            tls_insecure_skip_verify
+        }
+    }
+}
+
+syncthing.{$DOMAIN}, syncthing.wk1.{$DOMAIN} {
+    # Syncthing uses HTTPS with a self-signed certificate.
+    reverse_proxy {$SYNCTHING_UPSTREAM} {
+        transport http {
+            tls_insecure_skip_verify
+        }
+    }
+}
+
+timecrack.{$DOMAIN} {
+    reverse_proxy {$TIMECRACK_UPSTREAM}
+}
+
+wifi.{$DOMAIN} {
+    reverse_proxy {$WIFI_ROUTER_UPSTREAM}
+}
+
+# ---------------------------------------------------------------------------
+# Optional: wildcard alias serving a simple health page at the gateway host.
+# ---------------------------------------------------------------------------
+*.{$DOMAIN} {
+    handle {
+        respond "Caddy gateway is running."
+    }
+}

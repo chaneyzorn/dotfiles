@@ -1,0 +1,27 @@
+services:
+  caddy:
+    image: caddy:2
+    container_name: caddy
+    restart: always
+    env_file: .env
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+      # Optional: Caddy admin / metrics endpoint (similar to Kong :8001)
+      # - "2019:2019"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./config/caddy_data:/data
+      - ./config/caddy_config:/config
+      # Optional: mount existing wildcard certificate.
+      # Copy the certificate and key into config/certs/ first.
+      # - ./config/certs:/etc/caddy/certs:ro
+    networks:
+      - caddy-net
+
+networks:
+  caddy-net:
+    external: false
