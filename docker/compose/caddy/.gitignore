@@ -1,7 +1,7 @@
 .env
-config/caddy_data/*
-!config/caddy_data/.gitkeep
-config/caddy_config/*
-!config/caddy_config/.gitkeep
+data/*
+!data/.gitkeep
+caddy_config/*
+!caddy_config/.gitkeep
 config/certs/*
 !config/certs/.gitkeep

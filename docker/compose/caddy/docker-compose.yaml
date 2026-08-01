@@ -13,12 +13,11 @@ services:
       # Optional: Caddy admin / metrics endpoint (similar to Kong :8001)
       # - "2019:2019"
     volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile:ro
-      - ./config/caddy_data:/data
-      - ./config/caddy_config:/config
-      # Wildcard certificate for *.home.lan.
-      # Copy wildcard.home.lan.crt and wildcard.home.lan.key into config/certs/.
-      - ./config/certs:/etc/caddy/certs:ro
+      # Caddyfile and certificates are read-only configuration.
+      - ./config:/etc/caddy:ro
+      # Runtime directories for certificates and Caddy's internal config.
+      - ./data:/data
+      - ./caddy_config:/config
     networks:
       - caddy-net
 
