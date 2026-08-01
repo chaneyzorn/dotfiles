@@ -14,10 +14,10 @@ services:
       # - "2019:2019"
     volumes:
       # Caddyfile and certificates are read-only configuration.
-      - ./config:/etc/caddy:ro
+      - ./caddy-etc:/etc/caddy:ro
       # Runtime directories for certificates and Caddy's internal config.
-      - ./data:/data
-      - ./caddy_config:/config
+      - ./caddy-data:/data
+      - ./caddy-config:/config
     networks:
       - caddy-net
 

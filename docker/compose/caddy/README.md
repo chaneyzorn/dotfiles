@@ -44,13 +44,13 @@ configured**, so this is a safe migration.
 ## Files
 
 - `docker-compose.yaml` — single Caddy service.
-- `config/Caddyfile` — migrated Services/Routes mapped to Caddy site blocks.
+- `caddy-etc/Caddyfile` — migrated Services/Routes mapped to Caddy site blocks.
   Domain and upstream addresses are injected through environment variables.
-- `config/certs/` — directory for TLS certificates (`wildcard.{$DOMAIN}.crt` and
-  `.key`). Real certificate files are ignored by git.
-- `data/` — Caddy runtime data (automatic certificates, OCSP staples, etc.).
-  Ignored by git except `.gitkeep`.
-- `caddy_config/` — Caddy internal configuration. Ignored by git except
+- `caddy-etc/certs/` — directory for TLS certificates (`wildcard.{$DOMAIN}.crt`
+  and `.key`). Real certificate files are ignored by git.
+- `caddy-data/` — Caddy runtime data (automatic certificates, OCSP staples,
+  etc.). Ignored by git except `.gitkeep`.
+- `caddy-config/` — Caddy internal configuration. Ignored by git except
   `.gitkeep`.
 - `.env.example` — template with example values. **Committed to git.**
 - `.env` — real values. **Ignored by git.**
