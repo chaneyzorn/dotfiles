@@ -16,9 +16,9 @@ services:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - ./config/caddy_data:/data
       - ./config/caddy_config:/config
-      # Optional: mount existing wildcard certificate.
-      # Copy the certificate and key into config/certs/ first.
-      # - ./config/certs:/etc/caddy/certs:ro
+      # Wildcard certificate for *.home.lan.
+      # Copy wildcard.home.lan.crt and wildcard.home.lan.key into config/certs/.
+      - ./config/certs:/etc/caddy/certs:ro
     networks:
       - caddy-net
 

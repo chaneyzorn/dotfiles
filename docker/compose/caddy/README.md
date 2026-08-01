@@ -76,15 +76,17 @@ docker exec caddy caddy reload --config /etc/caddy/Caddyfile
 
 ## TLS options
 
-The Caddyfile currently uses Caddy's internal CA (`local_certs`). Browsers will
-warn until you trust Caddy's root certificate.
+The Caddyfile uses the existing wildcard certificate located in
+`config/certs/` (`wildcard.home.lan.crt` + `wildcard.home.lan.key`). This
+matches the certificate previously used by Kong.
 
-Other options are commented in `Caddyfile`:
+Other options:
 
-1. **Existing wildcard certificate** — copy the certificate and key into
-   `config/certs/`, uncomment the `config/certs` volume in `docker-compose.yaml`,
-   and add per-site `tls` directives in `Caddyfile`.
-2. **Plain HTTP only** — change the global option to `auto_https off`.
+1. **Caddy internal CA** — remove all `import tls` lines and the `(tls)` snippet,
+   then add `local_certs` to the global block. Browsers will warn until you trust
+   Caddy's root certificate.
+2. **Plain HTTP only** — remove all `import tls` lines and the `(tls)` snippet,
+   then add `auto_https off` to the global block.
 
 ## Rollback
 

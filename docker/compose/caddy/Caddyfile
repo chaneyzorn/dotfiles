@@ -1,16 +1,10 @@
 # Caddy reverse-proxy equivalent for the Kong deployment.
 # Domain and upstream addresses are injected via environment variables
-# (see .env.example).
-#
-# TLS strategy:
-# - `local_certs` below uses Caddy's internal CA. Browsers will warn until the
-#   Caddy root CA is trusted. This matches the previous self-signed wildcard cert.
-# - To use the existing Kong wildcard certificate instead, remove `local_certs`
-#   and add per-site `tls` directives (mount the cert dir in compose).
-# - For plain HTTP only, change `local_certs` to `auto_https off`.
+# (see .env.example). The wildcard certificate is loaded from config/certs/.
 
-{
-    local_certs
+# Reusable TLS block for all *.home.lan sites.
+(tls) {
+    tls /etc/caddy/certs/wildcard.home.lan.crt /etc/caddy/certs/wildcard.home.lan.key
 }
 
 # ---------------------------------------------------------------------------
@@ -18,26 +12,32 @@
 # ---------------------------------------------------------------------------
 
 adguard.{$DOMAIN} {
+    import tls
     reverse_proxy {$ADGUARD_UPSTREAM}
 }
 
 beszel.{$DOMAIN} {
+    import tls
     reverse_proxy {$BESZEL_UPSTREAM}
 }
 
 dufs.{$DOMAIN}, dufs.wk1.{$DOMAIN} {
+    import tls
     reverse_proxy {$DUFS_UPSTREAM}
 }
 
 gitea.{$DOMAIN} {
+    import tls
     reverse_proxy {$GITEA_UPSTREAM}
 }
 
 homarr.{$DOMAIN} {
+    import tls
     reverse_proxy {$HOMARR_UPSTREAM}
 }
 
 kong.{$DOMAIN} {
+    import tls
     # Kong Manager itself uses HTTPS with a self-signed certificate.
     reverse_proxy {$KONG_MANAGER_UPSTREAM} {
         transport http {
@@ -47,14 +47,17 @@ kong.{$DOMAIN} {
 }
 
 kuma.{$DOMAIN} {
+    import tls
     reverse_proxy {$KUMA_UPSTREAM}
 }
 
 metacube.{$DOMAIN} {
+    import tls
     reverse_proxy {$METACUBE_UPSTREAM}
 }
 
 portainer.{$DOMAIN} {
+    import tls
     # Portainer uses HTTPS with a self-signed certificate.
     reverse_proxy {$PORTAINER_UPSTREAM} {
         transport http {
@@ -64,6 +67,7 @@ portainer.{$DOMAIN} {
 }
 
 pve.{$DOMAIN} {
+    import tls
     # Proxmox VE uses HTTPS with its own self-signed certificate.
     reverse_proxy {$PVE_UPSTREAM} {
         transport http {
@@ -73,6 +77,7 @@ pve.{$DOMAIN} {
 }
 
 syncthing.{$DOMAIN}, syncthing.wk1.{$DOMAIN} {
+    import tls
     # Syncthing uses HTTPS with a self-signed certificate.
     reverse_proxy {$SYNCTHING_UPSTREAM} {
         transport http {
@@ -82,10 +87,12 @@ syncthing.{$DOMAIN}, syncthing.wk1.{$DOMAIN} {
 }
 
 timecrack.{$DOMAIN} {
+    import tls
     reverse_proxy {$TIMECRACK_UPSTREAM}
 }
 
 wifi.{$DOMAIN} {
+    import tls
     reverse_proxy {$WIFI_ROUTER_UPSTREAM}
 }
 
@@ -93,6 +100,7 @@ wifi.{$DOMAIN} {
 # Optional: wildcard alias serving a simple health page at the gateway host.
 # ---------------------------------------------------------------------------
 *.{$DOMAIN} {
+    import tls
     handle {
         respond "Caddy gateway is running."
     }
