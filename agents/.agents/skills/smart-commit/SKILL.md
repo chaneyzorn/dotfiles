@@ -15,7 +15,11 @@ selecting an appropriate commit message, and executing the commit.
 
 ## Trigger Recognition
 
-Only treat the following as a commit request:
+**Only execute a commit when the user explicitly asks for it.** A single user
+instruction must result in at most one commit. Do not split one request into
+multiple automatic commits across multiple turns.
+
+Treat the following as explicit commit requests:
 - 提交 / commit / 保存 / save / push
 - "提交一下" / "保存改动" / "commit changes"
 - "选择合适的 commit msg 并提交"
@@ -26,6 +30,7 @@ Only treat the following as a commit request:
 - The user said "ok", "good", "thanks", or similar acknowledgments after a build/test
 - The conversation naturally paused after a successful operation with no explicit commit request
 - You are unsure whether the user wants to commit
+- The user has not explicitly asked for a commit in the current turn
 
 When in doubt, ask for confirmation instead of guessing.
 
@@ -100,9 +105,12 @@ in the conversation, honor that over these defaults.
 
 ## Step 3: Execute Commit
 
-1. Stage only the files related to the commit scope. Use `git add <paths>`
+1. A single user instruction must result in exactly one commit. Do not create
+   multiple commits from one request, and do not auto-commit later in the
+   conversation unless the user asks again.
+2. Stage only the files related to the commit scope. Use `git add <paths>`
    instead of `git add .` unless the user explicitly asks for an all-files commit.
-2. Run `git commit -m "<message>"`.
-3. If the commit succeeds, report the commit hash and message.
-4. If there are unstaged changes left, mention them briefly.
-5. Never run `git push` unless the user explicitly asks for it.
+3. Run `git commit -m "<message>"`.
+4. If the commit succeeds, report the commit hash and message.
+5. If there are unstaged changes left, mention them briefly.
+6. Never run `git push` unless the user explicitly asks for it.
