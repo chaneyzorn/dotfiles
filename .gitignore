@@ -1,3 +1,5 @@
+agents/.agents/skills/lark*
+
 aria2/.aria2/aria2.session
 ansible/.ansible/hosts
 ansible/.ansible/tmp
