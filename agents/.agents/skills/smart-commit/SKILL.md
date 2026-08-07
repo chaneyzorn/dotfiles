@@ -13,6 +13,11 @@ description: >
 Handle git commit requests automatically by confirming the change scope,
 selecting an appropriate commit message, and executing the commit.
 
+**Hard rule: never commit on your own initiative.** A commit must only happen
+when the user explicitly requests it. Do not auto-commit because the work
+"looks complete", because the user thanked you, or because you think it should
+be saved.
+
 ## Trigger Recognition
 
 **Only execute a commit when the user explicitly asks for it.** A single user
@@ -31,6 +36,7 @@ Treat the following as explicit commit requests:
 - The conversation naturally paused after a successful operation with no explicit commit request
 - You are unsure whether the user wants to commit
 - The user has not explicitly asked for a commit in the current turn
+- You feel the changes "should be committed" — that is not a valid reason
 
 When in doubt, ask for confirmation instead of guessing.
 
