@@ -119,4 +119,6 @@ in the conversation, honor that over these defaults.
 3. Run `git commit -m "<message>"`.
 4. If the commit succeeds, report the commit hash and message.
 5. If there are unstaged changes left, mention them briefly.
-6. Never run `git push` unless the user explicitly asks for it.
+6. Never run `git push` unless the user explicitly asks for it. Do not push as
+   a side effect of a commit request. Pushing removes the chance to correct or
+   amend the commit locally before sharing it.
