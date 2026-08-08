@@ -14,7 +14,7 @@ beszel.{$DOMAIN} {
 	reverse_proxy {$BESZEL_UPSTREAM}
 }
 
-dufs.{$DOMAIN}, dufs.wk1.{$DOMAIN} {
+dufs.{$DOMAIN} {
 	reverse_proxy {$DUFS_UPSTREAM}
 }
 
@@ -72,6 +72,18 @@ syncthing.{$DOMAIN}, syncthing.wk1.{$DOMAIN} {
 
 timecrack.{$DOMAIN} {
 	reverse_proxy {$TIMECRACK_UPSTREAM}
+}
+
+webdav.{$DOMAIN} {
+	# WebDAV COPY/MOVE send a full URL in the Destination header.
+	# Rewrite it to a path so these methods work behind the reverse proxy.
+	@hasDest header_regexp dest ^https?://[^/]+(.*)$
+	request_header @hasDest Destination {re.dest.1}
+
+	reverse_proxy {$WEBDAV_UPSTREAM} {
+		header_up X-Real-IP {remote_host}
+		header_up REMOTE-HOST {remote_host}
+	}
 }
 
 wifi.{$DOMAIN} {

@@ -34,7 +34,7 @@ Top-level Stow packages and what they contain:
 | `linux-home/` | X11 / Linux desktop files: `.Xresources`, `.xprofile`, `.xsession`, `.profile`, `.dmrc`, `.pam_environment`, fcitx5/rime config, and xfce4 terminal colour themes. |
 | `ssh/` | SSH client configuration. |
 | `systemd/` | User systemd unit files. |
-| `docker/` | Docker Compose stacks for self-hosted services (AdGuard, Beszel, Caddy, Clash, DuFS, Gitea, Homarr, Homepage, Kong, LX-Music, Memos, nginx-proxy-manager, Portainer, RustDesk, Syncthing, Uptime-Kuma, yacd, etc.). |
+| `docker/` | Docker Compose stacks for self-hosted services (AdGuard, Beszel, Caddy, Clash, DuFS, Gitea, Homarr, Homepage, Kong, LX-Music, Memos, nginx-proxy-manager, Portainer, RustDesk, Syncthing, Uptime-Kuma, WebDAV, yacd, etc.). |
 | `agents/` | AI agent user-scope skills (`.agents/skills/`): `smart-commit`, `tech-doc-polish`. |
 
 Root-level tooling files:

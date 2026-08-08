@@ -23,7 +23,7 @@ below assumes `DOMAIN=home.lan`.
 |----------|------------------|------------------|
 | `adguard.{$DOMAIN}` | `ADGUARD_UPSTREAM` | `192.0.2.10:15353` |
 | `beszel.{$DOMAIN}` | `BESZEL_UPSTREAM` | `192.0.2.10:8090` |
-| `dufs.{$DOMAIN}`, `dufs.wk1.{$DOMAIN}` | `DUFS_UPSTREAM` | `192.0.2.10:5000` |
+| `dufs.{$DOMAIN}` | `DUFS_UPSTREAM` | `192.0.2.10:5000` |
 | `gitea.{$DOMAIN}` | `GITEA_UPSTREAM` | `192.0.2.10:3280` |
 | `homarr.{$DOMAIN}` | `HOMARR_UPSTREAM` | `192.0.2.10:7575` |
 | `kong.{$DOMAIN}` | `KONG_MANAGER_UPSTREAM` | `https://192.0.2.10:8445` |
@@ -33,6 +33,7 @@ below assumes `DOMAIN=home.lan`.
 | `pve.{$DOMAIN}` | `PVE_UPSTREAM` | `https://192.0.2.11:8006` |
 | `syncthing.{$DOMAIN}`, `syncthing.wk1.{$DOMAIN}` | `SYNCTHING_UPSTREAM` | `https://192.0.2.10:8384` |
 | `timecrack.{$DOMAIN}` | `TIMECRACK_UPSTREAM` | `192.0.2.12:5173` |
+| `webdav.{$DOMAIN}` | `WEBDAV_UPSTREAM` | `192.0.2.10:6065` |
 | `wifi.{$DOMAIN}` | `WIFI_ROUTER_UPSTREAM` | `192.0.2.1:80` |
 
 ## What is *not* directly equivalent?

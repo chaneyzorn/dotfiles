@@ -1,0 +1,22 @@
+address: 0.0.0.0
+port: 6065
+
+# Run behind the Caddy reverse proxy.
+behindProxy: true
+
+# Root directory exposed by WebDAV.
+directory: /data
+
+# Default permissions: Create, Read, Update, Delete.
+permissions: CRUD
+
+log:
+  format: console
+  colors: true
+  outputs:
+    - stderr
+
+# Basic authentication. Credentials are injected via environment variables.
+users:
+  - username: "{env}WEBDAV_USERNAME"
+    password: "{env}WEBDAV_PASSWORD"

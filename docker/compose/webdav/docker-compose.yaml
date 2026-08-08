@@ -1,0 +1,17 @@
+services:
+  webdav:
+    image: ghcr.io/hacdias/webdav:latest
+    container_name: webdav
+    restart: always
+    env_file: .env
+    ports:
+      - "6065:6065"
+    volumes:
+      - ./webdav-config.yml:/config.yml:ro
+      - ../syncthing/SyncMeta:/data
+    networks:
+      - webdav-net
+
+networks:
+  webdav-net:
+    external: false
