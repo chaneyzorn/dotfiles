@@ -19,22 +19,22 @@ Kong's live Services/Routes configuration.
 The base domain is controlled by the `DOMAIN` environment variable. The example
 below assumes `DOMAIN=home.lan`.
 
-| Hostname | Upstream env var | Example upstream |
-|----------|------------------|------------------|
-| `adguard.{$DOMAIN}` | `ADGUARD_UPSTREAM` | `192.0.2.10:15353` |
-| `beszel.{$DOMAIN}` | `BESZEL_UPSTREAM` | `192.0.2.10:8090` |
-| `dufs.{$DOMAIN}` | `DUFS_UPSTREAM` | `192.0.2.10:5000` |
-| `gitea.{$DOMAIN}` | `GITEA_UPSTREAM` | `192.0.2.10:3280` |
-| `homarr.{$DOMAIN}` | `HOMARR_UPSTREAM` | `192.0.2.10:7575` |
-| `kong.{$DOMAIN}` | `KONG_MANAGER_UPSTREAM` | `https://192.0.2.10:8445` |
-| `kuma.{$DOMAIN}` | `KUMA_UPSTREAM` | `192.0.2.10:13001` |
-| `metacube.{$DOMAIN}` | `METACUBE_UPSTREAM` | `192.0.2.10:17895` |
-| `portainer.{$DOMAIN}` | `PORTAINER_UPSTREAM` | `https://192.0.2.10:9443` |
-| `pve.{$DOMAIN}` | `PVE_UPSTREAM` | `https://192.0.2.11:8006` |
-| `syncthing.{$DOMAIN}`, `syncthing.wk1.{$DOMAIN}` | `SYNCTHING_UPSTREAM` | `https://192.0.2.10:8384` |
-| `timecrack.{$DOMAIN}` | `TIMECRACK_UPSTREAM` | `192.0.2.12:5173` |
-| `webdav.{$DOMAIN}` | `WEBDAV_UPSTREAM` | `192.0.2.10:6065` |
-| `wifi.{$DOMAIN}` | `WIFI_ROUTER_UPSTREAM` | `192.0.2.1:80` |
+| Home LAN | Tailscale LAN | Upstream env var | Example upstream |
+|----------|---------------|------------------|------------------|
+| `adguard.{$DOMAIN}` | `adguard.{$TAILSCALE_DOMAIN}` | `ADGUARD_UPSTREAM` | `192.0.2.10:15353` |
+| `beszel.{$DOMAIN}` | `beszel.{$TAILSCALE_DOMAIN}` | `BESZEL_UPSTREAM` | `192.0.2.10:8090` |
+| `dufs.{$DOMAIN}` | `dufs.{$TAILSCALE_DOMAIN}` | `DUFS_UPSTREAM` | `192.0.2.10:5000` |
+| `gitea.{$DOMAIN}` | `gitea.{$TAILSCALE_DOMAIN}` | `GITEA_UPSTREAM` | `192.0.2.10:3280` |
+| `homarr.{$DOMAIN}` | `homarr.{$TAILSCALE_DOMAIN}` | `HOMARR_UPSTREAM` | `192.0.2.10:7575` |
+| `kong.{$DOMAIN}` | `kong.{$TAILSCALE_DOMAIN}` | `KONG_MANAGER_UPSTREAM` | `https://192.0.2.10:8445` |
+| `kuma.{$DOMAIN}` | `kuma.{$TAILSCALE_DOMAIN}` | `KUMA_UPSTREAM` | `192.0.2.10:13001` |
+| `metacube.{$DOMAIN}` | `metacube.{$TAILSCALE_DOMAIN}` | `METACUBE_UPSTREAM` | `192.0.2.10:17895` |
+| `portainer.{$DOMAIN}` | `portainer.{$TAILSCALE_DOMAIN}` | `PORTAINER_UPSTREAM` | `https://192.0.2.10:9443` |
+| `pve.{$DOMAIN}` | `pve.{$TAILSCALE_DOMAIN}` | `PVE_UPSTREAM` | `https://192.0.2.11:8006` |
+| `syncthing.{$DOMAIN}` | `syncthing.{$TAILSCALE_DOMAIN}` | `SYNCTHING_UPSTREAM` | `https://192.0.2.10:8384` |
+| `timecrack.{$DOMAIN}` | `timecrack.{$TAILSCALE_DOMAIN}` | `TIMECRACK_UPSTREAM` | `192.0.2.12:5173` |
+| `webdav.{$DOMAIN}` | `webdav.{$TAILSCALE_DOMAIN}` | `WEBDAV_UPSTREAM` | `192.0.2.10:6065` |
+| `wifi.{$DOMAIN}` | `wifi.{$TAILSCALE_DOMAIN}` | `WIFI_ROUTER_UPSTREAM` | `192.0.2.1:80` |
 
 ## What is *not* directly equivalent?
 

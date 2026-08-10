@@ -1,9 +1,9 @@
 # Caddy reverse-proxy equivalent for the Kong deployment.
 # Domain and upstream addresses are injected via environment variables
-# (see .env.example). The wildcard certificate is loaded from config/certs/.
+# (see .env.example). Wildcard certificates are loaded from config/certs/.
 
 # ---------------------------------------------------------------------------
-# Applications served by Kong (host -> upstream)
+# Home LAN (*.home.lan)
 # ---------------------------------------------------------------------------
 
 adguard.{$DOMAIN} {
@@ -61,7 +61,7 @@ pve.{$DOMAIN} {
 	}
 }
 
-syncthing.{$DOMAIN}, syncthing.wk1.{$DOMAIN} {
+syncthing.{$DOMAIN} {
 	# Syncthing uses HTTPS with a self-signed certificate.
 	reverse_proxy {$SYNCTHING_UPSTREAM} {
 		transport http {
@@ -91,12 +91,100 @@ wifi.{$DOMAIN} {
 }
 
 # ---------------------------------------------------------------------------
-# Wildcard fallback: loads the wildcard certificate and serves a health page.
-# Caddy should use this certificate for all matching *.DOMAIN sites above.
-# If you want per-domain certificates instead, add per-site tls directives.
+# Tailscale network (*.tailscale.lan)
+# Same upstreams, different entrypoint and certificate.
+# ---------------------------------------------------------------------------
+
+adguard.{$TAILSCALE_DOMAIN} {
+	reverse_proxy {$ADGUARD_UPSTREAM}
+}
+
+beszel.{$TAILSCALE_DOMAIN} {
+	reverse_proxy {$BESZEL_UPSTREAM}
+}
+
+dufs.{$TAILSCALE_DOMAIN} {
+	reverse_proxy {$DUFS_UPSTREAM}
+}
+
+gitea.{$TAILSCALE_DOMAIN} {
+	reverse_proxy {$GITEA_UPSTREAM}
+}
+
+homarr.{$TAILSCALE_DOMAIN} {
+	reverse_proxy {$HOMARR_UPSTREAM}
+}
+
+kong.{$TAILSCALE_DOMAIN} {
+	reverse_proxy {$KONG_MANAGER_UPSTREAM} {
+		transport http {
+			tls_insecure_skip_verify
+		}
+	}
+}
+
+kuma.{$TAILSCALE_DOMAIN} {
+	reverse_proxy {$KUMA_UPSTREAM}
+}
+
+metacube.{$TAILSCALE_DOMAIN} {
+	reverse_proxy {$METACUBE_UPSTREAM}
+}
+
+portainer.{$TAILSCALE_DOMAIN} {
+	reverse_proxy {$PORTAINER_UPSTREAM} {
+		transport http {
+			tls_insecure_skip_verify
+		}
+	}
+}
+
+pve.{$TAILSCALE_DOMAIN} {
+	reverse_proxy {$PVE_UPSTREAM} {
+		transport http {
+			tls_insecure_skip_verify
+		}
+	}
+}
+
+syncthing.{$TAILSCALE_DOMAIN} {
+	reverse_proxy {$SYNCTHING_UPSTREAM} {
+		transport http {
+			tls_insecure_skip_verify
+		}
+	}
+}
+
+timecrack.{$TAILSCALE_DOMAIN} {
+	reverse_proxy {$TIMECRACK_UPSTREAM}
+}
+
+webdav.{$TAILSCALE_DOMAIN} {
+	@hasDest header_regexp dest ^https?://[^/]+(.*)$
+	request_header @hasDest Destination {re.dest.1}
+
+	reverse_proxy {$WEBDAV_UPSTREAM} {
+		header_up X-Real-IP {remote_host}
+		header_up REMOTE-HOST {remote_host}
+	}
+}
+
+wifi.{$TAILSCALE_DOMAIN} {
+	reverse_proxy {$WIFI_ROUTER_UPSTREAM}
+}
+
+# ---------------------------------------------------------------------------
+# Wildcard fallbacks: load wildcard certificates and serve a health page.
 # ---------------------------------------------------------------------------
 *.{$DOMAIN} {
 	tls /etc/caddy/certs/wildcard.{$DOMAIN}.crt /etc/caddy/certs/wildcard.{$DOMAIN}.key
+	handle {
+		respond "Caddy gateway is running."
+	}
+}
+
+*.{$TAILSCALE_DOMAIN} {
+	tls /etc/caddy/certs/wildcard.{$TAILSCALE_DOMAIN}.crt /etc/caddy/certs/wildcard.{$TAILSCALE_DOMAIN}.key
 	handle {
 		respond "Caddy gateway is running."
 	}
