@@ -121,7 +121,6 @@ return {
         "rust",
         "ssh_config",
         "swift",
-        "tmux",
         "toml",
         "tsx",
         "typescript",
