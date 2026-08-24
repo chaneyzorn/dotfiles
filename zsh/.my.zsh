@@ -60,6 +60,8 @@ alias dblackf="git diff --name-only | xargs -L1 black"
 
 [[ ! -f ~/.myutil.zsh ]] || source ~/.myutil.zsh
 
+PROMPT="%F{yellow}%D{%H:%M:%S}%f ${PROMPT}"
+
 if [[ -n "$SSH_CONNECTION" ]]; then
     PROMPT="[%F{green}%n@%m%f] ${PROMPT}"
 fi
