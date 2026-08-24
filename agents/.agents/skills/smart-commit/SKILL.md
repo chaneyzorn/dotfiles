@@ -55,14 +55,14 @@ Before writing the commit message, understand what changed:
 
 | Scope | Description |
 |-------|-------------|
-| `frontend` | Vue/TypeScript changes in `web/timecrack-web/` |
-| `backend` | Go changes in `internal/`, `cmd/`, `gen/` |
-| `api` | Protobuf definitions in `proto/` |
-| `db` | Database models, migrations, DAL changes |
-| `build` | `Makefile`, `Dockerfile`, build scripts |
-| `test` | Test files and testing infrastructure |
-| `docs` | `README.md`, `AGENTS.md`, documentation |
-| `scripts` | Python scripts in `scripts/` |
+| `frontend` | User interface and client-side code |
+| `backend` | Server-side application logic and services |
+| `api` | API contracts, protocol definitions, and interfaces |
+| `db` | Database models, migrations, schema, and data access |
+| `build` | Build system, packaging, CI/CD, and dependencies |
+| `test` | Tests, test infrastructure, and fixtures |
+| `docs` | Documentation, README, guides, and project metadata |
+| `scripts` | Utility scripts and automation tooling |
 
 Use the most specific scope. If multiple scopes are equally relevant, choose
 `frontend` or `backend` based on where most changes live. For cross-cutting
