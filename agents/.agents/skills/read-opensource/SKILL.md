@@ -28,7 +28,6 @@ prefer cloning the repository locally and reading the code from disk.
    ```
    Use `--depth 1` for a shallow clone when full history is not needed.
 3. Read the relevant source files locally.
-4. If the cloned code is no longer needed, remove it to save space.
 
 ## Notes
 
