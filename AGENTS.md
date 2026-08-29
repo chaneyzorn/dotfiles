@@ -35,7 +35,7 @@ Top-level Stow packages and what they contain:
 | `ssh/` | SSH client configuration. |
 | `systemd/` | User systemd unit files. |
 | `docker/` | Docker Compose stacks for self-hosted services (AdGuard, Beszel, Caddy, Clash, DuFS, Gitea, Homarr, Homepage, Kong, LX-Music, Memos, nginx-proxy-manager, Portainer, RustDesk, Syncthing, Uptime-Kuma, WebDAV, yacd, etc.). |
-| `agents/` | AI agent user-scope skills (`.agents/skills/`): `smart-commit`, `tech-doc-polish`. |
+| `agents/` | AI agent user-scope skills (`.agents/skills/`): `smart-commit`, `tech-doc-polish`; plus Kimi Code configuration (`.kimi-code/config.toml`). |
 
 Root-level tooling files:
 
