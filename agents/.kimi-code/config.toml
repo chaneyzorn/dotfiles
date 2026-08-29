@@ -74,7 +74,11 @@ display_name = "K3-256k"
 support_efforts = [ "low", "high", "max" ]
 default_effort = "high"
 
-# Git 操作强制询问，防止 agent 自动提交/推送
+# Git 操作强制询问，防止 agent 自动提交/推送。
+# 注意：Kimi Code 在 yolo 模式下存在已知 bug，用户配置的 decision = "ask" 规则
+# 不会触发（参见 https://github.com/MoonshotAI/kimi-code/issues/2455）。
+# 这些规则写法本身正确，待官方修复后自动生效；在此之前仍需人工注意不要
+# 让 agent 自动执行 git commit / push 等操作。
 [[permission.rules]]
 decision = "ask"
 pattern = "Bash(*git*add*)"
