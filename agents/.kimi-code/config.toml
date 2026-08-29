@@ -10,7 +10,7 @@ enabled = true
 effort = "high"
 
 [loop_control]
-max_retries_per_step = 3
+max_attempts_per_step = 3
 reserved_context_size = 50000
 
 [background]
@@ -77,24 +77,24 @@ default_effort = "high"
 # Git 操作强制询问，防止 agent 自动提交/推送
 [[permission.rules]]
 decision = "ask"
-pattern = "Bash(*git add*)"
+pattern = "Bash(*git*add*)"
 
 [[permission.rules]]
 decision = "ask"
-pattern = "Bash(*git commit*)"
+pattern = "Bash(*git*commit*)"
 
 [[permission.rules]]
 decision = "ask"
-pattern = "Bash(*git push*)"
+pattern = "Bash(*git*push*)"
 
 [[permission.rules]]
 decision = "ask"
-pattern = "Bash(*git reset*)"
+pattern = "Bash(*git*reset*)"
 
 [[permission.rules]]
 decision = "ask"
-pattern = "Bash(*git checkout*)"
+pattern = "Bash(*git*checkout*)"
 
 [[permission.rules]]
 decision = "ask"
-pattern = "Bash(*git restore*)"
+pattern = "Bash(*git*restore*)"
