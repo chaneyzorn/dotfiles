@@ -45,7 +45,7 @@ When in doubt, ask for confirmation instead of guessing.
 To mitigate a permission bypass that can occur in yolo mode, this skill uses a
 workspace lock file as a guard against accidental automatic commits.
 
-**Lock file name:** `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE`
+**Lock file name:** `.AI-DO-NOT-COMMIT-ANYTHING-AND-DO-NOT-DELETE-THIS-FILE-ONLY-THE-USER-CAN-REMOVE-IT`
 
 The rest of this document refers to this file as "the lock file".
 
@@ -163,7 +163,7 @@ in the conversation, honor that over these defaults.
 1. **Check the filesystem for the lock file** in the repository root. Do not
    rely on memory or assumptions from earlier turns. If the lock file exists,
    stop and tell the user: "Workspace is locked by
-   `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE`; remove it
+   `.AI-DO-NOT-COMMIT-ANYTHING-AND-DO-NOT-DELETE-THIS-FILE-ONLY-THE-USER-CAN-REMOVE-IT`; remove it
    yourself before committing." Do not proceed, and **do not remove the lock
    file yourself**, even if the user asks or authorizes you to do so.
 2. A single user instruction must result in exactly one commit. Do not create
@@ -175,7 +175,7 @@ in the conversation, honor that over these defaults.
 5. If the commit succeeds, report the commit hash and message.
 6. If there are unstaged changes left, mention them briefly.
 7. After every successful commit, run
-   `touch .AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE` to restore
+   `touch .AI-DO-NOT-COMMIT-ANYTHING-AND-DO-NOT-DELETE-THIS-FILE-ONLY-THE-USER-CAN-REMOVE-IT` to restore
    the guard. Also recreate the lock file at the start of any new session if it
    is missing, unless the user has explicitly asked in that session to skip
    creating it. Do this regardless of whether the working tree still contains
