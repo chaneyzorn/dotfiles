@@ -40,6 +40,27 @@ Treat the following as explicit commit requests:
 
 When in doubt, ask for confirmation instead of guessing.
 
+## Commit Lock Guard
+
+To mitigate the yolo-mode permission bug that prevents git operations from
+being intercepted, this skill uses a workspace lock file as an explicit guard
+against accidental automatic commits.
+
+**Lock file name:** `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE`
+
+Behavior:
+
+- If `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE` exists in the repository root, **do not commit**.
+  Tell the user the lock is present and ask whether to remove it before
+  proceeding.
+- If the user explicitly asks you to remove the lock and then commit, remove
+  it with `rm .AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE` and continue.
+- After a successful commit, if the working tree becomes clean, recreate
+  `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE` in the repository root so the next automatic commit
+  attempt is blocked.
+- Do not add `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE` to `.gitignore`; it must remain an
+  untracked file so it does not get committed itself.
+
 ## Step 1: Confirm Change Scope
 
 Before writing the commit message, understand what changed:
@@ -111,14 +132,21 @@ in the conversation, honor that over these defaults.
 
 ## Step 3: Execute Commit
 
-1. A single user instruction must result in exactly one commit. Do not create
+1. Check for `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE` in the repository root. If it exists, stop
+   and tell the user: "Workspace is locked by `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE`; remove it
+   before committing." Do not proceed unless the user explicitly removes the
+   lock or asks you to remove it.
+2. A single user instruction must result in exactly one commit. Do not create
    multiple commits from one request, and do not auto-commit later in the
    conversation unless the user asks again.
-2. Stage only the files related to the commit scope. Use `git add <paths>`
+3. Stage only the files related to the commit scope. Use `git add <paths>`
    instead of `git add .` unless the user explicitly asks for an all-files commit.
-3. Run `git commit -m "<message>"`.
-4. If the commit succeeds, report the commit hash and message.
-5. If there are unstaged changes left, mention them briefly.
-6. Never run `git push` unless the user explicitly asks for it. Do not push as
+4. Run `git commit -m "<message>"`.
+5. If the commit succeeds, report the commit hash and message.
+6. If there are unstaged changes left, mention them briefly.
+7. After a successful commit, run `git status --porcelain`. If the output is
+   empty (working tree clean), run `touch .AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE` to re-arm the
+   guard.
+8. Never run `git push` unless the user explicitly asks for it. Do not push as
    a side effect of a commit request. Pushing removes the chance to correct or
    amend the commit locally before sharing it.
