@@ -55,9 +55,10 @@ Behavior:
   proceeding.
 - If the user explicitly asks you to remove the lock and then commit, remove
   it with `rm .AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE` and continue.
-- After a successful commit, if the working tree becomes clean, recreate
-  `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE` in the repository root so the next automatic commit
-  attempt is blocked.
+- After every successful commit triggered by this skill, recreate
+  `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE` in the repository
+  root so the next automatic commit attempt is blocked. Do this regardless of
+  whether the working tree still contains other unrelated changes.
 - Do not add `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE` to `.gitignore`; it must remain an
   untracked file so it does not get committed itself.
 
@@ -144,9 +145,9 @@ in the conversation, honor that over these defaults.
 4. Run `git commit -m "<message>"`.
 5. If the commit succeeds, report the commit hash and message.
 6. If there are unstaged changes left, mention them briefly.
-7. After a successful commit, run `git status --porcelain`. If the output is
-   empty (working tree clean), run `touch .AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE` to re-arm the
-   guard.
+7. After every successful commit, run `touch .AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE`
+   to re-arm the guard. Do this regardless of whether the working tree still
+   contains other unrelated changes.
 8. Never run `git push` unless the user explicitly asks for it. Do not push as
    a side effect of a commit request. Pushing removes the chance to correct or
    amend the commit locally before sharing it.
