@@ -39,8 +39,12 @@ kuma.{$DOMAIN} {
 	reverse_proxy {$KUMA_UPSTREAM}
 }
 
-metacube.{$DOMAIN} {
-	reverse_proxy {$METACUBE_UPSTREAM}
+clash.{$DOMAIN} {
+	reverse_proxy {$CLASH_UPSTREAM}
+}
+
+hugo.{$DOMAIN} {
+	reverse_proxy {$HUGO_UPSTREAM}
 }
 
 portainer.{$DOMAIN} {
@@ -127,8 +131,12 @@ kuma.{$TAILSCALE_DOMAIN} {
 	reverse_proxy {$KUMA_UPSTREAM}
 }
 
-metacube.{$TAILSCALE_DOMAIN} {
-	reverse_proxy {$METACUBE_UPSTREAM}
+clash.{$TAILSCALE_DOMAIN} {
+	reverse_proxy {$CLASH_UPSTREAM}
+}
+
+hugo.{$TAILSCALE_DOMAIN} {
+	reverse_proxy {$HUGO_UPSTREAM}
 }
 
 portainer.{$TAILSCALE_DOMAIN} {
