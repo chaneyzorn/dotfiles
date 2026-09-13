@@ -5,7 +5,7 @@ services:
     restart: unless-stopped
     environment:
       CONTROL_TOKEN: '${CONTROL_TOKEN:?Set CONTROL_TOKEN in .env}'
-      CLASH_SECRET: '${CLASH_SECRET:?Set CLASH_SECRET in .env}'
+      CLASH_SECRET: '${CLASH_SECRET:-}'
       GITHUB_TOKEN: '${GITHUB_TOKEN:-}'
       DEFAULT_BACKEND_URL: '${DEFAULT_BACKEND_URL:-}'
       CONTROL_PORT: '8080'
