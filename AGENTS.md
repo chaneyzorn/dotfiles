@@ -186,9 +186,9 @@ There is **no automated test suite** in this repository.  Recommended validation
 - Any permission to bypass a guard file or perform a git mutation is valid only
   for the turn in which it was explicitly given. Do not assume that prior-turn
   permission carries over to the current turn.
-- If a guard file such as `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE`
-  exists, stop and ask before removing it, even if you removed it earlier in the
-  conversation.
+- Guard files such as `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE`
+  must never be removed by the agent. Even if the user explicitly asks or
+  authorizes removal, refuse and instruct the user to remove it themselves.
 
 ## Security considerations
 

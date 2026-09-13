@@ -51,10 +51,9 @@ against accidental automatic commits.
 Behavior:
 
 - If `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE` exists in the repository root, **do not commit**.
-  Tell the user the lock is present and ask whether to remove it before
-  proceeding.
-- If the user explicitly asks you to remove the lock and then commit, remove
-  it with `rm .AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE` and continue.
+  Tell the user the lock is present and instruct them to remove it manually
+  before proceeding. You never remove this file, even if the user explicitly
+  asks or authorizes you to do so.
 - After every successful commit triggered by this skill, recreate
   `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE` in the repository
   root so the next automatic commit attempt is blocked. Do this regardless of
@@ -72,9 +71,13 @@ future turn.
 - At the start of every new conversation/session, assume the lock file should
   exist. If it is missing and the user has not explicitly asked you to leave it
   removed in the current turn, recreate it immediately.
-- Do not remove the lock file unless the user explicitly asks you to do so in
-  the current turn.
+- **You never remove the lock file.** Even if the user explicitly asks or
+  authorizes you to remove it in the current turn, refuse and tell them to
+  remove it manually. The lock file must always be handled by the user.
 - Never infer trust or standing permission from previous turns.
+- **Never infer the lock file's existence from memory.** When the user requests
+  a commit, always check the actual filesystem state (e.g., `test -f` or `ls`)
+  rather than relying on what you remember from earlier in the conversation.
 
 ## Step 1: Confirm Change Scope
 
@@ -147,10 +150,12 @@ in the conversation, honor that over these defaults.
 
 ## Step 3: Execute Commit
 
-1. Check for `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE` in the repository root. If it exists, stop
-   and tell the user: "Workspace is locked by `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE`; remove it
-   before committing." Do not proceed unless the user explicitly removes the
-   lock or asks you to remove it in the current turn.
+1. Check for `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE` in the repository root by actually
+   inspecting the filesystem. Do not rely on memory or assumptions from earlier
+   turns. If the lock file exists, stop and tell the user: "Workspace is locked
+   by `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE`; remove it
+   yourself before committing." Do not proceed, and do not remove the lock file
+   yourself, even if the user asks or authorizes you to do so.
 2. A single user instruction must result in exactly one commit. Do not create
    multiple commits from one request, and do not auto-commit later in the
    conversation unless the user asks again.
