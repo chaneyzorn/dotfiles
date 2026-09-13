@@ -62,6 +62,20 @@ Behavior:
 - Do not add `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE` to `.gitignore`; it must remain an
   untracked file so it does not get committed itself.
 
+## Turn-Scoped Permission
+
+Permission to remove or ignore the lock file is **single-use and expires at the
+end of the turn**. A request such as "remove the lock and commit" in a previous
+turn does **not** grant standing permission to commit in the current or any
+future turn.
+
+- At the start of every new conversation/session, assume the lock file should
+  exist. If it is missing and the user has not explicitly asked you to leave it
+  removed in the current turn, recreate it immediately.
+- Do not remove the lock file unless the user explicitly asks you to do so in
+  the current turn.
+- Never infer trust or standing permission from previous turns.
+
 ## Step 1: Confirm Change Scope
 
 Before writing the commit message, understand what changed:
@@ -136,7 +150,7 @@ in the conversation, honor that over these defaults.
 1. Check for `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE` in the repository root. If it exists, stop
    and tell the user: "Workspace is locked by `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE`; remove it
    before committing." Do not proceed unless the user explicitly removes the
-   lock or asks you to remove it.
+   lock or asks you to remove it in the current turn.
 2. A single user instruction must result in exactly one commit. Do not create
    multiple commits from one request, and do not auto-commit later in the
    conversation unless the user asks again.
@@ -146,8 +160,10 @@ in the conversation, honor that over these defaults.
 5. If the commit succeeds, report the commit hash and message.
 6. If there are unstaged changes left, mention them briefly.
 7. After every successful commit, run `touch .AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE`
-   to re-arm the guard. Do this regardless of whether the working tree still
-   contains other unrelated changes.
+   to re-arm the guard. Also recreate the lock file at the start of any new
+   session if it is missing, unless the user has explicitly asked in that
+   session to leave it removed. Do this regardless of whether the working tree
+   still contains other unrelated changes.
 8. Never run `git push` unless the user explicitly asks for it. Do not push as
    a side effect of a commit request. Pushing removes the chance to correct or
    amend the commit locally before sharing it.

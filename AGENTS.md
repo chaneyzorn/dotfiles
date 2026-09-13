@@ -181,6 +181,15 @@ There is **no automated test suite** in this repository.  Recommended validation
   - Go, C/C++, JavaScript/TypeScript, JSON, TOML, etc. via `conform.nvim` and `nvim-lint` with the configured LSP servers.
 - Manually start the affected application (e.g. `nvim`, `tmux`, `zsh`) after editing its config to check for errors.
 
+## Agent self-restraint
+
+- Any permission to bypass a guard file or perform a git mutation is valid only
+  for the turn in which it was explicitly given. Do not assume that prior-turn
+  permission carries over to the current turn.
+- If a guard file such as `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE`
+  exists, stop and ask before removing it, even if you removed it earlier in the
+  conversation.
+
 ## Security considerations
 
 - **SSH client security**: `ssh/.ssh/config` disables `StrictHostKeyChecking` and sets `UserKnownHostsFile=/dev/null` for several private subnets (`192.168.*.*`, `172.20.*.*`, `*.local`, `chaney-*`) and enables `ForwardAgent` for some hosts.  This weakens host verification and introduces agent-forwarding risks; it is only appropriate for trusted private networks.
