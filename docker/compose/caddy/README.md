@@ -28,7 +28,7 @@ below assumes `DOMAIN=home.lan`.
 | `homarr.{$DOMAIN}` | `homarr.{$TAILSCALE_DOMAIN}` | `HOMARR_UPSTREAM` | `192.0.2.10:7575` |
 | `kong.{$DOMAIN}` | `kong.{$TAILSCALE_DOMAIN}` | `KONG_MANAGER_UPSTREAM` | `https://192.0.2.10:8445` |
 | `kuma.{$DOMAIN}` | `kuma.{$TAILSCALE_DOMAIN}` | `KUMA_UPSTREAM` | `192.0.2.10:13001` |
-| `clash.{$DOMAIN}` | `clash.{$TAILSCALE_DOMAIN}` | `CLASH_UPSTREAM` | `192.0.2.10:17895` |
+| `http://clash.{$DOMAIN}` | `http://clash.{$TAILSCALE_DOMAIN}` | `CLASH_UPSTREAM` | `192.0.2.10:17895` |
 | `hugo.{$DOMAIN}` | `hugo.{$TAILSCALE_DOMAIN}` | `HUGO_UPSTREAM` | `192.0.2.10:1313` |
 | `portainer.{$DOMAIN}` | `portainer.{$TAILSCALE_DOMAIN}` | `PORTAINER_UPSTREAM` | `https://192.0.2.10:9443` |
 | `pve.{$DOMAIN}` | `pve.{$TAILSCALE_DOMAIN}` | `PVE_UPSTREAM` | `https://192.0.2.11:8006` |

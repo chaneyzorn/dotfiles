@@ -39,7 +39,7 @@ kuma.{$DOMAIN} {
 	reverse_proxy {$KUMA_UPSTREAM}
 }
 
-clash.{$DOMAIN} {
+http://clash.{$DOMAIN} {
 	reverse_proxy {$CLASH_UPSTREAM}
 }
 
@@ -131,7 +131,7 @@ kuma.{$TAILSCALE_DOMAIN} {
 	reverse_proxy {$KUMA_UPSTREAM}
 }
 
-clash.{$TAILSCALE_DOMAIN} {
+http://clash.{$TAILSCALE_DOMAIN} {
 	reverse_proxy {$CLASH_UPSTREAM}
 }
 
