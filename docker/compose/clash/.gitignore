@@ -1,2 +1,5 @@
+.env
 config.yaml
 config.stash.yaml
+data/*
+!data/.gitkeep
