@@ -10,17 +10,17 @@ description: >
 
 # Smart Commit Workflow
 
-Handle git commit requests automatically by confirming the change scope,
-selecting an appropriate commit message, and executing the commit.
+Confirm the change scope, write an appropriate commit message, and execute the
+commit when the user explicitly requests it.
 
-**Hard rule: never commit on your own initiative.** A commit must only happen
-when the user explicitly requests it. Do not auto-commit because the work
-"looks complete", because the user thanked you, or because you think it should
-be saved.
+> **CRITICAL — never commit on your own initiative.** A commit must only happen
+> when the user explicitly requests it. Do not auto-commit because the work
+> appears complete, because the user thanked you, or because you think it should
+> be saved.
 
 ## Trigger Recognition
 
-**Only execute a commit when the user explicitly asks for it.** A single user
+Only execute a commit when the user explicitly asks for it. A single user
 instruction must result in at most one commit. Do not split one request into
 multiple automatic commits across multiple turns.
 
@@ -42,42 +42,51 @@ When in doubt, ask for confirmation instead of guessing.
 
 ## Commit Lock Guard
 
-To mitigate the yolo-mode permission bug that prevents git operations from
-being intercepted, this skill uses a workspace lock file as an explicit guard
-against accidental automatic commits.
+To mitigate a permission bypass that can occur in yolo mode, this skill uses a
+workspace lock file as a guard against accidental automatic commits.
 
 **Lock file name:** `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE`
 
+The rest of this document refers to this file as "the lock file".
+
+> **CRITICAL — the lock file must always be handled by the user.**
+> You never remove it or proceed past it on user authorization. Your only
+> allowed actions are: (1) check whether it exists, (2) tell the user to remove
+> it manually, and (3) recreate it after a commit you were explicitly asked to
+> perform.
+
 Behavior:
 
-- If `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE` exists in the repository root, **do not commit**.
-  Tell the user the lock is present and instruct them to remove it manually
-  before proceeding. You never remove this file, even if the user explicitly
-  asks or authorizes you to do so.
-- After every successful commit triggered by this skill, recreate
-  `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE` in the repository
-  root so the next automatic commit attempt is blocked. Do this regardless of
-  whether the working tree still contains other unrelated changes.
-- Do not add `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE` to `.gitignore`; it must remain an
-  untracked file so it does not get committed itself.
+- If the lock file exists in the repository root, **do not commit**. Tell the
+  user the workspace is locked and instruct them to remove the lock file
+  manually before proceeding. **You never remove the lock file**, even if the
+  user explicitly asks or authorizes you to do so.
+- After every successful commit triggered by this skill, recreate the lock file
+  in the repository root so the next automatic commit attempt is blocked. Do
+  this regardless of whether the working tree still contains other unrelated
+  changes.
+- Do not add the lock file to `.gitignore`; it must remain untracked so it does
+  not get committed itself.
 
-## Turn-Scoped Permission
+## Turn-Scoped Commit Permission
 
-Permission to remove or ignore the lock file is **single-use and expires at the
-end of the turn**. A request such as "remove the lock and commit" in a previous
-turn does **not** grant standing permission to commit in the current or any
-future turn.
+Permission to commit while the lock file is absent is single-use and expires at
+the end of the turn. A request such as "commit now" in a previous turn does not
+grant standing permission to commit in the current or any future turn.
+
+**ATTENTION — apply these checks on every commit request:**
 
 - At the start of every new conversation/session, assume the lock file should
-  exist. If it is missing and the user has not explicitly asked you to leave it
-  removed in the current turn, recreate it immediately.
+  exist. If it is missing and the user has not explicitly asked you to skip
+  creating it in the current turn, recreate it immediately.
 - **You never remove the lock file.** Even if the user explicitly asks or
   authorizes you to remove it in the current turn, refuse and tell them to
-  remove it manually. The lock file must always be handled by the user.
+  remove it manually.
 - Never infer trust or standing permission from previous turns.
 - **Never infer the lock file's existence from memory.** When the user requests
-  a commit, always check the actual filesystem state (e.g., `test -f` or `ls`)
-  rather than relying on what you remember from earlier in the conversation.
+  a commit, always check the actual filesystem state (for example, `test -f` or
+  `ls`) rather than relying on what you remember from earlier in the
+  conversation.
 
 ## Step 1: Confirm Change Scope
 
@@ -87,8 +96,9 @@ Before writing the commit message, understand what changed:
 2. Run `git diff --stat` to see the magnitude of changes per file.
 3. If the change scope is unclear from filenames alone, run `git diff` on the
    relevant files to understand the actual changes.
-4. If changes span multiple unrelated concerns (e.g., frontend UI refactor +
-   backend API change), ask the user whether to split into multiple commits.
+4. If changes span multiple unrelated concerns (for example, a frontend UI
+   refactor plus a backend API change), ask the user whether to split into
+   multiple commits.
 
 ### Scope Guidelines for This Project
 
@@ -130,7 +140,7 @@ type(scope): subject
 
 ### Subject Rules
 
-- Use imperative mood (e.g., "add", "fix", "move", not "added" or "fixes")
+- Use imperative mood (for example, "add", "fix", "move", not "added" or "fixes")
 - Start with a lowercase letter
 - No trailing period
 - Keep under 72 characters when possible
@@ -150,12 +160,12 @@ in the conversation, honor that over these defaults.
 
 ## Step 3: Execute Commit
 
-1. Check for `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE` in the repository root by actually
-   inspecting the filesystem. Do not rely on memory or assumptions from earlier
-   turns. If the lock file exists, stop and tell the user: "Workspace is locked
-   by `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE`; remove it
-   yourself before committing." Do not proceed, and do not remove the lock file
-   yourself, even if the user asks or authorizes you to do so.
+1. **Check the filesystem for the lock file** in the repository root. Do not
+   rely on memory or assumptions from earlier turns. If the lock file exists,
+   stop and tell the user: "Workspace is locked by
+   `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE`; remove it
+   yourself before committing." Do not proceed, and **do not remove the lock
+   file yourself**, even if the user asks or authorizes you to do so.
 2. A single user instruction must result in exactly one commit. Do not create
    multiple commits from one request, and do not auto-commit later in the
    conversation unless the user asks again.
@@ -164,11 +174,12 @@ in the conversation, honor that over these defaults.
 4. Run `git commit -m "<message>"`.
 5. If the commit succeeds, report the commit hash and message.
 6. If there are unstaged changes left, mention them briefly.
-7. After every successful commit, run `touch .AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE`
-   to re-arm the guard. Also recreate the lock file at the start of any new
-   session if it is missing, unless the user has explicitly asked in that
-   session to leave it removed. Do this regardless of whether the working tree
-   still contains other unrelated changes.
-8. Never run `git push` unless the user explicitly asks for it. Do not push as
-   a side effect of a commit request. Pushing removes the chance to correct or
-   amend the commit locally before sharing it.
+7. After every successful commit, run
+   `touch .AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE` to restore
+   the guard. Also recreate the lock file at the start of any new session if it
+   is missing, unless the user has explicitly asked in that session to skip
+   creating it. Do this regardless of whether the working tree still contains
+   other unrelated changes.
+8. **Never run `git push`** unless the user explicitly asks for it. Do not push
+   as a side effect of a commit request. Pushing removes the chance to correct
+   or amend the commit locally before sharing it.
