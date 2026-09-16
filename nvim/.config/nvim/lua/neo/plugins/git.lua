@@ -1,11 +1,11 @@
 return {
   {
     "esmuellert/codediff.nvim",
-    dependencies = { "MunifTanjim/nui.nvim" },
     keys = {
       { "<leader>hv", "<cmd>CodeDiff<CR>", desc = "Git CodeDiff" },
     },
     cmd = "CodeDiff",
+    build = ":CodeDiff install",
   },
   {
     "lewis6991/gitsigns.nvim",

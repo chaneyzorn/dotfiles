@@ -161,12 +161,6 @@ return {
             env = { SSH_CONNECTION = true },
           },
           {
-            colorscheme = "rose-pine",
-            condition = function()
-              return vim.bo.readonly or not vim.bo.modifiable
-            end,
-          },
-          {
             colorscheme = "everforest",
             background = "light",
             condition = function()
