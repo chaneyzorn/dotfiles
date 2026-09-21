@@ -36,6 +36,7 @@ Top-level Stow packages and what they contain:
 | `systemd/` | User systemd unit files. |
 | `docker/` | Docker Compose stacks for self-hosted services (AdGuard, Beszel, Caddy, Clash, DuFS, Gitea, Homarr, Homepage, Kong, LX-Music, Memos, nginx-proxy-manager, Portainer, RustDesk, Syncthing, Uptime-Kuma, WebDAV, yacd, etc.). |
 | `agents/` | AI agent user-scope skills (`.agents/skills/`): `smart-commit`, `tech-doc-polish`; plus Kimi Code configuration (`.kimi-code/config.toml`). |
+| `local-bin/` | User-local binaries and wrappers that should appear early in `PATH`. |
 
 Root-level tooling files:
 
@@ -186,7 +187,7 @@ There is **no automated test suite** in this repository.  Recommended validation
 - Any permission to bypass a guard file or perform a git mutation is valid only
   for the turn in which it was explicitly given. Do not assume that prior-turn
   permission carries over to the current turn.
-- Guard files such as `.AI-NEVER-COMMIT-ANY-CHANGES-UNLESS-USER-REMOVES-THIS-FILE`
+- Guard files such as `.AI-DO-NOT-COMMIT-ANYTHING-AND-DO-NOT-DELETE-THIS-FILE-ONLY-THE-USER-CAN-REMOVE-IT`
   must never be removed by the agent. Even if the user explicitly asks or
   authorizes removal, refuse and instruct the user to remove it themselves.
 

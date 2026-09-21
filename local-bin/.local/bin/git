@@ -1,0 +1,11 @@
+#!/bin/sh
+
+LOCK=".AI-DO-NOT-COMMIT-ANYTHING-AND-DO-NOT-DELETE-THIS-FILE-ONLY-THE-USER-CAN-REMOVE-IT"
+REAL_GIT="/usr/bin/git"
+
+if [ "$1" = "commit" ] && [ -f "$LOCK" ]; then
+  echo "Commit blocked: $LOCK exists. Ask the user to remove it before committing." >&2
+  exit 1
+fi
+
+exec "$REAL_GIT" "$@"
