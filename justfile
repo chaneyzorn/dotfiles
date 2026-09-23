@@ -87,6 +87,7 @@ yay-pkgs:
         shellcheck
         shfmt
         sshfs
+        sshuttle
         stow
         strace
         stylua
@@ -186,6 +187,7 @@ brew-pkgs:
         scrcpy
         shellcheck
         shfmt
+        sshuttle
         stow
         stylua
         superfile
