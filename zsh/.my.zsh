@@ -1,14 +1,8 @@
-if [ ! $BASE_PATH ]; then
-    export BASE_PATH=$PATH
-fi
-
-export GOROOT=$(go env GOROOT)
-export GOPATH=$(go env GOPATH)
 export PNPM_HOME="$HOME/.local/share/pnpm"
 
 LOCAL_BIN=/usr/local/bin
 LOCAL_SBIN=/usr/local/sbin
-GO_BIN=$GOPATH/bin
+GO_BIN=$(go env GOPATH)/bin
 MY_LOCAL_BIN=$HOME/.local/bin
 RUST_BIN=$HOME/.cargo/bin
 LUA_BIN=$HOME/.luarocks/bin
@@ -17,7 +11,8 @@ RUBY_BIN=$(ruby -r rubygems -e 'puts Gem.user_dir')/bin
 KIMI_BIN="$HOME/.kimi-code/bin"
 
 MY_PATH=$MY_LOCAL_BIN:$KIMI_BIN:$GO_BIN:$RUST_BIN:$PNPM_HOME:$NODE_BIN:$RUBY_BIN:$LUA_BIN:$LOCAL_BIN:$LOCAL_SBIN
-export PATH=$MY_PATH:$BASE_PATH
+export PATH=$MY_PATH:$PATH
+typeset -U PATH
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export SHELL=$(which zsh)
