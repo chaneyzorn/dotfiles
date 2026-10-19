@@ -2,6 +2,28 @@ return {
   {
     "nvim-tree/nvim-web-devicons",
     lazy = true,
+    init = function()
+      -- see https://github.com/jeffkreeftmeijer/vim-numbertoggle
+      local number_toggle = vim.api.nvim_create_augroup("NumberToggle", { clear = true })
+      vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnter" }, {
+        group = number_toggle,
+        pattern = "*",
+        callback = function()
+          if vim.wo.number and not vim.fn.mode():match("^[it]") then
+            vim.wo.relativenumber = true
+          end
+        end,
+      })
+      vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave" }, {
+        group = number_toggle,
+        pattern = "*",
+        callback = function()
+          if vim.wo.number then
+            vim.wo.relativenumber = false
+          end
+        end,
+      })
+    end,
   },
   {
     "catppuccin/nvim",
@@ -46,7 +68,7 @@ return {
         auto_integrations = true,
       })
       -- setup must be called before loading
-      -- vim.cmd.colorscheme("catppuccin-nvim")
+      vim.cmd.colorscheme("catppuccin-nvim")
     end,
   },
   {
@@ -73,14 +95,6 @@ return {
     priority = 1000,
     config = function()
       vim.g.everforest_enable_italic = 1
-    end,
-  },
-  {
-    "sainnhe/sonokai",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.g.sonokai_enable_italic = 1
     end,
   },
   {
@@ -118,60 +132,6 @@ return {
         bold = true,
         italic = true,
         transparent = false,
-      })
-    end,
-  },
-  {
-    "uhs-robert/color-chameleon.nvim",
-    lazy = false,
-    priority = 999,
-    init = function()
-      -- see https://github.com/jeffkreeftmeijer/vim-numbertoggle
-      local number_toggle = vim.api.nvim_create_augroup("NumberToggle", { clear = true })
-      vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnter" }, {
-        group = number_toggle,
-        pattern = "*",
-        callback = function()
-          if vim.wo.number and not vim.fn.mode():match("^[it]") then
-            vim.wo.relativenumber = true
-          end
-        end,
-      })
-      vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave" }, {
-        group = number_toggle,
-        pattern = "*",
-        callback = function()
-          if vim.wo.number then
-            vim.wo.relativenumber = false
-          end
-        end,
-      })
-    end,
-    config = function()
-      require("color-chameleon").setup({
-        rules = {
-          {
-            colorscheme = "koda",
-            condition = function()
-              return #vim.fn.argv() > 0
-            end,
-          },
-          {
-            colorscheme = "tokyonight",
-            env = { SSH_CONNECTION = true },
-          },
-          {
-            colorscheme = "everforest",
-            background = "light",
-            condition = function()
-              return vim.g.neovide ~= nil
-            end,
-          },
-        },
-        default = {
-          colorscheme = "catppuccin-nvim",
-          background = "dark",
-        },
       })
     end,
   },
