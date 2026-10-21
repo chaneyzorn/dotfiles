@@ -81,12 +81,6 @@ return {
     end,
   },
   {
-    "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    event = "BufReadPost",
-    opts = {},
-  },
-  {
     "nvim-treesitter/nvim-treesitter",
     branch = "main",
     build = ":TSUpdate",

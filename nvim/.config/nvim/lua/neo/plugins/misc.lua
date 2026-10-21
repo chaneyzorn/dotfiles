@@ -109,16 +109,6 @@ return {
         end,
       },
       scope = { enabled = true },
-      scroll = {
-        enabled = true,
-        filter = function(buf)
-          return vim.g.neovide == nil
-            and vim.g.snacks_scroll ~= false
-            and vim.b[buf].snacks_scroll ~= false
-            and vim.bo[buf].buftype ~= "terminal"
-        end,
-      },
-
       zen = { enabled = true },
     },
   },
