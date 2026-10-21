@@ -7,6 +7,26 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "proxy": "",
+  "cursor_shape": "bar",
+  "theme": {
+    "mode": "system",
+    "light": "Gruvbox Light",
+    "dark": "Gruvbox Dark"
+  },
+  "buffer_font_size": 15.0,
+  "buffer_font_family": "JetBrains Mono",
+  "ssh_connections": [
+    {
+      "host": "chaney-dev.local",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/home/chaney/Projects/ApproachingAI/ataas-works/./"]
+        }
+      ]
+    }
+  ],
   "telemetry": {
     "diagnostics": false,
     "metrics": false,
@@ -15,9 +35,7 @@
   "which_key": {
     "enabled": true
   },
-  "cursor_animation": {
-    "enabled": true
-  },
+  "cursor_animation": {},
   "minimap": {
     "show": "auto"
   },
@@ -42,16 +60,13 @@
     "dock": "left"
   },
   "ui_font_size": 16,
-  "ui_font_family": "Noto Sans CJK SC",
-  "buffer_font_size": 14,
-  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
   "lsp": {
     "lua-language-server": {
       "binary": {
         "path": "/usr/bin/lua-language-server",
-        "ignore_system_version": false,
-      },
-    },
+        "ignore_system_version": false
+      }
+    }
   },
   "languages": {
     "Lua": {
@@ -61,14 +76,9 @@
       "formatter": {
         "external": {
           "command": "stylua",
-          "arguments": ["--stdin-filepath", "{buffer_path}", "-"],
-        },
-      },
-    },
-  },
-  "theme": {
-    "mode": "light",
-    "light": "Gruvbox Light",
-    "dark": "One Dark",
-  },
+          "arguments": ["--stdin-filepath", "{buffer_path}", "-"]
+        }
+      }
+    }
+  }
 }
