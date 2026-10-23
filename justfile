@@ -41,10 +41,10 @@ yay-pkgs:
         ruby
         rust
         uv
-        # archlinuxcn/yay
+        archlinuxcn/yay
     )
     cli_tools=(
-        # archlinuxcn/lux-dl
+        archlinuxcn/lux-dl
         ast-grep
         bash-language-server
         bat
@@ -142,6 +142,85 @@ yay-gui-pkgs:
         visual-studio-code-bin
     )
     yay -S --needed ${fonts[@]} ${gui_tools[@]}
+
+yay-pkgs-arm:
+    #!/usr/bin/env sh
+    env_pkgs=(
+        base-devel
+        docker
+        git
+        go
+        lua
+        luarocks
+        nodejs
+        npm
+        pnpm
+        ruby
+        rust
+        uv
+    )
+    cli_tools=(
+        ast-grep
+        bash-language-server
+        bat
+        btop
+        ccls
+        cloc
+        cppcheck
+        curl
+        fastfetch
+        fd
+        fzf
+        git-crypt
+        go-tools
+        golangci-lint-langserver-bin  # AUR
+        gopls
+        harper
+        hugo
+        hurl
+        iputils
+        jq
+        just
+        k9s
+        kdlfmt
+        lua-language-server
+        man-db
+        markdownlint-cli2
+        meson
+        mypy
+        neovim
+        prettier
+        pyright
+        ripgrep
+        rsync
+        ruff
+        rumdl
+        rust-analyzer
+        scrcpy
+        shellcheck
+        shfmt
+        sshfs
+        sshuttle
+        stow
+        strace
+        stylua
+        superfile
+        taplo-cli
+        tmux
+        tokei
+        tree
+        tree-sitter-cli
+        television
+        typescript-language-server
+        typos-lsp
+        unarchiver
+        vale
+        wget
+        yamlfmt
+        yamllint
+        yq
+    )
+    yay -S --needed ${env_pkgs[@]} ${cli_tools[@]}
 
 brew-pkgs:
     #!/usr/bin/env sh
