@@ -41,10 +41,10 @@ yay-pkgs:
         ruby
         rust
         uv
-        archlinuxcn/yay
+        # archlinuxcn/yay
     )
     cli_tools=(
-        archlinuxcn/lux-dl
+        # archlinuxcn/lux-dl
         ast-grep
         bash-language-server
         bat
