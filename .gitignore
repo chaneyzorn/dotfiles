@@ -32,7 +32,5 @@ nvim/.config/go/telemetry
 
 wezterm/.config/wezterm/colors/
 
-niri/.config/niri/dms/
-
 ssh/.ssh/config.d/local/*
 !ssh/.ssh/config.d/local/.gitkeep
