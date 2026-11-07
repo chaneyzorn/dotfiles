@@ -77,6 +77,7 @@ yay-pkgs:
         neovim
         pandoc-cli
         prettier
+        process-compose
         pyright
         ripgrep
         rsync
@@ -190,6 +191,7 @@ yay-pkgs-arm:
         mypy
         neovim
         prettier
+        process-compose
         pyright
         ripgrep
         rsync
