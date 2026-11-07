@@ -7,6 +7,12 @@ window-rule {
     open-floating true
 }
 
+// @id=wr_1794063062411062441 @name=dev.zed.Zed.About
+window-rule {
+    match app-id="^dev.zed.Zed$" title="^About Zed$" is-floating=false
+    open-floating true
+}
+
 // @id=dms-window-opaque @name=DMS Window Opaque
 window-rule {
     match app-id="^(dev\\.duxlabs\\.shell|com\\.danklinux\\.dms)$"

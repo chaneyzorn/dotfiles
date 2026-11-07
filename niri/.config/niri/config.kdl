@@ -149,26 +149,6 @@ animations {
         spring damping-ratio=0.85 stiffness=800 epsilon=0.0001
     }
 }
-// Window rules let you adjust behavior for individual windows.
-// Find more information on the wiki:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
-// Work around WezTerm's initial configure bug
-// by setting an empty default-column-width.
-window-rule {
-    // This regular expression is intentionally made as specific as possible,
-    // since this is the default config, and we want no false positives.
-    // You can get away with just app-id="wezterm" if you want.
-    match app-id="^org\\.wezfurlong\\.wezterm$"
-    default-column-width {
-
-    }
-}
-window-rule {
-    match app-id="cataclysm-tiles"
-    default-column-width {
-        proportion 1.0
-    }
-}
 window-rule {
     // This regular expression is intentionally made as specific as possible,
     // since this is the default config, and we want no false positives.
@@ -176,7 +156,6 @@ window-rule {
     match app-id="^code$"
     match app-id="^neovide$"
     match app-id="^google-chrome$"
-    match app-id="^dev\\.zed\\.Zed$"
     match app-id="^com\\.mitchellh\\.ghostty$"
     open-maximized-to-edges true
 }
@@ -229,6 +208,7 @@ window-rule {
 // DMS Include Configs
 include "dms/layout.kdl"
 include "dms/binds.kdl"
+include "dms/binds-next.kdl"
 include "dms/windowrules.kdl"
 include "dms/input.kdl"
 include "dms/cursor.kdl"
